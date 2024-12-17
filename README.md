@@ -5,6 +5,15 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 ![image](https://hackmd.io/_uploads/r1POJoR4yg.png)
 
 
+
+## News
+
+- [2024/12] More exciting features are being developed. Stay tuned!
+- [2024/12] SepLLM's code has been released. Our codebase supports efficient multi-node distributed training with accelerated attention module *Sep-Attention* and also includes numerous existing Fusion Operators to accelerate the training process, such as *fused rope* ([Su et al., 2023](url=https://arxiv.org/abs/2104.09864)), *fused layer norm*, etc.
+
+
+
+
 # Long Streaming Inputs
 Our long streaming evaluation is following [StreamingLLM](url=https://github.com/mit-han-lab/streaming-llm/).
 
