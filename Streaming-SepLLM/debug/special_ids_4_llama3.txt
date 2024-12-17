@@ -1,0 +1,114 @@
+# #######################################my############################################
+    # for tok_id in encodings.input_ids.tolist()[0]:
+    #     print("^^^^^^^^^^^^^^^^^^^^^^^^")
+    #     print(f"tok_id {tok_id}:  {tokenizer.decode(tok_id)} \n")
+    #     print("************************")
+
+    # # print(encodings.input_ids[:, :10])
+    # print(f"encodings.input_ids: {encodings.input_ids}") ##my
+    # special_tokens_id = [13, 11, 30, 0, 26, 25, 198, 220, 128000, 662, 1174, 949, 758, 2652, 551, 720, 256,262] # llama3 8b
+    # special_tokens = ['.', ',', '?', '!', ';', ':', '\n']
+    
+    # special_tokens_new1 = [' .', ' ,', ' ?', ' !', ' ;', ' :', ' \n', ' ', '  ']
+    # special_tokens_new2 = ['. ', ', ', '? ', '! ', '; ', ': ', '\n ', ' ', '  ']
+    # special_tokens_new3 = [' . ', ' , ', ' ? ', ' ! ', ' ; ', ' : ', ' \n ', ' '  , '  ', '   ']
+    
+    # ####################################################################################
+    # for sep in special_tokens_id:
+    #     print(f"^^^^^^^^^^^^^for id {sep}^^^^^^^^^^^^^^^^^")
+    #     print(tokenizer.decode(sep))
+    #     print(f"^^^^^^^^^^^##for id {sep}##^^^^^^^^^^^^^^^")
+    
+    
+    
+    
+    # ^^^^^^^^^^^^^in special_tokens_new1 for tok  .^^^^^^^^^^^^^^^^^
+    # [128000, 662]
+    # ^^^^^^^^^^^##in special_tokens_new1 for tok  .##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new1 for tok  ,^^^^^^^^^^^^^^^^^
+    # [128000, 1174]
+    # ^^^^^^^^^^^##in special_tokens_new1 for tok  ,##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new1 for tok  ?^^^^^^^^^^^^^^^^^
+    # [128000, 949]
+    # ^^^^^^^^^^^##in special_tokens_new1 for tok  ?##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new1 for tok  !^^^^^^^^^^^^^^^^^
+    # [128000, 758]
+    # ^^^^^^^^^^^##in special_tokens_new1 for tok  !##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new1 for tok  ;^^^^^^^^^^^^^^^^^
+    # [128000, 2652]
+    # ^^^^^^^^^^^##in special_tokens_new1 for tok  ;##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new1 for tok  :^^^^^^^^^^^^^^^^^
+    # [128000, 551]
+    # ^^^^^^^^^^^##in special_tokens_new1 for tok  :##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new1 for tok  
+    # ^^^^^^^^^^^^^^^^^
+    # [128000, 720]
+    # ^^^^^^^^^^^##in special_tokens_new1 for tok  
+    # ##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new2 for tok . ^^^^^^^^^^^^^^^^^
+    # [128000, 13, 220]
+    # ^^^^^^^^^^^##in special_tokens_new2 for tok . ##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new2 for tok , ^^^^^^^^^^^^^^^^^
+    # [128000, 11, 220]
+    # ^^^^^^^^^^^##in special_tokens_new2 for tok , ##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new2 for tok ? ^^^^^^^^^^^^^^^^^
+    # [128000, 30, 220]
+    # ^^^^^^^^^^^##in special_tokens_new2 for tok ? ##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new2 for tok ! ^^^^^^^^^^^^^^^^^
+    # [128000, 0, 220]
+    # ^^^^^^^^^^^##in special_tokens_new2 for tok ! ##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new2 for tok ; ^^^^^^^^^^^^^^^^^
+    # [128000, 26, 220]
+    # ^^^^^^^^^^^##in special_tokens_new2 for tok ; ##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new2 for tok : ^^^^^^^^^^^^^^^^^
+    # [128000, 25, 220]
+    # ^^^^^^^^^^^##in special_tokens_new2 for tok : ##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new2 for tok 
+    # ^^^^^^^^^^^^^^^^^
+    # [128000, 198, 220]
+    # ^^^^^^^^^^^##in special_tokens_new2 for tok 
+    # ##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new3 for tok  . ^^^^^^^^^^^^^^^^^
+    # [128000, 662, 220]
+    # ^^^^^^^^^^^##in special_tokens_new3 for tok  . ##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new3 for tok  , ^^^^^^^^^^^^^^^^^
+    # [128000, 1174, 220]
+    # ^^^^^^^^^^^##in special_tokens_new3 for tok  , ##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new3 for tok  ? ^^^^^^^^^^^^^^^^^
+    # [128000, 949, 220]
+    # ^^^^^^^^^^^##in special_tokens_new3 for tok  ? ##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new3 for tok  ! ^^^^^^^^^^^^^^^^^
+    # [128000, 758, 220]
+    # ^^^^^^^^^^^##in special_tokens_new3 for tok  ! ##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new3 for tok  ; ^^^^^^^^^^^^^^^^^
+    # [128000, 2652, 220]
+    # ^^^^^^^^^^^##in special_tokens_new3 for tok  ; ##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new3 for tok  : ^^^^^^^^^^^^^^^^^
+    # [128000, 551, 220]
+    # ^^^^^^^^^^^##in special_tokens_new3 for tok  : ##^^^^^^^^^^^^^^^
+    # ^^^^^^^^^^^^^in special_tokens_new3 for tok  
+    # ^^^^^^^^^^^^^^^^^
+    # [128000, 720, 220]
+    # ^^^^^^^^^^^##in special_tokens_new3 for tok  
+    # ##^^^^^^^^^^^^^^^
+    
+    
+    
+    
+    
+    # print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+    
+    # for tok in special_tokens_new1:
+    #     print(f"^^^^^^^^^^^^^in special_tokens_new1 for tok {tok}^^^^^^^^^^^^^^^^^")
+    #     print(tokenizer.encode(tok))
+    #     print(f"^^^^^^^^^^^##in special_tokens_new1 for tok {tok}##^^^^^^^^^^^^^^^")
+    
+    # for tok in special_tokens_new2:
+    #     print(f"^^^^^^^^^^^^^in special_tokens_new2 for tok {tok}^^^^^^^^^^^^^^^^^")
+    #     print(tokenizer.encode(tok))
+    #     print(f"^^^^^^^^^^^##in special_tokens_new2 for tok {tok}##^^^^^^^^^^^^^^^")
+
+    # for tok in special_tokens_new3:
+    #     print(f"^^^^^^^^^^^^^in special_tokens_new3 for tok {tok}^^^^^^^^^^^^^^^^^")
+    #     print(tokenizer.encode(tok))
+    #     print(f"^^^^^^^^^^^##in special_tokens_new3 for tok {tok}##^^^^^^^^^^^^^^^")

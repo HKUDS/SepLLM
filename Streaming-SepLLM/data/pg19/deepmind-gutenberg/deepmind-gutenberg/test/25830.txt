@@ -1,0 +1,1934 @@
+
+
+
+
+Produced by Jonathan Ingram, LN Yaddanapudi and the Online
+Distributed Proofreading Team at http://www.pgdp.net
+
+
+
+
+
+
+
+
+
+  A Discourse
+  _OF A_
+  METHOD
+  For the well guiding of
+  REASON,
+  And the Discovery of _Truth_
+  In the
+  SCIENCES.
+
+  [Illustration]
+
+  LONDON,
+  Printed by _Thomas Newcombe_.
+  MDCXLIX.
+
+
+
+
+To the _Understanding READER_.
+
+The Great DESCARTES (who may justly challenge the first place amongst
+the Philosophers of this Age) is the Author of this Discourse; which in
+the Originall was so well known, That it could be no mans but his own,
+that his Name was not affix'd to it: I need say no more either of Him
+or It; He is best made known by Himself, and his Writings want nothing
+but thy reading to commend them. But as those who cannot compasse the
+Originals of _Titian_ and _Van-Dyke_, are glad to adorne their Cabinets
+with the Copies of them; So be pleased favourably to receive his Picture
+from my hand, copied after his own Designe: You may therein observe the
+lines of a well form'd Minde, The hightnings of Truth, The sweetnings
+and shadowings of Probabilities, The falls and depths of Falshood; all
+which serve to perfect this Masterpiece. Now although my after-draught
+be rude and unpolished, and that perhaps I have touch'd it too boldly,
+The thoughts of so clear a Minde, being so extremely fine, That as the
+choisest words are too grosse, and fall short fully to expresse such
+sublime Notions; So it cannot be, but being transvested, it must
+necessarily lose very much of its native Lustre: Nay, although I am
+conscious (notwithstanding the care I have taken neither to wrong the
+Authours Sense, nor offend the Readers Ear) of many escapes which I have
+made; yet I so little doubt of being excused, That I am confident, my
+endeavour cannot but be gratefull to all Lovers of Learning; for whose
+benefit I have Englished, and to whom I addresse this Essay, which
+contains a Method, by the Rules whereof we may Shape our better part,
+Rectifie our Reason, Form our Manners and Square our Actions, Adorn our
+Mindes, and making a diligent Enquiry into Nature, wee may attain to the
+Knowledge of the Truth, which is the most desirable union in the World.
+
+Our Authour also invites all letterd men to his assistance in the
+prosecution of this Search; That for the good of Mankinde, They would
+practise and communicate Experiments, for the use of all those who
+labour for the perfection of Arts and Sciences: Every man now being
+obliged to the furtherance of so beneficiall an Undertaking, I could not
+but lend my hand to open the Curtain, and discover this New Model of
+Philosophy; which I now publish, neither to humour the present, nor
+disgust former times; but rather that it may serve for an innocent
+Divertisement to those, who would rather Reform themselves, then the
+rest of the world; and who, having the same seeds and grounds, and
+knowing That there is nothing New under the Sun; That Novelty is but
+Oblivion, and that Knowledge is but Remembrance, will study to finde
+out in themselves, and restore to Posterity those lost Arts, which
+render Antiquity so venerable; and strive (if it be possible) to go
+beyond them in other things, as well as Time: Who minde not those things
+which are above, beyond, or without them; but would rather limit their
+desires by their power, then change the Course of Nature; Who seek the
+knowledge, and labour for the Conquest of themselves; Who have Vertue
+enough to make their own Fortune; And who prefer the Culture of the
+Minde before the Adorning of the Body; To such as these I present this
+Discourse (whose pardon I beg, for having so long detain'd them from so
+desirable a Conversation;) and conclude with this Advice of the Divine
+_Plato_:
+
+    _Cogita in te, praeter Animum, nihil esse mirabile._
+
+
+
+
+
+A DISCOURSE OF A METHOD, For the wel-guiding of Reason; AND The
+discovery of Truth in the SCIENCES.
+
+
+_If this Discourse seem too long to be read at once, it may be divided
+into six parts. In the first, are divers Considerations touching the
+Sciences. In the second, the principall Rules of that Method which the
+Author hath studyed. In the third, some of those in morality, which he
+hath drawn from this Method. In the fourth, the reasons whereby the
+existence of God and of the humane Soul is proved; which are the
+grounds of his Metaphysicks. In the fift, the order of these Physicall
+questions, which he hath examined, and particularly the explication of
+the hearts motion; with some other difficulties relating to Physick; as
+also the difference between our Souls and those of beasts. In the last,
+what he conceives requisit to make a further inquiry into Nature, then
+hath hitherto been made. And what reasons induc'd him to write._
+
+
+
+
+PART. I.
+
+
+Right understanding is the most equally divided thing in the World; for
+every one beleevs himself so well stor'd with it, that even those who in
+all other things are the hardest to be pleas'd, seldom desire more of it
+then they have; wherein it is not likely that all Men are deceived: But
+it rather witnesseth, That the faculty of right-judging and
+distinguishing truth from falshood (which is properly call'd,
+Understanding or Reason) is naturally equal in all Men. And as the
+diversity of our Opinions, is not, because some are more reasonable then
+others; but only that we direct our thoughts several ways, neither do we
+consider the same things. For 'tis not enough to have good faculties,
+but the principal is, to apply them well. The greatest Souls are as
+capable of the greatest Vices, as of the most eminent Vertues: And those
+who move but very slowly, may advance much farther, if they always
+follow the right way; then those who run and straggle from it.
+
+For my part, I never presum'd that my Minde was more perfect in any
+thing then an ordinary Mans; nay, I have often wish'd to have had my
+thoughts as quick, my imagination as clear and distinct, and my memory
+as large and as ready as some other Men have had. And I know no
+Qualities which serve more then those to the perfection of the Minde;
+for as for Reason or Understanding, forasmuch as it is the only thing
+which makes us Men, and distinguisheth us from beasts, I will beleeve it
+to be entire in every One, and follow herein the common opinion of the
+Philosophers, who say, That there is only more or less among the
+Accidents, and not amongst the Forms or nature of the Individuals of one
+species.
+
+But I shall not stick to say, That I beleeve my self very happy, in
+having encountred from my youth with certain ways which have led me to
+considerations and Maximes, from which I have found a Method; whereby
+methinks, I have the means by degrees to augment my knowledg, and by
+little and little to raise it up to the highest pitch, whereto the
+meaness of my capacity, & the short course of my life can permit it to
+attain. For I have already reaped such fruits from it, that although in
+the judgment I make of my self, I endevour always rather to incline to
+mistrust, then to presumption. And looking on the divers actions and
+undertakings of all Men, with the eye of a Philosopher, there is almost
+none which to me seems not vain and useless. Yet I am extremely
+satisfied with the Progress, which (as it seems to me) I have already
+made in the search of Truth, and do conceive such hopes for the future,
+That if among the employments of Men, purely Men, there is any solidly
+good, and of importance, I dare beleeve it is that which I have chosen:
+Yet it may be that I deceive my self, and perhaps it is but a little
+Copper and Glass which I take for Gold and Diamonds. I know how subject
+we are to mistake in those things which concern us, and how jealous we
+ought to be of the judgment of our friends, when it is in our favor. But
+I should willingly in this Discourse, trace out unto you the ways which
+I have followed, and represent therein my life, as in a Picture, to the
+end, that every one may judge thereof; and that learning from common
+Fame, what mens opinions are of it, I may finde a new means of
+instructing my self; which I shall add to those which I customarily make
+use of.
+
+Neither is it my design to teach a Method which every Man ought to
+follow, for the good conduct of his reason; but only to shew after what
+manner I have endevoured to order mine own. Those who undertake to give
+precepts, ought to esteem themselves more able, then those to whom they
+give them, and are blame-worthy, if they fail in the least. But
+proposing this but as a History, or if you will have it so, but as a
+Fable; wherein amongst other examples, which may be imitated, we may
+perhaps find divers others which we may have reason to decline: I hope
+it will be profitable to some, without being hurtfull to any; and that
+the liberty I take will be gratefull to all.
+
+I have been bred up to Letters from mine infancy; & because I was
+perswaded, that by their means a man might acquire a clear and certain
+knowledg of all that's usefull for this life, I was extremely desirous
+to learn them: But as soon as I had finish'd all the course of my
+Studies, at the end whereof Men are usually receiv'd amongst the rank of
+the learned. I wholly changed my opinion, for I found my self intangled
+in so many doubts and errors, that me thought I had made no other profit
+in seeking to instruct my self, but that I had the more discovered mine
+own ignorance. Yet I was in one of the most famous Schools in _Europe_;
+where I thought, if there were any on earth, there ought to have been
+learned Men. I had learnt all what others had learnt; even unsatisfied
+with the Sciences which were taught us, I had read over all Books
+(which I could possibly procure) treating of such as are held to be the
+rarest and the most curious. Withall, I knew the judgment others made of
+me; and I perceiv'd that I was no less esteem'd then my fellow Students,
+although there were some amongst them that were destin'd to fill our
+Masters rooms. And in fine, our age seem'd to me as flourishing and as
+fertile of good Wits, as any of the preceding, which made me take the
+liberty to judg of all other men by my self, and to think, That there
+was no such learning in the world, as formerly I had been made beleeve.
+
+Yet did I continue the esteem I had of those exercises which are the
+employments of the Schools: I knew that Languages which are there
+learnt, are necessary for the understanding of ancient Writers, That the
+quaintness of Fables awakens the Minde; That the memorable actions in
+History raise it up, and that being read with discretion, they help to
+form the judgment. That the reading of good books, is like the
+conversation with the honestest persons of the past age, who were the
+Authors of them, and even a studyed conversation, wherein they discover
+to us the best only of their thoughts. That eloquence hath forces &
+beauties which are incomparable. That Poetry hath delicacies and sweets
+extremly ravishing; That the Mathematicks hath most subtile inventions,
+which very much conduce aswel to content the curious, as to facilitate
+all arts, and to lessen the labour of Men: That those writings which
+treat of manners contain divers instructions, and exhortations to
+vertue, which are very usefull. That Theology teacheth the way to
+heaven; That Philosophy affords us the means to speake of all things
+with probability, and makes her self admir'd, by the least knowing Men.
+That Law, Physick and other sciences bring honor and riches to those who
+practice them; Finally that its good to have examin'd them all even the
+falsest and the most superstitious, that we may discover their just
+value, and preserve our selves from their cheats.
+
+But I thought I had spent time enough in the languages, and even also in
+the lecture of ancient books, their histories and their fables. For 'tis
+even the same thing to converse with those of former ages, as to travel.
+Its good to know something of the manners of severall Nations, that we
+may not think that all things against our _Mode_ are ridiculous or
+unreasonable, as those are wont to do, who have seen Nothing. But when
+we employ too long time in travell, we at last become strangers to our
+own Country, and when we are too curious of those things, which we
+practised in former times, we commonly remain ignorant of those which
+are now in use. Besides, Fables make us imagine divers events possible,
+which are not so: And that even the most faithfull Histories, if they
+neither change or augment the value of things, to render them the more
+worthy to be read, at least, they always omit the basest and less
+remarkable circumstances; whence it is, that the rest seems not as it
+is; and that those who form their Manners by the examples they thence
+derive, are subject to fall into the extravagancies of the _Paladins_ of
+our Romances, and to conceive designes beyond their abilities.
+
+I highly priz'd Eloquence, and was in love with Poetry; but I esteem'd
+both the one and the other, rather gifts of the Minde, then the fruits
+of study. Those who have the strongest reasoning faculties, and who best
+digest their thoughts, to render them the more clear and intelligible,
+may always the better perswade what they propose, although they should
+speak but a corrupt dialect, and had never learnt Rhetorick: And those
+whose inventions are most pleasing, and can express them with most
+ornament and sweetness, will still be the best Poets; although ignorant
+of the Art of Poetry.
+
+Beyond all, I was most pleas'd with the Mathematicks, for the certainty
+and evidence of the reasons thereof; but I did not yet observe their
+true use, and thinking that it served only for Mechanick Arts; I
+wondred, that since the grounds thereof were so firm and solid, that
+nothing more sublime had been built thereon. As on the contrary, I
+compar'd the writings of the Ancient heathen which treated of Manner, to
+most proud and stately Palaces which were built only on sand and mire,
+they raise the vertues very high, and make them appear estimable above
+all the things in the world; but they doe not sufficiently instruct us
+in the knowledg of them, and often what they call by that fair Name, is
+but a stupidness, or an act of pride, or of despair, or a paricide.
+
+I reverenc'd our Theology, and pretended to heaven as much as any; But
+having learnt as a most certain Truth, that the way to it, is no less
+open to the most ignorant, then to the most learned; and that those
+revealed truths which led thither, were beyond our understanding, I
+durst not submit to the weakness of my ratiocination. And I thought,
+that to undertake to examine them, and to succeed in it, requir'd some
+extraordinary assistance from heaven, and somewhat more then Man. I
+shall say nothing of Philosophy, but that seeing it hath been cultivated
+by the most excellent wits, which have liv'd these many ages, and that
+yet there is nothing which is undisputed, and by consequence, which is
+not doubtfull. I could not presume so far, as to hope to succeed better
+then others. And considering how many different opinions there may be on
+the same thing, maintain'd by learned Men, and yet that there never can
+be but one only Truth, I reputed almost all false, which had no more
+then probability in it.
+
+As for other Sciences, since they borrow their Principles from
+Philosophy, I judg'd that nothing which was solid could be built upon
+such unsound foundations; and neither honour nor wealth were sufficient
+to invite me to the study of them. For (I thank God) I found not my self
+in a condition which obliged me to make a Trade of Letters for the
+relief of my fortune. And although I made it not my profession to
+despise glory with the Cynick; yet did I little value that which I could
+not acquire but by false pretences. And lastly, for unwarrantable
+Studies, I thought I already too well understood what they were, to be
+any more subject to be deceived, either by the promises of an Alchymist,
+or by the predictions of an Astrologer, or by the impostures of a
+Magician, or by the artifice or brags of those who profess to know more
+then they do.
+
+By reason whereof, as soon as my years freed me from the subjection of
+my Tutors, I wholly gave over the study of Letters, and resolving to
+seek no other knowledge but what I could finde in my self, or in the
+great book of the World, I imployed the rest of my youth in Travell, to
+see Courts and Armies, to frequent people of severall humors and
+conditions, to gain experience, to hazard my self in those encounters of
+fortune which should occurr; and every-where to make such a reflection
+on those things which presented themselves to me, that I might draw
+profit from them. For (me thought) I could meet with far more truth in
+the discourses which every man makes touching those affairs which
+concern him, whose event would quickly condemn him, if he had judg'd
+amisse; then amongst those which letter'd Men make in their closets
+touching speculations, which produce no effect, and are of no
+consequence to them, but that perhaps they may gain so much the more
+vanity, as they are farther different from the common understanding:
+Forasmuch as he must have imployed the more wit and subtilty in
+endeavouring to render them probable. And I had always an extreme desire
+to learn to distinguish Truth from Falshood, that I might see cleerly
+into my actions, and passe this life with assurance.
+
+Its true, that whiles I did but consider the Manners of other men, I
+found little or nothing wherein I might confirm my self: And I observ'd
+in them even as much diversity as I had found before in the opinions of
+the Philosophers: So that the greatest profit I could reap from them
+was, that seeing divers things, which although they seem to us very
+extravagant and ridiculous, are nevertheless commonly received and
+approved by other great Nations, I learn'd to beleeve nothing too
+firmly, of what had been onely perswaded me by example or by custom, and
+so by little and little I freed my self from many errors, which might
+eclipse our naturall light, and render us lesse able to comprehend
+reason. But after I had imployed some years in thus studying the Book of
+the World, and endeavouring to get experience, I took one day a
+resolution to study also within my self, and to employ all the forces of
+my minde in the choice of the way I was to follow: which (me thought)
+succeeded much better, then if I had never estranged my self from my
+Country, or from my Books.
+
+
+
+
+PART. II.
+
+
+I was then in _Germany_, whither the occasion of the Wars (which are not
+yet finished) call'd me; and as I return'd from the Emperors Coronation
+towards the Army, the beginning of Winter stopt me in a place, where
+finding no conversation to divert me and on the other sides having by
+good fortune no cares nor passions which troubled me, I stayd alone the
+whole day, shut up in my Stove, where I had leasure enough to entertain
+my self with my thoughts. Among which one of the first was that I betook
+my self to consider, That oft times there is not so much perfection in
+works compos'd of divers peeces, and made by the hands of severall
+masters, as in those that were wrought by one only: So we may observe
+that those buildings which were undertaken and finished by one onely,
+are commonly fairer and better ordered then those which divers have
+laboured to patch up, making use of old wals, which were built for other
+purposes; So those ancient Cities which of boroughs, became in a
+succession of time great Towns, are commonly so ill girt in comparison
+of other regular Places, which were design'd on a flatt according to the
+fancy of an Engeneer; and although considering their buildings
+severally, we often find as much or more art, then in those of other
+places; Yet to see how they are rank'd here a great one, there a little
+one, and how they make the streets crooked and uneven, One would say,
+That it was rather Fortune, then the will of Men indued with reason,
+that had so disposed them. And if we consider, that there hath always
+been certain Officers, whose charge it was, to take care of private
+buildings, to make them serve for the publique ornament; We may well
+perceive, that it's very difficult, working on the works of others, to
+make things compleat. So also did I imagine, that those people who
+formerly had been half wilde, and civiliz'd but by degrees, made their
+laws but according to the incommodities which their crimes and their
+quarrels constrain'd them to, could not be so wel pollic'd, as those who
+from the beginning of their association, observ'd the constitutions of
+some prudent Legislator. As it is very certain, that the state of the
+true Religion, whose Ordinances God alone hath made, must be
+incomparably better regulated then all others. And to speak of humane
+things, I beleeve that if _Sparta_ hath formerly been most flourishing,
+it was not by reason of the goodness of every of their laws in
+particular, many of them being very strange, and even contrary to good
+manners, but because they were invented by one only, They all tended to
+One End. And so I thought the sciences in Books, at least those whose
+reasons are but probable, and which have no demonstrations, having been
+compos'd of, and by little and little enlarg'd with, the opinions of
+divers persons, come not so near the Truth, as those simple reasonings
+which an understanding Man can naturally make, touching those things
+which occurr. And I thought besides also, That since we have all been
+children, before we were Men; and that we must have been a long time
+govern'd by our appetites, and by our Tutors, who were often contrary to
+one another, and neither of which alwayes counsel'd us for the best;
+It's almost impossible that our judgment could be so clear or so solid,
+as it might have been, had we had the intire use of our reason from the
+time of our birth, and been always guided by it alone.
+
+Its true, we doe not see the houses of a whole Town pull'd down
+purposely to re build them of another fashion; and to make the streets
+the fairer; But we often see, that divers pull their own down to set
+them up again, and that even sometimes they are forc'd thereunto, when
+they are in danger to fall of themselves, and that their foundations are
+not sure. By which example I perswaded my self, that there was no sense
+for a particular person, to design the Reformation of a State, changing
+all from the very foundations, and subverting all to redress it again:
+Nor even also to reform the bodies of Sciences, or the Orders already
+established in the Schools for teaching them. But as for all the
+Opinions which I had till then receiv'd into my beleef, I could not doe
+better then to undertake to expunge them once for all, that afterwards I
+might place in their stead, either others which were better, or the same
+again, as soon as I should have adjusted them to the rule of reason. And
+I did confidently beleeve, that by that means I should succeed much
+better in the conduct of my life, then if I built but on old
+foundations, and only relyed on those principles, which I suffer'd my
+self to be perswaded to in my youth, without ever examining the Truth of
+them. For although I observ'd herein divers difficulties, yet were they
+not without cure, nor comparable to those which occurr in the
+reformation of the least things belonging to the publick: these great
+bodies are too unweldy to be rais'd; being cast down, or to be held up
+when they are shaken, neither can their falls be but the heavyest.
+
+As for their imperfections, if they have any, as the only diversity
+which is amongst them, is sufficient to assure us that many have.
+Custome hath (without doubt) much sweetned them, and even it hath made
+others wave, or insensibly correct a many, whereto we could not so well
+by prudence have given a remedy. And in fine, They are alwayes more
+supportable, then their change can be, Even, as the great Roads, which
+winding by little and little betwixt mountains, become so plain and
+commodious, with being often frequented, that it's much better to follow
+them, then to undertake to goe in a strait line by climbing over the
+rocks, and descending to the bottom of precipices. Wherefore I can by no
+means approve of those turbulent and unquiet humors, who being neither
+call'd by birth or fortune to the managing of publique affairs, yet are
+alwayes forming in _Idea_, some new Reformation. And did I think there
+were the least thing in this Discourse, which might render me suspected
+of that folly, I should be extremely sorry to suffer it to be published;
+I never had any designe which intended farther then to reform my own
+thoughts and to build on a foundation which was wholly mine. But though
+I present you here with a Modell of my work, because it hath
+sufficiently pleased me; I would not therefore counsell any one to
+imitate it. Those whom God hath better endued with his graces, may
+perhaps have more elevated designes; but I fear me, lest already this be
+too bold for some. The resolution only of quitting all those opinions
+which we have formerly receiv'd into our belief, is not an example to be
+followed by every One; and the world is almost compos'd but of two sorts
+of Men, to whom it's no wayes convenient, to wit, of those, who
+beleeving themselves more able then they are, cannot with-hold
+themselves from precipitating their judgments, nor have patience enough
+to steer all their thoughts in an orderly course. Whence it happens,
+that if they should once take the liberty to doubt of those principles
+which they have already received, and to stray from the common road,
+they could never keep the path which leads strait forwards, and so,
+would straggle all their lives. And of such who having reason and
+modesty enough to judg that they are less able to distinguish truth from
+falshood then others, from whom they may receive instruction, ought much
+rather to be content to follow other Mens opinions, rather then to seek
+after better themselves.
+
+And for my part, I had undoubtedly been of the number of those latter,
+had I never had but one Master, or had I not known the disputes which
+have alwayes hapned amongst the most learned. For having learnt from
+the very School, That one can imagin nothing so strange or incredible,
+which had not been said by some one of the Philosophers; And having
+since observ'd in my travails, That all those whose opinions are
+contrary to ours, are not therefore barbarous or savage, but that many
+use as much or more reason then we; and having consider'd how much one
+Man with his own understanding, bred up from his childhood among the
+French or the Dutch, becomes different from what he would be, had he
+alwayes liv'd amongst the _Chineses_, or the _Cannibals_: And how even
+in the fashion of our Clothes, the same thing which pleas'd ten years
+since, and which perhaps wil please ten years hence, seems now to us
+ridiculous and extravagant. So that it's much more Custome and Example
+which perswades us, then any assured knowledg; and notwithstanding that
+plurality of voices is a proof of no validity, in those truths which
+are hard to be discovered; for that it's much more likely for one man
+alone to have met with them, then a whole Nation; I could choose no Man
+whose opinion was to be preferr'd before anothers: And I found my self
+even constrain'd to undertake the conduct of my self.
+
+But as a man that walks alone, and in the dark, I resolv'd to goe so
+softly, and use so much circumspection in all things, that though I
+advanc'd little, I would yet save my self from falling. Neither would I
+begin quite to reject, some opinions, which formerly had crept into my
+belief, without the consent of my reason, before I had employed time
+enough to form the project of the work I undertook, and to seek the true
+Method to bring me to the knowledg of all those things, of which my
+understanding was capable.
+
+I had a little studyed, being young, of the parts of Philosophy, Logick,
+and of the Mathematicks, the Analysis of the Geometricians, and
+_Algebra_: Three arts or sciences which seem'd to contribute somewhat
+conducing to my designe: But examining them, I observ'd, That as for
+Logick, its Sylogisms, and the greatest part of its other Rules, serve
+rather to expound to another the things they know, or even as _Lullies_
+art, to speak with judgment of the things we are ignorant of, then to
+learn them. And although in effect it contain divers most true and good
+precepts, yet there are so many others mixed amongst them, either
+hurtfull or superfluous, That it's even as difficult to extract them, as
+'tis to draw a _Diana_ or a _Mercury_ out of a lump of Marble, which is
+not yet rough-hewn; as for the Analysis of the Ancients, and the
+_Algebra_ of the Moderns; besides that, they extend only to matters very
+abstract, and which seem to be of no use; The first being alwayes so
+tyed to the consideration of figures, That it cannot exercise the
+understanding, without very much tiring the imagination. And in the
+latter they have so subjected themselves to certain Rules and cyphers,
+that they have made a confus'd and obscure art which perplexeth the
+minde, in stead of a Science to instruct it. For this reason, I thought
+I ought to seek some other Method, which comprehending the advantages of
+these, they might be exempt from their defects. And as the multitude of
+Laws often furnisheth excuses for vice; so a State is fair better
+polic'd, when having but a few, they are very strictly observ'd therein:
+So, instead of the great many precepts whereof Logick is compos'd, I
+thought these four following would be sufficient for me, if I took but a
+firm and constant resolution not once to fail in the observation of
+them.
+
+The first was, never to receive any thing for true, but what I evidently
+knew to be so; that's to say, Carefully to avoid Precipitation and
+Prevention, and to admit nothing more into my judgment, but what should
+so clearly and distinctly present it self to my minde, that I could have
+no reason to doubt of it.
+
+The second, to divide every One of these difficulties, which I was to
+examine into as many parcels as could be, and, as was requisite the
+better to resolve them.
+
+The third, to lead my thoughts in order, beginning by the most simple
+objects, and the easiest to be known; to rise by little and little, as
+by steps, even to the knowledg of the most mixt; and even supposing an
+Order among those which naturally doe not precede one the other.
+
+And the last, to make every where such exact calculations, and such
+generall reviews, That I might be confident to have omitted Nothing.
+
+Those long chains of reasons, (though simple and easie) which the
+Geometricians commonly use to lead us to their most difficult
+demonstrations, gave me occasion to imagine, That all things which may
+fall under the knowledg of Men, follow one the other in the same manner,
+and so we doe only abstain from receiving any one for true, which is not
+so, and observe alwayes the right order of deducing them one from the
+other, there can be none so remote, to which at last we shall not
+attain; nor so hid, which we shall not discover. Neither was I much
+troubled to seek by which it behooved me to begin, for I already knew,
+that it was by the most simple, and the easiest to be discern'd. But
+considering, that amongst all those who formerly have sought the Truth
+in Learning, none but the Mathematicians only could finde any
+demonstrations, that's to say, any certain and evident reasons. I
+doubted not, but that it was by the same that they have examin'd;
+although I did hope for no other profit, but only that they would
+accustome my Minde to nourish it self with Truths, and not content it
+self with false Reasons. But for all this, I never intended to endevour
+to learn all those particular Sciences which we commonly call'd
+Mathematicall; And perceiving, that although their objects were
+different, yet did they nevertheless agree altogether, in that they
+consider no other thing, but the divers relations or proportions which
+are found therein; I thought it therefore better to examine those
+proportions in generall, and without supporting them but in those
+subjects, which might the more easily serve to bring me to the knowledg
+of them. But withall, without any wayes limiting them, That I might
+afterwards the better sit them to all others whereto they might be
+applyed. Having also observ'd, That to know them, it would be sometimes
+needfull for me to consider every one in particular, or sometimes only
+to restrain them, or comprehend many together; I thought, that to
+consider them the better in particular I ought to suppose them in
+lines, for as much as I find nothing more simple, nor which I could more
+distinctly represent to my imagination, and to my sences; But to hold or
+comprehend many in one, I was oblig'd to explain them by certain Cyphers
+the shortest I possibly could, and that I should thereby borrow the best
+of the Geometricall Analysis, and of Algebra, & so correct all the
+defects of the one by the other.
+
+As in effect I dare say, That the exact observation of those few
+precepts I had chosen, gave me such a facility to resolve all the
+questions whereto these two sciences extend; That in two or three months
+space which I employed in the examination of them, having begun by the
+most simple and most generall, and every Truth which I found being a
+rule which afterwards served me to discover others; I did not only
+compasse divers truths which I had formerly judged most difficult, But
+me thought also that towards the end I could determin even in those
+which I was ignorant of, by what means and how farr it was possible to
+resolve them. Wherein perhaps I shall not appear to be very vain if you
+consider, That there being but one truth of every thing, who ever finds
+it, knows as much of it as one can know; And that for example a child
+instructed in Arithmatick having made an addition according to his
+rules, may be sure to have found, touching the sum he examined, all what
+the wit of man could finde out. In a word the method which teacheth to
+folow a right order, and exactly to enumerate all the circumstances of
+what we seek, contains, whatsoever ascertains the rules of Arithmatick.
+
+But that which pleas'd me most in this Method was the assurance I had,
+wholly to use my reason, if not perfectly, at least as much as it was in
+my power; Besides this, I perceived in the practice of it, my minde by
+little and little accustom'd it self to conceive its objects more
+clearly and distinctly; and having not subjected it to any particular
+matter, I promised my self to apply it also as profitable to the
+difficulties, of other sciences as I had to Algebra: Not that I
+therefore durst at first undertake to examine all which might present
+themselves, for that were contrary to the order it prescribes. But
+having observ'd that all their principles were to be borrowed from
+Philosophy, in which I had yet found none that were certain, I thought
+it were needfull for me in the first place to endevor to establish some,
+and that this being the most important thing in the world, wherein
+precipitation and prevention were the most to be feared, I should not
+undertake to performe it, till I had attain'd to a riper Age then XXIII.
+which was then mine. Before I had formerly employed a long time in
+preparing my self thereunto, aswel in rooting out of my minde all the
+ill opinions I had before that time received, as in getting a stock of
+experience to serve afterwards for the subject of my reasonings, and in
+exercising my self always in the Method I had prescribed. That I might
+the more and more confine my self therein.
+
+
+
+
+PART. III.
+
+
+But as it is not enough to pull down the house where we dwell, before we
+begin to re-edify it, and to make provision of materials and architects,
+or performe that office our selves; nor yet to have carefully laid the
+design of it; but we must also have provided our selves of some other
+place of abode during the time of the rebuilding: So that I might not
+remain irresolute in my actions, while reason would oblige me to be so
+in my judgments, and that I might continue to live the most happily I
+could, I form'd for my own use in the interim a Moral, which consisted
+but of three or four Maximes, which I shall communicate unto you.
+
+The first was to obey the lawes and customes of my Country, constantly
+adhaering to that Religion wherein by the grace of God I had from mine
+infancy bin bred. And in all other things behaving my self according to
+the most moderate opinions and those which were farthest from excesse,
+which were commonly received in practice by the most judicious Men,
+amongst whom I was to live: For beginning from that very time, to reckon
+mine own for nothing, because I could bring them all to the test, I was
+confident I could not do better then follow those of the deepest sense;
+and although perhaps there are as understanding men amongst the Persians
+or Chineses as amongst us, yet I thought it was more fit to regulate my
+self by those with whom I was to live, and that I might truly know what
+their opinions were, I was rather to observe what they practic'd, then
+what they taught. Not only by reason of the corruption of our manners,
+there are but few who will say, all they beleeve, but also because
+divers are themselves ignorant of it; for the act of the thought by
+which we beleeve a thing, being different from that whereby we know that
+we believe it, the one often is without the other. And amongst divers
+opinions equally receiv'd, I made choise of the most moderate only, as
+well because they are always the most fit for practice, and probably the
+best, all excess being commonly ill; As also that I might less err from
+the right way, if I should perhaps miss it, then if having chosen one of
+the extremes, it might prove to be the other, which I should have
+followed. And particularly I plac'd amongst extremities, all those
+promises by which we somwhat restrain our liberty. Not that I
+disapproved the laws, which to cure the inconstancy of weak minds,
+permit us when we have any good design, or else for the preservation of
+Commerce, one that is but indifferent, to make vows or contracts, which
+oblige us to persevere in them: But because I saw nothing in the world
+remain always in the same state; and forming own particular, promised my
+self to perfect more and more my judgment, and not to impair it, I
+should have thought my self guilty of a great fault against right
+understanding, if because I then approved any thing, I were also
+afterwards oblig'd to take it for good, when perhaps it ceased to be so,
+or that I had ceased to esteem it so.
+
+My second Maxime was, To be the most constant and resolute in my actions
+that I could; and to follow with no less perseverance the most doubtfull
+opinions, when I had once determined them, then if they had been the
+most certain. Imitating herein Travellers, who having lost their way in
+a Forrest, ought not to wander, turning now this way, and then that, and
+less to abide in one place; but stil advance straight forwards, towards
+one way, and not to change on slight occasions, although perhaps at
+first Chance only mov'd them to determine that choice: For by that
+means, if they do not go directly whither they desire, they will at
+least arrive somewhere where they will probably be better then in the
+midst of a Forrest. So the actions of this life admitting often of no
+delay, its a most certain Truth, That when it is not in our power to
+discern the truest opinions, we are to follow the most probable: Yea,
+although we finde no more probability in the one then in the other, we
+yet ought to determine some way, considering them afterwards no more as
+doubtful in what they relate to practice; but as most true and certain;
+forasmuch as the reason was so, which made us determine it. And this was
+sufficient for that time to free me from all the remorse and repentance
+which useth to perplex the consciences of those weak and staggering
+minds, which inconstantly suffer themselves to passe to the practice of
+those things as good, which they afterwards judge evill.
+
+My third Maxime was, To endevour always rather to conquer my self then
+Fortune; and to change my desires, rather then the order of the world:
+and generally to accustome my self to beleeve, That there is nothing
+wholly in our power but our thoughts; so that after we have done our
+best, touching things which are without us, all whats wanting of success
+in respect of us is absolutely impossible. And this alone seem'd
+sufficient to hinder me from desiring any thing which I could not
+acquire, and so to render me content. For our will naturally moving us
+to desire nothing, but those things which our understanding presents in
+some manner as possible, certain it is, that if we consider all the good
+which is without us, as equally distant from our power, we should have
+no more regret for the want of those which seem due to our births, when
+without any fault of ours we shall be deprived of them, then we have in
+wanting the possessions of the Kingdoms of _China_ or _Mexico_. And
+making (as we say) vertue of necessity, we should no more desire to be
+in health being sick, or free being in prison, then we now do, to have
+bodies of as incorruptible a matter as diamonds, or wings to fly like
+birds. But I confess, that a long exercise, and an often reiterated
+meditation, is necessary to accustom us to look on all things with that
+byass: And I beleeve, in this principally consists, the secret of those
+Philosophers who formerly could snatch themselves from the Empire of
+Fortune, and in spight of pains and poverty, dispute felicity with their
+Gods, for imploying themselves incessantly in considering the bounds
+which Nature had prescribed them, they so perfectly perswaded
+themselves, That nothing was in their power but their thoughts, that,
+that onely was enough to hinder them from having any affection for other
+things. And they disposed so absolutely of them, that therein they had
+some reason to esteem themselves more rich and powerfull, more free and
+happy then any other men; who wanting this _Philosophy_, though they
+were never so much favoured by Nature and Fortune, could never dispose
+of all things so well as they desired.
+
+Lastly, To conclude these Morals, I thought fit to make a review of mens
+severall imployments in this life, that I might endeavour to make choice
+of the best, and without prejudice to other mens, I thought I could not
+do better then to continue in the same wherein I was, that is, to imploy
+all my life in cultivating my Reason, and advancing my self, as far as I
+could in the knowledge of Truth, following the Method I had prescribed
+myself. I was sensible of such extreme contentment since I began to use
+this Method, that I thought none could in this life be capable of any
+more sweet and innocent: and daily discovering by means thereof, some
+Truths which seemed to me of importance, and commonly such as other men
+were ignorant of, the satisfaction I thereby received did so possesse my
+minde, as if all things else concern'd me not. Besides, that the three
+preceding Maximes were grounded only on the designe I had, to continue
+the instruction of my self. For God having given to every one of us a
+light to discern truth from falsehood, I could not beleeve I ought to
+content my self one moment with the opinions of others, unlesse I had
+proposed to my self in due time to imploy my judgment in the examination
+of them. Neither could I have exempted my self from scruple in following
+them, had I not hoped to lose no occasion of finding out better, if
+there were any.
+
+But to conclude, I could not have bounded my desires, nor have been
+content, had I not followed a way, whereby thinking my self assured to
+acquire all the knowledge I could be capable of: I thought I might by
+the same means attain to all that was truly good, which should ever be
+within my power; forasmuch as our Will inclining it self to follow, or
+fly nothing but what our Understanding proposeth good or ill, to judge
+well is sufficient to do well, and to judge the best we can, to do also
+what's best; to wit, to acquire all vertues, and with them all
+acquirable goods: and whosoever is sure of that, he can never fail of
+being content.
+
+After I had thus confirmed my self with these Maximes, and laid them up
+with the Articles of Faith, which always had the first place in my
+Belief, I judg'd that I might freely undertake to expell all the rest of
+my opinions. And forasmuch as I did hope to bring it the better to passe
+by conversing with men, then by staying any longer in my stove, where I
+had had all these thoughts: before the Winter was fully ended, I
+returned to my travels; and in all the nine following yeers I did
+nothing but rowl here and there about the world, endeavouring rather to
+be a spectator, then an actor in all those Comedies which were acted
+therein: and reflecting particularly on every subject which might render
+it suspected, or afford any occasion mistake. In the mean time I rooted
+out of my minde all those errours which formerly had crept in. Not that
+I therein imitated the Scepticks, who doubt onely to the end they may
+doubt, and affect to be always unresolved: For on the contrary, all my
+designe tended onely to fix my self, and to avoid quick-mires and sands,
+that I might finde rock and clay: which (me thought) succeeded well
+enough; forasmuch as, seeking to discover the falshood or uncertainty of
+those propositions I examined, (not by weak conjectures, but by clear
+and certain ratiocinations) I met with none so doubtfull, but I thence
+drew some conclusion certain enough, were it but onely this, That it
+contained nothing that was certain. And as in pulling down an old house,
+commonly those materials are reserved which may serve to build a new
+one; so in destroying all those my opinions which I judg'd ill grounded,
+I made divers observations, and got severall experiences which served me
+since to establish more certain ones. And besides I continued to
+exercise my self in the Method I had prescribed.
+
+For I was not only carefull to direct all my thoughts in generall
+according to its rules, but I from time to time reserv'd some houres,
+which I particularly employd to practice it in difficulties belonging to
+the Mathematicks, loosening from all the principles of other Sciences,
+which I found not stable enough, as you may see I have done in divers
+explain'd in my other following discourses. And thus not living in
+appearance otherwise then those who having no other business then to
+lead a sweet and innocent life, study to separate pleasures from vices,
+and use honest recreations to enjoy their ease without wearinesse; I did
+not forbear to pursue my design, and advance in the knowledg of truth,
+perhaps more, then if I had done nothing but read books or frequent
+learned men.
+
+Yet these nine years were vanished, before I had engaged my self in
+those difficulties which use to be disputed amongst the learned; or
+begun to seek the grounds of any more certain Philosophy then the
+Vulgar: And the example of divers excellent Men who formerly having had
+the same designe, seem'd not to me to have succeeded therein, made me
+imagine so much difficulty, that I had not perhaps dar'd so quickly to
+have undertaken it, had I not perceiv'd that some already had given it
+out that I had already accomplished it. I know not whereupon they
+grounded this opinion, and if I have contributed any thing thereto by my
+discourse, it must have been by confessing more ingeniously what I was
+ignorant of, then those are wont to do who have a little studyed, and
+perhaps also by comunicating those reasons, I had to doubt of many
+things which others esteem'd most eminent, rather then that I bragg'd of
+any learning. But having integrity enough, not to desire to be taken for
+what I was not, I thought that I ought to endeavour by all means to
+render my self worthy of the reputation which was given me. And 'tis now
+eight years since this desire made me resolve to estrange my self from
+all places where I might have any acquaintance, and so retire my self
+hither in a Country where the long continuance of the warre hath
+established such orders, that the Armies which are intertain'd there,
+seem to serve onely to make the inhabitants enjoy the fruits of peace
+with so much the more security; and where amongst the croud of a great
+people more active and solicitous for their own affaires, then curious
+of other mens, not wanting any of those necessaries which are in the
+most frequented Towns, I could live as solitary and retired as in the
+most remote deserts.
+
+
+
+
+Part. IIII.
+
+
+I Know not whether I ought to entertain you with the first Meditations
+which I had there, for they are so Metaphysicall and so little common,
+that perhaps they will not be relished by all men: And yet that you may
+judge whether the foundations I have laid are firm enough, I find my
+self in a manner oblig'd to discourse them; I had long since observed
+that as for manners, it was somtimes necessary to follow those opinions
+which we know to be very uncertain, as much as if they were indubitable,
+as is beforesaid: But because that then I desired onely to intend the
+search of truth, I thought I ought to doe the contrary, and reject as
+absolutely false all wherein I could imagine the least doubt, to the end
+I might see if afterwards any thing might remain in my belief, not at
+all subject to doubt. Thus because our senses sometimes deceive us, I
+would suppose that there was nothing which was such as they represented
+it to us. And because there are men who mistake themselves in reasoning,
+even in the most simple matters of Geometry, and make therein
+Paralogismes, judging that I was as subject to fail as any other Man, I
+rejected as false all those reasons, which I had before taken for
+Demonstrations. And considering, that the same thoughts which we have
+waking, may also happen to us sleeping, when as not any one of them is
+true. I resolv'd to faign, that all those things which ever entred into
+my Minde, were no more true, then the illusions of my dreams. But
+presently after I observ'd, that whilst I would think that all was
+false, it must necessarily follow, that I who thought it, must be
+something. And perceiving that this Truth, _I think_, therefore, _I am_,
+was so firm and certain, that all the most extravagant suppositions of
+the Scepticks was not able to shake it, I judg'd that I might receive it
+without scruple for the first principle of the Philosophy I sought.
+
+Examining carefully afterwards what I was; and seeing that I could
+suppose that I had no _body_, and that there was no _World_, nor any
+_place_ where I was: but for all this, I could not feign that I _was
+not_; and that even contrary thereto, thinking to doubt the truth of
+other things, it most evidently and certainly followed, That _I was_:
+whereas, if I had ceas'd to _think_, although all the rest of what-ever
+I had imagined were true, I had no reason to beleeve that _I had been_.
+I knew then that I was a substance, whose whole essence or nature is,
+but to _think_, and who to _be_, hath need of no place, nor depends on
+any materiall thing. So that this _Me_, to wit, my Soul, by which I am
+what I am, is wholly distinct from the Body, and more easie to be known
+then _it_; and although _that_ were not, it would not therefore cease to
+be what it is.
+
+After this I considered in generall what is requisite in a Proposition
+to make it true and certain: for since I had found out one which I knew
+to be so, I thought I ought also to consider wherein that certainty
+consisted: and having observed, That there is nothing at all in this, _I
+think_, therefore _I am_, which assures me that I speak the truth,
+except this, that I see most cleerly, That _to think_, one must have a
+_being_; I judg'd that I might take for a generall rule, That those
+things which we conceive cleerly and distinctly, are all true; and that
+the onely difficulty is punctually to observe what those are which we
+distinctly conceive.
+
+In pursuance whereof, reflecting on what I doubted, and that
+consequently my _being_ was not perfect; for I clearly perceived, that
+it was a greater perfection to know, then to doubt, I advised in my
+self to seek from whence I had learnt to think on something which was
+more perfect then I; and I knew evidently that it must be of some nature
+which was indeed more perfect. As for what concerns the thoughts I had
+of divers other things without my self, as of heaven, earth, light,
+heat, and a thousand more, I was not so much troubled to know whence
+they came, for that I observed nothing in them which seemed to render
+them superiour to me; I might beleeve, that if they were true, they were
+dependancies from my nature, as far forth as it had any perfection; and
+if they were not, I made no accompt of them; that is to say, That they
+were in me, because I had something deficient. But it could not be the
+same with the _Idea_ of a being more perfect then mine: For to esteem of
+it as of nothing, was a thing manifestly impossible. And because there
+is no lesse repugnancy that the more perfect should succeed from and
+depend upon the less perfect, then for something to proceed from
+nothing, I could no more hold it from my self: So as it followed, that
+it must have bin put into me by a Nature which was truly more perfect
+then _I_, and even which had in it all the perfections whereof I could
+have an _Idea_; to wit, (to explain my self in one word) God. Whereto I
+added, that since I knew some perfections which I had not, I was not the
+onely _Being_ which had an existence, (I shall, under favour, use here
+freely the terms of the Schools) but that of necessity there must be
+some other more perfect whereon I depended, and from whom I had gotten
+all what I had: For had I been alone, and depending upon no other thing,
+so that I had had of my self all that little which I participated of a
+perfect Being, I might have had by the same reason from my self, all the
+remainder which I knew I wanted, and so have been my self infinite,
+eternall, immutable, all-knowing, almighty; and lastly, have had all
+those perfections which I have observed to be in God. For according to
+the way of reasoning I have now followed, to know the nature of God, as
+far as mine own was capable of it, I was onely to consider of those
+things of which I found an _Idea_ in me, whether the possessing of them
+were a perfection or no; and I was sure, that any of those which had any
+imperfections were not in him, but that all others were. I saw that
+doubtfulness, inconstancy, sorrow and the like, could not be in him,
+seeing I could my self have wish'd to have been exempted from them.
+Besides this, I had the _Ideas_ of divers sensible and corporeall
+things; for although I supposed that I doted, and that all that I saw or
+imagined was false; yet could I not deny but that these _Ideas_ were
+truly in my thoughts. But because I had most evidently known in my self,
+That the understanding Nature is distinct from the corporeall,
+considering that all composition witnesseth a dependency, and that
+dependency is manifestly a defect, I thence judged that it could not be
+a perfection in God to be composed of those two Natures; and that by
+consequence he was not so composed. But that if there were any Bodies in
+the world, or els any intelligences, or other Natures which were not
+wholly perfect, their being must depend from his power in such a manner,
+that they could not subsist one moment without him.
+
+Thence I went in search of other Truths; and having proposed _Geometry_
+for my object, which I conceived as a continued Body, or a space
+indefinitely spred in length, bredth, height or depth, divisible into
+divers parts, which might take severall figures and bignesses, and be
+moved and transposed every way. For the Geometricians suppose all this
+in their object. I past through some of their most simple
+demonstrations; and having observed that this great certaintie, which
+all the world grants them, is founded only on this, that men evidently
+conceived them, following the rule I already mentioned. I observed also
+that there was nothing at all in them which ascertain'd me of the
+existence of their object. As for example, I well perceive, that
+supposing a Triangle, three angles necessarily must be equall to two
+right ones: but yet nevertheless I saw nothing which assured me that
+there was a Triangle in the world. Whereas returning to examine the
+_Idea_ which I had of a perfect Being, _I_ found its existence comprised
+in it, in the same manner as it was comprised in that of a Triangle,
+where the three angles are equall to two right ones; or in that of a
+sphere, where all the parts are equally distant from the center. Or even
+yet more evidently, and that by consequence, it is at least as certain
+that God, who is that perfect Being, is, or exists, as any demonstration
+in Geometry can be.
+
+But that which makes many perswade themselves that there is difficulty
+in knowing it, as also to know what their Soul is, 'tis that they never
+raise their thoughts beyond sensible things, and that they are so
+accustomed to consider nothing but by imagination, which is a particular
+manner of thinking on materiall things, that whatsoever is not
+imaginable seems to them not intelligible. Which is manifest enough from
+this, that even the Philosophers hold for a Maxime in the Schools, That
+there is nothing in the understanding which was not first in the sense;
+where notwithstanding its certain, that the _Ideas_ of God and of the
+Soul never were. And (me thinks) those who use their imagination to
+comprehend them, are just as those, who to hear sounds, or smell odours,
+would make use of their eys; save that there is yet this difference,
+That the sense of seeing assures us no lesse of the truth of its
+objects, then those of smelling or hearing do: whereas neither our
+imagination, nor our senses, can ever assure us of any thing, if our
+understanding intervenes not.
+
+To be short, if there remain any who are not enough perswaded of the
+existence of God, and of their soul, from the reasons I have produc'd, I
+would have them know, that all other things, whereof perhaps they think
+themselves more assured, as to have a body, and that there are Stars,
+and an earth, and the like, are less certain. For although we had such a
+morall assurance of these things, that without being extravagant we
+could not doubt of them. However, unless we be unreasonable when a
+metaphysicall certainty is in question, we cannot deny but we have cause
+enough not to be wholly confirmed in them, when we consider that in the
+same manner we may imagine being asleep, we have other bodies, and that
+we see other Stars, and another earth, though there be no such thing.
+For how doe we know that those thoughts which we have in our dreams,
+are rather false then the others, seeing often they are no less lively
+and significant, and let the ablest men study it as long as they please,
+I beleeve they can give no sufficient reason to remove this doubt,
+unless they presuppose the existence of God. For first of all, that
+which I even now took for a rule, to wit, that those things which were
+most clearly and distinctly conceived, are all true, is certain, only by
+reason, that God is or exists, and that he is a perfect being, and that
+all which we have comes from him. Whence it follows, that our Idea's or
+notions, being reall things, and which come from God in all wherein they
+are clear and distinct, cannot therein be but true. So that if we have
+very often any which contain falshood, they cannot be but of such things
+which are somewhat confus'd and obscure, because that therein they
+signifie nothing to us, that's to say, that they are thus confus'd in us
+only, because we are not wholly perfect. And it's evident that there is
+no less contrariety that falshood and imperfection should proceed from
+God, as such, then there is in this, that truth and falshood proceed
+from nothing. But if we know not that whatsoever was true and reall in
+us comes from a perfect and infinite being, how clear and distinct
+soever our Idea's were, we should have no reason to assure us, that they
+had the perfection to be true.
+
+Now after that the knowledge of God, and of the Soul hath rendred us
+thus certain of this rule, it's easie to know; that the extravaganceys
+which we imagin in our sleep, ought no way to make us doubt of the truth
+of those thoughts which we have being awake: For if it should happen,
+that even sleeping we should have a very distinct Idea; as for example,
+A Geometritian should invent some new demonstration, his sleeping would
+not hinder it to be true. And for the most ordinary error of our
+dreames, which consists in that they represent unto us severall objects
+in the same manner as our exterior senses doe, it matters not though it
+give us occasion to mistrust the truth of those Ideas, because that they
+may also often enough cozen us when we doe not sleep; As when to those
+who have the Jaundies, all they see seems yellow; or, as the Stars or
+other bodies at a distance, appear much less then they are. For in fine,
+whether we sleep or wake, we ought never to suffer our selves to be
+perswaded but by the evidence of our Reason; I say, (which is
+observable) Of our Reason, and not of our imagination, or of our senses.
+As although we see the Sun most clearly, we are not therefore to judge
+him to be of the bigness we see him of; and we may well distinctly
+imagine the head of a Lion, set on the body of a Goat, but therefore we
+ought not to conclude that there is a _Chimera_ in the world. For reason
+doth not dictate to us, that what we see or imagine so, is true: But it
+dictates, that all our Idea's or notions ought to have some grounds of
+truth; For it were not possible, that God who is all perfect, and all
+truth, should have put them in us without that: And because that our
+reasonings are never so evident, nor so entire while we sleep, as when
+we wake, although sometimes our imaginations be then as much or more
+lively and express. It also dictates to us, that our thoughts, seeing
+they cannot be all true by reason that we are not wholly perfect; what
+they have of truth, ought infallibly to occur in those which we have
+being awake, rather then in our dreams.
+
+
+
+
+Part. V.
+
+
+I should be glad to pursue this Discourse, and shew you the whole Series
+of the following Truths, which I have drawn from the former: But because
+for this purpose, it were now necessary for me to treat of severall
+questions, which are controverted by the learned, with whom I have no
+desire to imbroil my self, I beleeve it better for me to abstain from
+it; and so in generall onely to discover what they are, that I may leave
+the wisest to judge whether it were profitable to inform the publick
+more particularly of them. I alwayes remained constant to my resolution,
+to suppose no other Principle but that which I now made use of, for the
+demonstration of the Existence of God, and of the Soul; and to receive
+nothing for true, which did not seem to me more clear and more certain
+then the demonstrations of Geometry had formerly done. And yet I dare
+say, that I have not onely found out the means to satisfie my self, in a
+short time, concerning all the principall difficulties which are usually
+treated in Philosophy. But that also _I_ have observed certain Laws
+which God hath so established in Nature, and of which he hath imprinted
+such notions in our Souls, that when we shall have made sufficient
+reflections upon them we cannot doubt but that they are exactly observed
+in whatsoever either is, or is done in the World. Then considering the
+connexion of these Laws, me thinks, I have discovercd divers Truths,
+more usefull and important then whatever _I_ learn'd before, or ever
+hop'd to learn.
+
+But because _I_ have endeavoured to lay open the principall of them in a
+Treatise, which some considerations hinder me from publishing; _I_ can
+no way better make them known, then by relating summarily what it
+contains.
+
+I had a designe to comprehend all what I thought _I_ knew, before _I_
+would write it, touching the nature of material things. But even as
+Painters, not being able equally well to represent upon a _flat_ all the
+severall facies of a solid body, chuse the principall of them, which
+they place towards the light; and shadowing the others, make them appear
+no more then they do to our sight: So, fearing lest _I_ should not bring
+into this Discourse all which was in my thoughts, _I_ onely undertook to
+set forth at large my conceptions touching the light; and upon that
+occasion to add somewhat of the Sun, and of the fix'd Stars, by reason
+that it proceeds almost all from thence; of the Heavens, because they
+transmit it; of the Planets, of the Comets, and of the Earth, because
+they cause it to reflect; and in particular, of all Bodies which are on
+the earth, whether for that they are either coloured, or transparent, or
+luminous; and last of all, of Man, because he is the Spectator thereof.
+As also, in some manner to shadow out all these things, and that _I_
+might the more freely speak what _I_ judg'd, without being obliged to
+follow, or to refute the opinions which are received amongst the
+Learned, _I_ resolved to leave all this world here to their disputes,
+and to speak onely of what would happen in a new one, if God now created
+some where in those imaginary spaces matter enough to compose it, and
+that he diversly and without order agitated the severall parts of this
+matter, so as to compose a Chaos of it as confused as the Poets could
+feign one: and that afterwards he did nothing but lend his ordinary
+concurrence to Nature, and leave her to work according to the Laws he
+hath established.
+
+Thus first of all _I_ described this Matter, and endevoured to
+represent it such, that me thinks there is nothing in the world more
+clear, or more intelligible, except what was beforesaid of God, and of
+the Soul. For even _I_ expresly supposed that there was in it none of
+those forms and qualities which are disputed in the Schools; nor
+generally any thing but that the knowledge thereof was so naturall to
+our understandings, that we could not even feigne to be ignorant of it.
+Besides, I made known what the Laws of Nature were; and without
+grounding my reasons on any other principles, but on the infinite
+perfections of God, I did endeavour to demonstrate all those which might
+be questioned, and to make them appear to be such, that although God had
+created divers worlds, there could have been none where they were not
+observed. Afterwards _I_ shewed how the greater part of the Matter of
+this _Chaos_ ought, according to those Laws, to dispose and order it
+self in a certain manner, which would make it like our Heavens: And how
+some of these parts were to compose an Earth, and some Planets and
+Commets, some others a Sun and fix'd Starrs. And here enlarging my self
+on the subject of Light, _I_ at length explain'd what that light was,
+which was to be in the Sun and Stars; and thence how it travers'd in an
+instant the immense spaces of the Heavens, and how it reflected it self
+from Planets and Commets towards the Earth. _I_ added also divers things
+touching the substance, situation, the motions, and all the several
+qualities of these heavens and these stars: So that _I_ thought _I_ had
+said enough to make known, That there is nothing remarkable in those of
+this world, which ought not, or at least could not appear altogether
+like to these of that world which _I_ described.
+
+Thence _I_ came to speak particularly of the Earth; how, although I had
+expresly supposed, that God had placed no weight in the Matter whereof
+it was composed; yet all its parts exactly tended towards its center:
+How that there being water and air upon its superficies, the disposition
+of the Heavens, and of the Starrs, and chiefly of the Moon, ought to
+cause a floud and an ebb, which in all circumstances was like to that
+which we observe in our Seas; And besides, a certain course aswel of the
+water, as of the air, from East to West, as is also observed between the
+Tropicks: How the Mountains, the Seas, the Springs and Rivers might
+naturally be form'd therein, and Metals run in the mines, and Plants
+grow in the Fields, and generally all bodies be therein engendered which
+are call'd mixt or composed.
+
+And amongst other things, because that next the Stars, I know nothing in
+the world but Fire, which produceth light, I studied to make all clearly
+understood which belongs to its nature; how it's made, how it's fed,
+how sometimes it hath heat onely without light, and sometimes onely
+light without heat; how it can introduce several colours into several
+bodies, and divers other qualities; how it dissolves some, and hardens
+others; how it can consume almost all, or convert them into ashes and
+smoak: and last of all, how of those ashes, by the only violence of its
+action, it forms glass. For this transmutation of ashes into glass,
+seeming to me to be as admirable as any other operation in Nature, I
+particularly took pleasure to describe it.
+
+Yet would I not inferre from all these things, that this World was
+created after the manner I had proposed. For it is more probable that
+God made it such as it was to be, from the beginning. But it's certain,
+and 'tis an opinion commonly received amongst the Divines, That the
+action whereby he now preserveth it, is the same with that by which he
+created it. So that, although at the beginning he had given it no other
+form but that of a Chaos (provided, that having established the Laws of
+Nature, he had afforded his concurrence to it, to work as it used to do)
+we may beleeve (without doing wrong to the miracle of the Creation) that
+by that alone all things which are purely material might in time have
+rendred themselves such as we now see them: and their nature is far
+easier to conceive, when by little and little we see them brought forth
+so, then when we consider them quite form'd all at once.
+
+From the description of inanimate Bodies and Plants, I pass'd to that of
+Animals, and particularly to that of Men. But because I had not yet
+knowledge enough to speak of them in the same stile as of the others; to
+wit, in demonstrating effects by their causes, and shewing from what
+seeds, and in what manner Nature ought to produce them; I contented my
+self to suppose, That God form'd the body of a Man altogether like one
+of ours; aswel the exteriour figure of its members, as in the interiour
+conformity of its organs; without framing it of other matter then of
+that which I had described; and without putting in it at the beginning
+any reasonable soul, or any other thing to serve therein for a
+vegetative or sensitive soul; unless he stirr'd up in his heart one of
+those fires without light which I had already discovered; and that I
+conceiv'd of no other nature but that which heats hay when its housed
+before it be dry, or which causes new Wines to boyl when it works upon
+the grape: For examining the functions which might be consequently in
+this body, I exactly found all those which may be in us, without our
+thinking of them; and to which our soul (that is to say, that distinct
+part from our bodies, whose nature (as hath been said before) is onely
+to think) consequently doth not contribute, and which are all the same
+wherein we may say unreasonable creatures resemble us. Yet could I not
+finde any, of those which depending from the thought, are the onely ones
+which belong unto us as Men; whereas I found them all afterwards, having
+supposed that God created a reasonable soul, and that he joyn'd it to
+this body, after a certain manner which I describ'd.
+
+But that you might see how I treated this matter, I shall here present
+you with the explication of the motion of the heart, and of the
+arteries, which being the first and most general (which is observed in
+animals) we may thereby easily judge what we ought to think of all the
+rest. And that we may have the less difficulty to understand what I
+shall say thereof, I wish those who are not versed in Anatomy, would
+take the pains, before they read this, to cause the heart of some great
+animal which hath lungs, to be dissected; for in all of them its very
+like that of a Man: and that they may have shewn them the two cels or
+concavities which are there: First that on the right side, whereto two
+large conduits answer, to wit, the _vena cava_, which is the principal
+receptacle of bloud, and as the body of a tree, whereof all the other
+veins of the body are branches; and the arterious vein, which was so
+mis-call'd, because that in effect its an artery, which taking its
+_origine_ from the heart, divides it self after being come forth, into
+divers branches, which every way spred themselves through the lungs.
+Then the other which is on the left side, whereunto in the same manner
+two pipes answer, which are as large, or larger then the former; to wit,
+the veinous artery, which was also il named, forasmuch as its nothing
+else but a vein which comes from the lungs, where its divided into
+several branches interlaid with those of the arterious vein, and those
+of that pipe which is called the Whistle, by which the breath enters.
+And the great artery, which proceeding from the heart, disperseth its
+branches thorow all the body. I would also that they would carefully
+observe the eleven little skins, which, as so many little doors, open
+and shut the four openings which are in these two concavities; to wit,
+three at the entry of the _vena cava_, where they are so disposed, that
+they can no wayes hinder the bloud which it contains from running into
+the right concavity of the heart; and yet altogether hinder it from
+coming out. Three at the entry of the arterious vein; which being
+disposed quite contrary, permit only the bloud which is in that
+concavity to pass to the lungs; but not that which is in the lungs to
+return thither. And then two others at the entry of the veinous artery,
+which permits the bloud to run to the left concavity of the heart, but
+opposeth its return. And three at the entry of the great artery, which
+permit it to go from the heart, but hinder its return thither. Neither
+need we seek any other reason for the number of these skins, save only
+that the opening of the veinous artery, being oval-wise, by reason of
+its situation, may be fitly shut with two; whereas the other, being
+round, may the better be clos'd with three. Besides, I would have them
+consider, that the great artery and the arterious vein are of a
+composition much stronger then the veinous artery or the _vena cava_.
+And that these two later grow larger before they enter into the heart,
+and make (as it were) two purses, call'd the ears of the heart, which
+are composed of a flesh like it; and that there is always more heat in
+the heart then in any other part of the body. And in fine, that if any
+drop of bloud enter into these concavities, this heat is able to make it
+presently swell and dilate it self, as generally all liquors do, when
+drop by drop we let them fall into a very hot vessel.
+
+For after this I need say no more for to unfold the motion of the
+heart, but that when these concavities are not full of bloud,
+necessarily there runs some from the _vena cava_ into the right, and
+from the veinous artery into the left; for that these two vessels are
+always full of it, and that their openings which are towards the heart
+cannot then be shut: But that assoon as there is thus but two drops of
+bloud entred, one in either of these concavities, these drops, which
+cannot but be very big, by reason that their openings whereby they enter
+are very large, and the vessels whence they come very full of bloud, are
+rarified and dilated because of the heat which they find therein. By
+means whereof, causing all the heart to swel, they drive and shut the
+five little doors which are at the entry of the two vessels whence they
+come, hindering thereby any more bloud to fall down into the heart, and
+continuing more and more to rarifie themselves, they drive and open the
+six other little doors which are at the entry of the other two vessels
+whence they issue, causing by that means all the branches of the
+arterious vein, and of the great artery, to swel (as it were) at the
+same time with the heart: which presently after fals, as those arteries
+also do, by reason that the bloud which is entred therein grows colder,
+and their six little doors shut up again, and those five of the _vena
+cava_, and of the veinous artery open again, and give way to two other
+drops of bloud, which again swell the heart and the arteries in the same
+manner as the preceding did. And because the bloud which thus enters
+into the heart, passeth thorow those two purses, which are call'd the
+ears; thence it comes, that their motion is contrary to the heart's, and
+that they fall when that swels.
+
+Lastly, That they who know not the force of Mathematical demonstrations,
+and are not accustomed to distinguish true reasons from probable ones,
+may not venture to deny this without examining it, I shall advertise
+them, that this motion which I have now discovered, as necessarily
+follows from the onely disposition of the organs (which may plainly be
+seen in the heart,) and from the heat (which we may feel with our
+fingers,) and from the nature of the bloud (which we may know by
+experience,) as the motions of a clock doth by the force, situation and
+figure of its weight and wheels.
+
+But if it be asked, how it comes that the bloud of the veins is not
+exhausted, running so continually into the heart; and how that the
+arteries are not too full, since all that which passeth thorow the heart
+dischargeth it self into them: I need answer nothing thereto but what
+hath been already writ by an English Physician, to whom this praise must
+be given, to have broken the ice in this place, and to be the first who
+taught us, That there are several little passages in the extremity of
+the arteries whereby the bloud which they receive from the heart,
+enters the little branches of the veins; whence again it sends it self
+back towards the heart: so that its course is no other thing but a
+perpetuall circulation. Which he very wel proves by the ordinary
+experience of Chirurgians, who having bound the arm indifferently hard
+above the the place where they open the vein, which causeth the bloud to
+issue more abundantly, then if it had not been bound. And the contrary
+would happen, were it bound underneath, between the hand and the
+incision, or bound very hard above. For its manifest, that the band
+indifferently tyed, being able to hinder the bloud which is already in
+the arm to return towards the heart by the veins; yet it therefore
+hinders not the new from coming always by the arteries, by reason they
+are placed under the veins, and that their skin being thicker, are less
+easie to be press'd, as also that the bloud which comes from the heart,
+seeks more forcibly to passe by them towards the hand, then it doth to
+return from thence towards the heart by the veins. And since this bloud
+which issues from the arm by the incision made in one of the veins, must
+necessarily have some passage under the bond, to wit, towards the
+extremities of the arm, whereby it may come thither by the arteries, he
+also proves very well what he sayes of the course of the bloud through
+certain little skins, which are so disposed in divers places along the
+veins, which permit it not to pass from the middle towards the
+extremities, but onely to return from the extremities towards the heart.
+And besides this, experience shews, That all the bloud which is in the
+body may in a very little time run out by one onely artery's being cut,
+although it were even bound very neer the heart, and cut betwixt it and
+the ligature: So that we could have no reason to imagine that the bloud
+which issued thence could come from any other part.
+
+But there are divers other things which witness, that the true cause of
+this motion of the bloud is that which I have related. As first, The
+difference observed between that which issues out of the veins, and that
+which comes out of the arteries, cannot proceed but from its being
+rarified and (as it were) distilled by passing thorow the heart: its
+more subtil, more lively, and more hot presently after it comes out;
+that is to say, being in the arteries, then it is a little before it
+enters them, that is to say, in the veins. And if you observe, you will
+finde, that this difference appears not well but about the heart; and
+not so much in those places which are farther off. Next, the hardnesse
+of the skin of which the artery vein and the great artery are composed,
+sheweth sufficiently, that the bloud beats against them more forcibly
+then against the veins. And why should the left concavity of the heart,
+and the great artery be more large and ample then the right concavity,
+and the arterious vein; unless it were that the bloud of the veinous
+artery, having bin but onely in the lungs since its passage thorow the
+heart, is more subtil, and is rarified with more force and ease then the
+bloud which immediately comes from the _vena cava_. And what can the
+Physicians divine by feeling of the pulse, unlesse they know, that
+according as the bloud changeth its nature, it may by the heat of the
+heart be rarified to be more or lesse strong, and more or lesse quick
+then before. And if we examine how this heat is communicated to the
+other members, must we not avow that 'tis by means of the bloud, which
+passing the heart, reheats it self there, and thence disperseth it self
+thorow the whole body: whence it happens, that if you take away the
+bloud from any part, the heat by the same means also is taken a way. And
+although the heart were as burning as hot iron, it were not sufficient
+to warm the feet and the hands so often as it doth, did it not continue
+to furnish them with new bloud.
+
+Besides, from thence we know also that the true use of respiration is to
+bring fresh air enough to the lungs, to cause that bloud which comes
+from the right concavity of the heart, where it was rarified, and (as it
+were) chang'd into vapours, there to thicken, and convert it self into
+bloud again, before it fall again into the left, without which it would
+not be fit to serve for the nourishment of the fire which is there.
+Which is confirm'd, for that its seen, that animals which have no lungs
+have but one onely concavity in the heart; and that children, who can
+make no use of them when they are in their mothers bellies, have an
+opening, by which the bloud of the _vena cava_ runs to the left
+concavity of the heart, and a conduit by which it comes from the
+arterious vein into the great artery without passing the lungs.
+
+Next, How would the concoction be made in the stomach, unlesse the heart
+sent heat by the arteries, and therewithall some of the most fluid parts
+of the bloud, which help to dissolve the meat receiv'd therein? and is
+not the act which converts the juice of these meats into bloud easie to
+be known, if we consider, that it is distill'd by passing and repassing
+the heart, perhaps more then one or two hundred times a day? And what
+need we ought else to explain the nutrition and the production of divers
+humours which are in the body, but to say, that the force wherewith the
+bloud in rarifying it self, passeth from the heart towards the
+extremities or the arteries, causeth some of its parts to stay amongst
+those of the members where they are, and there take the place of some
+others, which they drive from thence? And that according to the
+situation, or the figure, or the smalnesse of the pores which they
+meet, some arrive sooner in one place then others. In the same manner
+as we may have seen in severall sieves, which being diversly pierc'd,
+serve to sever divers grains one from the other. And briefly, that which
+is most remarkable herein, is the generation of the animal spirits,
+which are as a most subtil wind, or rather, as a most pure and lively
+flame, which continually rising in great abundance from the heart to the
+brain, dischargeth it self thence by the nerves into the muscles, and
+gives motion to all the members; without imagining any other reason
+which might cause these parts of the bloud, which being most mov'd, and
+the most penetrating, are the most fit to form these spirits, tend
+rather towards the brain, then to any other part. Save onely that the
+arteries which carry them thither, are those which come from the heart
+in the most direct line of all: And that according to the rules of the
+Mechanicks, which are the same with those of Nature, when divers things
+together strive to move one way, where there is not room enough for all;
+so those parts of bloud which issue from the left concavity of the heart
+tend towards the brain, the weaker and less agitated are expell'd by the
+stronger, who by that means arrive there alone.
+
+I had particularly enough expounded all these things in a Treatise which
+I formerly had design'd to publish: In pursuit whereof, I had therein
+shewed what ought to be the fabrick of the nerves and muscles of an
+humane body, to cause those animall spirits which were in them, to have
+the power to move those members. As we see that heads a while after they
+are cut off, yet move of themselves, and bite the ground, although they
+are not then animated. What changes ought to be made in the brain to
+cause waking, sleeping, and dreaming: how light, sounds, smels, tasts,
+heat, and all other qualities of exteriour objects, might imprint
+severall _Ideas_ by means of the senses. How hunger and thirst, and the
+other interiour passions might also send theirs thither. What ought to
+be taken therein for common sense, where these _Ideas_ are received; for
+memory which preserves them; and for fancy, which can diversly change
+them, and form new ones of them; and by the same means, distributing the
+animal spirits into the muscles, make the members of the body move in so
+many severall fashions, and as fitly to those objects which present
+themselves to its senses; and to the interiour passions which are in
+them, as ours may move themselves without the consent of the Wil. Which
+wil seem nothing strange to those, who knowing how many _Automatas_ or
+moving Machines the industry of men can make, imploying but very few
+pieces, in comparison of the great abundance of bones, muscles, nerves,
+arteries, veins, and all the other parts which are in the body of every
+Animal, will consider this body as a fabrick, which having been made by
+the hands of God, is incomparably better ordered, and hath more
+admirable motions in it then any of those which can be invented by men.
+And herein I particularly insisted, to make it appear, that if there
+were such Machines which had organs, and the exteriour figure of an Ape,
+or of any other unreasonable creature, we should finde no means of
+knowing them not to be altogether of the same nature as those Animals:
+whereas, if there were any which resembled our bodies, and imitated our
+actions as much as morally it were possible, we should always have two
+most certain ways to know, that for all that they were not reall men:
+The first of which is, that they could never have the use of speech, nor
+of other signes in framing it, as we have, to declare our thoughts to
+others: for we may well conceive, that a Machine may be so made, that it
+may utter words, and even some proper to the corporal actions, which
+may cause some change in its organs; as if we touch it in some part, and
+it should ask what we would say; or so as it might cry out that one
+hurts it, and the like: but not that they can diversifie them to answer
+sensibly to all what shall be spoken in its presence, as the dullest men
+may do. And the second is, That although they did divers things aswel,
+or perhaps better, then any of us, they must infallibly fail in some
+others, whereby we might discover that they act not with knowledge, but
+onely by the disposition of their organs: for whereas Reason is an
+universal instrument which may serve in all kinde of encounters, these
+organs have need of some particular disposition for every particular
+action: whence it is, that its morally impossible for one Machine to
+have severall organs enough to make it move in all the occurrences of
+this life, in the same manner as our Reason makes us move. Now by these
+two means we may also know the difference which is between Men and
+Beasts: For 'tis a very remarkable thing, that there are no men so dull
+and so stupid, without excepting those who are out of their wits, but
+are capable to rank severall words together, and of them to compose a
+Discourse, by which they make known their thoughts: and that on the
+contrary, there is no other creature, how perfect or happily soever
+brought forth, which can do the like. The which happens, not because
+they want organs; for we know, that Pyes and Parrots can utter words
+even as we can, and yet cannot speak like us; that is to say, with
+evidence that they think what they say. Whereas Men, being born deaf and
+dumb, and deprived of those organs which seem to make others speak, as
+much or more then beasts, usually invent of themselves to be understood
+by those, who commonly being with them, have the leisure to learn their
+expressions. And this not onely witnesseth, that Beasts have lesse
+reason than men, but that they have none at all. For we see there needs
+not much to learn to speak: and forasmuch as we observe inequality
+amongst Beasts of the same kind, aswell as amongst men, and that some
+are more easily managed then others; 'tis not to be believed, but that
+an Ape or a Parrot which were the most perfect of its kinde, should
+therein equall the most stupid child, or at least a child of a
+distracted brain, if their souls were not of a nature wholly different
+from ours. And we ought not to confound words with naturall motions,
+which witness passions, and may be imitated by Machines aswell as by
+Animals; nor think (as some of the Ancients) that beasts speak, although
+we do not understand their language: for if it were true, since they
+have divers organs which relate to ours, they could aswell make
+themselves understood by us, as by their like. Its likewise very
+remarkable that although there are divers creatures which express more
+industry then we in some one of their actions; yet we may well perceive,
+that the same shew none at all in many others: So that what they do
+better then we, proves not at all that they have reason; for by that
+reckoning they would have more then any of us, and would do better in
+all other things; but rather, that they have none at all, and that its
+Nature onely which works in them according to the disposition of their
+organs. As wee see a Clock, which is onely composed of wheels and
+springs, can reckon the hours, and measure the times more exactly then
+we can with all our prudence.
+
+After this I had described the reasonable Soul, and made it appear, that
+it could no way be drawn from the power of the Matter, as other things
+whereof I had spoken; but that it ought to have been expresly created:
+And how it suffiseth not for it to be lodg'd in our humane body as a
+Pilot in his ship, to move its members onely; but also that its
+necessary it be joyned and united more strongly therewith to have
+thoughts and appetites like ours, and so make a reall man.
+
+I have here dilated my self a little on the subject of the Soul, by
+reason 'tis of most importance; for, next the errour of those who deny
+God, which I think I have already sufficiently confuted, there is none
+which sooner estrangeth feeble minds from the right way of vertue, then
+to imagine that the soul of beasts is of the same nature as ours, and
+that consequently we have nothing to fear nor hope after this life, no
+more then flies or ants. Whereas, when we know how different they are,
+we comprehend much better the reasons which prove that ours is of a
+nature wholly independing from the body, and consequently that it is not
+subject to die with it. And that when we see no other cause which
+destroys it, we are naturally thence moved to judge that it's immortall.
+
+
+
+
+PART. VI.
+
+
+Its now three years since I ended the Treatise which contains all these
+things, and that I began to review it, to send it afterwards to the
+Presse, when I understood, that persons to whom I submit, and whose
+authority can no lesse command my actions, then my own Reason doth my
+thoughts, had disapproved an opinion in Physicks, published a little
+before by another; of which I will not say that I was, but that indeed I
+had observed nothing therein, before their censure, which I could have
+imagined prejudiciall either to Religion or the State; or consequently,
+which might have hindred me from writing the same, had my Reason
+perswaded mee thereto. And this made me fear, lest in the same manner
+there might be found some one amongst mine, in which I might have been
+mistaken; notwithstanding the great care I always had to admit no new
+ones into my belief, of which I had not most certain demonstrations; and
+not to write such as might turn to the disadvantage of any body. Which
+was sufficient to oblige me to change my resolution of publishing them.
+For although the reasons for which I had first of all taken it, were
+very strong; yet my inclination, which alwayes made me hate the trade of
+Book-making, presently found me out others enough to excuse my self from
+it. And these reasons on the one and other side are such, that I am not
+only somewhat concern'd to speak them; but happily the Publick also to
+know them.
+
+I never did much esteem those things which proceeded from mine own
+brain; and so long as I have gathered no other fruits from the Method I
+use, but onely that I have satisfied my self in some difficulties which
+belong to speculative Sciences, or at least endeavoured to regulate my
+Manners by the reasons it taught me, I thought my self not obliged to
+write any thing of them. For, as for what concerns Manners, every one
+abounds so much in his own sense, That we may finde as many Reformers as
+heads, were it permitted to others, besides those whom God hath
+established as Soveraigns over his people, or at least, to whom he hath
+dispensed grace and zeal enough to be Prophets, to undertake the change
+of any thing therein. And although my Speculations did very much please
+me, I did beleeve that other men also had some, which perhaps pleas'd
+them more. But as soon as I had acquired some generall notions touching
+naturall Philosophy, and beginning to prove them in divers particular
+difficulties, I observed how far they might lead a man, and how far
+different they were from the principles which to this day are in use; I
+judg'd, that I could not keep them hid without highly sinning against
+the Law, which obligeth us to procure, as much as in us lies, the
+general good of all men. For they made it appear to me, that it was
+possible to attain to points of knowledge, which may be very profitable
+for this life: and that in stead of this speculative Philosophy which is
+taught in the Schools, we might finde out a practicall one, by which
+knowing the force and workings of Fire, Water, Air, of the Starrs, of
+the Heavens, and of all other Bodies which environ us, distinctly, as we
+know the several trades of our Handicrafts, we might in the same manner
+employ them to all uses to which they are fit, and so become masters and
+possessours of Nature. Which is not onely to be desired for the
+invention of very many expedients of Arts, which without trouble might
+make us enjoy the fruits of the earth, and all the conveniences which
+are to be found therein: But chiefly also for the preservation of
+health, which (without doubt) is the first good, and the foundation of
+all other good things in this life. For even the minde depends so much
+on the temper and disposition of the organs of the body, that if it be
+possible to finde any way of making men in the generall wiser, and more
+able then formerly they were, I beleeve it ought to be sought in
+Physick. True it is, that which is now in use contains but few things,
+whose benefit is very remarkable: But (without any designe of slighting
+of it) I assure my self, there is none, even of their own profession,
+but will consent, that whatsoever is known therein, is almost nothing in
+companion of what remains to be known. And that we might be freed from
+very many diseases, aswell of the body as of the mind, and even also
+perhaps from the weaknesses of old age, had we but knowledge enough of
+their Causes, and of all the Remedies wherewith Nature hath furnished
+us. Now having a designe to employ all my life in the enquiry of so
+necessary a Science; and having found a way, the following of which me
+thinks might infallibly lead us to it, unless we be hindred by the
+shortness of life, or by defect of experiments. I judg'd that there was
+no better Remedie against those two impediments, but faithfully to
+communicate to the publique, all that little I should discover, and to
+invite all good Wits to endevour to advance farther in contributing
+every one, according to his inclination and power, to those Experiments
+which are to be made, and communicating also to the publique all the
+things they should learn; so that the last, beginning where the
+precedent ended, and so joyning the lives and labors of many in one, we
+might all together advance further then any particular Man could do.
+
+I also observ'd touching Experiments, that they are still so much the
+more necessary, as we are more advanc'd in knowledg. For in the
+beginning it's better to use those only which of themselves are
+presented to our senses, and which we cannot be ignorant of, if we do
+but make the least reflections upon them, then to seek out the rarest
+and most studied ones. The reason whereof is, that those which are
+rarest, doe often deceive, when we seldome know the same of the most
+common ones, and that the circumstances on which they depend, are, as it
+were, always so particular, and so small, that it's very uneasie to
+finde them out. But the order I observed herein was this. First, I
+endevoured to finde in generall the Principles or first Causes of
+whatsoever is or may be in the world, without considering any thing for
+this end, but God alone who created it, or drawing them elsewhere, then
+from certain seeds of Truth which naturally are in our souls. After
+this, I examined what were the first and most ordinary Effects which
+might be deduced from these Causes: And me thinks that thereby I found
+out Heavens, Starrs, an Earth; and even on the Earth, Water, Air and
+Fire, Minerals, and some other such like things, which are the most
+common, and the most simple of all, and consequently the most easie to
+be understood. Afterwards, when I would descend to those which were more
+particular, there were so many severall ones presented themselves to me,
+that I did beleeve it impossible for a humane understanding to
+distinguish the forms and species of Bodies which are on the earth, from
+an infinite number of others which might be there, had it been the will
+of God so to place them: Nor by consequence to apply them to our use,
+unless we set the Effects before the Causes, and make use of divers
+particular experiments; In relation to which, revolving in my minde all
+those objects which ever were presented to my senses, I dare boldly say,
+I observed nothing which I could not fitly enough explain by the
+principles I had found. But I must also confesse that the power of
+Nature is so ample and vast, and these principles are so simple and
+generall, that I can observe almost no particular Effect, but that I
+presently know it might be deduced from thence in many severall ways:
+and that commonly my greatest difficulty is to finde in which of these
+ways it depends thereon; for I know no other expedient for that, but
+again to seek some experiments, which may be such, that their event may
+not be the same, if it be in one of those ways which is to be exprest,
+as if it were in another. In fine, I am gotten so far, That (me thinks)
+I see well enough what course we ought to hold to make the most part of
+those experiments which may tend to this effect. But I also see they
+are such, and of so great a number, that neither my hands nor my estate
+(though I had a thousand times more then I have) could ever suffice for
+all. So that according as I shall hereafter have conveniency to make
+more or fewer of them, I shall also advance more or lesse in the
+knowledge of Nature, which I hop'd I should make known by the Treatise
+which I had written; and therein so clearly shew the benefit which the
+Publick may receive thereby, that I should oblige all those in general
+who desire the good of Mankinde; that is to say, all those who are
+indeed vertuous, (and not so seemingly, or by opinion only) aswell to
+communicate such experiments as they have already made, as to help me in
+the enquiry of those which are to be made.
+
+But since that time, other reasons have made me alter my opinion, and
+think that I truly ought to continue to write of all those things which
+I judg'd of any importance, according as I should discover the truth of
+them, and take the same care, as if I were to print them; as well that I
+might have so much the more occasion throughly to examine them; as
+without doubt, we always look more narrowly to what we offer to the
+publick view, then to what we compose onely for our own use: and
+oftentimes the same things which seemed true to me when I first
+conceived them, appear'd afterwards false to me, when I was committing
+them to paper: as also that I might lose no occasion of benefiting the
+Publick, if I were able, and that if my Writings were of any value,
+those to whose hands they should come after my death, might to make what
+use of them they think fit.
+
+But that I ought not any wayes to consent that they should be published
+during my life; That neither the opposition and controversies, whereto
+perhaps they might be obnoxious, nor even the reputation whatsoever it
+were, which they might acquire me, might give me any occasion of
+mispending the time I had design'd to employ for my instruction; for
+although it be true that every Man is oblig'd to procure, as much as in
+him lies, the good of others; and that to be profitable to no body, is
+properly to be good for nothing: Yet it's as true, that our care ought
+to reach beyond the present time; and that it were good to omit those
+things which might perhaps conduce to the benefit of those who are
+alive, when our designe is, to doe others which shall prove farr more
+advantagious to our posterity; As indeed I desire it may be known that
+the little I have learnt hitherto, is almost nothing in comparison of
+what I am ignorant of; and I doe not despair to be able to learn: For
+it's even the same with those, who by little and little discover the
+truth in Learning; as with those who beginning to grow rich, are less
+troubled to make great purchases, then they were before when they were
+poorer, to make little ones. Or else one may compare them to Generals of
+Armies, whose Forces usually encrease porportionably to their Victories;
+and who have need of more conduct to maintain themselves after the loss
+of a battail, then after the gaining one, to take Towns and Provinces.
+For to endeavour to overcome all the difficulties and errours which
+hinder us to come to the knowledg of the Truth, is truly to fight
+battails. And to receive any false opinion touching a generall or
+weighty matter, is as much as to lose one; there is far more dexterity
+required to recover our former condition, then to make great progresses
+where our Principles are already certain. For my part, if I formerly
+have discovered some Truths in Learning, as I hope my Discourse will
+make it appear I have, I may say, they are but the products and
+dependances of five or six principall difficulties which I have
+overcome, and which I reckon for so many won Battails on my side.
+Neither will I forbear to say; That I think, It's only necessary for me
+to win two or three more such, wholly to perfect my design. And that I
+am not so old, but according to the ordinary course of Nature, I may
+have time enough to effect it. But I beleeve I am so much the more
+obliged to husband the rest of my time, as I have more hopes to employ
+it well; without doubt, I should have divers occasions of impeding it,
+should I publish the grounds of my Physicks. For although they are
+almost all so evident, that to beleeve them, it's needfull onely to
+understand them; and that there is none whereof I think my self unable
+to give demonstration. Yet because it's impossible that they should
+agree with all the severall opinions of other men, I foresee I should
+often be diverted by the opposition they would occasion.
+
+It may be objected, These oppositions might be profitable, as well to
+make me know my faults, as if any thing of mine were good to make others
+by that means come to a better understanding thereof; and as many may
+see more then one man, beginning from this time to make use of my
+grounds, they might also help me with their invention. But although I
+know my self extremely subject to fail, and do never almost trust my
+first thoughts; yet the experience I have of the objections which may be
+made unto me, hinder me from hoping for any profit from them; For I have
+often tried the judgments as well of those whom I esteem'd my friends,
+as of others whom I thought indifferent, and even also of some, whose
+malignity and envie did sufficiently discover what the affection of my
+friends might hide. But it seldom happened that any thing was objected
+against me, which I had not altogether foreseen, unless it were very
+remote from my Subject: So that I never almost met with any Censurer of
+my opinions, that seemed unto me either less rigorous, or less equitable
+then my self. Neither did I ever observe, that by the disputations
+practiced in the Schools any Truth which was formerly unknown, was ever
+discovered. For whilest every one seeks to overcome, men strive more to
+maintain probabilities, then to weigh the reasons on both sides; and
+those who for a long time have been good Advocates, are not therefore
+the better Judges afterwards.
+
+As for the benefit which others may receive from the communication of my
+thoughts, it cannot also be very great, forasmuch as I have not yet
+perfected them, but that it is necessary to add many things thereunto,
+before a usefull application can be made of them. And I think I may say
+without vanity, That if there be any one capable thereof, it must be my
+self, rather then any other. Not but that there may be divers wits in
+the world incomparably better then mine; but because men cannot so well
+conceive a thing and make it their own, when they learn it of another,
+as when they invent it themselves: which is so true in this Subject,
+that although I have often explain'd some of my opinions to very
+understanding men, and who, whilest I spake to them, seem'd very
+distinctly to conceive them; yet when they repeated them, I observ'd,
+that they chang'd them almost always in such a manner, that I could no
+longer own them for mine. Upon which occasion, I shall gladly here
+desire those who come after me, never to beleeve those things which may
+be delivered to them for mine, when I have not published them my self.
+And I do not at all wonder at the extravagancies which are attributed to
+all those ancient Philosophers, whose Writings we have not; neither do I
+thereby judge, that their thoughts were very irrationall, seeing they
+were the best Wits of their time; but onely that they have been ill
+convey'd to us: as it appears also, that never any of their followers
+surpass'd them. And I assure my self, that the most passionate of those,
+who now follow _Aristotle_, would beleeve himself happy, had he but as
+much knowledge of Nature as he had, although it were on condition that
+he never might have more: They are like the ivie, which seeks to climb
+no higher then the trees which support it, and ever after tends
+downwards again when it hath attain'd to the height thereof: for, me
+thinks also, that such men sink downwards; that is to say, render
+themselves in some manner lesse knowing, then if they did abstain from
+studying; who being not content to know all which is intelligibly set
+down in their Authour, will besides that, finde out the solution of
+divers difficulties of which he says nothing, and perhaps never thought
+of them: yet their way of Philosophy is very fit for those who have but
+mean capacities: For the obscurity of the distinctions and principles
+which they use causeth them to speak of all things as boldly, as if they
+knew them, and maintain all which they say, against the most subtill and
+most able; so that there is no means left to convince them. Wherein they
+seem like to a blinde man, who, to fight without disadvantage against
+one that sees, should challenge him down into the bottom of a very dark
+cellar: And I may say, that it is these mens interest, that I should
+abstain from publishing the principles of the Philosophy I use, for
+being most simple and most evident, as they are, I should even do the
+same in publishing of them, as if I opened some windows, to let the day
+into this cellar, into which they go down to fight. But even the best
+Wits have no reason to wish for the knowledge of them: for if they will
+be able to speak of all things, and acquire the reputation of being
+learned, they will easily attain to it by contenting themselves with
+probability, which without much trouble may be found in all kinde of
+matters; then in seeking the Truth, which discovers it self but by
+little and little, in some few things; and which, when we are to speak
+of others, oblige us freely to confesse our ignorance of them. But if
+they prefer the knowledge of some few truths to the vanity of seeming to
+be ignorant of nothing, as without doubt they ought to do, and will
+undertake a designe like mine, I need not tell them any more for this
+purpose, but what I have already said in this Discourse: For if they
+have a capacity to advance farther then I have done, they may with
+greater consequence finde out of themselves whatsoever I think I have
+found; Forasmuch as having never examined any thing but by order, it's
+certain, that what remains yet for me to discover, is in it self more
+difficult and more hid, then what I have already here before met with;
+and they would receive much less satisfaction in learning it from me,
+then from themselves. Besides that, the habit which they would get by
+seeking first of all the easie things, and passing by degrees to others
+more difficult, will be more usefull to them, then all my instructions.
+As I for my part am perswaded, that had I been taught from my youth all
+the Truths whose demonstrations I have discovered since, and had taken
+no pains to learn them, perhaps I should never have known any other, or
+at least, I should never have acquired that habit, and that faculty
+which I think I have, still to finde out new ones, as I apply my self to
+the search of them. And in a word, if there be in the world any work
+which cannot be so well ended by any other, as by the same who began it,
+it's that which I am now about.
+
+It's true, That one man will not be sufficient to make all the
+experiments which may conduce thereunto: But withall, he cannot
+profitably imploy other hands then his own, unlesse it be those of
+Artists, or others whom he hires, and whom the hope of profit (which is
+a very powerfull motive) might cause exactly to do all those things he
+should appoint them: For as for voluntary persons, who by curiosity or a
+desire to learn, would perhaps offer themselves to his help, besides
+that commonly they promise more then they perform, and make onely fair
+propositions, whereof none ever succeeds, they would infallibly be paid
+by the solution of some difficulties, or at least by complements and
+unprofitable entertainments, which could not cost him so little of his
+time, but he would be a loser thereby. And for the Experiments which
+others have already made, although they would even communicate them to
+him (which those who call them Secrets would never do,) they are for
+the most part composed of so many circumstances, or superfluous
+ingredients, that it would be very hard for him to decypher the truth of
+them: Besides, he would find them all so ill exprest, or else so false,
+by reason that those who made them have laboured to make them appear
+conformable to their principles; that if there were any which served
+their turn, they could not at least be worth the while which must be
+imployed in the choice of them. So that, if there were any in the world
+that were certainly known to be capable of finding out the greatest
+things, and the most profitable for the Publick which could be, and that
+other men would therefore labour alwayes to assist him to accomplish his
+Designes; I do not conceive that they could do more for him, then
+furnish the expence of the experiments whereof he stood in need; and
+besides, take care only that he may not be by any body hindred of his
+time. But besides that, I do not presume so much of my Self, as to
+promise any thing extraordinary, neither do I feed my self with such
+vain hopes, as to imagine that the Publick should much interesse it self
+in my designes; I have not so base a minde, as to accept of any favour
+whatsoever, which might be thought I had not deserved.
+
+All these considerations joyned together, were the cause three years
+since why I would not divulge the Treatise I had in hand; and which is
+more, that I resolved to publish none whilest I lived, which might be so
+general, as that the Grounds of my Philosophy might be understood
+thereby. But since, there hath been two other reasons have obliged me to
+put forth some particular Essays, and to give the Publick some account
+of my Actions and Designes. The first was, that if I failed therein,
+divers who knew the intention I formerly had to print some of my
+Writings, might imagine that the causes for which I forbore it, might
+be more to my disadvantage then they are. For although I do not affect
+glory in excess; or even, (if I may so speak) that I hate it, as far as
+I judge it contrary to my rest, which I esteem above all things: Yet
+also did I never seek to hide my actions as crimes, neither have I been
+very wary to keep my self unknown; as well because I thought I might
+wrong my self, as that it might in some manner disquiet me, which would
+again have been contrary to the perfect repose of my minde which I seek.
+And because having alwayes kept my self indifferent, caring not whether
+I were known or no, I could not chuse but get some kinde of reputation,
+I thought that I ought to do my best to hinder it at least from being
+ill. The other reason which obliged me to write this, is, that observing
+every day more and more the designe I have to instruct my self, retarded
+by reason of an infinite number of experiments which are needful to me,
+and which its impossible for me to make without the help of others;
+although I do not so much flatter my self, as to hope that the Publick,
+shares much in my concernments; yet will I not also be so much wanting
+to my self, as to give any cause to those who shall survive me, to
+reproach this, one day to me, That I could have left them divers things
+far beyond what I have done, had I not too much neglected to make them
+understand wherein they might contribute to my designe.
+
+And I thought it easie for me to choose some matters, which being not
+subject to many Controversies, nor obliging me to declare any more of my
+Principles then I would willingly, would neverthelesse expresse clearly
+enough, what my abilities or defects are in the Sciences. Wherein I
+cannot say whether I have succeeded or no; neither will I prevent the
+judgment of any man by speaking of my own Writings: but I should be
+glad they might be examin'd; and to that end I beseech all those who
+have any objections to make, to take the pains to send them to my
+Stationer, that I being advertised by him, may endeavour at the same
+time to adjoyn my Answer thereunto: and by that means, the Reader seeing
+both the one and the other, may the more easily judge of the Truth. For
+I promise, that I will never make any long Answers, but only very freely
+confesse my own faults, if I find them; or if I cannot discover them,
+plainly say what I shal think requisite in defence of what I have writ,
+without adding the explanation of any new matter, that I may not
+endlesly engage my self out of one into another.
+
+Now if there be any whereof I have spoken in the beginning, of the
+Opticks and of the Meteors, which at first jarr, by reason that I call
+them Suppositions, and that I seem not willing to prove them; let a man
+have but the patience to read the whole attentively, and I hope he will
+rest satisfied: For (me thinks) the reasons follow each other so
+closely, that as the later are demonstrated by the former, which are
+their Causes; the former are reciprocally proved by the later, which are
+their Effects. And no man can imagine that I herein commit the fault
+which the Logicians call a _Circle_; for experience rendring the
+greatest part of these effects most certain, the causes whence I deduce
+them serve not so much to prove, as to explain them; but on the
+contrary, they are those which are proved by them. Neither named I them
+Suppositions, that it might be known that I conceive my self able to
+deduce them from those first Truths which I have before discovered: But
+that I would not expresly do it to crosse certain spirits, who imagine
+that they know in a day al what another may have thought in twenty
+yeers, as soon as he hath told them but two or three words; and who are
+so much the more subject to erre, and less capable of the Truth, (as
+they are more quick and penetrating) from taking occasion of erecting
+some extravagant Philosophy on what they may beleeve to be my
+Principles, and lest the fault should be attributed to me. For as for
+those opinions which are wholly mine, I excuse them not as being new,
+because that if the reasons of them be seriously considered, I assure my
+self, they will be found so plain, and so agreeable to common sense,
+that they will seem less extraordinary and strange then any other which
+may be held on the same Subjects. Neither do I boast that I am the first
+Inventor of any of them; but of this indeed, that I never admitted any
+of them, neither because they had, or had not been said by others, but
+only because Reason perswaded me to them.
+
+If Mechanicks cannot so soon put in practise the Invention which is set
+forth in the Opticks, I beleeve that therefore men ought not to condemn
+it; forasmuch as skill and practice are necessary for the making and
+compleating the Machines I have described; so that no circumstance
+should be wanting. I should no less wonder if they should succeed at
+first triall, then if a man should learn in a day to play excellently
+well on a Lute, by having an exact piece set before him. And if I write
+in French, which is the language of my Country, rather then in Latin,
+which is that of my Tutors, 'tis because I hope such who use their meer
+naturall reason, wil better judge of my opinions, then those who only
+beleeve in old Books. And for those who joyn a right understanding with
+study, (who I only wish for my Judges) I assure my self, they will not
+be so partiall to the Latin, as to refuse to read my reasons because I
+expresse them in a vulgar tongue.
+
+To conclude, I will not speak here in particular of the progresse I
+hoped to make hereafter in Learning; Nor engage my self by any promise
+to the Publick, which I am not certain to perform. But I shall onely
+say, That I am resolved to employ the remainder of my life in no other
+thing but the study to acquire some such knowledge of Nature as may
+furnish us with more certain rules in Physick then we hitherto have had:
+And that my inclination drives me so strongly from all other kind of
+designes, chiefly from those which cannot be profitable to any, but by
+prejudicing others; that if any occasion obliged me to spend my time
+therein, I should beleeve I should never succeed therein: which I here
+declare, though I well know it conduceth not to make me considerable in
+the world; neither is it my ambition to be so. And I shall esteem my
+self always more obliged to those by whose favour I shal without
+disturbance enjoy my ease, then to them who should proffer me the most
+honourable imployment of the earth.
+
+FINIS.
+
+  +--------------------------------------------------------------+
+  |                Transcriber's Notes and Errata                |
+  |                                                              |
+  | One instance each of "what-ever" and "whatever" were found   |
+  | in the orignal.                                              |
+  |                                                              |
+  | The following typographical errors were corrected:           |
+  |                                                              |
+  |                |Error         |Correction   |                |
+  |                |              |             |                |
+  |                |or            |our          |                |
+  |                |Phpsick       |Physick      |                |
+  |                |moreworthy    |more worthy  |                |
+  |                |examinanation |examination  |                |
+  |                |mnner         |manner       |                |
+  |                |propable      |probable     |                |
+  |                |rape          |grape        |                |
+  |                |veuture       |venture      |                |
+  |                |circumstrance |circumstance |                |
+  +--------------------------------------------------------------+
+
+
+
+
+
+
+End of the Project Gutenberg EBook of A Discourse of a Method for the Well
+Guiding of Reason, by Rene Descartes
+
+*** 

@@ -1,0 +1,118 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+^^^^^^^^^^^^^in special_tokens for tok .^^^^^^^^^^^^^^^^^
+[25]
+^^^^^^^^^^^##in special_tokens for tok .##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens for tok ,^^^^^^^^^^^^^^^^^
+[23]
+^^^^^^^^^^^##in special_tokens for tok ,##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens for tok ?^^^^^^^^^^^^^^^^^
+[42]
+^^^^^^^^^^^##in special_tokens for tok ?##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens for tok !^^^^^^^^^^^^^^^^^
+[12]
+^^^^^^^^^^^##in special_tokens for tok !##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens for tok ;^^^^^^^^^^^^^^^^^
+[38]
+^^^^^^^^^^^##in special_tokens for tok ;##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens for tok :^^^^^^^^^^^^^^^^^
+[37]
+^^^^^^^^^^^##in special_tokens for tok :##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens for tok 
+^^^^^^^^^^^^^^^^^
+[193]
+^^^^^^^^^^^##in special_tokens for tok 
+##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new1 for tok  .^^^^^^^^^^^^^^^^^
+[204, 25]
+^^^^^^^^^^^##in special_tokens_new1 for tok  .##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new1 for tok  ,^^^^^^^^^^^^^^^^^
+[204, 23]
+^^^^^^^^^^^##in special_tokens_new1 for tok  ,##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new1 for tok  ?^^^^^^^^^^^^^^^^^
+[204, 42]
+^^^^^^^^^^^##in special_tokens_new1 for tok  ?##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new1 for tok  !^^^^^^^^^^^^^^^^^
+[204, 12]
+^^^^^^^^^^^##in special_tokens_new1 for tok  !##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new1 for tok  ;^^^^^^^^^^^^^^^^^
+[204, 38]
+^^^^^^^^^^^##in special_tokens_new1 for tok  ;##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new1 for tok  :^^^^^^^^^^^^^^^^^
+[204, 37]
+^^^^^^^^^^^##in special_tokens_new1 for tok  :##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new1 for tok  
+^^^^^^^^^^^^^^^^^
+[4610]
+^^^^^^^^^^^##in special_tokens_new1 for tok  
+##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new1 for tok  ^^^^^^^^^^^^^^^^^
+[204]
+^^^^^^^^^^^##in special_tokens_new1 for tok  ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new1 for tok   ^^^^^^^^^^^^^^^^^
+[258]
+^^^^^^^^^^^##in special_tokens_new1 for tok   ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new2 for tok . ^^^^^^^^^^^^^^^^^
+[25, 204]
+^^^^^^^^^^^##in special_tokens_new2 for tok . ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new2 for tok , ^^^^^^^^^^^^^^^^^
+[23, 204]
+^^^^^^^^^^^##in special_tokens_new2 for tok , ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new2 for tok ? ^^^^^^^^^^^^^^^^^
+[42, 204]
+^^^^^^^^^^^##in special_tokens_new2 for tok ? ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new2 for tok ! ^^^^^^^^^^^^^^^^^
+[12, 204]
+^^^^^^^^^^^##in special_tokens_new2 for tok ! ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new2 for tok ; ^^^^^^^^^^^^^^^^^
+[38, 204]
+^^^^^^^^^^^##in special_tokens_new2 for tok ; ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new2 for tok : ^^^^^^^^^^^^^^^^^
+[37, 204]
+^^^^^^^^^^^##in special_tokens_new2 for tok : ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new2 for tok 
+ ^^^^^^^^^^^^^^^^^
+[1212]
+^^^^^^^^^^^##in special_tokens_new2 for tok 
+ ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new2 for tok  ^^^^^^^^^^^^^^^^^
+[204]
+^^^^^^^^^^^##in special_tokens_new2 for tok  ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new2 for tok   ^^^^^^^^^^^^^^^^^
+[258]
+^^^^^^^^^^^##in special_tokens_new2 for tok   ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new3 for tok  . ^^^^^^^^^^^^^^^^^
+[204, 25, 204]
+^^^^^^^^^^^##in special_tokens_new3 for tok  . ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new3 for tok  , ^^^^^^^^^^^^^^^^^
+[204, 23, 204]
+^^^^^^^^^^^##in special_tokens_new3 for tok  , ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new3 for tok  ? ^^^^^^^^^^^^^^^^^
+[204, 42, 204]
+^^^^^^^^^^^##in special_tokens_new3 for tok  ? ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new3 for tok  ! ^^^^^^^^^^^^^^^^^
+[204, 12, 204]
+^^^^^^^^^^^##in special_tokens_new3 for tok  ! ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new3 for tok  ; ^^^^^^^^^^^^^^^^^
+[204, 38, 204]
+^^^^^^^^^^^##in special_tokens_new3 for tok  ; ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new3 for tok  : ^^^^^^^^^^^^^^^^^
+[204, 37, 204]
+^^^^^^^^^^^##in special_tokens_new3 for tok  : ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new3 for tok  
+ ^^^^^^^^^^^^^^^^^
+[23787]
+^^^^^^^^^^^##in special_tokens_new3 for tok  
+ ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new3 for tok  ^^^^^^^^^^^^^^^^^
+[204]
+^^^^^^^^^^^##in special_tokens_new3 for tok  ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new3 for tok   ^^^^^^^^^^^^^^^^^
+[258]
+^^^^^^^^^^^##in special_tokens_new3 for tok   ##^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^in special_tokens_new3 for tok    ^^^^^^^^^^^^^^^^^
+[466]
+^^^^^^^^^^^##in special_tokens_new3 for tok    ##^^^^^^^^^^^^^^^
+
+
+
+[25, 23,  42, 12, 38, 37, 193,  4610,  204, 258, 1212, 23787, 466 ]

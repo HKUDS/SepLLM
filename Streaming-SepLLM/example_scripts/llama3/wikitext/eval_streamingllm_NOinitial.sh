@@ -1,0 +1,14 @@
+CUDA_VISIBLE_DEVICES=0  python ../../../main/evaluate_streaming_inputs_perplexity.py \
+    --model_name_or_path  meta-llama/Meta-Llama-3-8B\
+    --init_cache_size 0 \
+    --local_size 324 \
+    --cache_size 324 \
+    --enable_kv_cache_manager True \
+    --enable_SepLLM False \
+    --enable_StreamingLLM True \
+    --enable_pos_shift True \
+    --num_samples 5000000 \
+    --num_eval_tokens 20480 \
+    --dataset_name wikitext \
+    --task wikitext-2-raw-v1 \
+    --output_dir ../../../outputs/demo/xxx   2>&1 | tee ../../../logs/demo/xxx.log

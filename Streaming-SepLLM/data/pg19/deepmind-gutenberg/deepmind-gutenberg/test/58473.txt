@@ -1,0 +1,4030 @@
+
+
+
+
+Produced by Jeroen Hellingman and the Online Distributed
+Proofreading Team at http://www.pgdp.net (This file was
+produced from images generously made available by The
+Internet Archive/American Libraries.)
+
+
+
+
+
+
+
+
+
+                               THE DRAMA
+
+               A QUARTERLY REVIEW OF DRAMATIC LITERATURE
+
+                NO. 8           NOVEMBER           1912
+
+
+
+                             THE GOOD HOPE.
+
+                    A DRAMA OF THE SEA IN FOUR ACTS.
+
+                       BY HERMAN HEIJERMANS, JR.
+
+                 TRANSLATED BY HARRIET GAMPERT HIGGINS.
+
+
+
+
+
+
+
+
+THE PLAYS OF HERMAN HEIJERMANS.
+
+
+To those content with convenient superficialities the plays of a
+dramatist such as Heijermans are easy of definition. He is dismissed
+as "a realistic writer," "a playwright of the naturalistic school,"
+a follower of Ibsen, or Hauptmann, or Tolstoy, or Zola. Even then,
+perhaps, the definitions are not exhausted. They spring from the
+encyclopedia of commonplaces, and are as chaotic as the minds of their
+authors. There is the adjective "meticulous," for example,--invaluable
+to critics. And "morbid,"--equally indispensable, in the form of
+"morbid psychology." "Photographic" and "kinematographic" must not be
+forgotten; the latter an almost brand-new weapon of offence. For the
+rest, "grey," "faithful," "squalid" or "lifelike" will serve their
+turn, according to the critic's point of view.
+
+In phrases such as these we hear the echoes of a controversy now a
+generation old; a controversy dating back to the "free theatres" of
+the 1890 period in Paris, Berlin and London, the first performances of
+Ibsen's "Ghosts," and the early plays of Hauptmann and Strindberg. Then
+the issues between Realist and Philistine were sharply defined;
+the very terms were mutually exclusive. To be modern, to be "free,"
+was to be an Ibsenite, an apostle of moral indignation, an author or
+playgoer burning to lay bare social hypocrisies and shams; not merely
+pour épater le bourgeois, but in order to assert the Great Truths
+of Actual Life, so recently discovered by the stage. It mattered
+little that Ibsenites owed their existence to their misunderstanding
+of Ibsen. He had supplied them with an essential war cry. The old
+domination of insincere sentiment and false romance in the theatre
+was indefensible and insupportable. All the enthusiasm of dramatic
+reformers was perforce directed to the advance of the new realistic
+movement. Hence arose a battle of epithets between the two camps,
+with "antiquated," "conventional," "sentimental," "romantic" on the
+one hand, and "vulgar," "dreary," "indecent," "noisome" on the other.
+
+In Anglo-Saxon countries, naturally enough, the issue was made one of
+morality rather than artistic method. Ibsen's views on marriage were
+suspect, and the whole dramatic movement lay in quarantine. Indeed,
+realism in literature came to be regarded as an unsettling tendency,
+emanating from the Continent, and directed against all British
+institutions from property to religion. The division of opinion may
+be studied in historical documents such as the criticisms of the
+London Press on the first English performance of "Hedda Gabler," and
+the early prefaces of Bernard Shaw; the one side tilting at realism,
+the other at romance;--both, alas, the most shifty of windmills where
+morality is concerned.
+
+The provocative cry of "naturalism," raised by the newer dramatists and
+their supporters, was responsible for half the trouble. A naturalist,
+in good English usage, is taken to be a professor with a butterfly net
+or an inquirer into the lower forms of pond life; and there is a good
+deal to be said for the analogy as applied to the author of realistic
+literature. Pins and chloroform may be his implements of tragedy; his
+coldly scientific method gives point to the comparison. Undoubtedly
+the "naturalistic drama" suggested probable inhumanity and possible
+horror. In any case it clearly offered no hope of an enjoyable evening,
+and was condemned from the first to be unpopular.
+
+So much for the misconception encouraged by a purely journalistic
+phrase. Useless to maintain that the older dramatists, from
+Robertson and Dumas fils to Sardou, held a monopoly of the milk
+of human kindness, while Ibsen, Hauptmann, Tolstoy and Strindberg
+wallowed in mere brutal, original sin. The alleged "naturalism" of
+the latter belied its name. It ranged from revolutionary Utopianism
+to the creation of most unnatural giants,--stage characters removed
+from the average of everyday life by their own distinction. Indeed,
+the differences between the old school and the new were as nothing
+compared with the intellectual gulf between, say, Strindberg and
+Tolstoy. Setting out from the common ground of external approximation
+to life, the dramatists of the period soon diverged upon individual
+paths. Hauptmann passed from the vivid and revolutionary "Weavers"
+to the mythology of "Hannele" and the "Sunken Bell," and the simple
+domestic drama of "Fuhrmann Henschel" and "Rose Bernd." Tolstoy became
+a preacher; Strindberg a Swedenborgian mystic. Of the early playwrights
+of the French Théâtre Libre, Courteline and Ancey, practised the
+Comédie rosse, or brutal comedy, until Paris, tired of the uncouth
+novelty, turned to the more amiable and no less natural work of Capus
+and Donnay. Brieux devoted himself to the composition of dramatic
+tracts. Bernard Shaw, after protesting that he "could none other" than
+dramatize slum landlords and rent collectors in "Widowers' Houses,"
+found readier targets for his wit in bishops, professors of Greek and
+millionaires. Nature, in fact, proved too strong for naturalism. No
+formula could embrace all the individual playwrights of that stormy
+time. The most catholic of "schools" could not hold them.
+
+Formulas, however, die hard; and it is still necessary to free
+Heijermans from the "naturalistic" label so conveniently attached in
+1890 to works like Tolstoy's "Power of Darkness," Hauptmann's Vor
+Sonnenaufgang and Zola's "Therèse Raquin." All that his plays have
+in common with theirs is a faithful observation of life, and more
+particularly of life among the common people. Moreover, he belongs
+to a newer generation. He had written several short pieces (notably
+Ahasuerus and 'n Jodenstreek?) in 1893 and 1894, but "The Ghetto"
+(1899) was his first important play. This three-act tragedy of the
+Jewish quarter in a Dutch city has been published in an English
+adaptation which woefully misrepresents the original, and I should
+rather refer readers to a German translation (Berlin, Fleische)
+revised by Heijermans himself. Like most early work, the play did
+not satisfy its author, and several versions exist.
+
+The story is simple enough. Rafael, the son of an old Jewish merchant,
+has an intrigue with the Gentile maidservant, Rose. His father,
+Sachel, lives in an atmosphere of mistrust, hard dealing, thievery;
+a patriarch with all the immemorial wrongs of the ghetto upon his
+shoulders, and all the racial instinct to preserve property, family
+and religion from contact with "strange people." He is blind, but
+in the night he has heard the lovers' footsteps in the house. Rose
+has lied to him; Rafael, as usual, is neglecting his business for
+Gentile companions. So the play opens. After some bargaining over
+the dowry, a marriage is arranged for Rafael with the daughter of
+another merchant. The authority of the Rabbi is called in, but Rafael
+refuses. He is a freethinker; in the ghetto, but not of it. "Oh,
+these little rooms of yours,--these hot, stifling chambers of despair,
+where no gust of wind penetrates, where the green of the leaves grows
+yellow, where the breath chokes and the soul withers! No, let me speak,
+Rabbi Haeser! Now I am the priest; I, who am no Jew and no Christian,
+who feel God in the sunlight, in the summer fragrance, in the gleam of
+the water and the flowers upon my mother's grave ... I have pity for
+you, for your mean existence, for your ghettos and your little false
+gods--for the true God is yet to come, the God of the new community;
+the commonwealth without gods, without baseness, without slaves!"
+
+Sachel is blamed for allowing this open rupture to come about. It
+is better to pay the girl off quietly and have done with her,
+argue the other Jews. Every woman has her price--and especially
+every Gentile woman. A hundred gulden--perhaps two hundred if she
+is obstinate--will settle the matter. The money is offered, but Rose
+is not to be bought. She has promised to go away with Rafael as his
+wife. He has gone out, but he will return for her. The family tell
+her that the money is offered with his consent; that he is tired of
+her and has left home for good. But she is unmoved. She has learned
+to mistrust the word of the Jews; she will only believe their sacred
+oath. At last old Sachel swears by the roll of the commandments that
+his son will not return. In despair, Rose throws herself into the
+canal and is drowned. Rafael comes too late to save her. The God of
+the Jews has taken his revenge.
+
+The play is perhaps a little naïve and crudely imagined, but it
+has all the essential characteristics of Heijermans' later work;
+the intense humanitarian feeling, the burning rhetoric, the frankly
+partisan denunciation of society. Indeed, it could not be otherwise. In
+dealing with such a case of bigotry and racial intolerance, it is
+idle for a playwright to hold the scales with abstract justice. At
+most he can only humanise the tragedy by humanising the villains of
+his piece, and showing them driven into cruelty by traditional forces
+beyond their control. That is the part of the "Ankläger," the social
+prophet and Public Prosecutor; and it is the part which Heijermans,
+above all others, has filled in the newer dramatic movement.
+
+In Het Pantser ("The Coat of Mail") his subject is the life of a Dutch
+garrison town. "The Coat of Mail" is militarism; the creed of the
+governing caste. And the setting is peculiarly apt for the presentation
+of a social issue. In a small country such as Holland military
+patriotism may be strong, but it is tempered by the knowledge that the
+country only exists by the tolerance, or the diplomatic agreement, of
+more powerful neighbours, and that in case of war it could do no more
+than sacrifice an army to the invader. To the philosophic workman,
+then, well read in revolutionary literature from Marx to Kropotkin,
+the standing army presents itself simply as a capitalist tool, a
+bulwark of the employing class against trade unionism. The industrial
+struggle is uncomplicated by sentimentality. Patriotic stampedes to the
+conservative side are unknown. Social Democracy is strong. Strikes are
+frequent, and the protection of "blackleg" labourers is in the hands
+of the garrison. That is the theme of this "romantic military play."
+
+Mari, a second lieutenant, refuses to serve on strike duty. He is a
+weak but sincere idealist; his head full of humanitarian enthusiasm,
+his rooms stocked with anti-militarist pamphlets. He will leave the
+army rather than order his men to fire on the factory workers. Around
+him stand the members of the military caste, linked together by
+tradition and family relationship. His father is a colonel in the same
+regiment; the father of his fiancée, Martha, is commanding officer. One
+friend he has: an army doctor named Berens, who has infected himself
+with cancer serum in attempting to discover a cure for the disease,
+and passes for a drunkard because he keeps the symptoms in check by
+alcohol. Here a parallel is drawn between military bravery and the
+civilian courage of the scientist.
+
+Mari is put under arrest, but the affair is kept secret in order to
+avoid a scandal. He can only be reinstated by full withdrawal and
+apology. Martha comes to him and implores him to withdraw. The strike
+is thought to be over. He can plead the excitement of the moment
+in excuse, and the matter will be settled honorably. He gives way
+and apologises. A friendly discussion of the point with his superior
+officers is interrupted by a volley in the street outside. The troops
+have fired upon the mob, and the son of the shoemaker over the way
+has been shot.
+
+Mari sends in his papers; but a newspaper has published the facts of
+the case, and he is met with the disgrace of immediate dismissal from
+the army. This does not suit Martha. She must marry a soldier; civilian
+life with a dismissed lieutenant was not in the bond. So Mari suffers
+another disillusionment, and the end of the play sees him setting
+out from home, while the old shoemaker is left to lament for his son.
+
+And the sum total of it all? A warm heart, a weakness for rhetoric,
+and--a study in vacillation.
+
+In Ora et Labora Heijermans is less rhetorical; rather, one suspects,
+for lack of a mouthpiece. His peasants bear their fate, if not in
+silence, with almost inarticulate resignation. They are too hungry to
+waste words. Moreover, there is no visible enemy to denounce, no Coat
+of Mail, no racial prejudice, no insatiate capitalism. Winter is the
+villain of the piece. This is indeed naturalism, in the literal sense;
+humanity devoured by Nature. Everything is frost-bound: the canal,
+the soil, the very cattle. The barges are idle. There is no work and
+no warmth. When the last cow upon the farm dies of disease, its throat
+is cut so that it can be sold to the butcher. All hopes are centred
+in the father of the family, who is to sell the carcase in the town;
+but he spends the money and returns home drunk. As a last resort,
+his son Eelke enlists in the army for six years' colonial service,
+leaving Sytske, the girl he was about to marry. His advance pay buys
+fuel and food, but the lovers part with a hopeless quarrel, and the
+old peasants are left wrangling over the money he has brought.
+
+Allerzielen (1906) is a later work. A village pastor finds a woman
+in a state of collapse upon his threshold. He takes her in, and she
+gives birth to a child. She is a stranger in the district, Rita by
+name. The child is sent into the village to be nursed, while the
+pastor gives up his own room to the mother. She recovers slowly, and
+meanwhile the peasants set their tongues to work upon the scandal. The
+child is discovered to be illegitimate. A good village housewife is
+suckling a bastard. The pastor is housing an outcast, and shows no
+sign of sending her about her business. The neighbouring clergy are
+perturbed. Dimly and distantly the Bishop is said to be considering
+the facts.... Amid alarums and excursions the affair pursues its
+course. The village passes from astonishment to ribaldry, from ribaldry
+to stone-throwing. The pastor speaks gently of Christian charity and
+souls to be saved, but fails to appease his parishioners. They are
+hot upon the scent in a heresy-hunt. If they could see within the
+parsonage walls, they would yelp still louder. For Rita proves to be
+an unblushing hedonist. No prayers for her, when the birth-pangs are
+once over; no tears, no repentance. She sings gaily in her room while
+the pastors argue about duty and morals. She feels "heavenly." She
+invades the study to enjoy a view of sunlight, clouds and sea. She
+finds the waves more musical than the wheezing of the church organ. If
+only the child were with her, her happiness would be complete.
+
+But the child is neglected by its foster mother. It sickens and
+dies. The pastor is driven from his church by the Bishop, and leaves
+the broken windows of the parsonage to his successor. Rita and he
+are both homeless now. And then the child's father comes,--another
+hedonist. The child is dead, but Life remains. Its body lies in
+unconsecrated ground, but the vows of love are renewed at the
+graveside. The Church can only crush its own slaves. All roads are
+open to the spirits of the free. The pastor can only offer a hopeless
+"Farewell" as the two set out upon their way. But Rita calls after,
+"No,--no! You will come over to us."
+
+It matters nothing that this gospel of Life has often been
+preached. Heijermans has caught the spirit of it as well as the
+letter. His characters say and do nothing particularly original;
+nothing that would even pass for originality by reason of its
+manner. He works in vivid contrasts, without a shade of paradox. He
+figures the opposed forces of Reaction and Revolution in religion,
+in statecraft, in economics, in all human relationships, with a
+simplicity of mind which would draw a smile from the forever up-to-date
+"intellectual." Reaction is a devilish superstition; Revolution
+a prophetic angel pointing the way to the promised land. The one
+is false, the other true. There is no disputing the point, since
+truth and falsehood are absolute terms. Perhaps the secret is that
+Heijermans never tires of his own philosophy. He is content to see it
+firmly planted on the ground; he does not demand that it should walk
+the tight-rope or turn somersaults as an intellectual exercise. He
+has accepted a view of life which some call materialistic, and others
+positivist, or scientific, or humanitarian; but for him it is simply
+humane,--founded upon social justice and human need.
+
+A philosophy, however, does not make a dramatist. In the plays I
+have already described Heijermans shows his power of translating
+the world-struggle of thought into the dramatic clash of will, but
+it is upon "The Good Hope" (Op Hoop van Zegen) that his reputation
+chiefly depends. He chooses a great subject; not merely the conflict
+of shipowners and fishermen in the struggle for existence, but the
+sea-faring life and the ocean itself. Truly "a sea-piece"; tempestuous,
+powerful. One can hear the breaking of the waves. From the opening
+scene, with the old men's tale of sharks, to the night of the storm
+in the third act, when the women and children huddle in Kneirtje's
+cottage for shelter, the story is always the same. The sea is the
+symbol of Fate. It takes a father here, a brother there. It seizes
+Geert and Barend alike; the one going aboard carelessly, the other
+screaming resistance. Sometimes it plays with its victims on shore,
+making no sign, leaving months of hope to end in despair. In a more
+merciful mood it sends children running through the village to cry
+"'n Ball op! 'n Ball op!" as an overdue ship is signalled from the
+coastguard tower. And there an echo of the sea-ballad now and again;
+when raps are heard upon the door at the height of the storm, or
+a flapping curtain blows out the lamp, or a pallid face is seen at
+the window....
+
+In sheer force of theatrical construction "The Good Hope" is still
+more striking. There are great moments, finely conceived. The play is
+full of natural rather than violent coincidence. Barend has always
+feared death by drowning, and he makes his first and last voyage in
+a leaky trawler. His father sank in a wreck, and it is his mother,
+unable to maintain the household, who persuades him to go. She fears
+the disgrace of his refusal after the papers are signed, but he is
+dragged aboard by the harbour police. His brother Geert sets out
+proudly enough, singing the Marseillaise and preaching rebellion;
+but he sinks far away, impotent, unheard, and leaves his sweetheart
+to bear a fatherless child. Old Cobus can only reflect, "We take
+the fishes, and God takes us." That is perhaps the most dramatic
+thread of all,--the parallel of fate. The struggle for existence on
+land drives men to the fishing-boats and the Dogger Bank. From the
+minnows to leviathan, there is no escape. "We take the fishes, and
+God takes us." A gale of wind and rain whistles through the play,
+sweeping the decks of life, tossing men out into the unknown.
+
+Let us turn to the social standpoint. The ship-owner, Bos, is frankly
+a villain. He knows "The Good Hope" is unseaworthy, but he allows her
+to sail. True, the warning comes from a drunken ship's carpenter,
+but he understands the risks. Business is business. The ship is
+well insured....
+
+It is implied, then, that shipowners are unscrupulous scoundrels,
+and fishermen their unhappy victims. Here is a bias which makes
+the actual tragedy no more impressive. Good ships, as well as bad,
+may perish in a storm. Nature is cruel enough without the help of
+man. The problem of the big fish and the little fish is one of size,
+not of morality. Even sharks may possibly rejoice in an amiable
+temperament. It can only be said that Heijermans has here chosen the
+right motive for his own particular type of drama. His sympathy is
+with the fishermen. He knows that, humanly speaking, in every conflict
+between employers and employed, the men are right and the masters
+wrong. Impossible to redress the balance by individual virtue or
+kindliness. The masters stand for the exploiting system; for capital,
+for insurance, for power, for law and order and possession. Their
+risks are less and their temptations greater. Even from the standpoint
+of abstract justice, a dishonest employer may fairly be set against
+a drunken labourer or a gaol-bird fisherman. The one is no less
+natural than the other. But Heijermans goes beyond all finicking
+considerations of this sort. He seeks to destroy and rebuild, not
+to repair or adjust. He avoids mere naturalism; the "conscientious
+transcription of all the visible and repetition of all the audible"
+is not for him. And here he is undoubtedly justified, not only by
+his own experience, but by that of other dramatists. There was no
+inspiration in the movement towards mere actuality on the stage. It
+sickened of its own surfeit of "life." Its accumulated squalor became
+intolerable. It was choked by its own irrelevance, circumscribed
+by its own narrowness. For naturalism is like a prison courtyard;
+it offers only two ways of escape. One is the poet's upward flight,
+the other the revolutionist's battering-ram. Heijermans has chosen
+his own weapon, and used it well. He has given us "The Good Hope,"
+not as a mere pitiful study in disillusionment, but as a tragic symbol
+of human effort in the conquest of despair.
+
+        Ashley Dukes.
+
+
+
+
+
+
+
+
+                             THE GOOD HOPE.
+
+                    A Drama of the Sea in Four Acts.
+
+                       By Herman Heijermans, Jr.
+
+                 Translated by Harriet Gampert Higgins.
+
+
+
+
+
+PERSONS.
+
+
+    Kneirtje, a fisherman's widow.
+    Geert   }
+    Barend  }  her sons.
+    Jo, her niece.
+    Cobus, her brother.
+    Daantje, from the Old Men's Home.
+    Clemens Bos, a ship owner.
+    Clementine, his daughter.
+    Mathilde, his wife.
+    Simon, a ship carpenter's assistant.
+    Marietje, his daughter.
+    Mees, Marietje's betrothed.
+    Kaps, a bookkeeper.
+    Saart, a fisherman's widow.
+    Truus, a fisherman's wife.
+    Jelle, a beggar.
+    First Policeman.
+    Second Policeman.
+
+
+The Drama is laid in a North Sea fishing village.
+
+Copyright 1912 by The Dramatic Publishing Company.
+
+
+
+
+
+
+
+
+                             THE GOOD HOPE
+
+                    A Drama of the Sea in Four Acts.
+
+                       By Herman Heijermans, Jr.
+
+
+ACT I.
+
+
+[Kneirtje's home, a poor living-room. At the left, two wall bedsteads
+and a door; to the right, against the wall, a chest of drawers
+with holy images, vases and photographs. A chimney fireplace nearer
+front. At the back wall, near right corner, a wicket leading to the
+cooking shed; at left against the wall a cupboard; a cage with dove;
+window with flower pots, left of center; in back wall right of center a
+door overlooking a narrow cobblestone roadway backed by a view of beach
+with sea in middle distance and horizon. Through the window to the left
+is seen the red tiled lower corner of roof of a cottage. Time, noon.]
+
+CLEMENTINE. [Sketch book on her knee.] Now, then! Cobus!
+
+COBUS. [Who poses, awakes with a start, smiles.] He-he-he! I wasn't
+asleep--No, no--
+
+CLEM. Head this way--still more--what ails you now? You were sitting
+so natural. Hand on the knee again.
+
+COBUS. Tja--when you sit still so long--you get stiff.
+
+CLEM. [Impatiently.] Please! please! stop chewing.
+
+COB. I haven't any chew. Look.
+
+CLEM. Then keep your mouth shut.
+
+DAANTJE. [Entering by the cooking shed.] Good day.
+
+CLEM. Good day. Take a walk around the corner.
+
+DAAN. No, Miss--time's up. [Looking at sketch.] It don't look like
+him yet.
+
+CLEM. [Smiling.]
+
+DAAN. [Shifting his spectacles.] You see--if I may take the liberty,
+Miss--his chin sets different--and his eyes don't suit me--but his
+nose--that's him--and--and--his necktie, that's mighty natural--I'd
+swear to that anywhere.
+
+CLEM. Indeed.
+
+DAAN. And the bedstead with the curtains--that's fine. Now, Miss,
+don't you think you could use me?
+
+CLEM. Perhaps. Hand higher--keep your mouth still.
+
+COB. That's easy said--but when y'r used to chewing and ain't allowed
+to--then you can't hold your lips still--what do you say, Daantje?
+
+DAAN. I say time's up. We eat at four and the matron is strict.
+
+CLEM. That will be necessary with you old fellows.
+
+DAAN. Peh! We've a lot to bring in, haven't we? An Old Man's Home is a
+jail--scoldings with your feed--as if y'r a beggar. Coffee this morning
+like the bottom of the rain barrel--and peas as hard as y'r corns.
+
+CLEM. If I were in your place--keep your mouth still--I'd thank God
+my old age was provided for.
+
+COB. Tja--tja--I don't want to blaspheme, but--
+
+DAAN. Thank God?--Not me--sailed from my tenth year--voyages--more
+than you could count--suffered shipwreck--starvation--lost two sons
+at sea--no--no. I say the matron is a beast--I'd like to slap her jaw.
+
+CLEM. That will do! This is no dive.
+
+DAAN. I know that, but it makes your gorge rise. I wasn't allowed to
+go out last week because, begging your pardon, I missed and spat beside
+the sand box. Now I ask, would you spit beside a box on purpose? An old
+man's home is a jail--and when they've shut you up, in one of them,
+decent, they're rid of you. Wish the sharks had eaten me before I
+quit sailing.
+
+COB. [Giggling.] He! he! he! Man, the sharks wouldn't eat you--you
+were too tough for them.
+
+CLEM. Keep your lips still!
+
+COB. Tja, tja.
+
+DAAN. Sharks not like me--They'll swallow a corpse. Peh! I saw old
+Willem bitten in two till the blood spouted on high. And he was a
+thin man.
+
+CLEM. Was old Willem eaten by a shark?
+
+DAAN. By one? By six. Quick as he fell overboard they grabbed him. The
+water was red.
+
+CLEM. Hey! How frightful. And yet--I'd rather like to see a thing
+like that.
+
+DAAN. Like to see it! We had to.
+
+CLEM. Did he scream?
+
+DAAN. Did he scream!
+
+COB. Tja, wouldn't you if you felt the teeth in your flesh? He--hehe!
+
+[Sound of a fiddle is heard outside. Cobus sways in his chair in time
+to the tune.] Ta da da de--da da da--
+
+CLEM. [Hastily closing the sketch book.] There then! [Rises.] Tomorrow
+you sit still--You hear!
+
+COB. [Stretching himself.] All stiff! [Dances, snapping his fingers,
+his knees wabbling.] Ta de da da--da-da-da.
+
+DAAN. [At the window.] Psst! Nobody home.
+
+JELLE. [Playing at window outside.] If you please.
+
+DAAN. Nobody home.
+
+JELLE. I come regular once a week.
+
+DAAN. They have gone to the harbor.
+
+CLEM. [Throws a coin out of the window.] There! [Playing stops.]
+
+JELLE. Thank you. [Searches for the coin.]
+
+COB. Behind that stone, stupid.
+
+DAAN. No; more that way.
+
+CLEM. I threw it out that way. Hey! what a donkey! Is he near-sighted?
+
+COB. He's got only half an eye--and with half an eye you don't see
+much. [To Jelle.] Behind you!
+
+JELLE. I don't see anything.
+
+DAAN. [Barend appears at door.] Psst! Hey! Barend, you help him----
+
+CLEM. There is a ten-cent piece out there.
+
+BAREND. [Basket of driftwood on his back.] Give it to 'im in his paws
+then. [Enters.] [Throws down basket with a thud.] Here!
+
+COB. Did you hear that impudent boy?
+
+CLEM. Say there, big ape, were you speaking to me?
+
+BAR. [Shy and embarrassed.] No, Miss. I did not know you were there,
+I thought----
+
+COB. What right had you to think--better be thinking of going to sea
+again to earn your Mother's bread.
+
+BAR. That's none of your business.
+
+COB. Just hear his insolence to me--when he's too bashful to open
+his mouth to others. [Taunting.] I'm not afraid--he-he-he!--No,
+I don't get the belly ache when I must go to sea--he-he-he!
+
+DAAN. Come along now. It's struck four.
+
+CLEM. Ten o'clock tomorrow, Cobus.
+
+DAAN. He can't do it, Miss, we must pull weeds in the court yard.
+
+COB. Yes, we must scratch the stones.
+
+CLEM. Tomorrow afternoon, then.
+
+COB. Tja! I'll be here, then. Good day, Miss. [To Barend.] Good day,
+pudding breeches.
+
+CLEM. [Pinning on her hat.] He teases you, doesn't he?
+
+BAR. [Laughing bashfully.] Yes, Miss.
+
+CLEM. Been out searching the beach? [He nods embarrassed.] Found much?
+
+BAR. No, it was ebb last night--and--and--[Gets stuck.]
+
+CLEM. Are you really afraid to go to sea, silly boy? [He nods,
+laughing.] They all go.
+
+BAR. [Dully.] Yes, they all go.
+
+CLEM. A man must not be afraid----
+
+BAR. No, a man must not be afraid.
+
+CLEM. Well, then?
+
+BAR. [Timidly.] I'd rather stay on shore.
+
+CLEM. I won't force you to go--How old are you?
+
+BAR. Rejected for the army last month.
+
+CLEM. Rejected?
+
+BAR. For my--for my--I don't know why, but I was rejected.
+
+CLEM. [Laughing.] That's lucky--A soldier that's afraid!
+
+BAR. [Flaring up quickly.] I'm not afraid on land--let them come at
+me--I'll soon stick a knife through their ribs!
+
+CLEM. Fine!
+
+BAR. [Again lapsing into embarrassment.] Beg pardon, Miss. [The soft
+tooting of a steamboat whistle is heard.] That's the Anna--there's
+a corpse on board----
+
+CLEM. Another one dead?
+
+BAR. The flag hung half-mast.
+
+CLEM. Tu-tu-tu-tu--The second this week. First, the Agatha Maria----
+
+BAR. No, 'twas the Charlotte.
+
+CLEM. Oh, yes! The Agatha was last week--Do they know who? [He shakes
+his head.] Haven't you any curiosity?
+
+BAR. Ach--you get used to it--and none of our family are
+aboard. [Embarrassed silence.] Father can't--Hendrick can't--Josef
+can't--you know about them--and--and--Geert--he's still under arrest.
+
+CLEM. Yes, he's brought disgrace on all of you.
+
+BAR. Disgrace--disgrace----
+
+CLEM. When is he free?
+
+BAR. I don't know.
+
+CLEM. You don't know?
+
+BAR. They gave him six months--but they deduct the time before
+trial--we don't know how long that was, so we can't tell.
+
+KNEIRTJE. [Through the window.] Good day, Miss.
+
+CLEM. Good day.
+
+KNEIR. How did the chickens get out? Do look at that rooster! Get out,
+you salamander! Kischt! Jo! Jo!
+
+BAR. Let them alone. They'll go of themselves.
+
+KNEIR. [Entering the room.] That's an endless devilment, Miss. [To
+Barend.] Come, you, stick out your paws. Must we have another row
+with Ari?
+
+BAR. Then we'll have a row. [Goes off indifferently, chases away the
+chickens, outside.]
+
+KNEIR. Then we'll--such a lazy boy, I wish he'd never been
+born--Sponger!--Are you going so soon, Miss?
+
+CLEM. I am curious to know what's happened on the Anna.
+
+KNEIR. Yes--I was on the way there--but it takes so long--and I've
+had my fill of waiting on the pier--if that pier could only talk. Have
+you finished my brother's portrait?
+
+CLEM. Tomorrow. I want to make a drawing of Barend also--just as he
+came in with the basket on his shoulders.
+
+KNEIR. Barend? Well--All the same to me.
+
+CLEM. He doesn't seem to get much petting around here.
+
+KNEIR. [Annoyed.] Pet him! I should say not! The sooner I get rid of
+him, the better! [Through the window.] Chase them away! Kischt! Kischt!
+
+BAR. [Outside.] All that yelling makes the rooster afraid.
+
+KNEIR. Afraid! He takes after you, then! Kischt!
+
+CLEM. Hahaha! Hahaha! Say, he's enjoying himself there on Ari's roof.
+
+JO. [Coming through the door at left. Brown apron--gold head pieces
+on the black band around her head.] Good day.
+
+KNEIR. The chickens are out again! The rooster is sitting on Ari's
+roof.
+
+JO. [Laughing merrily.] Hahaha! He's not going to lay eggs there!
+
+KNEIR. [Crossly.] Hear her talk! She knows well enough we almost came
+to blows with Ari because the hens walked in his potato patch.
+
+JO. I let them out myself, old cross patch--Truus dug their potatoes
+yesterday.
+
+KNEIR. Why didn't you say so then?
+
+JO. What am I doing now? Oh, Miss--she would die if she couldn't
+grumble; she even keeps it up in her sleep. Last night she swore out
+loud in her dreams. Hahaha! Never mind! scold all you like; you're a
+good old mother just the same. [To Barend, who enters the room.] Ach,
+you poor thing! Is the rooster setting on the roof? And does he refuse
+to come down?
+
+BAR. You quit that now!
+
+JO. I'll wager if you pet the hens he will come down of himself from
+jealousy. Hahaha! He looks pale with fear.
+
+CLEM. Now, now.
+
+JO. Say, Aunt, you should make a baker of him. His little bare feet
+in the rye flour. Hahaha!
+
+BAR. You can all----[Goes angrily off at left.]
+
+JO. [Calling after him.] The poor little fellow!
+
+CLEM. Now, stop teasing him. Are you digging potatoes?
+
+JO. Tja; since four o'clock this morning. Nothing--Aunt--all rotten.
+
+KNEIR. We poor people are surely cursed--rain--rain--the crops had
+to rot--they couldn't be saved--and so we go into the winter--the
+cruel winter--Ach,--Ach,--Ach!
+
+JO. There! You're worrying again. Come, Mother, laugh. Am I ever
+sad? Geert may return at any moment.
+
+KNEIR. Geert--and what then?
+
+JO. What then? Then--then--then, nothing! Cheer up! You don't add
+to your potatoes by fretting and grumbling. I have to talk like this
+all day to keep up her spirits--See, I caught a rabbit!
+
+CLEM. In a trap?
+
+JO. As neat as you please. The rascal was living on our poverty--the
+trap went snap as I was digging. A fat one--forty cents at the least.
+
+CLEM. That came easy--I must go now.
+
+BOS. [At door.] Hello! Are you going to stay all day--May I come in?
+
+KNEIR. [Friendly manner.] Of course you may, Meneer; come in, Meneer.
+
+BOS. My paws are dirty, children.
+
+KNEIR. That's nothing. A little dry sand doesn't matter--will you
+sit down?
+
+BOS. Glad to do so--Yes, Kneir, my girl, we're getting older every
+day--Good day, little niece.
+
+JO. Good day, Meneer. [Points, laughing, to her hands.] You see----
+
+BOS. Have you put on gloves for the dance?
+
+JO. [Nods saucily.] The hornpipe and the Highland fling, hey?
+
+BOS. Hahaha! Saucy black eye. [To Clementine.] Come, let me have
+a look.
+
+CLEM. [Petulantly.] No, you don't understand it, anyway.
+
+BOS. Oh, thanks!--You educate a daughter. Have her take drawing
+lessons, but must not ask to see--come! Don't be so childish!
+
+CLEM. [With spoiled petulance.] No. When it is finished.
+
+BOS. Just one look.
+
+CLEM. Hey, Pa, don't bother me.
+
+BOS. Another scolding, ha ha ha!
+
+[Barend enters.]
+
+BAR. [Bashfully.] Good day, Meneer.
+
+BOS. Well, Barend, you come as if you were called.
+
+BAR. [Surprised laugh.] I?
+
+BOS. We need you, my boy.
+
+BAR. Yes, Meneer.
+
+BOS. The deuce! How you have grown.
+
+BAR. Yes, Meneer.
+
+BOS. You're quite a man, now--How long have you been out of a job?
+
+BAR. [Shyly.] Nine months.
+
+KNEIR. That's a lie--It's more than a year.
+
+BAR. No, it isn't.
+
+JO. Well, just count up--November, December--
+
+BOS. That'll do, children. No quarreling. Life is too short. Well,
+Barend, how would the forty-seven suit you?--Eh, what?----
+
+BAR. [Anxiously.] The forty-seven----
+
+BOS. The Good Hope----
+
+CLEM. [Surprised.] Are you going to send out the Good Hope?----
+
+BOS. [Sharply.] You keep out of this! Keep out, I say!
+
+CLEM. And this morning----
+
+BOS. [Angrily.] Clementine!
+
+CLEM. But Pa----
+
+BOS. [Angrily stamping his foot.] Will you please go on?
+
+CLEM. [Shrugging her shoulders.] Hey! How contemptible, to get mad--how
+small--Bonjour! [Exits.]
+
+KNEIR. Good day, Miss.
+
+BOS. [Smiling.] A cat, eh! Just like her Mama, I have to raise the
+devil now and then,--hahaha!--or my wife and daughter would run
+the business--and I would be in the kitchen peeling the potatoes,
+hahaha! Not but what I've done it in my youth.
+
+KNEIR. And don't I remember----
+
+BOS. [Smacking his lips.] Potatoes and fresh herring! but what's
+past is gone. With a fleet of eight luggers your mind is on other
+things--[Smiling.] Even if I do like the sight of saucy black
+eyes--Don't mind me, I'm not dangerous--there was a time.----Hahaha!
+
+KNEIR. Go on, Meneer. Don't mind us.
+
+BOS. Well, our little friend here, what does he say?
+
+KNEIR. Open your mouth, speak!
+
+BAR. I would rather----
+
+KNEIR. [Angrily.] Rather--rather!
+
+JO. Hey! What a stupid!----
+
+BOS. Children! No quarreling. Boy, you must decide for yourself. Last
+year at the herring catch the Good Hope made the sum of fourteen
+hundred guilders in four trips. She is fully equipped, Hengst is
+skipper--all the sailors but one--and the boys--Hengst spoke of you
+for oldest boy.
+
+BAR. [Nervously.] No, no, Meneer----
+
+KNEIR. Ah, the obstinate beast! All my beating won't drive him aboard.
+
+JO. If I were a man----
+
+BOS. Yes, but you're not; you're a pretty girl--ha, ha, ha! We can't
+use such sailors. Well, Daddy! And why don't you want to go? Afraid
+of seasickness? You've already made one trip as middle boy----
+
+KNEIR. And as play boy.
+
+JO. He'd rather loaf and beg. Ah! what a big baby.
+
+BOS. You are foolish, boy. I sailed with your grandfather. Yes, I,
+too, would rather have sat by Mother's pap-pot than held eels with
+my ice cold hands; rather bitten into a slice of bread and butter
+than bitten off the heads of the bait. And your father----
+
+BAR. [Hoarsely.] My father was drowned--and brother Hendrick--and
+Josef--no, I won't go!
+
+BOS. [Rising.] Well--if he feels that way--better not force him,
+Mother Kneirtje; I understand how he feels, my father didn't die
+in his bed, either--but if you begin to reason that way the whole
+fishery goes up the spout.
+
+KNEIR. [Angrily.] It's enough to----
+
+BOS. Softly--softly--You don't catch tipsy herrings with force----
+
+JO. [Laughing.] Tipsy herring, I would like to see that!
+
+BOS. [Laughing.] She doesn't believe it, Kneir! We know better! Eh,
+what!
+
+KNEIR. Ach--it's no joking matter, Meneer, that miserable bad
+boy talks as if--as if--I had forgotten my husband--and my good
+Josef--and--and--but I have not. [Ends in low sobbing.]
+
+JO. Come, foolish woman! please, Aunty dear!--Good-for-nothing Torment!
+
+BOS. Don't cry, Kneir! Tears will not restore the dead to life----
+
+KNEIR. No, Meneer--I know that, Meneer. Next month it will be twelve
+years since the Clementine went down.
+
+BOS. Yes, it was the Clementine.
+
+KNEIR. November--'88--He was a monkey of seven then, and yet he
+pretends to feel more than I do about it.
+
+BAR. [Nervously.] I didn't say that. I don't remember my father,
+nor my brothers--but--but----
+
+BOS. Well, then?
+
+BAR. I want another trade--I don't want to go to sea--no--no----
+
+KNEIR. Another trade--What else can you do? Can't even read or
+write----
+
+BAR. Is that my fault?
+
+KNEIR. No--it is mine, of course! Three years I had an allowance--the
+first year three--the second two twenty-five--and the third one
+dollar--the other nine I had to root around for myself.
+
+BOS. Have you forgotten me entirely?
+
+KNEIR. I shall always be grateful to you, Meneer. If you and the
+priest hadn't given me work and a warm bite now and then to take
+home--then--then--and that booby even reproaches me!----
+
+BAR. I don't reproach--I--I----
+
+JO. Out with it! The gentleman is looking for a place to live off
+his income.
+
+BAR. Shut up!--I will do anything--dig sand--plant broom--salting
+down--I'll be a mason, or a carpenter--or errand boy----
+
+JO. Or a burgomaster! Or a policeman! Hahaha! And walk about dark
+nights to catch thieves--Oh!--Oh!--what a brave man!
+
+BOS. Little vixen!
+
+BAR. You make me tired!--Did I complain when the salt ate the flesh
+off my paws so I couldn't sleep nights with the pain?
+
+KNEIR. Wants to be a carpenter--the boy is insane--A mason--see the
+accidents that happen to masons. Each trade has something.
+
+BOS. Yes, Barendje--There are risks in all trades--my boy. Just think
+of the miners, the machinists, the stokers--the--the--How often do
+not I, even now, climb the man rope, or row out to a lugger? Fancies,
+my boy! You must not give way to them.
+
+KNEIR. And we have no choice. God alone knows what the winter will
+be. All the potatoes rotted late this fall, Meneer.
+
+BOS. Yes, all over the district. Well, boy?
+
+BAR. No, Meneer.
+
+KNEIR. [Angrily.] Get out of my house, then--sponger!
+
+BAR. [Faintly.] Yes, Mother.
+
+KNEIR. March! Or I'll----[Threatening.]
+
+BOS. Come, come. [A pause during which Barend walks timidly away.]
+
+JO. If I had a son like that----
+
+BOS. Better get a lover first----
+
+JO. [Brightly.] I've already got one!--If I had a son like that I'd
+bang him right and left! Bah! A man that's afraid! [Lightly.] A sailor
+never knows that sooner or later--He never thinks of that--If Geert
+were that way--there, I know--Aunt, imagine--Geert----
+
+BOS. Geert?----
+
+JO. He'd face the devil--eh, Aunt? Now, I'm going to finish the
+potatoes. Good bye, Meneer.
+
+BOS. Say, black eyes--do you laugh all the time?
+
+JO. [With burst of laughter.] No, I'm going to cry. [Calls back from
+the opened door.] Aunt--speak of Geert. [Goes off.]
+
+BOS. Geert?--Is that your son, who----
+
+KNEIR. Yes, Meneer.
+
+BOS. Six months?
+
+KNEIR. Yes, Meneer.
+
+BOS. Insubordination?
+
+KNEIR. Yes, Meneer--Couldn't keep his hands at
+home.
+
+BOS. The stupid blockhead!
+
+KNEIR. I think they must have teased him----
+
+BOS. That's nonsense! They don't tease the marines. A fine state
+of affairs. Discipline would be thrown overboard to the sharks if
+sailors could deal out blows every time things didn't go to suit them.
+
+KNEIR. That's so, Meneer, but----
+
+BOS. And is she--smitten with that good-for-nothing?
+
+KNEIR. She's crazy about him, and well she may be. He's a handsome
+lad, takes after his father--and strong--there is his photograph--he
+still wore the uniform then--first class--now he is----
+
+BOS. Degraded?----
+
+KNEIR. No, discharged--when he gets out. He's been to India twice--it
+is hard--if he comes next week--or in two weeks--or tomorrow, I don't
+know when--I'll have him to feed, too--although--I must say it of
+him, he won't let the grass grow under his feet--A giant like him
+can always find a skipper.
+
+BOS. A sweet beast--I tell you right now, Kneir, I'd rather not take
+him--dissatisfied scoundrels are plenty enough these days--All that
+come from the Navy, I'm damned if it isn't so--are unruly and I have
+no use for that kind--Am I not right?
+
+KNEIR. Certainly, Meneer, but my boy----
+
+BOS. There was Jacob--crooked Jacob, the skipper had to discharge
+him. He was, God save him, dissatisfied with everything--claimed
+that I cheated at the count--yes--yes--insane. Now he's trying it at
+Maassluis. We don't stand for any nonsense.
+
+KNEIR. May I send him to the skipper then--or direct to the water
+bailiff's office?
+
+BOS. Yes, but you tell him----
+
+KNEIR. Yes, Meneer.
+
+BOS. If he comes in time, he can go out on the Good Hope. She's just
+off the docks. They are bringing the provisions and casks aboard
+now. She'll come back with a full cargo--You know that.
+
+KNEIR. [Glad.] Yes, Meneer.
+
+BOS. Well--Good bye! [Murmur of voices outside.] What's that?
+
+KNEIR. People returning from the harbor. There's a corpse aboard
+the Anna.
+
+BOS. Pieterse's steam trawler--The deuce! Who is it?
+
+KNEIR. I don't know. I'm going to find out.
+
+[Both go off--the stage remains empty--a vague murmur of voices
+outside. Fishermen, in conversation, pass the window. Sound of
+a tolling church bell. Geert sneaks inside through the door at
+left. Throws down a bundle tied in a red handkerchief. Looks cautiously
+into the bedsteads, the cooking shed, peers through the window, then
+muttering he plumps down in a chair by the table, rests his head on
+his hand, rises again; savagely takes a loaf of bread from the back
+cupboard, cuts off a hunk. Walks back to chair, chewing, lets the
+bread fall; wrathfully stares before him. The bell ceases to toll.]
+
+BAR. [From the cooking shed.] Who's there?--Geert!--[Entering.]
+
+GEERT. [Curtly.] Yes--it's me--Well, why don't you give me a paw.
+
+BAR. [Shaking hands.] Have you--have you seen Mother yet?
+
+GEERT. [Curtly.] No, where is she----
+
+BAR. Mother, she--she----
+
+GEERT. What are you staring at?
+
+BAR. You--you--Have you been sick?
+
+GEERT. Sick? I'm never sick.
+
+BAR. You look so--so pale----
+
+GEERT. Give me the looking-glass. I'll be damned. What a mug! [Throws
+the mirror roughly down.]
+
+BAR. [Anxiously.] Was it bad in prison?
+
+GEERT. No, fine!--What a question--They feed you on beefsteaks! Is
+there any gin in the house?
+
+BAR. No.
+
+GEERT. Go and get some then--if I don't have a swallow, I'll keel over.
+
+BAR. [Embarrassed.] I haven't any money.
+
+GEERT. I have. [Peers in his pocket, throws a handful of coins on
+the table.] Earned that in prison--There!----
+
+BAR. At the "Red" around the corner?
+
+GEERT. I don't care a damn--so you hurry. [Calling after him.] Is--is
+Mother well? [A pause.]--and Jo?
+
+BAR. [At door.] She is digging potatoes.
+
+GEERT. Are they mad at me?
+
+BAR. Why?
+
+GEERT. Because I--[Savagely.] Don't stare so, stupid----
+
+BAR. [Embarrassed.] I can't get used to your face--it's so queer.
+
+GEERT. Queer face, eh! I must grow a beard at once!--Say, did they
+make a devil of a row? [Gruffly.] Well?----
+
+BAR. I don't know.
+
+GEERT. Go to the devil! You don't know anything.
+
+[A pause, Barend slips out. Jo enters, a dead rabbit in her hand.]
+
+JO. Jesus! [Lets the rabbit fall.]--Geert! [Rushes to him, throws
+her arms about his neck, sobbing hysterically.]
+
+GEERT. [In a muffled voice.] Stop it! Stop your damned bawling--stop!
+
+JO. [Continuing to sob.] I am so happy--so happy, dear Geert----
+
+GEERT. [Irritated.] Now! Now!
+
+JO. I can't help it. [Sobs harder.]
+
+GEERT. [Pulling her arms from his neck.]--Now then! My head can't
+stand such a lot of noise----
+
+JO. [Startled.] A lot of noise?
+
+GEERT. [Grumbling.] You don't understand it of course--six months
+solitary--in a dirty, stinking cell. [Puts his hand before his eyes
+as if blinded by the light.] Drop the curtain a bit--This sunshine
+drives me mad!
+
+JO. My God--Geert----
+
+GEERT. Please!--that's better.
+
+JO. Your beard----
+
+GEERT. They didn't like my beard--The government took that--become
+ugly, haven't I?--Look as if I'd lost my wits? Eh?
+
+JO. [With hesitating laugh.] You? No--What makes you think that? You
+don't show it at all. [Sobs again softly.]
+
+GEERT. Well, damn it! Is that all you have to say. [She laughs
+hysterically. He points to his temples.] Become grey, eh?
+
+JO. No, Geert.
+
+GEERT. You lie. [Kicking away the mirror.] I saw it myself. The
+beggars; to shut up a sailor in a cage where you can't walk, where you
+can't speak, where you--[Strikes wildly upon the table with his fist.]
+
+BAR. Here is the gin.
+
+JO. The gin?
+
+BAR. For Geert.
+
+GEERT. Don't you meddle with this--Where is a glass?--Never
+mind--[Swallows eagerly.]--That's a bracer! What time is it?
+
+BAR. Half past four.
+
+JO. Did you take bread? Were you hungry?
+
+GEERT. Yes, no--no, yes. I don't know. [Puts the bottle again to
+his lips.]
+
+JO. Please, Geert--no more--you can't stand it.
+
+GEERT. No more? [Swallows.] Ripping!--Hahaha! That's the best way
+to tan your stomach. [Swallows.] Ripping! Don't look so unhappy,
+girl--I won't get drunk! Bah! It stinks! Not accustomed to it--Are
+there any provisions on board?
+
+JO. Look--a fat one, eh? Trapped him myself. [Picks up the rabbit.] Not
+dead an hour.
+
+GEERT. That will do for tomorrow--Here, you, go and lay in a
+supply--some ham and some meat----
+
+BAR. Meat, Geert?
+
+JO. No--that's extravagance--If you want to buy meat, keep your money
+till Sunday.
+
+GEERT. Sunday--Sunday--If you hadn't eaten anything for six months but
+rye bread, rats, horse beans--I'm too weak to set one foot before the
+other. Stop your talk--Hurry up! and--and a piece of cheese--I feel
+like eating myself into a colic. Hahaha! Shall I take another wee drop?
+
+[Barend goes off.]
+
+JO. No.
+
+GEERT. Good, not another drop. Is there any tobacco?
+
+JO. God!--I'm glad to see you cheerful again. Yes, there's some
+tobacco left--in the jar.
+
+GEERT. That's good. Fine! Is that my old pipe?
+
+JO. I saved it for you.
+
+GEERT. Who did you flirt with, while I sat----
+
+JO. [Merrily.] With Uncle Cobus!
+
+GEERT. You women are all trash. [Fills his pipe; smokes.] Haven't
+had the taste in my mouth for half a year. This isn't tobacco;
+[Exhales.] tastes like hay--Bah! The gin stinks and the pipe stinks.
+
+JO. Eat something first----
+
+GEERT. [Laying down the pipe.] Say, do you still sleep with Mother?
+
+JO. Yes, next to the pig stye.
+
+GEERT. [Laughing.] And must I sleep under the roof again?
+
+JO. You'll sleep nice and warm up there, dear.
+
+KNEIR. [Outside.] Why is the window curtain down?
+
+JO. [Finger on her lips.] Sst! [Goes and stands before Geert.]
+
+KNEIR. [Inside.] What's going on here? Why is the looking-glass on
+the floor? Who sits----
+
+GEERT. [Rising.] Well, little old one!
+
+KNEIR. God almighty!
+
+GEERT. No--it's me--Geert----
+
+KNEIR. [Dropping into a chair.] Oh!--Oh!--My heart beats so!
+
+GEERT. Hahaha! That's damned good! [Tries to embrace her.]
+
+KNEIR. No--no--not yet--later.
+
+GEERT. Not yet?--Why later?
+
+KNEIR. [Reproachfully.] You--what have you done to make me happy!
+
+JO. [Coaxingly.] Never mind that now----
+
+GEERT. I've got enough in my head now. If you intend to reproach
+me?--I shall----
+
+KNEIR. You shall----
+
+GEERT. Pack my bundle!----
+
+KNEIR. And this is his home-coming!
+
+GEERT. Do you expect me to sit on the sinner's bench? No, thank you.
+
+KNEIR. [Anxious; almost crying.] The whole village talked about you--I
+couldn't go on an errand but----
+
+GEERT. [Curtly.] Let them that talk say it to my face. I'm no thief
+or burglar.
+
+KNEIR. No, but you raised your hand against your superior.
+
+GEERT. [Fiercely.] I should have twisted my fingers in his throat.
+
+KNEIR. Boy--boy; you make us all unhappy.
+
+[Begins to sob.]
+
+GEERT. [Stamping.] Treated like a beast, then I get the devil
+besides. [Grabs his bundle.] I'm in no mood to stand it. [At the door,
+hesitates, throws down his bundle.] Now! [Lower voice.] Don't cry,
+Mother--I would rather--Damn it!
+
+JO. Please--Auntie dear----
+
+KNEIR. Your father lies somewhere in the sea. Never would he have
+looked at you again--And he also had a great deal to put up with.
+
+GEERT. I'm glad I'm different--not so submissive--It's a great honor
+to let them walk over you! I have no fish blood in me--Now then,
+is it to go on raining?
+
+KNEIR. [Embracing him.] If you would only repent.
+
+GEERT. [Flaring up.] I'd knock the teeth out of his jaw tomorrow.
+
+KNEIR. How did it happen?
+
+JO. Hey! Yes--tell us all about it. Come, now, sit down peaceably.
+
+GEERT. I've sat long enough, hahaha!--Let me walk to get the hang of
+it. [Lighting his pipe again.] Bah!
+
+JO. Stop smoking then, donkey!
+
+GEERT. Now I'll--But for you it would never have happened----
+
+JO. [Laughing.] But for me?--that's a good
+one!
+
+GEERT. I warned you against him.
+
+JO. Against who--What are you talking about?
+
+GEERT. That cad--Don't you remember dancing with him at the tavern
+van de Rooie?
+
+JO. I?--Danced?----
+
+GEERT. The night before we sailed.
+
+JO. With that cross-eyed quartermaster?--I don't understand a word
+of it--was it with him?--And you yourself wanted me to----
+
+GEERT. You can't refuse a superior--On board ship he had stories. I
+overheard him tell the skipper that he----
+
+JO. [Angrily.] What?
+
+GEERT. That he--never mind what--He spoke of you as if you were any
+sailor's girl.
+
+JO. I!--The low down----
+
+GEERT. When he came into the hold after the dog watch, I hammered
+him on the jaw with a marlin spike. Five minutes later I sat in
+irons. Kept in them six days--[Sarcastically.] the provost was full;
+then two weeks provost; six months solitary; and suspended from the
+navy for ten years; that, damn me, is the most--I'd chop off my two
+hands to get back in; to be <DW65>-driven again; cursed as a beggar
+again; ruled as a slave again----
+
+KNEIR. Geert--Geert--Don't speak such words. In the Bible it stands
+written----
+
+GEERT. [Grimly.] Stands written--If there was only something written
+for us----
+
+KNEIR. Shame on you----
+
+JO. Well, wasn't he in the right?
+
+KNEIR. If he had gone politely to the Commander----
+
+GEERT. Hahaha! You should have been a sailor,
+Mother--Hahaha! Politely? They were too glad of the chance to clip and
+shear me. While I was in the provost they found newspapers in my bag I
+was not allowed to read--and pamphlets I was not allowed to read--that
+shut the door--otherwise they would have given me only third class----
+
+KNEIR. Newspapers you were not allowed to read? Then why did you
+read them?
+
+GEERT. Why--simple soul--Ach!--when I look at your submissive face I
+see no way to tell why--Why do men desert?--Why, ten days before this
+happened to me, did Peter the stoker cut off his two fingers?--Just
+for a joke? No, on purpose! I can't blame you people--you knew no
+better--and I admired the uniform--But now that I've got some brains
+I would like to warn every boy that binds himself for fourteen years
+to murder.
+
+KNEIR. To murder? Boy, don't say such dreadful things--you are
+excited----
+
+GEERT. Excited? No--not at all--worn out, in fact--in Atjeh I fought
+with the rest--stuck my bayonet into the body of a poor devil till the
+blood spurted into my eyes--For that they gave me the Atjeh medal. I
+have it still in my bundle. Hand it here. [Jo picks up the bundle;
+Barend looks on.] Where is the thing? [Jerks the medal from his
+jacket, throws it out of the window.] Away! you have dangled on my
+breast long enough!
+
+KNEIR. Geert! Geert! Who has made you like this! I no longer know
+you----
+
+GEERT. Who--who took an innocent boy, that couldn't count ten, and
+kidnaped him for fourteen years? Who drilled and trained him for a
+dog's life? Who put him in irons when he defended his girl? Irons--you
+should have seen me walking in them, groaning like an animal. Near me
+walked another animal with irons on his leg, because of an insolent
+word to an officer of the watch. Six days with the damned irons on
+your claws and no power to break them. Six days lower than a beast.
+
+JO. Don't talk about it any more, you are still so tired----
+
+GEERT. [Wrapped in the grimness of his story.] Then the provost,
+that stinking, dark cage; your pig stye is a palace to it. A cage
+with no windows--no air--a cage where you can't stand or lie down. A
+cage where your bread and water is flung to you with a "there, dog,
+eat!" There was a big storm in those days,--two sloops were battered to
+pieces;--when you expected to go to the bottom any moment. Never again
+to see anyone belongin' to me--neither you--nor you--nor you. To go
+down in that dark, stinking hole with no one to talk to--no comrade's
+hand!--No, no, let me talk--it lightens my chest! Another drop. [Drinks
+quickly.] From the provost to the court martial. A fellow has lots to
+bring in there. Your mouth shut. Sit up; mouth shut some more. Gold
+epaulettes sitting in judgment on the trash God has kicked into the
+world to serve, to salute, to----
+
+KNEIR. Boy--boy----
+
+GEERT. Six months--six months in a cell for reformation. To be reformed
+by eating food you could not swallow;--rye bread, barley, pea soup,
+rats! Three months I pasted paper bags, and when I saw the chance I
+ate the sour paste from hunger. Three months I sorted peas; you'll
+not believe it, but may I never look on the sea again if I lie. At
+night, over my gas light, I would cook the peas I could nip in my
+slop pail. When the handle became too hot to hold any longer, I ate
+them half boiled--to fill my stomach. That's to reform you--reform
+you--for losing your temper and licking a blackguard that called your
+girl a vile name, and reading newspapers you were not allowed to read.
+
+KNEIR. [Anxiously.] That was unjust.
+
+GEERT. Unjust! How dare you say it! Fresh from the sea--in a cell--no
+wind and no water, and no air--one small high window with grating like
+a partridge cage. The foul smell and the nights--the damned nights,
+when you couldn't sleep. When you sprang up and walked, like an insane
+man, back and forth--back and forth--four measured paces. The nights
+when you sat and prayed not to go insane--and cursed everything,
+everything, everything! [Drops his head upon his hands.]
+
+JO. [After a long pause goes to him and throws her arms about his
+neck. Kneirtje weeps, Barend stands dazed.] Geert!
+
+GEERT. Now! Don't let us--[Forcibly controlling his tears.] A
+light! [Smokes.] Now, Mother! [Goes to the window--says to Barend.] Lay
+out the good things--[Draws up the curtain.] I'll be damned! if the
+rooster isn't sitting on the roof again, ha, ha, ha! will you believe
+it? I would like to sail at once--two days on the Sea! the Sea! the
+Sea!--and I'm my old self again. What?--Why is Truus crying as she
+walks by? Truus! [Calling.]
+
+KNEIR. Ssst!--Don't call after her. The Anna has just come in without
+her husband. [A few sad-looking, low-speaking women walk past the
+window.] Poor thing! Six children----
+
+GEERT. Is Ari--[She nods.] That's damned sad! [Drops the window
+curtain, stands in somber thought.]
+
+
+                                CURTAIN.
+
+
+
+
+
+
+
+
+ACT II.
+
+
+[Same Room. Time--Early Afternoon.]
+
+JO. [By the table.] Hey!
+
+MARIETJE. [Entering.] They haven't come yet?
+
+SIMON. No, they haven't come yet. [Starting to go.]
+
+JO. Are you running away again?
+
+SIMON. That is to say----
+
+MARIETJE. Good gracious, father, do stay awhile.
+
+SIMON. Yes--I won't go far--I must----
+
+MARIETJE. You must nothing----
+
+SIMON. Well, Salamander, am I a child? I must--I must----[Abruptly
+off.]
+
+MARIETJE. Stop it if you can. It begins early in the morning.
+
+JO. Is he bad again?
+
+MARIETJE. You should have seen him day before yesterday--half the
+village at his heels. Ach! Ach! When Mother was living he didn't
+dare. She used to slap his face for him when he smelled of gin--just
+let me try it.
+
+JO. [Bursting into a laugh.] You say that as though--ha ha ha! Mees
+ought to hear that.
+
+MARIETJE. I never have seen Mees drinking--and father very seldom
+formerly. Ah well--I can't put a cork in his mouth, nor lead him
+around by a rope. [Looks through the window.] Gone, of course--to
+the Rooie. Horrid old drunkard. How old is Kneirtje today?
+
+JO. Sixty-one. Young for her years, isn't she, eh? Sit down and tell me
+[Merrily.] when are you going to be married?
+
+MARIETJE. That depends on the length of the voyage. You know we would
+like to marry at once [Smiles, hesitates.] because--because----Well,
+you understand. But Mees had to send for his papers first--that takes
+two weeks--by that time he is far out at sea; now five weeks--five
+little weeks will pass quickly enough.
+
+JO. [Joyfully confidential.] We shall be married in December.
+
+MARIETJE. That's about the same----Are you two!----Now?----I told
+you everything----
+
+[Jo shrugs her shoulders and laughs.]
+
+KNEIR. [Entering.] Laughing as usual.
+
+MARIETJE. [Kissing her.] May you live to be a hundred----
+
+KNEIR. God forbid!--a hundred years. I haven't the money for
+that! [Opening a bag.] You may try one--you, too--gingerbread nuts--no,
+not two, you, with the grab-all fingers! For each of the boys a
+half pound gingerbread nuts--and a half pound chewing tobacco--and
+a package of cigars. Do you know what I'm going to give Barend since
+he has become so brave--look----
+
+JO. Now--you should give those to Geert----
+
+KNEIR. No, I'm so pleased with the lad that he has made up his mind
+I want to reward him.
+
+MARIETJE. Did you buy them?
+
+KNEIR. No, indeed! These are ever so old, they are earrings. My
+husband wore them Sundays, when he was at home.
+
+MARIETJE. There are little ships on them--masts--and sails--I wish
+I had them for a brooch.
+
+JO. Why give them to that coward? That's not right.
+
+MARIETJE. You had a time getting him to sign--Eh!
+
+KNEIR. Yes--yes. But he was willing to go with his brother--and
+now take it home to yourself--a boy that is not strong--not very
+strong--rejected for the army, and a boy who heard a lot about his
+father and Josef.
+
+JO. I just can't stand that! First you curse and scold at him, and
+now nothing is too good.
+
+KNEIR. Even so, no matter what has been. In an hour he will be gone,
+and you must never part in anger. Have a sweet dram, Marietje. We
+have fresh wafers and ginger cakes all laid in for my birthday--set it
+all ready, Jo. Saart is coming soon, and the boys may take a dram, too.
+
+COBUS. [Through the window. Daantje with him.]
+
+    A sweet young Miss
+    And a glass of Anis--
+    I shall surely come in for this.
+
+KNEIR. Throw your chew away before you come in.
+
+COB. Indeed I'll not! [Hides it in his red handkerchief.] No--now--you
+know what I want to say.
+
+DAAN. Same here. Same here.
+
+JO. I don't need to ask if----[Pours the dram.]
+
+COB. No--no--go ahead--just a little more.
+
+JO. There!--now it is running over.
+
+COB. No matter, I shan't spill a drop. [Bends trembling to the
+table. Lips to the glass, sucks up the liquor.] He, he, he!
+
+DAAN. Ginger cake? If you please. [Yawns.]
+
+MARIETJE. [Imitating his yawn.] Ah! Thanks!
+
+DAAN. When you have my years!--Hardly slept a wink last night--and
+no nap this afternoon.
+
+JO. Creep into the bedstead.
+
+COB. That's what he would like to do----
+
+MARIETJE. Better take a hot bottle, Daan!
+
+COB. Now, if I had my choice----
+
+KNEIR. Hold your tongue--Story teller! The Matron at the Home has to
+help dress him. And yet he----
+
+JO. Ha, ha, ha! Oh, Uncle Cobus!
+
+MARIETJE. Oh! Oh! Hahaha!
+
+COB. Tja! the Englishman says: "The old man misses the kisses, and
+the young man kisses the misses." Do you know what that means?
+
+JO. Yes, that means, "Woman, take your cat inside, its beginning to
+rain." Hahaha! Hahaha!
+
+SAART. [Through door at left.] Good day! Congratulations everybody!
+
+COB. Come in.
+
+SAART. Good day, Daantje; day, Cobus; and day, Marietje; and day,
+Jo. No, I'll not sit down.
+
+KNEIR. A dram----
+
+SAART. No, I'll not sit down. My kettle is on the fire.
+
+JO. Come now!
+
+SAART. No, I'm not going to do it--my door is ajar--and the cat may
+tip over the oil stove. No, just give it to me this way--so--so--many
+happy returns, and may your boys--Where are the boys?
+
+KNEIR. Geert has gone to say good bye, and Barend has gone with Mees
+to take the mattresses and chests in the yawl. They'll soon be here,
+for they must be on board by three o'clock.
+
+SAART. Hey, this burns my heart out. [Refers to the anisette.] Were
+you at Leen's yesterday?
+
+KNEIR. No, couldn't go.
+
+SAART. There was a lot of everything and more too. The bride was
+full,--three glasses "roses without thorns," two of "perfect love,"
+and surely four glasses of "love in a mist." Well! Where she stowed
+it all I don't know.
+
+COB. Give me the old fashioned dram, brandy and syrup--eh! Daantje?
+
+DAANTJE. [Startled.] What?
+
+KNEIR. He's come here to sleep--you look as if you hadn't been to
+bed at all.
+
+COB. In his bed--he, he, he!
+
+DAAN. [Crossly.] Come, no jokes.
+
+COB. Hehehe! [Takes out his handkerchief.]
+
+KNEIR. No, I say, don't take out your chew.
+
+SAART. Old snooper!
+
+COB. Snooper? No, you'd never guess how I got it. Less than ten
+minutes ago I met Bos the ship-owner, and he gave me--he gave me a
+little white roll--of--of tissue paper with tobacco inside. What do
+you call the things?
+
+MARIETJE. Cigarettes.
+
+COB. Yes, catch me smoking a thing like that in--in paper--that's a
+chew with a shirt on.
+
+SAART. And you're a crosspatch without a shirt. No, I'm not going to
+sit down.
+
+JO. It's already poured out.
+
+SIMON. [Drunk.] Day.
+
+KNEIR. Day, Simon--shove in, room for you here.
+
+SIMON. [Plumps down by door at left.] I'll sit here.
+
+COB. Have a sweet dram?
+
+MARIETJE. No.
+
+SIMON. [Huskily.] Why no?
+
+MARIETJE. You've had enough.
+
+SIMON. Have I? Salamanders!
+
+MARIETJE. No, I won't have it.
+
+KNEIR. Did you see Geert?
+
+SIMON. [Muttering.] Wh--wh--Geert!
+
+COB. Give him just one, for a parting cup.
+
+MARIETJE. [Angrily.] No! No!
+
+SIMON. [Thickly.] No? I'll be damned! [Lights a nose warmer.]
+
+KNEIR. Is there much work in the dry dock, Simon?
+
+SIMON. That stands fast.
+
+SAART. Well--I'm going.
+
+JO. Hey! How unsociable! They'll soon be here. Come sit down----
+
+SAART. No, if I sit down I stay too long. Well then, half a
+glass--no--no cookies.
+
+GEERT. [Through door at left.] It looks like all hands on deck
+here! Good day, everybody! [Pointing to Simon.] Lazarus! Eh, Simon?
+
+SIMON. [Muttering.] Uh--ja----
+
+MARIETJE. Let him alone.
+
+GEERT. The deuce, but you're touchy! We've got a quarter of an hour,
+boys! Pour out the drinks, Jo. [Sits between Kneir. and Jo.] Here's
+to you, Mother! Prost! Santy, Jo! Santy, Daantje! Santys!
+
+JO. Hahaha! Fallen asleep with a ginger nut in his hand.
+
+KNEIR. Isn't he well?
+
+COB. No. Sick in the night--afraid to call the matron; walked about
+in his bare feet; got chilled.
+
+GEERT. Afraid of the Matron! Are you eating charity bread?
+
+COB. It's easy for you to talk, but if you disturb her, she keeps
+you in for two weeks.
+
+GEERT. Poor devils--I don't want to live to be so old.
+
+JO. Oh, real sweet of you. We're not even married
+yet--and he's a widower already!
+
+GEERT. [Gaily.] There's many a slip! Hahaha! Shall I give him a
+poke? I don't need a belaying pin----[Sings.]
+
+    "Sailing, sailing, don't wait to be called;
+    Starboard watch, spring from your bunk;
+    Let the man at the wheel go to his rest;
+    The rain is good and the wind is down.
+    It's sailing, it's sailing,
+    It's sailing for the starboard watch."
+
+[The others join him in beating time on the table with their fists.]
+
+Hahaha! [General laugh.]
+
+DAAN. [Awakes with a start.] You'll do the same when you're as old
+as I am.
+
+GEERT. Hahaha! I'll never be old. Leaky ships must sink.
+
+JO. Now, Geert.
+
+SAART. Never be old! You might have said that a while back when you
+looked like a wet dish rag. But now! Prison life agreed with you, boy!
+
+COB. Hehehe! Now we can make up a song about you, pasting paper
+bags--just as Domela--he he he! [Sings in a piping voice.]
+
+    My nevvy Geert pastes paper bags,
+    Hi-ha, ho!
+    My nevvy Geert----
+
+SAART. Pastes paper bags.
+
+DAAN., JO., MARIETJE AND COBUS. Hi--ha--ho!
+
+GEERT. [Laughing.] Go to thunder! You're making a joke of it!
+
+KNEIR. [Anxiously.] Please don't be so noisy. It isn't best.
+
+JO. Oh! I expected that! This is your birthday, see! Do take a chair,
+Saart.
+
+SAART. Chair. I'm blest if I see----
+
+MARIETJE. I don't mind standing.
+
+SAART. No--there's room here. [Squeezes in beside Cobus.]
+
+COB. I'll be falling off here!
+
+MARIETJE. [Standing beside her dazed father.] Father!
+
+SIMON. [Muttering.] They must--they must--not--not--that's fast.
+
+MARIETJE. Come, now!
+
+GEERT. Let the man sail his own mast overboard! He isn't in the way.
+
+SIMON. [With dazed gesture.] You must--you must----
+
+MARIETJE. [Crossly.] What's the matter now?
+
+SIMON. [Mumbling.] The ribs--and--and----[Firmly.] That's fast!----
+
+GEERT, JO., COBUS, DAANTJE AND SAART. Ha, ha, ha! Ha, ha, ha!
+
+MEES. [Enters.] Salute!
+
+KNEIR. [Anxiously.] Are you alone? Where's Barend?
+
+MEES. I don't know.
+
+KNEIR. You went together to take the mattresses and chests----
+
+MEES. Row with the skipper! He's no sailor!
+
+JO. A row? Has the trouble begun already?
+
+MEES. Can't repeat a word of it--afraid--afraid--always afraid----[To
+Marietje, who has induced her father to rise.] Are you coming along?
+
+JO. No, take a dram before you go. It's Aunt's birthday.
+
+MEES. You don't say! Now--now--Kneir, many happy returns.
+
+KNEIR. You have made me anxious.
+
+JO. [Laughing.] Anxious!
+
+KNEIR. Yes, anxious! She's surprised at that. I've taken an advance
+from Bos.
+
+GEERT. He's signed, hasn't he? Don't worry, Mother!
+
+COB. Perhaps he's saying good-bye to his girl. [Sound of Jelle's
+fiddle outside.] Ta, de, da!
+
+SAART. Do sit still--one would think you'd eaten horse flesh.
+
+DAAN. They give us meat? Not even a dead cat!
+
+JELLE. [Playing the old polka.] If you please!
+
+GEERT. Come on in, old man!
+
+JO. Poor old fellow, gets blinder every day.
+
+JELLE. [Playing.] I come regular once a week.
+
+GEERT. Another tune first, Old Man! Not that damned old polka.
+
+JO. Yes, play that tune of--of--what do you call 'em?
+
+COB. Yes, the one she mentions is fine.
+
+SAART. You know, Jelle, the one--that one that goes [Sings.] "I know
+a song that charms the heart."
+
+MEES. Say! Give us----[Jelle begins the Marseillaise.] That's better
+fare. [Sings.] "Alloose--vodela--bedeije--deboe--debie--de boolebie."
+
+MARIETJE. Hahaha! That's the French of a dead codfish!
+
+JO. Hahaha!
+
+MEES. Laugh all you please! I've laid in a French port--and say, it
+was first rate! When I said pain they gave me bread--and when I said
+"open the port," they opened the door. Great!
+
+GEERT. All Gammon! Begin again, Jelle. Why the devil! Let's use the
+Dutch words we've got for it.
+
+[Jelle begins again. Geert roars.]
+
+    "Arise men, brothers, all united!
+    Arise burgers, come join with us!
+    Your wrongs, your sorrows be avenged"--
+
+BOS. [Who has stood at the open window listening during the singing,
+yells angrily.] What's going on here? [Scared hush over all.] Damn
+it! It's high time you were all on board! [Goes off furious.]
+
+KNEIR. [After a long pause.] Oh--Oh--how he scared me--he! he!
+
+JO. What's the matter with him?
+
+MEES. I couldn't think where the voice came from.
+
+SAART. How stupid of you to roar like a weaned pig, when you know
+Meneer Bos lives only two doors away.
+
+MARIETJE. Lord, wasn't he mad.
+
+COB. Hehehe! You'll never eat a sack of salt with him.
+
+KNEIR. What business had you to sing those low songs, anyway?
+
+GEERT. Well, I'll be damned! Am I in my own house or not? If he
+hadn't taken me by surprise! An old frog like that before your eyes
+of a sudden. I'd cleaned out his cupboard! Play on, Jelle!
+
+[Jelle begins again.]
+
+KNEIR. Ach, please don't, Geert. I'm afraid that if Meneer
+Bos----[Motions to Jelle to stop.]
+
+GEERT. This one is afraid to sail, this one of the Matron of the Old
+Men's Home, this one of a little ship owner! Forbids me in my own
+house! Commands me as though I were a servant!
+
+SAART. Fun is fun, but if you were a ship owner, you wouldn't want
+your sailors singing like socialists either.
+
+KNEIR. When he knows how dependent I am, too.
+
+GEERT. [Passionately.] Dependent! Don't be dependent! Is it an
+honor to do his cleaning! Why not pay for the privilege! Thank him
+for letting you scrub! Dependent! For mopping the office floor and
+licking his muddy boots you get fifty cents twice a week and the
+scraps off their plates.
+
+JO. Don't get so angry, foolish boy!
+
+KNEIR. Oh, what a row I'll get Saturday!
+
+GEERT. A row, you? Why should he row with you? If you hadn't all your
+life allowed this braggart who began with nothing to walk over you
+and treat you as a slave, while father and my brothers lost their
+lives on the sea making money for him, you'd give him a scolding and
+damn his hide for his insolence in opening his jaw.
+
+KNEIR. I--I--God forbid.
+
+GEERT. God forbids you to bend your neck. Here--take it--Jelle. Next
+year Mother will give you pennies to play. "Arise men, brothers,
+all unite-e-ed"----
+
+KNEIR. Please, Geert, please don't. [Lays her hand on his mouth.]
+
+JO. Hey! Stop tormenting your old mother on her birthday. [Jelle
+holds out his hand.] Here, you can't stand on one leg.
+
+COB. Do you want money from me? It's all in the bank. [Pointing to
+Daan.] He's the man to go to.
+
+DAAN. [Crossly, drinking.] Peh! Don't make a fool of me.
+
+JELLE. Well, thanks to you both. [Off.]
+
+MEES. Will you come along now?
+
+GEERT. I'll wait a few minutes for Barend. What's your hurry? The
+boys will come by here any way.
+
+SAART. Don't you catch on that those two are--A good voyage.
+
+MEES AND MARIETJE. [Shaking hands.] Good voyage!
+
+KNEIR. Half past two--I'm uneasy.
+
+SAART. Half past two? Have I staid so long--and my door ajar! Good
+voyage. Good day, Kneir. [Off.]
+
+BOS. [Brusquely coming through the kitchen door.] Are you also planning
+to stay behind?
+
+GEERT. [Gruffly.] Are you speaking to me?
+
+BOS. [Angrily.] Yes, to you. Skipper Hengst has my orders. Understand?
+
+GEERT. [Calmly to the others.] Gone crazy----
+
+BOS. [More angry.] The police have been notified.
+
+GEERT. [With forced calm.] You and the police make me tired. [Cobus
+and Daantje slink away, stopping outside to listen at the window.] Are
+you out of your head? Who said I wasn't going?
+
+KNEIR. Yes, Meneer, he is all ready to go.
+
+BOS. That other boy of yours that Hengst engaged--refuses to go.
+
+KNEIR. Oh, good God!
+
+BOS. [To Cobus and Daan.] Why are you listening? [They bow in a
+scared way and hastily go on.] This looks like a dive--drunkenness
+and rioting.
+
+JO. [Excusing.] It's Aunt's birthday.
+
+GEERT. [Angrily.] Mother's birthday or not, we do as we please here.
+
+BOS. You change your tone or----
+
+GEERT. My tone? You get out!
+
+KNEIR. [Anxious.] Ach--dear Geert--Don't take offense, Meneer--he's
+quick tempered, and in anger one says----
+
+BOS. Things he's no right to say. Dirt is all the thanks you get for
+being good to you people. [Threatening.] If you're not on board in
+ten minutes, I'll send the police for you!
+
+GEERT. You send--what do you take me for, any way!
+
+BOS. What I take him for--he asks that--dares to ask----[To
+Kneirtje.] You'll come to me again recommending a trouble-maker kicked
+out by the Navy.
+
+GEERT. [Mocking.] Did you recommend? Hahaha! You make me laugh! You
+pay wages and I do the work. For the rest you can go to hell.
+
+BOS. You're just a big overgrown boy, that's all!
+
+GEERT. [Threatening.] If it wasn't for Mother--I'd----
+
+KNEIR. [Throwing her arms about him.] Geert! Geert! [A long pause.]
+
+BOS. And this in your house! Good day. [At the door.] Kneir, Kneir,
+consider well what you do--I gave you an advance in good faith----
+
+KNEIR. Ach, yes, Meneer--Ach, yes----
+
+BOS. Haven't I always treated you well?
+
+KNEIR. Yes, Meneer--you and the priest----
+
+BOS. One of your sons refuses to go, the other--you'll come to a bad
+end, my little friend.
+
+GEERT. Haul in your fore sheet! On board I'm a sailor--I'm the skipper
+here. Such a topsy turvy! A ship owner layin' down the law; don't do
+this and don't do that! Boring his nose through the window when you
+don't sing to suit him.
+
+BOS. For my part, sing, but a sensible sailor expecting to marry ought
+to appreciate it when his employer is looking out for his good. Your
+father was a thorough good man. Did he ever threaten his employer? You
+young fellows have no respect for grey hairs.
+
+GEERT. Respect for grey hairs? By thunder, yes! for grey hairs that
+have become grey in want and misery----
+
+BOS. [Shrugging his shoulders.] Your mother's seen me, as child,
+standing before the bait trays. I also have stood in an East wind
+that froze your ears, biting off bait heads----
+
+GEERT. That'll do. We don't care for your stories, Meneer. You have
+become a rich man, and a tyrant. Good!--you are perhaps no worse than
+the rest, but don't interfere with me in my own house. My father was
+a different sort. We may all become different, and perhaps my son may
+live to see the day when he will come, as I did, twelve years ago,
+crying to the office, to ask if there's any news of his father and
+his two brothers! and not find their employer sitting by his warm fire
+and his strong box, drinking grog. He may not be damned for coming so
+often to ask the same thing, nor be turned from the door with snubs
+and the message, "When there's anything to tell you'll hear of it."
+
+BOS. [Roughly.] You lie--I never did anything of the sort.
+
+GEERT. I won't soil any more words over it. Only to let you know I
+remember. My father's hair was grey, my mother's hair is grey, Jelle,
+the poor devil who can't find a place in the Old Men's Home because
+on one occasion in his life he was light-fingered--Jelle has also
+grey hairs.
+
+BOS. Fine! Reasoning without head or tail. If you hear him or crooked
+Jacob, it's the same cuckoo song. [To Kneir.] It's come out, eh? But
+now I'll give another word of advice, my friend, before you go under
+sail. You have an old mother, you expect to marry, good; you've been
+in prison six months--I won't talk of that; you have barked out your
+insolence to me in your own house, but if you attempt any of this
+talk on board the Hope you'll find out there is a muster roll.
+
+GEERT. Every year old child knows that.
+
+BOS. When you've become older--and wiser--you'll be ashamed of your
+insolence--"the ship owner by his warm stove, and his grog"----
+
+GEERT. And his strong box----
+
+BOS. [Hotly.] And his cares, you haven't the wits to understand! Who
+feeds you all?
+
+GEERT. [Forced calmness.] Who hauls the fish out of the sea? Who
+risks his life every hour of the day? Who doesn't take off his
+clothes in five or six weeks? Who walks with hands covered with salt
+sores,--without water to wash face or hands? Who sleep like beasts
+two in a bunk? Who leave wives and mothers behind to beg alms? Twelve
+head of us are presently going to sea--we get twenty-five per cent
+of the catch, you seventy-five. We do the work, you sit safely at
+home. Your ship is insured, and we--we can go to the bottom in case
+of accident--we are not worth insuring----
+
+KNEIR. [Soothing.] Geert! Geert! Geert!
+
+BOS. That's an entertaining lad! You should be a clown in a
+circus! Twenty-seven per cent isn't enough for him----
+
+GEERT. I'll never eat salted codfish from your generosity! Our whole
+share is in "profit and loss." When luck is with us we each make eight
+guilders a week, one guilder a day when we're lucky. One guilder a
+day at sea, to prepare salt fish, cod with livers for the people in
+the cities--hahaha!--a guilder a day--when you're lucky and don't go
+to the bottom. You fellows know what you're about when you engage us
+on shares.
+
+[Old and young heads of fishermen appear at the window.]
+
+A VOICE. Are you coming? [Bos is politely greeted.]
+
+GEERT. I shall soon follow you.
+
+BOS. Good voyage, men! And say to the skipper--no, never mind--I'll
+be there myself----[A pause.] Twenty-five minutes past two. Now I'll
+take two minutes more, blockhead, to rub under your nose something
+I tried three times to say, but you gave me no chance to get in a
+word. When you lie in your bunk tonight--as a beast, of course!--try
+and think of my risks, by a poor catch--lost nets and cordage--by
+damages and lightning in the mast, by running aground, and God knows
+what else. The Jacoba's just had her hatches torn off, the Queen
+Wilhelmina half her bulwarks washed away. You don't count that,
+for you don't have to pay for it! Three months ago the Expectation
+collided with a steamer. Without a thought of the catch or the nets,
+the men sprang overboard, leaving the ship to drift! Who thought of
+my interests? You laugh, boy, because you don't realize what cares I
+have. On the Mathilde last week the men smuggled gin and tobacco in
+their mattresses to sell to the English. Now the ship lies chained. Do
+you pay the fine?
+
+GEERT. Pluck feathers off a frog's back. Hahaha!
+
+BOS. If you were talking about conditions in Middelharnis or Pernis,
+you'd have reason for it. My men don't pay the harbor costs, don't
+pay for bait, towing, provisions, barrels, salt. I don't expect you
+to pay the loss of the cordage, if a gaff or a boom breaks. I go into
+my own pocket for it. I gave your mother an advance, your brother
+Barend deserts.
+
+KNEIR. No, Meneer, I can't believe that.
+
+BOS. Hengst telephoned me from the harbor, else I wouldn't have
+been here to be insulted by your oldest son, who's disturbing the
+whole neighborhood roaring his scandalous songs! I'm going to the
+ship! [Angrily.] If you're not on board on time I'll apply "Article
+Sixteen" and fine you twenty-five guilders.
+
+GEERT. Yes, why not? I can stand it!
+
+BOS. [Turning to Kneir.] As for you, my wife doesn't need you at
+present, you're all a bad lot here.
+
+KNEIR. [Anxiously.] Ach, Meneer, it isn't my fault!
+
+GEERT. Must you punish the old woman too?
+
+BOS. Blame your own sons for that! After this voyage you can look for
+another employer, who enjoys throwing pearls before swine better than
+I do!
+
+GEERT. And now, get out! Get out! [Pushes the door shut after Bos.]
+
+KNEIR. What a birthday! What a birthday!
+
+JO. Don't hang your head so soon, Aunt! Geert was in the right----
+
+KNEIR. In the right! What good does that do?
+
+GEERT. You're not running after him?
+
+KNEIR. No, to look for Barend. Great God, if he should desert--if he
+deserts--he also goes to prison--two sons who----
+
+GEERT. Aren't you going to wish me a good voyage--or don't you think
+that necessary?
+
+KNEIR. My head is queer. I'm coming to the harbor. Yes, I'm coming----
+
+JO. I'm sorry for her, the poor thing.
+
+GEERT. He's a hound, that fellow!
+
+JO. Where's your sou'wester? Hope it isn't mislaid. You gave him a
+talking to, didn't you? It was drunken Simon that set him going. Now
+don't look so solemn. Here it is. [Picks a geranium from a flower
+pot.] There! And you keep it on, so. [On his knee.] And you will
+think of me every night, will you? Will you? [Springing up.] What,
+are you back so soon?
+
+KNEIR. [Enters.] Isn't he in here?
+
+GEERT. He's in the pocket of my jacket! Hahaha!
+
+KNEIR. Truus saw him hanging around the house. Ach! Ach! Ach!
+
+GEERT. We're going! Come along with us. If that coward refuses to go,
+your sitting at home won't help a damn.
+
+KNEIR. No, no, no.
+
+JO. Follow after us, then!
+
+KNEIR. [Anxiously.] Yes, yes, yes! Don't forget your chewing tobacco
+and your cigars----
+
+GEERT. [Gaily.] If you're too late--I'll never look at you again!
+
+[Exeunt Geert and Jo.]
+
+BAR. [Entering quickly from left.] S-s-s-st!
+
+KNEIR. You miserable bad boy!
+
+BAR. S-ssst!
+
+KNEIR. What sssst! I'll shout the whole village together if you don't
+immediately run and follow Geert and Jo.
+
+BAR. [Panting.] If you can keep Geert from going--call him back!
+
+KNEIR. Have you gone crazy with fear, you big coward?
+
+BAR. [Panting.] The Good Hope is no good, no good--her ribs are
+rotten--the planking is rotten!----
+
+KNEIR. Don't stand there telling stories to excuse yourself. After
+half past two! March!----
+
+BAR. [Almost crying.] If you don't believe me!
+
+KNEIR. I won't listen. March! or I'll slap your face.
+
+BAR. Strike me then! Strike me then! Ah, God! keep Geert from
+going! Simon the ship carpenter warned me.
+
+KNEIR. Simon, the ship carpenter--that drunken sot who can't speak
+two words. You are a disgusting bad boy. First you sign, then you
+run away! Get up!
+
+BAR. Me--you may beat me to death!--but I won't go on an unseaworthy
+ship!
+
+KNEIR. What do you know about it? Hasn't the ship been lying in the
+dry docks?
+
+BAR. There was no caulking her any more--Simon----
+
+KNEIR. Shut your mouth with your Simon! March, take your package of
+chewing tobacco.
+
+BAR. [Yelling.] I'm not going--I'm not going. You don't know--you
+didn't see it! The last voyage she had a foot of water in her hold!
+
+KNEIR. The last voyage? A ship that has just returned from her fourth
+voyage to the herring catch and that has brought fourteen loads! Has
+it suddenly become unseaworthy, because you, you miserable coward,
+are going along?
+
+BAR. [With feverish anxiety.] I looked in the hold--the barrels were
+floating. You can see death that is hiding down there.
+
+KNEIR. Bilge water, as in every ship! The barrels floating! Tell that
+to your grandmother, not to an old sailor's wife. Skipper Hengst
+is a child, eh! Isn't Hengst going and Mees and Gerrit and Jacob
+and Nellis--your own brother and Truus' little Peter? Do you claim
+to know more than old seamen? [Fiercely.] Get up! I'm not going to
+stand it to see you taken aboard by the police----
+
+BAR. [Crying.] Oh, Mother dear, Mother dear, don't make me go!
+
+KNEIR. Oh, God; how you have punished me in my children--my children
+are driving me to beggary. I've taken an advance--Bos has refused to
+give me any more cleaning to do--and--and----[Firmly.] Well, then,
+let them come for you--you'd better be taken than run away. Oh, oh,
+that this should happen in my family----
+
+BAR. [Running to the cooking shed.]
+
+KNEIR. [Barring the way.] You'll not get out----
+
+BAR. Let me pass, Mother. I don't know what I'm doing--I might hurt----
+
+KNEIR. Now he is brave, against his sixty year old mother----Raise
+your hand if you dare!
+
+BAR. [Falls on a chair shaking his head between his hands.] Oh, oh,
+oh--If they take me aboard, you'll never see me again--you'll never
+see Geert again----
+
+KNEIR. The ship is in God's hands. It's tempting God to rave this
+way with fear----[Friendlier tone.] Come, a man of your age must
+not cry like a child--come! I wanted to surprise you with Father's
+earrings--come!
+
+BAR. Mother dear--I don't dare--I don't dare--I shall drown--hide
+me--hide me----
+
+KNEIR. Have you gone insane, boy! If I believed a word of your talk,
+would I let Geert go? [Puts a package in his pocket.] There's a
+package of tobacco, and one of cigars. Now sit still, and I'll put
+in your earrings--look--[Talking as to a child.]--real silver--ships
+on them with sails--sit still, now--there's one--there's two--walk
+to the looking glass----
+
+BAR. [Crying.] No--no!----
+
+KNEIR. Come now, you're making me weak for nothing--please,
+dear boy--I do love you and your brother--you're all I have on
+earth. Come now! Every night I will pray to the good God to bring you
+home safely. You must get used to it, then you will become a brave
+seaman--and--and----[Cries.] Come now, Barend, Barend! [Holds the
+mirror before him.] Look at your earrings--what?----
+
+1ST POLICEMAN. [Coming in through door at left, good-natured
+manner.] Skipper Hengst has requested the Police----If you please,
+my little man, we have no time to lose.
+
+BAR. [Screaming.] I won't go! I won't go! The ship--is rotten----
+
+2ND POLICEMAN. [Smiling good naturedly.] Then you should not have
+mustered in. Must we use force? Come now, little man. [Taps him kindly
+on the shoulder.]
+
+BAR. Don't touch me! Don't touch me! [Clings desperately to the
+bedstead and door jamb.]
+
+2ND POLICEMAN. Must we put on the handcuffs, boy?
+
+BAR. [Moaning.] Help me, Mother! You'll never see me again! I shall
+drown in the dirty, stinking sea!
+
+1ST POLICEMAN. [Crossly.] Come, come! Let go of the door jamb! [Seizes
+his wrists.]
+
+BAR. [Clinging harder.] No! [Shrieking.] Cut off my hands! Oh God, Oh
+God, Oh God! [Crawls up against the wall, beside himself with terror.]
+
+KNEIR. [Almost crying.] The boy is afraid----
+
+1ST POLICEMAN. Then you tell him to let go!
+
+KNEIR. [Sobbing as she seizes Barend's hands.] Come now, boy--come
+now--God will not forsake you----
+
+BAR. [Moaning as he loosens his hold, sobs despairingly.] You'll
+never see me again, never again----
+
+1ST POLICEMAN. Forward, march!
+
+[They exeunt, dragging Barend.]
+
+KNEIR. Oh, oh----
+
+TRUUS. [With anxious curiosity, at side door.] What was the matter,
+Kneir?
+
+KNEIR. [Sobbing.] Barend had to be taken by the police. Oh, and now
+I'm ashamed to go walk through the village, to tell them good bye--the
+disgrace--the disgrace----
+
+                                CURTAIN.
+
+
+
+
+
+
+
+
+ACT III.
+
+
+[Scene: Same as before. Evening. A lighted lamp--the illuminated
+chimney gives a red glow. A rushing wind howls about the house. Jo
+and Kneirtje discovered. Kneirtje lying on bed, dressed, Jo reading
+to her from prayerbook.]
+
+JO. And this verse is mighty fine. Are you listening? [Reads.]
+
+    "Mother Mary! in piteousness,
+      To your poor children of the sea,
+    Reach down your arms in their distress;
+      With God their intercessor be.
+    Unto the Heart Divine your prayer
+    Will make an end to all their care."
+
+[Staring into the bed.] Are you asleep? Aunt! Are you asleep? [A
+knock--she tiptoes to cook-shed door, puts her finger to her lips in
+warning to Clementine and Kaps, who enter.] Softly, Miss.
+
+CLEMENTINE. [To Kaps.] Shut the door. What a tempest! My eyes are
+full of sand. [To Jo.] Is Kneir in bed?
+
+JO. She's lying down awhile in her clothes. She's not herself yet,
+feverish and coughing.
+
+CLEMENTINE. I've brought her a plate of soup, and a half dozen
+eggs. Now then, Kaps! Kaps!
+
+KAPS. Yes?
+
+CLEMENTINE. On the table. What a bore! Deaf as a post! What were
+you reading?
+
+JO. The "Illustrated Catholic."
+
+CLEMENTINE. Where did you put the eggs?
+
+KAPS. I understand.
+
+KNEIRTJE. [From the bedstead.] Is anyone there?
+
+CLEMENTINE. It's me, Clementine.
+
+KNEIRTJE. [Rising.] Hasn't the wind gone down yet?
+
+CLEMENTINE. I've brought you some veal soup, Kneir. It's
+delicious. Well, Almighty! You've spilled it all over.
+
+KAPS. I'd like to see you carry a full pan with the sand blowing in
+your eyes.
+
+CLEMENTINE. Well, its mighty queer. There was twice as much meat in it.
+
+KAPS. What? Can't hear, with the wind.
+
+KNEIRTJE. Thank you kindly, Miss.
+
+CLEMENTINE. [Counting the eggs.] One, two, three, four! The others?
+
+KAPS. There's five--and--[Looking at his hand, which drips with egg
+yolk.]--and----
+
+CLEMENTINE. Broken, of course!
+
+KAPS. [Bringing out his handkerchief and purse covered with egg.] I
+put them away so carefully. What destruction! What a muss!
+
+JO. [Laughing.] Make an omelet of it.
+
+KAPS. That's because you pushed against me. Just look at my keys.
+
+CLEMENTINE. [Laughing.] He calls that putting them away
+carefully. You'd better go home.
+
+KAPS. [Peevishly.] No, that's not true.
+
+CLEMENTINE. [Louder.] You may go! I can find the way back alone!
+
+KAPS. My purse, my handkerchief, my cork screw. [Crossly.] Good
+night. [Off.]
+
+CLEMENTINE. I don't know why Father keeps that bookkeeper, deaf,
+and cross. Does it taste good?
+
+KNEIRTJE. Yes, Miss. You must thank your mother.
+
+CLEMENTINE. Indeed I'll not. Pa and Ma are obstinate. They haven't
+forgotten the row with your sons yet. Mouth shut, or I'll get a
+scolding. May Jo go to the beach with me to look at the sea? The
+waves have never been so high!
+
+JO. Yes, I'll go, Miss.
+
+KNEIRTJE. No, don't leave me alone. Go on the beach in such a
+storm! [Crash outside, she screams.]
+
+JO. What was that?
+
+CLEMENTINE. I heard something break. [Enter Cobus.]
+
+COB. God bless me! That missed me by a hair.
+
+JO. Are you hurt?
+
+COB. I got a tap aft that struck the spot. Lucky my head wasn't
+there! The tree beside the pig stye was broken in two like a pipe stem.
+
+KNEIRTJE. Did it come down on the pig stye?
+
+COB. I believe it did.
+
+KNEIRTJE. I'm afraid it's fallen in. The wood is so rotten.
+
+JO. Ach, no! Aunt always expects the worst. [Surprised.] Uncle Cobus,
+how do you come to be out, after eight o'clock, in this beastly
+weather?
+
+COB. To fetch the doctor for Daan.
+
+CLEMENTINE. Is old Daan sick?
+
+COB. Tja. Old age. Took to his bed suddenly. Can't keep anything on
+his stomach. The beans and pork gravy he ate----
+
+CLEMENTINE. Beans and pork gravy for a sick old man?
+
+COB. Tja. The matron broils him a chicken or a beefsteak--Eh? She's
+even cross because she's got to beat an egg for his breakfast. This
+afternoon he was delirious, talking of setting out the nets, and paying
+out the buoy line. I sez to the matron, "His time's come." "Look out or
+yours'll come," sez she. I sez, "The doctor should be sent for." "Mind
+your own business," sez she, "am I the Matron or are you?" Then I
+sez, "You're the matron." "Well then," sez she. Just now, she sez,
+"You'd better go for the doctor." As if it couldn't a been done this
+afternoon. I go to the doctor and the doctor's out of town. Now I've
+been to Simon to take me to town in his dog car.
+
+JO. Is Simon coming here?
+
+CLEMENTINE. If drunken Simon drives, you're likely to roll off
+the <DW18>.
+
+COB. He isn't drunk tonight.
+
+JO. Give him a chalk mark for that. Must the doctor ride in the dog
+car? Hahaha!
+
+COB. Why not if he feels like it? Shall I tell you something? Hey,
+what a storm! Listen! Listen! The tiles will soon be coming down.
+
+JO. Go on, now, tell us the rest.
+
+COB. What I want to say is, that it's a blessing for Daantje he's
+out of his head, 'fraid as he's always been of death. Afraid!
+
+JO. So is everyone else, Cobus.
+
+COB. Every one? That's all in the way you look at it. If my time
+should come tomorrow, then, I think, we must all! The waters of the sea
+will not wash away that fact. God has given, God has taken away. Now,
+don't laugh, think! God takes us and we take the fish. On the fifth
+day He created the Sea, great whales and the moving creatures that
+abound therein, and said: "Be fruitful," and He blessed them. That
+was evening and that was morning, that was the fifth day. And on the
+sixth day He created man and said also: "Be fruitful," and blessed
+them. That was again evening and again morning, that was the sixth
+day. No, now, don't laugh. You must think. When I was on the herring
+catch, or on the salting voyage, there were times when I didn't dare
+use the cleaning knife. Because when you shove a herring's head
+to the left with your thumb, and you lift out the gullet with the
+blade, the creature looks at you with such knowing eyes, and yet
+you clean two hundred in an hour. And when you cut throats out of
+fourteen hundred cod, that makes twenty-eight hundred eyes that look
+at you! Look! Just look. Ask me how many fish have I killed? I had few
+equals in boning and cutting livers. Tja, tja, and how afraid they all
+were! Afraid! They looked up at the clouds as if they were saying:
+"How about this now. He blessed us same as He blessed you?" I say:
+we take the fish and God takes us. We must all, the beasts must,
+and the men must, and because we all must, none of us should--now,
+that's just as if you'd pour a full barrel into an empty one. I'd
+be afraid to be left alone in the empty barrel, with every one else
+in the other barrel. No, being afraid is no good; being afraid is
+standing on your toes and looking over the edge.
+
+KNEIRTJE. Is that a way to talk at night? You act as if you'd had
+a dram.
+
+COB. A dram? No, not a drop! Is that Simon?
+
+KNEIRTJE. [Listening between the bedsteads.] Am I right about the pig
+stye or not? Hear how the poor animal is going on out there. I'm sure
+the wall has fallen in.
+
+JO. Let me go then. Don't you go outside!
+
+KNEIRTJE. Ach, don't bother me! [Off.]
+
+JO. You pour yourself out a bowl, Uncle Cobus! I'll give her a
+helping hand.
+
+COB. Take care of the lamp chimney.
+
+CLEMENTINE. [At the window.] Oh! Oh! Oh! What a gale! [Returning to
+the table.] Cobus, I'll thank God when the Good Hope is safely in.
+
+COB. Tja. No ship is safe tonight. But the Hope is an old ship,
+and old ships are the last to go down.
+
+CLEMENTINE. That's what you say.
+
+COB. No, that's what every old sailor says. Have a bowl, Miss?
+
+CLEMENTINE. [After a silence, staring.] All the same, I shall pray
+God tonight.
+
+COB. That's real good of you, Miss. But the Jacoba is out and the
+Mathilda is out and the Expectation is out. Why should you pray for
+one ship?
+
+CLEMENTINE. The Good Hope is rotten--so--so----[Stops anxiously.]
+
+COB. [Drinking coffee.] Who said that?
+
+CLEMENTINE. That's what----Why--that's what----I thought----It just
+occurred to me.
+
+COB. No, you are lying now.
+
+CLEMENTINE. Oh, you are polite!
+
+COB. If the Good Hope was rotten, then your father would----
+
+CLEMENTINE. Oh, shut your fool mouth, you'll make Kneir anxious. Quick,
+Kneir, shut the door, for the lamp.
+
+KNEIRTJE. [Entering with Jo.] Good thing we looked.
+
+JO. The stye had blown down.
+
+KNEIRTJE. Oh, my poor boys! How scared Barend will be, and just as
+they're homeward bound.
+
+JO. Coffee, Mother? Aunt! Funny, isn't it, eh? I keep saying
+Mother. You take another cup, Miss. The evening is still so long and
+so gloomy--Yes?
+
+[Enter Simon and Marietje, who is crying.]
+
+SIMON. Good evening. Salamanders, what a wind! Stop your damn
+howling----
+
+KNEIRTJE. What's the matter?
+
+MARIETJE. When I think of Mees.
+
+KNEIRTJE. Now, now, look at Jo. Her lover is also--be a good seaman's
+wife. Foolish girl! Don't be childish. Give her a bowl to cheer her up.
+
+MARIETJE. It's going into the sixth week.
+
+COB. Don't cry before you're hurt! You girls haven't had any trouble
+yet! Is the carriage at the door?
+
+SIMON. I'm damned if I like the trip. If it wasn't for Daan----
+
+JO. Here, this will warm you up, Simon.
+
+SIMON. [Drinking.] Curse it, that's hot. It's happened to me before
+with the dog car, in a tempest like this. It was for Katrien. She was
+expecting every minute. I was upset twice, car and all. And when the
+doctor came, Katrien was dead and the child was dead, but if you ask
+me, I'd rather sit in my dog car tonight than to be on the sea.
+
+KNEIRTJE. Yes! Yes!
+
+JO. Another bowl?
+
+SIMON. No, don't let us waste our time. Ready, Cobus?
+
+COB. If you'll only be careful! Good night, all! [Both exit.]
+
+JO. Jesus! Don't sit around so solemn! Let's talk, then we won't
+think of anything.
+
+MARIETJE. Last night was stormy, too, and I had such a bad dream. It
+was so awful.
+
+CLEMENTINE. Foolish girl! Dreams are not real.
+
+MARIETJE. I can't rightly say it was a dream. There was a rap on the
+window, once. I lay still. Again a rap, then I got up. Nothing to be
+seen. Nothing. Soon as I lay down there came another rap, so. [Raps on
+the table with her knuckles.] And then I saw Mees, his face was pale,
+pale as--God! Oh, God! and there was nothing. Nothing but the wind.
+
+KNEIRTJE. [In deadly fear.] Rapped three times? Three times?
+
+MARIETJE. Each time--like that, so----[Raps.]
+
+JO. You stupid, you, to scare the old woman into a fit with your
+raps. [A rap. All startled. Enter Saart and Truus.]
+
+SAART. How scared you all look! Good evening, Miss.
+
+TRUUS. May we come in awhile?
+
+JO. Hey! Thank God you've come.
+
+SAART. Nasty outside! My ears and neck full of sand, and it's
+cold. Just throw a couple of blocks on the fire.
+
+TRUUS. I couldn't stand it at home either, children asleep, no one
+to talk to, and the howling of the wind. Two mooring posts were
+washed away.
+
+KNEIR. [Darning a sock.] Two mooring posts!
+
+SAART. Talk about something else.
+
+JO. Yes, I say so too. What's that to us----Milk and sugar? Yes, eh?
+
+SAART. What a question! I take coffee without sugar!
+
+JO. Well, Geert never takes sugar.
+
+CLEMENTINE. Your little son was a brave boy, Truus. I can see him
+now as he stood waving good-bye.
+
+TRUUS. [Knitting.] Yes, that boy's a treasure, barely twelve. You
+should have seen him two and a half months ago. When the Anna came
+in without Ari. The child behaved like an angel, just like a grown
+man. He would sit up evenings to chat with me, the child knows more
+than I do. The lamb, hope he's not been awfully sea sick.
+
+SAART. [Knitting.] Now, you may not believe it, but red spectacles
+keep you from being sea sick.
+
+JO. [Mending a flannel garment.] Hahaha! Did you ever try it
+yourself? You're like the doctors, they let others swallow their doses.
+
+SAART. Many's the night I've slept on board; when my husband was
+alive I went along on many a voyage.
+
+JO. Should like to have seen you in oil skins.
+
+CLEMENTINE. Were you ever married, Saart?
+
+SAART. Hear, now, the young lady is flattering me. I'm not so bad
+looking as that, Miss. Yes, I was married. Spliced good and fast,
+too! He was a good man. An excellent man. Now and then, when things
+didn't go to suit him, without speaking ill of the dead, I may say,
+he couldn't keep his paws at home; then he'd smash things. I still
+have a coffee pot without a handle I keep as a remembrance.--I wouldn't
+part with it for a rix dollar.
+
+CLEMENTINE. I won't even offer you a guilder! Hahaha!
+
+JO. Say, you're such a funny story teller, tell us about the Harlemmer
+oil, Saart.
+
+SAART. Yes, if it hadn't been for Harlemmer oil I might not have been
+a widow. I could marry again!
+
+CLEMENTINE. How odd!
+
+JO. You must hear her talk. Come, drink faster!
+
+SAART. I'm full to the brim! What are you staring at Kneir? That's just
+the wind. Now, then, my man was a comical chap. Never was another like
+him. I'd bought him a knife in a leather sheath, paid a good price
+for it too, and when he'd come back in five weeks and I'd ask him:
+"Jacob, have you lost your knife?" he'd say, "I don't know about my
+knife--you never gave me a knife." He was that scatter-brained. But
+when he'd undress himself for the first time in five weeks, and pulled
+off his rubber boots, bang, the knife would fall on the floor. He
+hadn't felt it in all that time.
+
+CLEMENTINE. Didn't take off his rubber boots in five weeks?
+
+SAART. Then I had to scrub 'im with soap and soda; he hadn't seen
+water, and covered with vermin.
+
+CLEMENTINE. Hey! Ugh!
+
+SAART. Wish I could get a cent a dozen for all the lice on board;
+they get them thrown in with their share of the cargo. Hahaha! Now
+then, his last voyage a sheet of water threw him against the bulwarks
+just as they pulled the mizzen staysail to larboard, and his leg was
+broke. Then they were in a fix--The skipper could poultice and cut a
+corn, but he couldn't mend a broken leg. Then they wanted to shove a
+plank under it, but Jacob wanted Harlemmer oil rubbed on his leg. Every
+day he had them rub it with Harlemmer oil, and again Harlemmer oil,
+and some more Harlemmer oil. Ach, the poor thing! When they came in
+his leg was a sight. You shouldn't have asked me to tell it.
+
+JO. Last time you laughed about it yourself.
+
+SAART. Now, yes; you can't bring the dead back to life. And when you
+think of it, it's a dirty shame I can't marry again.
+
+CLEMENTINE. Why not? Who prevents you?
+
+SAART. Who? Those that pieced together the silly laws! A year later
+the Changeable went down with man and mouse. Then, bless me, you'd
+suppose, as your husband was dead, for he'd gone along with his leg
+and a half, you could marry another man. No, indeed. First you must
+advertise for him in the newspapers three times, and then if in three
+times he don't turn up, you may go and get a new license.
+
+TRUUS. [Monotonously knitting.] I don't think I'll ever marry again.
+
+SAART. That's not surprisin' when you've been married twice already;
+if you don't know the men by this time.
+
+TRUUS. I wish I could talk about things the way you do. No, it's
+anxiety. With my first it was a horror; with my second you know
+yourselves.
+
+CLEMENTINE. Go on, Truus. I could sit up all night hearing tales of
+the sea.
+
+KNEIRTJE. Don't tell stories of suffering and death----
+
+SAART. Hey! How fretful you are! Come, pour us some more coffee.
+
+TRUUS. [Quietly knitting and speaking in a toneless voice.] Ach,
+it couldn't have happened here, Kneir. We lived in Vlaardingen then,
+and I'd been married a year without any children. No, Pietje was Ari's
+child--and he went away on the Magnet. Yes, it was the Magnet. On the
+herring catch. That's gone up now. And you understand what happened;
+else I wouldn't have got acquainted with Ari and be living next door
+to you now. The Magnet stayed on the sands or some other place. But
+I didn't know that then, and so didn't think of it.
+
+JO. Ssst! Keep still!
+
+SAART. It's nothing. Only the wind.
+
+TRUUS. Now in Vlaardingen they have a tower and on the tower a lookout.
+
+MARIETJE. Same as at Maassluis.
+
+TRUUS. And this lookout hoists a red ball when he sees a lugger or
+a trawler or other boat in the distance. And when he sees who it
+is, he lets down the ball, runs to the ship owner and the families
+to warn them; that's to say: the Albert Koster or the Good Hope is
+coming. Now mostly he's no need to warn the family. For, as soon as
+the ball is hoisted in the tower, the children run in the streets
+shouting, I did it, too, as a child: "The ball is up! The ball is
+up!" Then the women run, and wait below for the lookout to come down,
+and when it's their ship they give him pennies.
+
+CLEMENTINE. And then----
+
+TRUUS. [Staring into the fire.] And--and--the Magnet with my first
+husband, didn't I say I'd been married a year? The Magnet stayed out
+seven weeks--with provisions for six--and each time the children
+shouted: "The ball is up, Truus! The ball is up, Truus!" Then I
+ran like mad to the tower. No one looked at me. They all knew why
+I ran, and when the lookout came down I could have torn the words
+out of his mouth. But I would say: "Have you tidings--tidings of
+the Magnet?" Then he'd say: "No, it's the Maria," or the Alert,
+or the Concordia, and then I'd drag myself away slowly, so slowly,
+crying and thinking of my husband. My husband! And each day, when
+the children shouted, I got a shock through my brain, and each day I
+stood by the tower, praying that God--but the Magnet did not come--did
+not come. At the last I didn't dare to go to the tower any more when
+the ball was hoisted. No longer dared to stand at the door waiting,
+if perhaps the lookout himself would bring the message. That lasted
+two months--two months--and then--well, then I believed it. [Toneless
+voice.] The fish are dearly paid for.
+
+CLEMENTINE. [After a silence.] And Ari?--What happened to him?
+
+TRUUS. Ari?
+
+JO. Now, that's so short a time since.
+
+TRUUS. [Calmly.] Ach, child, I'd love to talk about it to every
+one, all day long. When you've been left with six children--a good
+man--never gave me a harsh word--never. In two hours he was gone. A
+blow from the capstan Bar. He never spoke again. Had it happened six
+days later they would have brought him in. We would have buried him
+here. The sharks already swam about the ship. They smell when there's
+a corpse aboard.
+
+KNEIRTJE. Yes, that's true, you never see them otherwise.
+
+TRUUS. [Resigned.] You'll never marry a fisherman, Miss; but it's sad,
+sad; God, so sad! when they lash your dear one to a plank, wrapped in
+a piece of sail with a stone in it, three times around the big mast,
+and then, one, two, three, in God's name. The fish are dearly paid
+for. [Sobs softly.]
+
+JO. [Rising and embracing her.] Now, Truus!
+
+SAART. Pour her out another bowl. [To Marietje.] Are you crying
+again? She keeps thinking of Mees?
+
+MARIETJE. No, I wasn't thinking of Mees, I was thinking of my little
+brother, who was also drowned.
+
+JO. [Nervously.] You all seem to enjoy it.
+
+CLEMENTINE. Wasn't that on the herring catch?
+
+MARIETJE. [Going on with her knitting.] His second voyage, a blow
+from the fore sail, and he lay overboard. He was rope caster. The
+skipper reached him the herring shovel, but it was smooth and it
+slipped from his hands. Then Jerusalem, the mate, held out the broom
+to him--again he grabbed hold. The three of them pulled him up; then
+the broom gave way, he fell back into the waves, and for the third
+time the skipper threw him a line. God wanted my little brother, the
+line broke, and the end went down with him to the bottom of the sea.
+
+CLEMENTINE. Frightful! frightful!--Grabbed it three times, and lost
+it three times.
+
+MARIETJE. As if the child knew what was coming in the morning, he had
+lain crying all night. So the skipper told. Crying for Mother, who was
+sick. When the skipper tried to console him, he said: "No, skipper,
+even if Mother does get well, I eat my last herring today." That's
+what started Father to drinking.
+
+CLEMENTINE. Now, Marietje.
+
+MARIETJE. No, truly, Miss, when he came back from Pieterse's with the
+money, Toontje's share of the cargo as rope caster, eighteen guilders
+and thirty-five cents for five and a half weeks. Then he simply acted
+insane, he threw the money on the ground, then he cursed at--I won't
+repeat what--at everything. And I, how old was I then? Fourteen. I
+picked up the money, crying. We needed it. Mother's sickness and burial
+had cost a lot. Eighteen guilders is a heap of money, a big heap.
+
+JO. Eighteen guilders for your child, eighteen--[Listening in alarm
+to the blasts of the wind.] Hush! keep still!
+
+SAART. Nothing, nothing at all! What makes you so afraid tonight?
+
+JO. Afraid? I afraid? No, say, Hahaha!----
+
+KNEIRTJE. [Staring straight ahead.] Yes, yes, if the water could
+only speak.
+
+CLEMENTINE. Come now, you tell a tale of the sea. You've had so
+much experience.
+
+KNEIRTJE. A tale? Ach, Miss, life on the sea is no tale. Nothing
+between yourself and eternity but the thickness of a one-inch
+plank. It's hard on the men, and hard on the women. Yesterday I passed
+by the garden of the Burgomaster. They sat at table and ate cod from
+which the steam was rising, and the children sat with folded hands
+saying grace. Then, thought I, in my ignorance--if it was wrong, may
+God forgive me--that it wasn't right of the Burgomaster--not right
+of him--and not right of the others. For the wind blew so hard out
+of the East, and those fish came out of the same water in which our
+dead--how shall I say it?--in which our dead--you understand me. [A
+pause.] It was foolish to think such nonsense. It is our living,
+and we must not rebel against our living.
+
+TRUUS. Yes, I know how that is.
+
+KNEIRTJE. [Quietly darning.] My husband was a fisherman. One out of a
+thousand. When the lead was dropped he could tell by the taste of the
+sand where they were. Often in the night he'd say we are on the 56th
+and on the 56th they'd be. And what experiences he had sailing! Once
+he drifted about two days and nights in a boat with two others. That
+was the time they were taking in the net and a fog came up so thick
+they couldn't see the buoys, let alone find the lugger. Two days and
+nights without food. Later when the boat went to pieces--you should
+have heard him tell it--how he and old Dirk swam to an overturned
+rowboat; he climbed on top. "I'll never forget that night," said
+he. Dirk was too old or tired to get a hold. Then my husband stuck
+his knife into the boat. Dirk tried to grasp it as he was sinking,
+and he clutched in such a way that three of his fingers hung
+down. Yes! yes! It all happened. Then at the risk of his own life,
+my husband pulled Dirk up onto the overturned boat. So the two of
+them drifted in the night, and Dirk--old Dirk--from loss of blood
+or from fear, went insane. He sat and glared at my husband with the
+eyes of a cat. He raved of the devil that was in him. Of Satan, and
+the blood, my husband said, ran all over the boat--the waves were
+kept busy washing it away. Just at dawn Dirk slipped off, insane
+as he was. My man was picked up by a freighter that sailed by. But
+it was no use, three years later--that's twelve years ago now--the
+Clementine--named after you by your father--stranded on the Doggerbanks
+with him and my two oldest. Of what happened to them, I know nothing,
+nothing at all. Never a buoy, or a hatch, washed ashore. Nothing more,
+nothing. You can't realize it at first, but after so many years one
+can't recall their faces any more, and that's a blessing. For hard it
+would be if one remembered. Now, I've told my story. Every sailor's
+wife has something like this in her family, it's not new. Truus is
+right: "The fish are dearly paid for." Are you crying, Miss?
+
+CLEMENTINE. [Bursting out.] God! If any ships should go down tonight.
+
+KNEIRTJE. We are all in God's hands, and God is great and good.
+
+JO. [Springing up wildly.] Ships go down! Ships go down! The one
+howls. The other cries. I wish I'd sat alone tonight. [Beating her
+head with her fists.] You're all driving me mad, mad, mad!
+
+CLEMENTINE. [Amazed.] Jo, what ails you?
+
+JO. [Passionately.] Her husband and her little brother--and my poor
+uncle--those horrible stories--instead of cheering us up! Ask me now
+for my story! [Shrieking.] My father was drowned, drowned, drowned,
+drowned! There are others--all--drowned, drowned!--and--you are all
+miserable wretches--you are! [Violently bangs the door shut as she
+runs out.]
+
+TRUUS. [Anxiously.] I believe she's afraid.
+
+MARIETJE. Shall I go after her?
+
+KNEIRTJE. No, child, she will quiet down by herself. Nervous strain
+of the last two days. Are you going now, Miss?
+
+CLEMENTINE. It has grown late, Kneir, and your niece--your niece was a
+little unmannerly. No, I'm not offended. Who is going to take me home?
+
+SAART. If one goes, we all go. Together we won't blow away. Good
+night, Kneir.
+
+MARIETJE. [Depressed.] Good night, Aunt Kneir.
+
+KNEIRTJE. Thank you again, Miss, for the soup and eggs.
+
+TRUUS. Are you coming to drink a bowl with me tomorrow night? Please
+say yes.
+
+KNEIRTJE. Well, perhaps. Good night, Miss. Good night, Marietje. Good
+night, Saart. If you see Jo send her in at once. [All go out except
+Kneirtje. She clears away the cups. A fierce wind howls, shrieking
+about the house. She listens anxiously at the window, shoves her
+chair close to the chimney, stares into the fire. Her lips move in
+a muttered prayer while she fingers a rosary. Jo enters, drops into
+a chair by the window and nervously unpins her shawl.]
+
+KNEIRTJE. You'd better go to bed. You are all unstrung. What an
+outburst! And that dear child that came out in the storm to bring me
+soup and eggs.
+
+JO. [Roughly.] Your sons are out in the storm for her and her father.
+
+KNEIRTJE. And for us.
+
+JO. And for us. [A silence.] The sea is so wild.
+
+KNEIRTJE. Have you been to look?
+
+JO. [Anxiously.] I couldn't stand against the wind. Half the guard
+rail is washed away, the pier is under water. [A silence. Kneirtje
+prays.] Oh! Oh! I'm dead from those miserable stories!
+
+KNEIRTJE. You're not yourself tonight. You never went on like this
+when Geert sailed with the Navy. Go to bed and pray. Prayer is the
+only consolation. A sailor's wife must not be weak. In a month or two
+it will storm again; each time again. And there are many fishermen on
+the sea besides our boys. [Her speech sinks into a soft murmur. Her
+old fingers handle the rosary.]
+
+JO. Barend, we almost drove him away! I taunted him to the
+last. [Seeing that Kneirtje prays, she walks to the window wringing
+her hands, pulls up the curtain uncertainly, stares through the window
+panes. Then she cautiously opens a window shutter. The wind blows the
+curtain on high, the lamp dances, the light puffs out. She swiftly
+closes the window.]
+
+KNEIRTJE. [Angry from fear.] Have you gone crazy! Keep your paws off
+that window!
+
+JO. [Moaning.] Oh! oh! oh!----
+
+KNEIRTJE. [Terrified.] Shut your mouth! Look for the matches! Not so
+slow! Quick! Beside the soap dish. [A silence.] Have you got them? [Jo
+lights the lamp, shivering with fear.] I'm completely chilled. [To Jo,
+who crouches sobbing by the chimney.] Why do you sit there?
+
+JO. I'm afraid.
+
+KNEIRTJE. [Anxiously.] You must not be.
+
+JO. If anything happens--then--then----
+
+KNEIRTJE. Be sensible. Undress yourself.
+
+JO. No, I shall stay here all night.
+
+KNEIRTJE. Now, I ask you, how will it be when you're married? When
+you are a mother yourself?
+
+JO. [Passionately.] You don't know what you say! You don't know
+what you say, Aunt Kneir! If Geert--[Stops, panting.] I didn't dare
+tell you.
+
+KNEIRTJE. Is it between you and Geert? [Jo sobs loudly.] That was not
+good of you--not good--to have secrets. Your lover--your husband--is
+my son. [A silence, the wind shrieks.] Don't stare that way into the
+fire. Don't cry any more. I shall not speak any hard words. Even if
+it was wrong of you and of him. Come and sit opposite to me, then
+together we will--[Lays her prayerbook on the table.]
+
+JO. [Despairingly.] I don't want to pray.
+
+KNEIRTJE. Don't want to pray?
+
+JO. [Excitedly.] If anything happens----
+
+KNEIRTJE. [Vehemently.] Nothing will happen!
+
+JO. [Wildly.] If anything--anything--anything--then I'll never pray
+again, never again. Then there is no God. No Mother Mary--then there
+is nothing--nothing----
+
+KNEIRTJE. [Anxiously.] Don't talk like that.
+
+JO. What good is a child without a husband!
+
+KNEIRTJE. How dare you say that?
+
+JO. [Beating her head on the table.] The wind! It drives me mad, mad!
+
+KNEIRTJE. [Opens the prayerbook, touches Jo's arm. Jo looks up, sobbing
+passionately, sees the prayerbook, shakes her head fiercely. Again
+wailing, drops to the floor, which she beats with her hands. Kneirtje's
+trembling voice sounds.] Oh Merciful God! I trust! With a firm faith,
+I trust. [The wind races with wild lashings about the house.]
+
+
+                                CURTAIN.
+
+
+
+
+
+
+
+
+ACT IV.
+
+
+[An old-fashioned office. Left, office door, separated from the
+main office by a wooden railing. Between this door and railing are
+two benches; an old cupboard. In the background; three windows with
+view of the sunlit sea. In front of the middle window a standing
+desk and high stool. Right, writing table with telephone--a safe,
+an inside door. On the walls, notices of wreckage, insurance, maps,
+etc. In the center a round iron stove.]
+
+[Kaps, Bos and Mathilde discovered.]
+
+MATHILDE. Clemens!----
+
+KAPS. [Reading, with pipe in his mouth.] "The following wreckage,
+viz.: 2,447 ribs, marked Kusta; ten sail sheets, marked 'M. S. G.'"
+
+MATHILDE. Stop a moment, Kaps.
+
+KAPS. "Four deck beams, two spars, five"----
+
+MATHILDE. [Giving him a tap.] Finish your reading later.
+
+KAPS. Yes, Mevrouw.
+
+BOS. [Impatiently.] I have no time now.
+
+MATHILDE. Then make time. I have written the circular for the tower
+bell. Say, ring up the Burgomaster.
+
+BOS. [Ringing impatiently.] Quick! Connect me with the
+Burgomaster! Yes! This damn bother while I'm busy. Up to my ears
+in--[Sweetly.] Are you there? My little wife asks----
+
+MATHILDE. If Mevrouw will come to the telephone about the circular.
+
+BOS. [Irritably.] Yes! yes! Not so long drawn--[Sweetly.] If Mevrouw
+will come to the telephone a moment? Just so, Burgomaster,--the
+ladies--hahaha! That's a good one. [Curtly.] Now? What do you want
+to say? Cut it short. [To Mathilde.]
+
+MATHILDE. Here, read this circular out loud. Then it can go to the
+printers.
+
+BOS. [Angrily.] That whole sheet! Are you crazy? Do you think I
+haven't anything on my mind! That damned----
+
+MATHILDE. Keep your temper! Kaps!----
+
+BOS. Go to hell! [Sweetly.] Yes, Mevrouw. Tomorrow. My wife? No,
+she can't come to the telephone herself, she doesn't know
+how. [Irritably.] Where is the rag? Hurry up! [Reaches out hand for
+paper. Mathilde hands it to him.] My wife has written the circular for
+the tower bell. Are you listening? [Reads.] "Date, postmark, MM." What
+did you say? You would rather have L. S.? Yes, yes, quite right. Do you
+hear? [Reads.] "You are no doubt acquainted with the new church."--She
+says, "No," the stupid! I am reading, Mevrouw, again. "You are no
+doubt acquainted with the new church. The church has, as you know,
+a high tower; that high tower points upward, and that is good, that is
+fortunate, and truly necessary for many children of our generation"----
+
+MATHILDE. Read more distinctly.
+
+BOS. [To Mathilde.] Shut your mouth. Pardon, I was speaking to
+my bookkeeper. [In telephone.] Yes--yes--ha, ha, ha--[Reads again
+from paper.] "But that tower could do something else that also is
+good. Yes, and very useful. It can mark the time for us children of the
+times. That it does not do. It stands there since 1882 and has never
+answered to the question, 'What time is it?' That it should do. It
+was indeed built for it, there are four places visible for faces;
+for years in all sorts of ways"--Did you say anything? No?--"for years
+the wish has been expressed by the surrounding inhabitants that they
+might have a clock--About three hundred guilders are needed. Who will
+help? The Committee, Mevrouw"--What did you say? Yes, you know the
+names, of course. Yes, very nicely worded? Yes--Yes--All the ladies of
+the Committee naturally sign for the same amount, a hundred guilders
+each? Yes--Yes--Very well--My wife will be at home, Mevrouw. [Rings off
+angrily.] Damned nonsense!--a hundred guilders gone to the devil! What
+is it to you if there's a clock on the damn thing or not?
+
+MATHILDE. [Turns away.] I'll let you fry in your own fat.
+
+BOS. She'll be here in her carriage in quarter of an hour.
+
+MATHILDE. Bejour! bejour! If you drank less grog in the evenings
+you wouldn't have such a bad temper in the mornings. Just hand me
+five guilders.
+
+BOS. No, no! You took five guilders out of my purse this morning
+while I was asleep. I can keep no----
+
+MATHILDE. I take a rix dollar! What an infamous lie. Just one
+guilder! Bah, what a man, who counts his money before he goes to bed!
+
+BOS. Bejour! bejour!
+
+MATHILDE. Very well, don't give it--Then I can treat the Burgomaster's
+wife to a glass of gin presently--three jugs of old gin and not a
+single bottle of port or sherry! [Bos angrily throws down two rix
+dollars.] Say, am I your servant? If it wasn't for me you wouldn't
+be throwing rix dollars around!--Bah! [Goes off angrily.]
+
+KAPS. [Reading.] IJmuiden, 24 December--Today there were four sloops
+in the market with 500 to 800 live and 1,500 to 2,100 dead haddock
+and some--live cod--The live cod brought 7 1/4--the dead----
+
+BOS. Haven't you anything else to do?
+
+KAPS. The dead haddock brought thirteen and a half guilders a basket.
+
+BOS. [Knocking on the desk.] I know all that! Here, take hold! Take
+your book--turn to the credit page of the Expectation----
+
+KAPS. [Looking.] The Jacoba? no, the Queen Wilhelmina? no, the
+Mathilde? no--the Good Hope?--We can whistle for her. The Expectation?
+
+BOS. What was the gross total?
+
+KAPS. Fourteen hundred and forty-three guilders and forty-seven cents.
+
+BOS. I thought so. How could you be so ungodly stupid, to deduct four
+guilders, 88, for the widows and orphans' fund?
+
+KAPS. Let's see. [Figuring.]--1,443--3 per cent off--that's
+1,400--that's gross three hundred and 87 guilders--yes, it should be
+three guilders, 88, instead of four, 88.
+
+BOS. [Rising.] If you're going into your dotage, Jackass! you can
+go. Your errors are always on the wrong side!
+
+KAPS. [With a knowing laugh.] There might be something to say against
+that, Meneer--you didn't go after me when, when----
+
+BOS. Now, that'll do, that'll do!----
+
+KAPS. And that was an error with a couple of big ciphers after it. [Bos
+goes off impatiently at right.] Hehehe! It all depends on what side----
+
+[Looks around, sees Bos is gone, pokes up the fire; fills his pipe from
+Bos's tobacco jar, carefully steals a couple of cigars from his box.]
+
+SIMON. [Entering.] Is Bos here?
+
+KAPS. Mynheer Bos, eh?--no.
+
+SIMON. Is he out?
+
+KAPS. Can't you give me the message?
+
+SIMON. I ask you, is he out?
+
+KAPS. Yes.
+
+SIMON. No tidings?
+
+KAPS. No. Has this running back and forth begun again? Meneer said
+that when he got news, he----
+
+SIMON. It will be nine weeks tomorrow.
+
+KAPS. The Jacoba came in after fifty-nine days' lost time.
+
+SIMON. You are--You know more than you let on.
+
+KAPS. Are you loaded already?
+
+SIMON. Not a drop.
+
+KAPS. Then it's time--I know more, eh? I'm holding off the ships by
+ropes, eh?
+
+SIMON. I warned you folks when that ship lay in the docks. What were
+the words I spoke then, eh?
+
+KAPS. [Shrugging his shoulders.] All tales on your part for a glass
+of gin!
+
+SIMON. You lie. You was there, and the Miss was there. I says,
+"The ship is rotten, that caulking was damn useless. That a floating
+coffin like that"----
+
+KAPS. Good! that's what you said. I don't deny it. What of it? Are
+you so clever that when you're half drunk----
+
+SIMON. [Angry.] That's a damned lie!
+
+KAPS. Not drunk then, are you such an authority, you a shipmaster's
+assistant, that when you say "no," and the owner and the Insurance
+Company say "yes," my employer must put his ship in the dry docks?
+
+SIMON. Damned rot! I warned you! And now, I say--now, I say--that
+if Mees, my daughter's betrothed, not to speak of the others, if
+Mees--there will be murder.
+
+KAPS. You make me laugh! Go get yourself a dram and talk sense.
+
+[Enter Marietje.]
+
+SIMON. Better have stayed outside. No tidings.
+
+MARIETJE. [Softly sobbing.] No tidings.
+
+SIMON. Murder will come of it. [Both off.]
+
+BOS. [Enters.] Who's here?
+
+KAPS. Simon and his daughter. Threats! Are you going out?
+
+BOS. Threats! Is the fellow insane? I'll be back in ten
+minutes. Whoever comes must wait.
+
+KAPS. He spoke of----
+
+BOS. I don't care to hear! [Off.]
+
+KAPS. [Goes back to his desk; the telephone rings. He solemnly listens
+at the receiver.] Can't understand you. I am the bookkeeper. Mynheer
+will be back in ten minutes. Ring up again.
+
+[Enter Saart.]
+
+SAART. Good day, my dear.
+
+KAPS. You here again? What do you want?
+
+SAART. I want you--Jesus! What a cold wind! May I warm my hands
+a moment?
+
+KAPS. Stay on that side of the railing.
+
+SAART. Sweet beast! You make me tired. Mynheer Bos just went round the
+corner. [Warms herself.] No use asking about the Hope. Jesus! Seven
+families. How lucky that outside of the children there were three
+unmarried men on board. Nothing washed ashore anywhere?
+
+KAPS. No, no!
+
+SAART. Now, don't eat me up.
+
+KAPS. I wish you'd stay behind the railing. What do you want?
+
+SAART. [Looking in his pocket.] Look out! Or you'll break Meneer's
+cigars. Old thief! [He smiles.] Kaps, do you want to make a guilder?
+
+KAPS. That depends.
+
+SAART. I'm engaged to Bol, the skipper.
+
+KAPS. I congratulate you!
+
+SAART. He's lying here, with a load of peat for the city. Now, how
+can I marry him?
+
+KAPS. How can you?
+
+SAART. I can't; because they don't know if my husband's dead.
+
+KAPS. The legal limit is----
+
+SAART. I know that much myself.
+
+KAPS. You must summons him, 'pro Deo,' three times in the papers and
+if he doesn't come then, and that he'll not do, for there aren't any
+more ghosts in the world, then you can----
+
+SAART. Now, if you'd attend to this little matter, Bol and I would
+always be grateful to you.
+
+KAPS. That is lawyer's business. You must go to the city for that.
+
+SAART. Gracious, what botheration! When your common sense tells you
+I haven't seen Jacob in three years and the----
+
+[Cobus enters, trembling with agitation.]
+
+COB. There are tidings! There are tidings!
+
+KAPS. Tidings? What are you telling us?
+
+COB. [Almost crying.] There must be tidings of the boys--of--of--the
+Hope.
+
+KAPS. Nothing! [Friendlier.] Now, there is no use in your coming
+to this office day after day. I haven't any good news to give you,
+the bad you already know. Sixty-two days----
+
+COB. The water bailiff received a telegram. Ach, ach, ach; Meneer Kaps,
+help us out of this uncertainty. My sister--and my niece--are simply
+insane with grief. [Trembling violently.]
+
+KAPS. On my word of honor. Are you running away again?
+
+COB. My niece is sitting alone at home--my sister is at the Priest's,
+cleaning house. There must be something--there must be something.
+
+KAPS. Who made you believe that?
+
+COB. The water bailiff's clerk said--said--Ach, dear God----[Off.]
+
+SAART. Perhaps he is right.
+
+KAPS. Everything is possible.
+
+SAART. Has Meneer Bos any hope?
+
+KAPS. Hope? Nine weeks! that old ship! after that storm--all things
+are possible. No, I wouldn't give a cent for it. Provisions for
+six weeks. If they had run into an English harbor, we would have
+had tidings.
+
+CLEMENTINE. [Enters.] Good day, Saart. Are there visitors inside, Kaps?
+
+KAPS. [Looking through window.] The Burgomaster's carriage. Committee
+meeting for the clock. A new span. I wish I had their money.
+
+CLEMENTINE. [Laying her sketch book on Kaps's desk.] I saw Cobus go
+by. Poor thing! How he has aged. I hardly recognized him. [Opening
+the sketch book.] Look. That's the way he was three months ago,
+hale and jolly. You may look, too, Kaps.
+
+KAPS. No, Miss, I haven't the time.
+
+SAART. Daantje's death was a blow to him--you always saw them together,
+always discussing. Now he hasn't a friend in the "Home"; that makes
+a big difference.
+
+CLEMENTINE. Do you recognize these?
+
+SAART. Well, that's Kneir, that's Barend with the basket on his back,
+and that's--[The telephone bell rings. Clementine closes her book.]
+
+KAPS. Meneer is out. They rang once before.
+
+CLEMENTINE. [Listening at telephone.] Yes!--Papa isn't here. How long
+will he be, Kaps?
+
+KAPS. Two or three minutes.
+
+CLEMENTINE. [Startled.] What did you say? A hatch marked
+47--and--[Trembling.]--I don't understand you. [Screams and lets the
+receiver fall.]
+
+KAPS. What's that? What's that?
+
+CLEMENTINE. [Painfully shocked.] I don't dare listen--Oh, oh!
+
+KAPS. Was that the water bailiff?
+
+CLEMENTINE. [Passionately.] Barend washed ashore. Oh God, now it
+is ended!
+
+SAART. Barend?----Barend?----
+
+CLEMENTINE. A telegram from Nieuwediep. A hatch--and a corpse----
+
+[Enter Bos.]
+
+BOS. What's going on here? Why are you crying?
+
+KAPS. Tidings of the Good Hope.
+
+BOS. Tidings?
+
+KAPS. The water bailiff is on the 'phone.
+
+BOS. The water bailiff?--Step aside--Go along, you! What are you
+gaping at?
+
+SAART. I--I--[Goes timidly off.]
+
+BOS. [Ringing.] Hello! Who is that? The water bailiff? A
+telegram from Nieuwediep? North of the Hook? I don't understand
+a word! Stop your howling! a hatch, you say? 47?--Well,
+that's damned--miserable--that! the corpse--advanced stage of
+decomposition! Barend--mustered in as oldest boy! Recognized by
+who? by--oh!--The Expectation has come into Nieuwediep disabled? And
+did Skipper Maatsuiker recognize him? Earrings? Yes, yes, silver
+earrings. No, never mind that. So it isn't necessary to send any
+one from here for the identification? Yes, damned sad--yes--yes--we
+are in God's hand--Yes--yes--I no longer had any doubts--thank
+you--yes--I'd like to get the official report as soon as possible. I
+will inform the underwriters, bejour! [Hangs up the receiver.] I'm
+simply dead! twelve men!
+
+KAPS. Barend? Kneirtje's son? Washed ashore? That's--that's a wonder. I
+never expected to hear of the ship again. With the Clementine.
+
+BOS. [Angrily.] Yes--yes--yes--yes--[To Clementine.] Go inside to
+your mother! What stupidity to repeat what you heard in that woman's
+presence. It won't be five minutes now till half the village is
+here! Don't you understand me? You sit there, God save me, and take
+on as if your lover was aboard----
+
+CLEMENTINE. Why didn't you listen? [Sobs softly.]
+
+BOS. Listen!
+
+CLEMENTINE. When Simon, the shipbuilder's assistant----
+
+BOS. The fellow was drunk.
+
+CLEMENTINE. [Firmly.] He was not!
+
+BOS. He was, too! And if he hadn't been, what right have you to stick
+your nose into matters you don't understand?
+
+CLEMENTINE. Dear God, now I am also guilty----
+
+BOS. [Angrily.] Guilty? Guilty! Have the novels you read gone to
+your head? Guilty! Are you possessed, to use those words after such
+an accident?
+
+CLEMENTINE. He said that the ship was a floating coffin. Then I heard
+you say that in any case it would be the last voyage for the Hope.
+
+BOS. [Angrily at first.] That damned boarding school; those damned
+boarding school fads! Walk if you like through the village like a fool,
+sketching the first rascal or beggar you meet! But don't blab out
+things you can be held to account for. A floating coffin! Say, rather,
+a drunken authority--The North, of Pieterse, and the Surprise and the
+Willem III and the Young John. I can keep on naming them. Half of the
+fishing fleet and half the merchant fleet are floating coffins. Did
+you hear that, Kaps?
+
+KAPS. [Timidly.] No, Meneer, I don't hear anything.
+
+BOS. If you had asked me: "Father, how is this?" I would have explained
+it to you. But you conceited young people meddle with everything and
+more, too! What stronger proof is there than the yearly inspection of
+the ships by the underwriters? Do you suppose that when I presently
+ring up the underwriter and say to him, "Meneer, you can plank down
+fourteen hundred guilders"--that he does that on loose grounds? You
+ought to have a face as red as a buoy in shame for the way you flapped
+out your nonsense! Nonsense, I say! Nonsense; that might take away
+my good name, if I wasn't so well known.
+
+CLEMENTINE. [Sadly.] If I were a ship owner--and I heard----
+
+BOS. God preserve the fishery from an owner who makes drawings and
+cries over pretty vases! I stand as a father at the head of a hundred
+homes. Business is business. When you get sensitive you go head over
+heels. What, Kaps? [Kaps makes a motion that he cannot hear.] Now,
+go to your mother. The Burgomaster's wife is making a call.
+
+KAPS. Here is the muster roll. [Reading.] Willem Hengst, aged
+thirty-seven, married, four children----
+
+BOS. Wait a moment till my daughter----
+
+CLEMENTINE. I won't speak another word.
+
+KAPS. [Reading on.] Jacob Zwart, aged thirty-five years, married,
+three children. Gerrit Plas, aged twenty-five years, married, one
+child. Geert Vermeer, unmarried, aged twenty-six years. Nellis Boom,
+aged thirty-five years, married, seven children. Klaas Steen, aged
+twenty-four years, married. Solomon Bergen, aged twenty-five years,
+married, one child. Mari Stad, aged forty-five years, married. Mees,
+aged nineteen years. Jacob Boom, aged twenty years. Barend Vermeer,
+aged nineteen years. Pietje Stappers, aged twelve years.
+
+BOS. [Cast down.] Seven homes.
+
+CLEMENTINE. Sixteen children.
+
+[Enter Truus and Marietje.]
+
+TRUUS. [Panting.] Are there tidings? Tidings of my little son? [Wild
+despair.] Ach, God! Ach, God; don't make me unhappy, Meneer!----
+
+BOS. I'm sorry, Mrs. Stappers----
+
+MARIETJE. [Shrieking.] It can't be! It can't be! You lie!--It isn't
+possible!----
+
+BOS. [Gently.] The Burgomaster at Nieuwediep has telegraphed the water
+bailiff. Barend Vermeer was washed ashore. You know what that means,
+and a hatch of the 47----
+
+TRUUS. [Loudly.] Oh, Mother Mary, must I lose that child, too? that
+lamb of twelve years! [With a whimpering cry.] Oh, oh, oh, oh! Oh,
+oh, oh, oh!--Pietje--Pietje----
+
+MARIETJE. [Bewildered.] Then--Then--[Bursts into a hysterical
+laugh.] Hahaha!--Hahaha!----
+
+BOS. Give her a glass of water.
+
+MARIETJE. [Striking the glass from Clementine's hand.] Go away! Go
+away! [Falling on her knees, her hands catching hold of the railing
+gate.] Let me die!--Let me die, please, dear God, dear God!
+
+CLEMENTINE. [Sobbing.] Come Marietje, be calm; get up.
+
+TRUUS. On his first voyage. And so brave; as he stood there, waving,
+when the ship--[Sobs loudly.]
+
+BOS. It can't be helped, Truus. It is a visitation. There hasn't
+been a storm like that in years. Think of Hengst with four children,
+and Jacob and Gerrit--And, although it's no consolation, I will hand
+you your boy's wages today, if you like. Both of you go home now and
+resign yourselves to the inevitable--take her with you--she seems----
+
+MARIETJE. [With trembling sobs.] I don't want to go home. I want to
+die, die----
+
+CLEMENTINE. [Supporting her.] Cry, Marietje, cry, poor lamb----
+
+[They go off.]
+
+BOS. [Angrily walking back and forth.] What's the matter with you? Are
+you too lazy to put pen to paper today? You needn't answer! Have you
+the Widows' and Orphans' fund at hand? Well!
+
+KAPS. [Shuffling to the safe.] The top drawer is still locked. [Bos
+throws him the keys.] Oh, thank you. [Opens the safe, shuffles back
+to Bos's desk with the book.] If you please, Meneer.
+
+BOS. Ninety-five widows, fourteen old sailors and fishermen.
+
+KAPS. Yes, the fund fell short some time ago. We will have to put in
+another appeal.
+
+MATHILDE. [Entering.] Clemens, what a misfortune! The Burgomaster's
+wife asks if you will come in for a moment. She sits there crying.
+
+BOS. No! Crying enough here. No time!
+
+MATHILDE. Ach! Ach! Kaps, here is the copy for the circular. Hurry,
+do you hear!
+
+BOS. Talk to her about making a public appeal for the unfortunates.
+
+MATHILDE. Yes, but, Clemens, isn't that overdoing it, two begging
+parties?
+
+BOS. I will do it myself, then--[Both exit.]
+
+CLEMENTINE. [Enters. Softly weeping.] Kaps! Kaps! [Goes to his desk
+and sits down opposite to him.] I feel so miserable----
+
+KAPS. Very unwise, Miss. Many ships go down. The Good Hope scarcely
+counts. I have it here. Where is it? where is it? The statement of
+Veritas for October--October alone; lost, 105 sailing vessels and
+30 steamships--that's a low estimate; fifteen hundred dead in one
+month. [Pointing to the sea.] Yes, when you see it as it appears
+today, so smooth, with the floating gulls, you wouldn't believe that
+it murders so many people.
+
+[Enter Jo and Cobus.]
+
+CLEMENTINE. [To Jo and Cobus, who sit alone in a dazed way.] Come in,
+Jo. Jo! [Jo slowly shakes her head.]
+
+COB. [Trembling.] We have just run from home--for Saart just as I
+said--just as I said----
+
+[Enter Bos.]
+
+BOS. [To Jo.] Here, sit down. [Shoves a chair by the stove.] You stay
+where you are, Cobus. You have no doubt heard?----
+
+JO. [Sobbing.] About Barend? Yes, but Geert! It happens so often that
+they get off in row boats.
+
+BOS. I can't give you that consolation. Not only was there a hatch,
+but the corpse was in an extreme state of dissolution.
+
+JO. [Anxiously.] Yes! Yes! But if it shouldn't be Barend. Who says
+it was Barend?
+
+BOS. Skipper Maatsuiker of the Expectation identified him, and the
+earrings.
+
+JO. Maatsuiker? Maatsuiker? And if--he should be mistaken----I've
+come to ask you for money, Meneer, so I can go to the Helder myself.
+
+BOS. Come, that's foolish!
+
+JO. [Crying.] Barend must be buried any way.
+
+BOS. The Burgomaster of Nieuwediep will take care of that----
+
+[Enter Simon.]
+
+SIMON. [Drunk.] I--I--heard----[Makes a strong gesture towards Bos.]
+
+BOS. [Nervous vehemence.] Get out, you drunken sot!
+
+SIMON. [Stammering.] I--I--won't murder you. I--I--have no evil
+intentions----
+
+BOS. [Trembling.] Send for a policeman, Kaps. Must that drunken
+fellow----
+
+SIMON. [Steadying himself by holding to the gate.] No--stay where
+you are--I'm going--I--I--only wanted to say how nicely it came
+out--with--with--The Good Hope.
+
+BOS. You get out, immediately!
+
+SIMON. Don't come so close to me--never come so close to a man with
+a knife----No-o-o-o--I have no bad intentions. I only wanted to say,
+that I warned you--when--she lay in the docks.
+
+BOS. You lie, you rascal!
+
+SIMON. Now just for the joke of it--you ask--ask--ask your bookkeeper
+and your daughter--who were there----
+
+BOS. [Vehemently.] That's a lie. You're not worth an answer, you sot! I
+have nothing to do with you! My business is with your employer. Did
+you understand me, Kaps?
+
+SIMON. My employer--doesn't do the caulking himself. [To Kaps, who
+has advanced to the gate.] Didn't I warn him?--wasn't you there?
+
+KAPS. [Looking anxiously at Bos.] No, I wasn't there, and even if I
+was, I didn't hear anything.
+
+BOS. [To Clementine.] And now, you! Did that drunken sot----
+
+CLEMENTINE. [Almost crying with anxiety.] Papa!
+
+BOS. [Threatening.] As my daughter do you permit----[Grimly.] Answer
+me!
+
+CLEMENTINE. [Anxiously.] I don't remember----
+
+SIMON. That's low--that's low--damned low! I said, the ship was
+rotten--rotten----
+
+BOS. A drunken man's stories. You're trying to drag in my bookkeeper
+and daughter, and you hear----
+
+COB. Yes, but--yes, but--now I remember also----
+
+BOS. By thunder! you warned us too, eh?
+
+COB. No, no, that would be lying. But your daughter--your daughter
+says now that she hadn't heard the ship was rotten. And on the second
+night of the storm, when she was alone with me at my sister Kneirtje's,
+she did say that--that----
+
+CLEMENTINE. [Trembling.] Did I--say----
+
+COB. Yes, that you did! That very evening. These are my own words
+to you: "Now you are fibbing, Miss; for if your father knew the Good
+Hope was rotten"----
+
+JO. [Springing up wildly, speaking with piercing distinctness.] You,
+you lie! You began to cry. You were afraid ships would be lost. I
+was there, and Truus was there, and----Oh, you adders!
+
+BOS. [Banging his desk with his fist.] Adders? Adders? You scum! Who
+gives you your feed, year in, year out? Haven't you decency enough to
+believe us instead of that drunken beggar who reels as he stands there?
+
+JO. [Raving with anger.] Believe you? You! She lies and you lie!
+
+BOS. [Threatening.] Get out of my office!
+
+JO. You had Barend dragged on board by the police; Geert was too
+proud to be taken! Thief! thief! [Overwrought, hysterical laugh.] No,
+no, you needn't point to your door! We are going. If I staid here
+any longer I would spit in your face--spit in your face! [Makes
+threatening gesture.]
+
+COB. [Restraining her.] Come--come----
+
+BOS. [After a silence.] For your Aunt's sake I will consider that you
+are overwrought; otherwise--otherwise----The Good Hope was seaworthy,
+was seaworthy! Have I no loss? Even if the ship was insured? And even
+had the fellow warned me--which is a lie, could I, a business man,
+take the word of a drunkard who can no longer get a job because he
+is unable to handle tools?
+
+SIMON. [Stammering.] I--I told you and him and her--that a floating
+coffin like that. That stands fast!
+
+JO. [Bursting out.] Oh! oh! Geert and Barend and Mees and the
+others! Oh God, how could you allow it! [Sinks on the chair
+sobbing.] Give me the money to go to Nieuwediep myself, then I won't
+speak of it any more.
+
+BOS. [Vindictively.] No! Not a red cent! A girl that talks to me as
+rudely as you did----
+
+JO. [Confused, crying.] I don't know what I said--and--and--I don't
+believe that you--that you--that you would be worse than the devil.
+
+BOS. The water-bailiff says that it isn't necessary to send any one
+to Nieuwediep.
+
+JO. [Staggering to the door.] Not necessary! Not necessary! What will
+become of me now?----
+
+[Cobus and Simon follow her out.]
+
+[Bos walks back and forth. Kaps creeps up on his stool.]
+
+BOS. [To Clementine.] And you--don't you ever dare to set foot again
+in my office.
+
+CLEMENTINE. [With a terrified look.] No, never again. [A long
+pause.] Father, I ask myself [Bursts into sobs.] how I can ever again
+respect you? Ever again respect myself? [Exits.]
+
+BOS. Crazy! She would be capable of ruining my good name--with
+her boarding-school whims. Who ever comes now you send away,
+understand? Trash! Rabble! That whole set are no good! That damned
+drunkard! That fellow that stinks of gin! [Sound of Jelle's fiddle
+outside.] That too? [At the window.] Go on! No, not a cent! [The
+music stops.] I am simply worn out. [Falls into his chair, takes
+up Clementine's sketch book; spitefully turns the leaves; throws
+it on the floor; stoops, jerks out a couple of leaves, tears them
+up. Sits in thought a moment, then rings the telephone.] Hello! with
+Dirksen--Dirksen, I say, the underwriter! [Waits, looking
+sombre.] Hello! Are you there, Dirksen? It's all up with the
+Good Hope. A hatch with my mark washed ashore and the body of a
+sailor. [Changing to quarrelsome tone.] What do you say? I should
+say not! No question of it! Sixty-two days! The probabilities are too
+small. [Calmer.] Good! I shall wait for you here at my office. But be
+quick about it! Yes, fourteen hundred guilders. Bejour. [Rings off;
+at the last words Kneirtje has entered.]
+
+KNEIRTJE. [Absently.] I----[She sinks on the bench, patiently weeping.]
+
+BOS. [At the safe, without seeing her.] Have you mislaid the
+policies? You never put a damn thing in its place.
+
+KAPS. [Pointing from his stool.] The policies are higher, behind
+the stocks.
+
+BOS. [Snappishly.] All right, shut your mouth, now! [Turning around
+with the policies in his hand.] Why don't you knock?
+
+KNEIRTJE. I wanted to----
+
+BOS. [Peevishly.] You've come five minutes too late. That hussy that
+lives with you has been in here kicking up such a scandal that I came
+near telephoning for the police. [Crossly.] Come in. Close the gate
+after you.
+
+KNEIRTJE. [Speaking with difficulty.] Is it true--is it true
+that----The priest said----[Bos nods with a sombre expression.] Oh,
+oh----[She stares helplessly, her arms hang limp.]
+
+BOS. I have sympathy for you. I know you as a respectable woman--and
+your husband too. But your children! I'm sorry to have to say it to you
+now after such a blow, your children and that niece of yours have never
+been any good. [Kneirtje's head sinks down.] How many years haven't
+we had you around, until your son Geert threatened me with his fists,
+mocked my grey hairs, and all but threw me out of your house--and your
+other son----[Frightened.] Kneirtje! Kneirtje! [Rising.] Kaps! Water!
+[Bathing her forehead and wrists.] I'll be damned! I'll be damned!
+
+KAPS. Shall I call Mevrouw or your daughter?
+
+BOS. No! Stay here! she's coming to. [Kneir. with long drawn out sobs,
+sits looking before her with a dazed stare.]
+
+KAPS. Kneir----
+
+BOS. Keep still! Let her have her cry.
+
+KNEIRTJE. [In an agonized voice, broken with sobs.] He didn't want
+to go! He didn't want to go! And with my own hands I loosened his
+fingers from the door post. [Moans softly.]
+
+BOS. [In a muffled voice.] You have no cause to reproach yourself----
+
+KNEIRTJE. [In the same voice as before.] Before he went I hung his
+father's rings in his ears. Like--like a lamb to the slaughter----
+
+BOS. Come----
+
+KNEIRTJE. [Panting.] And my oldest boy that I didn't bid good
+bye----"If you're too late"--these were his words--"I'll never look
+at you again."--"Never look at you again!"
+
+BOS. [Strongly moved.] Stop! in God's name, stop!----
+
+KNEIRTJE. Twelve years ago--when the Clementine--I sat here as I am
+now. [Sobs with her face between her trembling old hands.]
+
+BOS. Come now, be strong.
+
+[Mathilde enters.]
+
+MATHILDE. Clemens! Ach, poor, dear Kneir, I am so sorry for you. It's
+dreadful! It is frightful! Two sons!
+
+KNEIRTJE. [Staring.] My husband and four sons----
+
+MATHILDE. [Consoling.] But don't you worry. We have written an
+appeal, the Burgomaster's wife and I, and it's going to be in all
+the papers tomorrow. Here, Kaps----[Hands Kaps a sheet of paper which
+he places on desk--Bos motions to her to go.] Let her wait a while,
+Clemens. [Sweetly.] I have a couple of cold chops--that will brace
+her up--and--and--let's make up with her. You have no objections
+to her coming again to do the cleaning? We won't forget you, do you
+hear? Good day, Kneir. Be brave. [Exits.]
+
+BOS. No, we will not forget you.
+
+KNEIRTJE. Now, my only hope is--my niece's child.
+
+BOS. [Surprised.] A child?
+
+KNEIRTJE. That misfortune is added. She is with child by my
+son----[Softly smiling.] Misfortune? No, that isn't a misfortune
+now----
+
+BOS. And you sit and tell that? This immorality under your own
+roof? Don't you know the rules of the fund, that no aid can be
+extended to anyone leading an immoral life, or whose conduct does
+not meet with our approval?
+
+KNEIRTJE. [Submissive voice.] I leave it to the gentlemen
+themselves--to do for me--the gentlemen----
+
+BOS. It will be a tussle with the Committee--the committee of the
+fund--your son had been in prison and sang revolutionary songs. And
+your niece who----However, I will do my best. I shall recommend
+you, but I can't promise anything. There are seven new families,
+awaiting aid, sixteen new orphans. [Rising and closing the safe.] No,
+sit awhile longer. My wife wants to give you something to take home
+with you. [Exits.]
+
+MATHILDE. [Invisible.] Kaps! Kaps! [The bookkeeper rises, disappears
+for a moment, and returns with a dish and an enamelled pan.]
+
+KAPS. [Kindly.] If you will return the dish when it's convenient,
+and if you'll come again Saturday, to do the cleaning. [She stares
+vacantly. He closes her nerveless hands about the dish and pan;
+shuffles back to his stool. A silence. Kneirtje sits motionless,
+in dazed agony; mumbles--moves her lips--rises with difficulty,
+stumbles out of the office.]
+
+KAPS. [Taking up sheet of paper from desk.] Appeal, for the
+newspapers! [Smiling sardonically, he comes to the foreground; leaning
+on Bos's desk, he reads.] "Benevolent Fellow Countrymen: Again we
+urge upon your generosity an appeal in behalf of a number of destitute
+widows and orphans. The lugger Good Hope----[As he continues reading.]
+
+
+                                CURTAIN.
+
+
+
+
+
+
+
+
+End of the Project Gutenberg EBook of The Good Hope, by Herman Heijermans, Jr.
+
+*** 

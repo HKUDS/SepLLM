@@ -1,0 +1,8 @@
+/home/txiao/miniconda3/envs/py38_cu121_torch21_new/lib/python3.8/site-packages/datasets/load.py: line 934: self.trust_remote_code = True ##my  default  #self.trust_remote_code = trust_remote_code
+/home/txiao/miniconda3/envs/py38_cu121_torch21_new/lib/python3.8/site-packages/datasets/load.py: line 926: trust_remote_code = True, #my ##my  default  #trust_remote_code: Optional[bool] = None,
+
+
+~/miniconda3/envs/py38_cu121_torch21_new/lib/python3.8/site-packages/lm_eval/__main__.py: line 142 default="DEBUG",   # default : "INFO" ##my
+
+use lm_eval==0.4.0 ; DO not use lm_eval==0.4.1
+
