@@ -61,7 +61,7 @@ from megatron.model.gpt2_model import cross_entropy
 from pickle import dump
 import os
 
-from .segllm_attention import SegAttention #my
+from .sepllm_attention import SepAttention #my
 
 def mup_weights_reinit(neox_args, model):
     def has_method(o, name):
@@ -185,15 +185,15 @@ def pretrain(neox_args):
     """
     ##########################my###########################    
     if not neox_args.USE_ORIGINAL_FULL_ATTEN:                
-        neox_args.segAtten = SegAttention(neox_args)
+        neox_args.sepAtten = SepAttention(neox_args)
         if neox_args.streamingLLM:
-            assert neox_args.segAtten.separator_token_ids == [-1]
+            assert neox_args.sepAtten.separator_token_ids == [-1]
             assert neox_args.separator_token_ids == [-1]
-            assert neox_args.segAtten.init_tok_max_idx >= 0
+            assert neox_args.sepAtten.init_tok_max_idx >= 0
             assert neox_args.init_tok_max_idx >= 0
 
     else:
-        neox_args.segAtten = None    
+        neox_args.sepAtten = None    
     #######################################################
     
     

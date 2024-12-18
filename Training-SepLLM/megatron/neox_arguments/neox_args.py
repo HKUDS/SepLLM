@@ -1381,9 +1381,9 @@ class NeoXArgsTextgen(NeoXArgsTemplate):
 
 
 @dataclass ###my
-class SegLLMArgs(NeoXArgsTemplate):
+class SepLLMArgs(NeoXArgsTemplate):
     """
-    Our SegLLM args when training
+    Our SepLLM args when training
     """
 
     separator_token_ids: list = None
@@ -1461,12 +1461,12 @@ class SegLLMArgs(NeoXArgsTemplate):
     Run streamingLLM. Only takes effect when USE_ORIGINAL_FULL_ATTEN=False. 
     """
 
-    USE_SEG_ATTN_ACCELERATOR: bool = True 
+    USE_SEP_ATTN_KERNEL_ACCELERATOR: bool = True 
     """
-    If True, use Seg_Attention module to accelerate the training process of SegLLM
+    If True, use Sep_Attention module to accelerate the training process of SepLLM
     """
     ######################################There should be at most 1 True for the above 3 args ##############################################
-    RECOMPILE_SEG_ATTN_KERNEL: bool = False 
+    RECOMPILE_SEP_ATTN_KERNEL: bool = False 
     """
     False by default. If True, recompile the Sep_Attention kernels.  When set to True, it may require more GPU memory and provide a certain level of acceleration to the training process.
     """

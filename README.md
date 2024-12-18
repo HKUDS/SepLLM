@@ -17,10 +17,14 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 # Long Streaming Inputs
 Our long streaming evaluation is following [StreamingLLM](url=https://github.com/mit-han-lab/streaming-llm/).
 
-<center>
+<!-- <center>
     <img src="./Training-SepLLM/demo_videos/SepLLM_23s.gif" alt="example">
+</center> -->
+<center>
+<video width="1920" height="1080" controls>
+    <source src="./Streaming-SepLLM/demo_video/demo.mp4" type="video/mp4">
+</video>
 </center>
-
 ## Usage
 
 ```
@@ -49,7 +53,7 @@ CUDA_VISIBLE_DEVICES=0  python ./main/evaluate_streaming_inputs_perplexity.py \
     --dataset_name pg19 \
     --task default \
     --split test\
-    --output_dir ./outputs/demo/llama3_8b_sepllm_len20480_ca800_loc256_sep64_init4_pg19_demo   2>&1 | tee ./logs/demo/llama3_8b_sepllm_len20480_ca800_loc256_sep64_init4_pg19_demo.log
+    --output_dir ./outputs/xxx   2>&1 | tee ./logs/demo/xxx.log
 ```
 You can see other examples under ./Streaming-SepLLM/example_scripts/
 

@@ -45,9 +45,9 @@ from megatron.model.word_embeddings import EmbeddingPipe, SoftEmbedding
 from deepspeed.pipe import PipelineModule, LayerSpec, TiedLayerSpec
 from typing import Union, List
 
-import deepspeed.runtime.utils  as ds_utils  ##my SegLLM
-from ..segllm_attention import SegAttention ##my SegLLM
-from .segllm_forward_input import segllm_forward_input_wrapper ##my SegLLM
+import deepspeed.runtime.utils  as ds_utils  ##my SepLLM
+from ..sepllm_attention import SepAttention ##my SepLLM
+from .sepllm_forward_input import sepllm_forward_input_wrapper ##my SepLLM
 
 def gpt2_attention_mask_func(attention_scores, ltor_mask):
     mask_value = torch.finfo(attention_scores.dtype).min
@@ -87,19 +87,19 @@ def cross_entropy(output, labels, _fp16=False):
 class _pre_transformer_block(object):
     def __init__(self, neox_args):
         self.USE_BiPE = neox_args.USE_BiPE
-        self.USE_SEG_ATTN_ACCELERATOR = neox_args.USE_SEG_ATTN_ACCELERATOR
+        self.USE_SEP_ATTN_KERNEL_ACCELERATOR = neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR
     
     def __call__(self, args):
-        if self.USE_SEG_ATTN_ACCELERATOR:
+        if self.USE_SEP_ATTN_KERNEL_ACCELERATOR:
             if self.USE_BiPE :                
-                assert len(args) == 4, f"Incorrect number of arguments ({len(args)}) to _pre_transformer_block. If USE_SEG_ATTN_ACCELERATOR=True and USE_BiPE=True, it should be 4: (embeddings, inter_position_ids, seg_atten_kernel_func, attention_mask)."        
+                assert len(args) == 4, f"Incorrect number of arguments ({len(args)}) to _pre_transformer_block. If USE_SEP_ATTN_KERNEL_ACCELERATOR=True and USE_BiPE=True, it should be 4: (embeddings, inter_position_ids, sep_atten_kernel_func, attention_mask)."        
             else:                
-                assert len(args) == 3, f"Incorrect number of arguments ({len(args)}) to _pre_transformer_block. If USE_SEG_ATTN_ACCELERATOR=True and USE_BiPE=False, it should be 3: (embeddings,  seg_atten_kernel_func,  attention_mask )."        
+                assert len(args) == 3, f"Incorrect number of arguments ({len(args)}) to _pre_transformer_block. If USE_SEP_ATTN_KERNEL_ACCELERATOR=True and USE_BiPE=False, it should be 3: (embeddings,  sep_atten_kernel_func,  attention_mask )."        
         else:
             if self.USE_BiPE :                
-                assert len(args) == 3, f"Incorrect number of arguments ({len(args)}) to _pre_transformer_block. If USE_SEG_ATTN_ACCELERATOR=False and USE_BiPE=True, it should be 3: (embeddings, inter_position_ids, attention_mask)."        
+                assert len(args) == 3, f"Incorrect number of arguments ({len(args)}) to _pre_transformer_block. If USE_SEP_ATTN_KERNEL_ACCELERATOR=False and USE_BiPE=True, it should be 3: (embeddings, inter_position_ids, attention_mask)."        
             else:                
-                assert len(args) == 2, f"Incorrect number of arguments ({len(args)}) to _pre_transformer_block. If USE_SEG_ATTN_ACCELERATOR=False and USE_BiPE=False, it should be 2: (embeddings, attention_mask)."                        
+                assert len(args) == 2, f"Incorrect number of arguments ({len(args)}) to _pre_transformer_block. If USE_SEP_ATTN_KERNEL_ACCELERATOR=False and USE_BiPE=False, it should be 2: (embeddings, attention_mask)."                        
         
         fn = lambda _args: (_args[0].transpose(0, 1).contiguous(), *_args[1:])
         return fn(args)
@@ -109,19 +109,19 @@ class _pre_transformer_block(object):
 class _post_transformer_block(object):
     def __init__(self, neox_args):
         self.USE_BiPE = neox_args.USE_BiPE
-        self.USE_SEG_ATTN_ACCELERATOR = neox_args.USE_SEG_ATTN_ACCELERATOR
+        self.USE_SEP_ATTN_KERNEL_ACCELERATOR = neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR
     
     def __call__(self, args):
-        if self.USE_SEG_ATTN_ACCELERATOR:
+        if self.USE_SEP_ATTN_KERNEL_ACCELERATOR:
             if self.USE_BiPE :                
-                assert len(args) == 4, f"Incorrect number of arguments ({len(args)}) to _post_transformer_block. If USE_SEG_ATTN_ACCELERATOR=True and USE_BiPE=True, it should be 4: (embeddings, inter_position_ids, seg_atten_kernel_func, attention_mask)."
+                assert len(args) == 4, f"Incorrect number of arguments ({len(args)}) to _post_transformer_block. If USE_SEP_ATTN_KERNEL_ACCELERATOR=True and USE_BiPE=True, it should be 4: (embeddings, inter_position_ids, sep_atten_kernel_func, attention_mask)."
             else:                
-                assert len(args) == 3, f"Incorrect number of arguments ({len(args)}) to _post_transformer_block. If USE_SEG_ATTN_ACCELERATOR=True and USE_BiPE=False, it should be 3: (embeddings,  seg_atten_kernel_func,  attention_mask )."        
+                assert len(args) == 3, f"Incorrect number of arguments ({len(args)}) to _post_transformer_block. If USE_SEP_ATTN_KERNEL_ACCELERATOR=True and USE_BiPE=False, it should be 3: (embeddings,  sep_atten_kernel_func,  attention_mask )."        
         else:
             if self.USE_BiPE :                
-                assert len(args) == 3, f"Incorrect number of arguments ({len(args)}) to _post_transformer_block. If USE_SEG_ATTN_ACCELERATOR=False and USE_BiPE=True, it should be 3: (embeddings, inter_position_ids, attention_mask)."
+                assert len(args) == 3, f"Incorrect number of arguments ({len(args)}) to _post_transformer_block. If USE_SEP_ATTN_KERNEL_ACCELERATOR=False and USE_BiPE=True, it should be 3: (embeddings, inter_position_ids, attention_mask)."
             else:                
-                assert len(args) == 2, f"Incorrect number of arguments ({len(args)}) to _post_transformer_block. If USE_SEG_ATTN_ACCELERATOR=False and USE_BiPE=False, it should be 2: (embeddings, attention_mask)."                        
+                assert len(args) == 2, f"Incorrect number of arguments ({len(args)}) to _post_transformer_block. If USE_SEP_ATTN_KERNEL_ACCELERATOR=False and USE_BiPE=False, it should be 2: (embeddings, attention_mask)."                        
         
         fn = lambda _args: (_args[0].transpose(0, 1).contiguous())
         return fn(args)
@@ -181,9 +181,9 @@ class GPT2ModelPipe(PipelineModule, torch.nn.Module):
         #### Will be initialized for GPU_number times
         # print("################in GPT2ModelPipe init######################") 
         # if not self.neox_args.USE_ORIGINAL_FULL_ATTEN:                
-        #     self.neox_args.segAtten = SegAttention(neox_args)
+        #     self.neox_args.sepAtten = SepAttention(neox_args)
         # else:
-        #     self.neox_args.segAtten = None    
+        #     self.neox_args.sepAtten = None    
         # #######################################################
 
     def insert_layers(
@@ -469,9 +469,9 @@ class GPT2ModelPipe(PipelineModule, torch.nn.Module):
         
         """
         
-        ################################################################################################ SegLLM ##################################################################################################
+        ################################################################################################ SepLLM ##################################################################################################
         # print(f"Debug:  in GPT2ModelPipe forward_input: {forward_input}")
-        forward_input = segllm_forward_input_wrapper(forward_input, neox_args = self.neox_args)
+        forward_input = sepllm_forward_input_wrapper(forward_input, neox_args = self.neox_args)
         
         ##################################################################################################################################################################################################
     

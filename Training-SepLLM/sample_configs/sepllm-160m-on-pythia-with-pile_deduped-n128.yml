@@ -21,11 +21,11 @@
   "gpt-j-residual": true,
   "output-layer-parallelism": "column",
   
-  "attention-config": [[["flash"], 12]],   # default
-    # "attention-config": [[["global"], 12]],  #my
+  # "attention-config": [[["flash"], 12]],   # default
+    "attention-config": [[["global"], 12]],  #my
 
   # "scaled-upper-triang-masked-softmax-fusion": true,  ## For SA attention
-  "scaled_masked_softmax_fusion": true, ####my !!!! For SegLLM
+  "scaled_masked_softmax_fusion": true, ####my !!!! For SepLLM
   "bias-gelu-fusion": true,
 
   # init methods
@@ -101,7 +101,7 @@
   "test-data-paths": ["/lustre/fast/fast/txiao/shihan/compressed_pythia_data/pile_0.87_deduped_text_document"],
 
   "tokenizer-type": "HFTokenizer",
-  "vocab-file": "/lustre/home/txiao/shihan/workspace/SepLLM/Training-SepLLM/training_configs/20B_tokenizer.json",
+  "vocab-file": "/lustre/home/txiao/shihan/workspace/SepLLM/Training-SepLLM/sample_configs/20B_tokenizer.json",
 
   "launcher": "pdsh",
   #"deepspeed_slurm": true,
@@ -122,8 +122,8 @@
   'prefill_local_window_size' : 64,  # The local window size when prefilling (tokens inside the window are kept);  Only take effect when USE_DYNAMIC_PREFILL_WINDOW_SIZE=False
   'generate_local_window_size' : 64,   # The local window size when generating (tokens inside the window are kept);  Only take effect when USE_DYNAMIC_DECODE_WINDOW_SIZE=False        
 
-  'USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS'  :   False,  # If True: the prefilling window sizes for different decoder layers are different; If True: should set 'prefill_win_size_list', else: should set 'prefill_window_size'
-  'USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS' :   False,  # If True: the decoding window sizes for different decoder layers are different;   If True: should set 'decode_win_size_list', else: should set 'decode_window_size' 
+  'USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS'  :   True,  # If True: the prefilling window sizes for different decoder layers are different; If True: should set 'prefill_win_size_list', else: should set 'prefill_window_size'
+  'USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS' :   True,  # If True: the decoding window sizes for different decoder layers are different;   If True: should set 'decode_win_size_list', else: should set 'decode_window_size' 
   
 
   # 'prefill_loc_win_size_list' :   [2048,   64,   640,   2048,   64,   2048,   720,   320,   64,   64, 
@@ -144,9 +144,9 @@
   # 'BiPE_seps': [15, 13, 32, 2, 28, 27, 209, 186, 187],  # The token ids of the seperator tokens for BiPE:  ['.', ',', '?', '!', ';', ":", ' ', '\t','\n'] 
   'BiPE_seps': [ 15, 13, 32, 2, 28, 27, 209, 186, 187 ],  # The token ids of the seperator tokens for BiPE:  ['.', ',', '?', '!', ';', ":", ' ', '\t','\n'] 
   ######################################There should be at most 1 True for the following 3 args ##############################################
-  'USE_ORIGINAL_FULL_ATTEN' : False,  # Train the model without SegLLM's modification if True. Other modifications depend on other parameters' setting such as USE_SA_SOFTMAX.
+  'USE_ORIGINAL_FULL_ATTEN' : False,  # Train the model without SepLLM's modification if True. Other modifications depend on other parameters' setting such as USE_SA_SOFTMAX.
   'streamingLLM' :  False,  ## NOT implemented yet  # Run streamingLLM. Only takes effect when self.original_flag=False
-  'USE_SEG_ATTN_ACCELERATOR': True, # If True, use Flex-attention.
+  'USE_SEP_ATTN_KERNEL_ACCELERATOR': True, # If True, use Flex-attention.
   ######################################There should be at most 1 True for the above 3 args ##############################################
 
   'BATCH_ADAPTIVE_INIT_POS' : True,  # If True: use the floating attension sink positions since when evaluating, LLM usually add paddings on the left side of the shorter seqs in a batch for alignment (i.e., left padding).  Can be False when pretraining since the attention sinks are at the beginning of each seq in batch for pretraining (i.e., right padding)

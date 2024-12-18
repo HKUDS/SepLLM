@@ -17,7 +17,7 @@ import logging
 import os
 
 import deepspeed.launcher.runner
-from megatron.utils import SegLLMArgumentsChecker
+from megatron.utils import SepLLMArgumentsChecker
 
 def main(input_args=None):
     logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
@@ -28,7 +28,7 @@ def main(input_args=None):
     neox_args = NeoXArgs.consume_deepy_args(input_args)
 
     #########################my args check###########################
-    args_checker =  SegLLMArgumentsChecker()
+    args_checker =  SepLLMArgumentsChecker()
     neox_args = args_checker(neox_args)
     #################################################################
 

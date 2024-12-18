@@ -551,7 +551,7 @@ def make_viewless_tensor(inp, requires_grad, keep_graph):
         return _kernel_make_viewless_tensor(inp, requires_grad)
 
 
-class SegLLMArgumentsChecker:
+class SepLLMArgumentsChecker:
     
     def __init__(self, neox_args=None):
         self.neox_args = neox_args
@@ -579,9 +579,9 @@ class SegLLMArgumentsChecker:
 
     def __call__(self, neox_args, STRICT_CHECK=True):        
 
-        EXPERIMENT_NUM = int(neox_args.USE_ORIGINAL_FULL_ATTEN) + int(neox_args.streamingLLM) + int(neox_args.USE_SEG_ATTN_ACCELERATOR) + int(neox_args.USE_SA_SOFTMAX) + int(neox_args.USE_SA_SOFTMAX_NO_DENO)
+        EXPERIMENT_NUM = int(neox_args.USE_ORIGINAL_FULL_ATTEN) + int(neox_args.streamingLLM) + int(neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR) + int(neox_args.USE_SA_SOFTMAX) + int(neox_args.USE_SA_SOFTMAX_NO_DENO)
         UNIQUE_EXP_FLAG = EXPERIMENT_NUM <= 1        
-        assert UNIQUE_EXP_FLAG, f"You can only set at most one True among ('USE_ORIGINAL_FULL_ATTEN'={neox_args.USE_ORIGINAL_FULL_ATTEN}, 'streamingLLM'={neox_args.streamingLLM} and 'USE_SEG_ATTN_ACCELERATOR'={neox_args.USE_SEG_ATTN_ACCELERATOR}, 'USE_SA_SOFTMAX'={neox_args.USE_SA_SOFTMAX}, 'USE_SA_SOFTMAX_NO_DENO'={neox_args.USE_SA_SOFTMAX_NO_DENO}) at one time"        
+        assert UNIQUE_EXP_FLAG, f"You can only set at most one True among ('USE_ORIGINAL_FULL_ATTEN'={neox_args.USE_ORIGINAL_FULL_ATTEN}, 'streamingLLM'={neox_args.streamingLLM} and 'USE_SEP_ATTN_KERNEL_ACCELERATOR'={neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR}, 'USE_SA_SOFTMAX'={neox_args.USE_SA_SOFTMAX}, 'USE_SA_SOFTMAX_NO_DENO'={neox_args.USE_SA_SOFTMAX_NO_DENO}) at one time"        
 
         changed_param_num = 0
         if neox_args.USE_ORIGINAL_FULL_ATTEN:
@@ -631,14 +631,14 @@ class SegLLMArgumentsChecker:
                 neox_args.init_tok_max_idx = -1
                 changed_param_num += 1   
 
-            if neox_args.USE_SEG_ATTN_ACCELERATOR:
-                print(f">> USE_SEG_ATTN_ACCELERATOR:{neox_args.USE_SEG_ATTN_ACCELERATOR}----changed to---->   {False}   ---disabled <<**")
-                neox_args.USE_SEG_ATTN_ACCELERATOR = False
+            if neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR:
+                print(f">> USE_SEP_ATTN_KERNEL_ACCELERATOR:{neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR}----changed to---->   {False}   ---disabled <<**")
+                neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR = False
                 changed_param_num += 1 
    
-            if neox_args.RECOMPILE_SEG_ATTN_KERNEL:
-                print(f">> RECOMPILE_SEG_ATTN_KERNEL:{neox_args.RECOMPILE_SEG_ATTN_KERNEL}----changed to---->   {False}   ---disabled <<**")
-                neox_args.RECOMPILE_SEG_ATTN_KERNEL = False
+            if neox_args.RECOMPILE_SEP_ATTN_KERNEL:
+                print(f">> RECOMPILE_SEP_ATTN_KERNEL:{neox_args.RECOMPILE_SEP_ATTN_KERNEL}----changed to---->   {False}   ---disabled <<**")
+                neox_args.RECOMPILE_SEP_ATTN_KERNEL = False
                 changed_param_num += 1    
 
             if neox_args.USE_BiPE:
@@ -691,7 +691,7 @@ class SegLLMArgumentsChecker:
             else:
                 print(f">> separator_token_ids:{neox_args.separator_token_ids} has already been disabled <<**")
             
-            assert not neox_args.USE_SEG_ATTN_ACCELERATOR, f"To run streamingLLM, must set USE_SEG_ATTN_ACCELERATOR to False"
+            assert not neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR, f"To run streamingLLM, must set USE_SEP_ATTN_KERNEL_ACCELERATOR to False"
             assert not neox_args.USE_BiPE, f"To run streamingLLM, must set USE_BiPE to False"
 
             assert neox_args.init_tok_max_idx >= 0, f"To run streamingLLM, must set init_tok_max_idx to some value that is greater than (or equal to) 0"
@@ -705,18 +705,19 @@ class SegLLMArgumentsChecker:
             assert self.check_list_items_equal(neox_args.attention_config, 'global'), f'USE_SA_SOFTMAX=True or USE_SA_SOFTMAX_NO_DENO=True rely on attention-config=[[["global"], <num-layers>]] '
 
         else:
-            if neox_args.USE_SEG_ATTN_ACCELERATOR:
-                assert Version(torch.__version__) >= Version('2.5.0'), f"If you want to use Seg_Attention module to accelerate the training process of SegLLM, The torch version must be at least 2.5.0 or newer"
-            # assert self.check_list_items_equal(neox_args.attention_config, 'global'), f'SegLLM relies on attention-config=[[["global"], <num-layers>]] '
+            if neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR:
+                assert Version(torch.__version__) >= Version('2.5.0'), f"If you want to use the Sep_Attention kernel module (USE_SEP_ATTN_KERNEL_ACCELERATOR=True) to accelerate the training process of SepLLM, the torch version must be at least 2.5.0 or newer, but got {torch.__version__}. Please set USE_SEP_ATTN_KERNEL_ACCELERATOR=False to run SepLLM, which is logically the same but slower (the speed is similar to full attention)"
+
+            # assert self.check_list_items_equal(neox_args.attention_config, 'global'), f'SepLLM relies on attention-config=[[["global"], <num-layers>]] '
             
-            assert isinstance(neox_args.separator_token_ids, list) and (neox_args.separator_token_ids != [-1]) and len(neox_args.separator_token_ids)>=1, f"To run SegLLM, separator_token_ids should not be None or [-1], and must be well set."
+            assert isinstance(neox_args.separator_token_ids, list) and (neox_args.separator_token_ids != [-1]) and len(neox_args.separator_token_ids)>=1, f"To run SepLLM, separator_token_ids should not be None or [-1], and must be well set."
 
         assert neox_args.PADDING_ID == 0, f"PADDING_ID must be 0 for Pythia or GPTNeox" 
         assert neox_args.generate_local_window_size >= int(STRICT_CHECK), f"generate_local_window_size should be greater than (or equal to) {int(STRICT_CHECK)}." 
         assert neox_args.prefill_local_window_size >= int(STRICT_CHECK), f"prefill_local_window_size should be greater than (or equal to) {int(STRICT_CHECK)}." 
 
-        if neox_args.RECOMPILE_SEG_ATTN_KERNEL:
-            assert neox_args.USE_SEG_ATTN_ACCELERATOR, f"RECOMPILE_SEG_ATTN_KERNEL=True only takes effect when USE_SEG_ATTN_ACCELERATOR=True and may require additional GPU memory while offering a certain degree of acceleration to the training process."
+        if neox_args.RECOMPILE_SEP_ATTN_KERNEL:
+            assert neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR, f"RECOMPILE_SEP_ATTN_KERNEL=True only takes effect when USE_SEP_ATTN_KERNEL_ACCELERATOR=True and may require additional GPU memory while offering a certain degree of acceleration to the training process."
 
         if neox_args.generate_local_window_size != neox_args.prefill_local_window_size:
             print(f"Warnings: It is recommended to set the value of generate_local_window_size={neox_args.generate_local_window_size} to be the same as prefill_local_window_size={neox_args.prefill_local_window_size}, even though generate_local_window_size does not have any effect during the pretraining phase.")

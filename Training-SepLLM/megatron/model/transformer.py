@@ -79,7 +79,7 @@ torch._C._jit_override_can_fuse_on_gpu(True)
 
 
 
-###############################SegAttention Kernels#############################
+###############################SepAttention Kernels#############################
 from packaging.version import Version
 
 if Version(torch.__version__) >= Version('2.5.0'):
@@ -387,10 +387,10 @@ class ParallelSelfAttention(nn.Module):
             neox_args.num_attention_heads, world_size
         )
         self.pos_emb = neox_args.pos_emb
-        ##########################SegLLM################################
+        ##########################SepLLM################################
         self.USE_BiPE  = neox_args.USE_BiPE  ##my
         self.USE_SA_SOFTMAX = neox_args.USE_SA_SOFTMAX ##my
-        self.USE_SEG_ATTN_ACCELERATOR = neox_args.USE_SEG_ATTN_ACCELERATOR        
+        self.USE_SEP_ATTN_KERNEL_ACCELERATOR = neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR        
         self.USE_SA_SOFTMAX_NO_DENO = neox_args.USE_SA_SOFTMAX_NO_DENO
         self.USE_ORIGINAL_FULL_ATTEN = neox_args.USE_ORIGINAL_FULL_ATTEN
 
@@ -564,14 +564,14 @@ class ParallelSelfAttention(nn.Module):
         )
 
     def attention(
-        self, query_layer, key_layer, value_layer, layer_past, attention_mask, seg_atten_kernel_func=None , inter_position_ids=None
+        self, query_layer, key_layer, value_layer, layer_past, attention_mask, sep_atten_kernel_func=None , inter_position_ids=None
     ):
         # ===================================
         # Raw attention scores. [b, np, s, s]
         # ===================================
 
         # [b, np, sq, sk]                        
-        if self.USE_SEG_ATTN_ACCELERATOR and ( not self.USE_ORIGINAL_FULL_ATTEN ):
+        if self.USE_SEP_ATTN_KERNEL_ACCELERATOR and ( not self.USE_ORIGINAL_FULL_ATTEN ):
             query = query_layer.permute(1,2,0,3).contiguous() ## B x head x seq x d: torch.Size([32, 12, 2048, 64])
             key = key_layer.permute(1,2,0,3).contiguous()  ## B x head x seq x d:  torch.Size([32, 12, 2048, 64])
             value = value_layer.permute(1,2,0,3).contiguous() ## B x head x seq x d: torch.Size([32, 12, 2048, 64])
@@ -588,9 +588,9 @@ class ParallelSelfAttention(nn.Module):
             else:
                 pos_bias_ker_func = None
 
-            assert seg_atten_kernel_func is not None, f"If USE_SEG_ATTN_ACCELERATOR={self.USE_SEG_ATTN_ACCELERATOR}, seg_atten_kernel_func should NOT be None"
+            assert sep_atten_kernel_func is not None, f"If USE_SEP_ATTN_KERNEL_ACCELERATOR={self.USE_SEP_ATTN_KERNEL_ACCELERATOR}, sep_atten_kernel_func should NOT be None"
                                     
-            context_layer =  flex_attention(query, key, value, score_mod=pos_bias_ker_func, block_mask=seg_atten_kernel_func)        
+            context_layer =  flex_attention(query, key, value, score_mod=pos_bias_ker_func, block_mask=sep_atten_kernel_func)        
             return context_layer
         else:
 
@@ -952,7 +952,7 @@ class ParallelSelfAttention(nn.Module):
 
         return query_layer, key_layer, value_layer
 
-    def forward(self, hidden_states, attention_mask, layer_past=None, seg_atten_kernel_func=None, inter_position_ids=None):
+    def forward(self, hidden_states, attention_mask, layer_past=None, sep_atten_kernel_func=None, inter_position_ids=None):
 
         # hidden_states: [sq, b, h]
 
@@ -1070,7 +1070,7 @@ class ParallelSelfAttention(nn.Module):
             context_layer = self.flash_attention(query_layer, key_layer, value_layer, attention_mask)
         elif not self.sparse:
             context_layer = self.attention(
-                query_layer, key_layer, value_layer, layer_past, attention_mask, seg_atten_kernel_func=seg_atten_kernel_func, inter_position_ids=inter_position_ids
+                query_layer, key_layer, value_layer, layer_past, attention_mask, sep_atten_kernel_func=sep_atten_kernel_func, inter_position_ids=inter_position_ids
             )
         else:
             context_layer = self.sparse_attention(
@@ -1136,7 +1136,7 @@ class ParallelTransformerLayer(nn.Module):
 
         ################################my######################################
         self.USE_BiPE = neox_args.USE_BiPE ##my. For BiPE
-        self.USE_SEG_ATTN_ACCELERATOR = neox_args.USE_SEG_ATTN_ACCELERATOR ##my. For Flex attention
+        self.USE_SEP_ATTN_KERNEL_ACCELERATOR = neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR ##my. For Flex attention
         ######################################################################
 
         if self.gpt_j_residual:
@@ -1299,18 +1299,18 @@ class ParallelTransformerLayer(nn.Module):
             fn = get_bias_dropout_add(self.training)
         return fn
 
-    def forward(self, x, attention_mask, layer_past=None, inter_position_ids=None, seg_atten_kernel_func=None):
+    def forward(self, x, attention_mask, layer_past=None, inter_position_ids=None, sep_atten_kernel_func=None):
         
-        # ########################################################my SegLLM########################################################            
+        # ########################################################my SepLLM########################################################            
         if isinstance(attention_mask, (list, tuple)) or len(attention_mask.shape) > 4:
             attention_mask_layer = attention_mask[self.layer_number]
-            if seg_atten_kernel_func is not None:
-                block_mask_layer = seg_atten_kernel_func[self.layer_number]
+            if sep_atten_kernel_func is not None:
+                block_mask_layer = sep_atten_kernel_func[self.layer_number]
             else:
                 block_mask_layer = None            
         else:
             attention_mask_layer = attention_mask                    
-            block_mask_layer = seg_atten_kernel_func
+            block_mask_layer = sep_atten_kernel_func
             
         # ################################################my Debug###########################################
         # import os
@@ -1343,7 +1343,7 @@ class ParallelTransformerLayer(nn.Module):
 
             # attention operator
             attention_output, attention_bias = self.attention(
-                x1, attention_mask_layer, layer_past=layer_past, inter_position_ids=inter_position_ids, seg_atten_kernel_func=block_mask_layer
+                x1, attention_mask_layer, layer_past=layer_past, inter_position_ids=inter_position_ids, sep_atten_kernel_func=block_mask_layer
             )
             if self.use_cache:
                 attention_output, presents = attention_output
@@ -1378,7 +1378,7 @@ class ParallelTransformerLayer(nn.Module):
 
             # x = x + attn(ln1(x))
             attention_output, attention_bias = self.attention(
-                self.input_layernorm(x), attention_mask_layer, layer_past=layer_past, inter_position_ids=inter_position_ids, seg_atten_kernel_func=block_mask_layer
+                self.input_layernorm(x), attention_mask_layer, layer_past=layer_past, inter_position_ids=inter_position_ids, sep_atten_kernel_func=block_mask_layer
             )
             if self.use_cache:
                 attention_output, presents = attention_output
@@ -1448,35 +1448,35 @@ class ParallelTransformerLayerPipe(ParallelTransformerLayer):
     def forward(self, args):        
 
         inter_position_ids= None
-        seg_atten_kernel_func = None   
+        sep_atten_kernel_func = None   
         args = remove_none(args)     
-        if self.USE_SEG_ATTN_ACCELERATOR:
+        if self.USE_SEP_ATTN_KERNEL_ACCELERATOR:
             if self.USE_BiPE :       
-                assert len(args) == 4, f"Incorrect number of arguments: ({len(args)}). ParallelTransformerLayerPipe expects 4 arguments If USE_SEG_ATTN_ACCELERATOR=True and USE_BiPE=True, i.e., (hidden_states, inter_position_ids, seg_atten_kernel_func, attention_mask)."
-                hidden_states, inter_position_ids, seg_atten_kernel_func, attention_mask = args
-                output, moe_loss = super().forward(hidden_states, attention_mask, inter_position_ids=inter_position_ids, seg_atten_kernel_func=seg_atten_kernel_func)
+                assert len(args) == 4, f"Incorrect number of arguments: ({len(args)}). ParallelTransformerLayerPipe expects 4 arguments If USE_SEP_ATTN_KERNEL_ACCELERATOR=True and USE_BiPE=True, i.e., (hidden_states, inter_position_ids, sep_atten_kernel_func, attention_mask)."
+                hidden_states, inter_position_ids, sep_atten_kernel_func, attention_mask = args
+                output, moe_loss = super().forward(hidden_states, attention_mask, inter_position_ids=inter_position_ids, sep_atten_kernel_func=sep_atten_kernel_func)
                 self.last_moe_loss = moe_loss
-                return output, inter_position_ids, seg_atten_kernel_func, attention_mask
+                return output, inter_position_ids, sep_atten_kernel_func, attention_mask
 
             else:                                                
-                assert len(args) == 3, f"Incorrect number of arguments: ({len(args)}). ParallelTransformerLayerPipe expects 3 arguments If USE_SEG_ATTN_ACCELERATOR=True and USE_BiPE=False, i.e.,  (hidden_states,  seg_atten_kernel_func,  attention_mask )."             
-                hidden_states,  seg_atten_kernel_func,  attention_mask = args
-                output, moe_loss = super().forward(hidden_states, attention_mask, inter_position_ids=inter_position_ids, seg_atten_kernel_func=seg_atten_kernel_func)
+                assert len(args) == 3, f"Incorrect number of arguments: ({len(args)}). ParallelTransformerLayerPipe expects 3 arguments If USE_SEP_ATTN_KERNEL_ACCELERATOR=True and USE_BiPE=False, i.e.,  (hidden_states,  sep_atten_kernel_func,  attention_mask )."             
+                hidden_states,  sep_atten_kernel_func,  attention_mask = args
+                output, moe_loss = super().forward(hidden_states, attention_mask, inter_position_ids=inter_position_ids, sep_atten_kernel_func=sep_atten_kernel_func)
                 self.last_moe_loss = moe_loss
-                return output,  seg_atten_kernel_func, attention_mask
+                return output,  sep_atten_kernel_func, attention_mask
 
         else:
             if self.USE_BiPE :  
-                assert len(args) == 3, f"Incorrect number of arguments: ({len(args)}). ParallelTransformerLayerPipe expects 3 arguments If USE_SEG_ATTN_ACCELERATOR=False and USE_BiPE=True, i.e., (hidden_states, inter_position_ids, attention_mask)."
+                assert len(args) == 3, f"Incorrect number of arguments: ({len(args)}). ParallelTransformerLayerPipe expects 3 arguments If USE_SEP_ATTN_KERNEL_ACCELERATOR=False and USE_BiPE=True, i.e., (hidden_states, inter_position_ids, attention_mask)."
                 hidden_states, inter_position_ids, attention_mask = args
-                output, moe_loss = super().forward(hidden_states, attention_mask, inter_position_ids=inter_position_ids, seg_atten_kernel_func=seg_atten_kernel_func)
+                output, moe_loss = super().forward(hidden_states, attention_mask, inter_position_ids=inter_position_ids, sep_atten_kernel_func=sep_atten_kernel_func)
                 self.last_moe_loss = moe_loss
                 return output, inter_position_ids, attention_mask
 
             else:        
-                assert len(args) == 2, f"Incorrect number of arguments: ({len(args)}). ParallelTransformerLayerPipe expects 2 arguments If USE_SEG_ATTN_ACCELERATOR=False and USE_BiPE=False, i.e., (hidden_states, attention_mask)."                
+                assert len(args) == 2, f"Incorrect number of arguments: ({len(args)}). ParallelTransformerLayerPipe expects 2 arguments If USE_SEP_ATTN_KERNEL_ACCELERATOR=False and USE_BiPE=False, i.e., (hidden_states, attention_mask)."                
                 hidden_states, attention_mask = args                
-                output, moe_loss = super().forward(hidden_states, attention_mask, inter_position_ids=inter_position_ids, seg_atten_kernel_func=seg_atten_kernel_func)
+                output, moe_loss = super().forward(hidden_states, attention_mask, inter_position_ids=inter_position_ids, sep_atten_kernel_func=sep_atten_kernel_func)
                 self.last_moe_loss = moe_loss
                 return output, attention_mask
 

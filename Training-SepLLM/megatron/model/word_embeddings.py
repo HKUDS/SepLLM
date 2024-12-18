@@ -87,7 +87,7 @@ class Embedding(torch.nn.Module):
         self.use_pos_emb = use_pos_emb  ##True by default
         self.USE_BiPE = neox_args.USE_BiPE
 
-        self.USE_SEG_ATTN_ACCELERATOR = neox_args.USE_SEG_ATTN_ACCELERATOR
+        self.USE_SEP_ATTN_KERNEL_ACCELERATOR = neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR
 
         
         if self.use_pos_emb  or self.USE_BiPE:
@@ -192,40 +192,40 @@ class EmbeddingPipe(Embedding):
         return self.word_embeddings.weight
 
     def forward(self, args):
-        if self.USE_SEG_ATTN_ACCELERATOR:
+        if self.USE_SEP_ATTN_KERNEL_ACCELERATOR:
             if self.USE_BiPE :                
                 assert (
                     len(args) == 5
-                ), f"When self.USE_SEG_ATTN_ACCELERATOR=True and self.USE_BiPE=True, expected 5 arguments (input_ids, intra_position_ids,  inter_position_ids, seg_atten_kernel_func, attention_mask), but got {len(args)}."
+                ), f"When self.USE_SEP_ATTN_KERNEL_ACCELERATOR=True and self.USE_BiPE=True, expected 5 arguments (input_ids, intra_position_ids,  inter_position_ids, sep_atten_kernel_func, attention_mask), but got {len(args)}."
                 input_ids = args[0]
                 intra_position_ids = args[1]
                 inter_position_ids = args[2]
-                seg_atten_kernel_func = args[3]
+                sep_atten_kernel_func = args[3]
                 attention_mask = args[-1]  
 
                 position_ids = intra_position_ids
                 embeddings = super().forward(input_ids, position_ids) ##For BiPE
-                return embeddings, inter_position_ids, seg_atten_kernel_func, attention_mask
+                return embeddings, inter_position_ids, sep_atten_kernel_func, attention_mask
 
             else:
                 assert (
                     len(args) == 4
-                ), f"When self.USE_SEG_ATTN_ACCELERATOR=True and self.USE_BiPE=False,  expected 4 arguments (input_ids, position_ids, seg_atten_kernel_func, attention_mask), but got {len(args)}."
+                ), f"When self.USE_SEP_ATTN_KERNEL_ACCELERATOR=True and self.USE_BiPE=False,  expected 4 arguments (input_ids, position_ids, sep_atten_kernel_func, attention_mask), but got {len(args)}."
                 
                 input_ids = args[0]
                 position_ids = args[1]
-                seg_atten_kernel_func = args[2]                
+                sep_atten_kernel_func = args[2]                
                 attention_mask = args[-1]  
 
                 embeddings = super().forward(input_ids, position_ids)
-                return embeddings,  seg_atten_kernel_func,  attention_mask 
+                return embeddings,  sep_atten_kernel_func,  attention_mask 
 
 
         else:
             if self.USE_BiPE :
                 assert (
                     len(args) == 4
-                ), f"When self.USE_SEG_ATTN_ACCELERATOR=False and self.USE_BiPE=True,  expected 4 arguments (input_ids, intra_position_ids,  inter_position_ids, attention_mask), but got {len(args)}."
+                ), f"When self.USE_SEP_ATTN_KERNEL_ACCELERATOR=False and self.USE_BiPE=True,  expected 4 arguments (input_ids, intra_position_ids,  inter_position_ids, attention_mask), but got {len(args)}."
                 
                 input_ids = args[0]
                 intra_position_ids = args[1]
@@ -240,7 +240,7 @@ class EmbeddingPipe(Embedding):
             else:                
                 assert (
                     len(args) == 3
-                ), f"When self.USE_SEG_ATTN_ACCELERATOR=False and self.USE_BiPE=False, expected 3 arguments (input_ids, position_ids, attention_mask), but got {len(args)}."
+                ), f"When self.USE_SEP_ATTN_KERNEL_ACCELERATOR=False and self.USE_BiPE=False, expected 3 arguments (input_ids, position_ids, attention_mask), but got {len(args)}."
 
                 input_ids = args[0]
                 position_ids = args[1]                            

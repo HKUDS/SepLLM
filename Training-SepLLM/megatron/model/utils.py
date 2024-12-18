@@ -22,7 +22,7 @@ from megatron.model.fused_softmax import SoftmaxFusionTypes
 from megatron import mpu
 from types import GeneratorType
 import torch.distributed as dist
-from .segllm_forward_input import segllm_forward_input_wrapper ##my SegLLM
+from .sepllm_forward_input import sepllm_forward_input_wrapper ##my SepLLM
 
 
 def get_params_for_weight_decay_optimization(module, neox_args):
@@ -171,7 +171,7 @@ class SequentialWrapper(torch.nn.Module):
                 ].contiguous()
             forward_input = (tokens, input_ids, attention_mask)
 
-        forward_input = segllm_forward_input_wrapper(forward_input, neox_args) ###my SegLLM
+        forward_input = sepllm_forward_input_wrapper(forward_input, neox_args) ###my SepLLM
         moe_losses = []
 
         def exec_range_func(start, end):

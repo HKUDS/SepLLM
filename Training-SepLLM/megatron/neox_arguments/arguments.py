@@ -48,7 +48,7 @@ from .neox_args import (
     NeoXArgsOptimizer,
     NeoXArgsLRScheduler,
     ATTENTION_TYPE_CHOICES,
-    SegLLMArgs, ###my
+    SepLLMArgs, ###my
     AdjustSoftmaxArgs ###my
 )
 
@@ -99,7 +99,7 @@ BASE_CLASSES = [
     NeoXArgsLogging,
     NeoXArgsTextgen,
     NeoXArgsOther,
-    SegLLMArgs, ###my
+    SepLLMArgs, ###my
     AdjustSoftmaxArgs ###my
     
 ]
