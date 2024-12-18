@@ -74,7 +74,7 @@ cd Training-SepLLM
 pip install -r requirements/requirements.txt
 python ./megatron/fused_kernels/setup.py install # optional if not using fused kernels
 ```
-*Note: If you want to use the Sep-Attention module, please make sure your Pytorch>=2.5.0. And set "USE_SEG_ATTN_ACCELERATOR=True" in your training config file.*
+*Note: If you want to use the Sep-Attention module, please make sure your Pytorch>=2.5.0. And set "USE_SEP_ATTN_KERNEL_ACCELERATOR=True" in your training config file.*
 
 You can start training by:
 ```
@@ -86,9 +86,9 @@ The sample configuration yml files are in ./Training-SepLLM/sample_configs.
 
 ```
 @dataclass
-class SegLLMArgs(NeoXArgsTemplate):
+class SepLLMArgs(NeoXArgsTemplate):
     """
-    Our SegLLM args when training
+    Our SepLLM args when training
     """
 
     separator_token_ids: list = None
@@ -166,12 +166,12 @@ class SegLLMArgs(NeoXArgsTemplate):
     Run streamingLLM. Only takes effect when USE_ORIGINAL_FULL_ATTEN=False. 
     """
 
-    USE_SEG_ATTN_ACCELERATOR: bool = True 
+    USE_SEP_ATTN_KERNEL_ACCELERATOR: bool = True 
     """
-    If True, use Seg_Attention module to accelerate the training process of SegLLM
+    If True, use Sep_Attention module to accelerate the training process of SepLLM
     """
     ######################################There should be at most 1 True for the above 3 args ##############################################
-    RECOMPILE_SEG_ATTN_KERNEL: bool = False 
+    RECOMPILE_SEP_ATTN_KERNEL: bool = False 
     """
     False by default. If True, recompile the Sep_Attention kernels.  When set to True, it may require more GPU memory and provide a certain level of acceleration to the training process.
     """
@@ -210,7 +210,6 @@ class SegLLMArgs(NeoXArgsTemplate):
     """
     True by default and should always be True. When True, it means when we choose fixed window to process the prefilling mask, the diagonal elements in the prefilling mask could be set negative. When False: would keep the prefilling mask's diagonal positive
     """
-
 ```
 
 Remember to save your training process checkpoints, so that if the training is interrupted unexpectedly, you can resume the training. You can set the save dir in the config yml file.
