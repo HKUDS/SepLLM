@@ -1,7 +1,7 @@
 {
   # ##########my##########
   #   "world_size": 1,
-  #   "num_gpus": 1,
+  #   "num_gpus": 8,
   # ######################
 
   # parallelism settings
@@ -14,17 +14,14 @@
   "num-attention-heads": 12,
   "seq-length": 2048,
   "max-position-embeddings": 2048,
-  # "pos-emb": "rotary",
-  "pos-emb": "alibi",
+  "pos-emb": "rotary",
+  # "pos-emb": "alibi",
   "rotary-pct": 0.25,
   "no-weight-tying": true,
   "gpt-j-residual": true,
   "output-layer-parallelism": "column",
-  
-  # "attention-config": [[["flash"], 12]],   # default
-    "attention-config": [[["global"], 12]],  #my
+  "attention-config": [[["global"], 12]], 
 
-  # "scaled-upper-triang-masked-softmax-fusion": true,  ## For SA attention
   "scaled_masked_softmax_fusion": true, ####my !!!! For SepLLM
   "bias-gelu-fusion": true,
 
@@ -89,59 +86,48 @@
   "warmup": 0.01,
   "checkpoint-factor": 1000,
   "extra-save-iters": [0,1,2,4,8,16,32,64,128,256,512],
-  "eval-interval": 4000, #default 40000
+  "eval-interval": 4000, 
   "eval-iters": 10,
 
   "log-interval": 10,
   "steps_per_print": 10,
   "wall_clock_breakdown": true,
 
-  "train-data-paths": ["/lustre/fast/fast/txiao/shihan/compressed_pythia_data/pile_0.87_deduped_text_document"],
-  "valid-data-paths": ["/lustre/fast/fast/txiao/shihan/compressed_pythia_data/pile_0.87_deduped_text_document"],
-  "test-data-paths": ["/lustre/fast/fast/txiao/shihan/compressed_pythia_data/pile_0.87_deduped_text_document"],
+  "train-data-paths": ["path/to/pile_0.87_deduped_text_document"],
+  "valid-data-paths": ["path/to/pile_0.87_deduped_text_document"],
+  "test-data-paths":  ["path/to/pile_0.87_deduped_text_document"],
 
   "tokenizer-type": "HFTokenizer",
-  "vocab-file": "/lustre/home/txiao/shihan/workspace/SepLLM/Training-SepLLM/sample_configs/20B_tokenizer.json",
+  "vocab-file": "path/to/SepLLM/Training-SepLLM/sample_configs/20B_tokenizer.json",
 
   "launcher": "pdsh",
-  #"deepspeed_slurm": true,
-  #"deepspeed": false
 
-  # "save": "/lustre/fast/fast/txiao/shihan/saves/gpt-neox-new_seg_bipe_SA/pythia160m-deduped/scaled-upper-triang-masked-softmax-fusion/checkpoints_w2048_8cards_SA",
-  # "load": "/lustre/fast/fast/txiao/shihan/saves/gpt-neox-new_seg_bipe_SA/pythia160m-deduped/scaled-upper-triang-masked-softmax-fusion/checkpoints_w2048_8cards_SA",
-
-  ## my:
-  ####################################################################### my #######################################################################:
-  # "hostfile": "/home/txiao/shihan/workspace/gpt-neox-new_seg/my_pythia_configs/hostfile",
+  ## SepLLM:
+  ####################################################################### SepLLM #######################################################################:
+  # "hostfile": "path/to/hostfile",
 
   'separator_token_ids': [15, 13, 32, 2, 28, 27, 209, 186, 187],  ## Fixed
-  # 'separator_token_ids': [None],  ## Fixed
-  # 'special_tokens_id': [-1],  ## Fixed
   'PADDING_ID': 0 , # For pythia  ## Fixed
   
   'prefill_local_window_size' : 64,  # The local window size when prefilling (tokens inside the window are kept);  Only take effect when USE_DYNAMIC_PREFILL_WINDOW_SIZE=False
   'generate_local_window_size' : 64,   # The local window size when generating (tokens inside the window are kept);  Only take effect when USE_DYNAMIC_DECODE_WINDOW_SIZE=False        
 
-  'USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS'  :   True,  # If True: the prefilling window sizes for different decoder layers are different; If True: should set 'prefill_win_size_list', else: should set 'prefill_window_size'
-  'USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS' :   True,  # If True: the decoding window sizes for different decoder layers are different;   If True: should set 'decode_win_size_list', else: should set 'decode_window_size' 
+  'USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS'  :   False,  # If True: the prefilling window sizes for different decoder layers are different; If True: should set 'prefill_win_size_list', else: should set 'prefill_window_size'
+  'USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS' :   False,  # If True: the decoding window sizes for different decoder layers are different;   If True: should set 'decode_win_size_list', else: should set 'decode_window_size' 
   
 
-  # 'prefill_loc_win_size_list' :   [2048,   64,   640,   2048,   64,   2048,   720,   320,   64,   64, 
-  #                            64,   2048],  
-
-  'prefill_loc_win_size_list' :[1,   2,   3,   1,   2,   3,  1,   2,  3, 1, 2,  3 ], 
-                                                                
+  'prefill_loc_win_size_list' :   [2048,   64,   640,   2048,   64,   2048,   720,   320,   64,   64, 
+                             64,   2048],  
+                                 
 
   'generate_win_loc_size_list':   [64,   64,   64,   64,   64,   64,   64,   64,   64,   64, 
                              64,   64],  
-                            
-  # 'decode_win_size_list': [20,   19,   18,   17,   16,   15,  14,   13,  12, 11, 10,  9 ],                             
+                                                    
 
   'init_tok_max_idx' :  2, # The largest index for attention sink tokens
 
   
   'USE_BiPE':  False,  # If True (must also set pos_emb='rotary' or 'alibi'), use Bilevel Positional Encoding.
-  # 'BiPE_seps': [15, 13, 32, 2, 28, 27, 209, 186, 187],  # The token ids of the seperator tokens for BiPE:  ['.', ',', '?', '!', ';', ":", ' ', '\t','\n'] 
   'BiPE_seps': [ 15, 13, 32, 2, 28, 27, 209, 186, 187 ],  # The token ids of the seperator tokens for BiPE:  ['.', ',', '?', '!', ';', ":", ' ', '\t','\n'] 
   ######################################There should be at most 1 True for the following 3 args ##############################################
   'USE_ORIGINAL_FULL_ATTEN' : False,  # Train the model without SepLLM's modification if True. Other modifications depend on other parameters' setting such as USE_SA_SOFTMAX.
