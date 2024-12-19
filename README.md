@@ -17,16 +17,16 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 # Long Streaming Inputs
 Our long streaming evaluation is following [StreamingLLM](url=https://github.com/mit-han-lab/streaming-llm/).
 
-<center>
-    <img src="./Streaming-SepLLM/demo_video/small_demo.gif", width=800 height=500>
-</center>
 <!-- <center>
-<video width="1920" height="1080" controls>
+    <img src="./Streaming-SepLLM/demo_video/small_demo.gif", width=800 height=500>
+</center> -->
+<center>
+<video width="800" height="500" controls>
     <source src="./Streaming-SepLLM/demo_video/demo.mp4" type="video/mp4">
 </video>
 </center>
-## Usage -->
 
+## Usage 
 ```
 conda create -yn streaming-sepllm python=3.8
 conda activate streaming-sepllm 
