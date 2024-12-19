@@ -19,8 +19,12 @@ Our long streaming evaluation is following [StreamingLLM.](https://github.com/mi
 
 <!-- [![](https://github.com/user-attachments/assets/bce57c38-f1ea-49ae-850c-9a403ee552a8)](//player.bilibili.com/player.html?isOutside=true&aid=113680318465948&bvid=BV1MckrYkEKJ&cid=27428192941&p=1){:height="50%" width="50%"} -->
 
-<div align=center>
+<!-- <div align=center>
     <a href=//player.bilibili.com/player.html?isOutside=true&aid=113680318465948&bvid=BV1MckrYkEKJ&cid=27428192941&p=1><img src="https://github.com/user-attachments/assets/bce57c38-f1ea-49ae-850c-9a403ee552a8",  width=800 height=500>
+</div> -->
+
+<div align=center>
+    <a href=https://www.bilibili.com/video/BV1MckrYkEKJ/?share_source=copy_web&vd_source=4d2b18ee7c4b9f72588979c260cec120><img src="https://github.com/user-attachments/assets/bce57c38-f1ea-49ae-850c-9a403ee552a8",  width=800 height=500>
 </div>
 
 <!-- <center>
