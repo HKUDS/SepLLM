@@ -17,14 +17,11 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 # Long Streaming Inputs
 Our long streaming evaluation is following [StreamingLLM.](https://github.com/mit-han-lab/streaming-llm/)
 
-<!-- <img width="1129" alt="1734641289729" src="https://github.com/user-attachments/assets/bce57c38-f1ea-49ae-850c-9a403ee552a8" /> -->
-
-[![](https://github.com/user-attachments/assets/bce57c38-f1ea-49ae-850c-9a403ee552a8)](//player.bilibili.com/player.html?isOutside=true&aid=113680318465948&bvid=BV1MckrYkEKJ&cid=27428192941&p=1){:height="50%" width="50%"}
+<!-- [![](https://github.com/user-attachments/assets/bce57c38-f1ea-49ae-850c-9a403ee552a8)](//player.bilibili.com/player.html?isOutside=true&aid=113680318465948&bvid=BV1MckrYkEKJ&cid=27428192941&p=1){:height="50%" width="50%"} -->
 
 <center>
     <a href=//player.bilibili.com/player.html?isOutside=true&aid=113680318465948&bvid=BV1MckrYkEKJ&cid=27428192941&p=1><img src="https://github.com/user-attachments/assets/bce57c38-f1ea-49ae-850c-9a403ee552a8",  width=800 height=500>
 </center>
-
 
 <!-- <center>
     <img src="./Streaming-SepLLM/demo_video/small_demo.gif", width=800 height=500>
