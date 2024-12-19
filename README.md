@@ -28,7 +28,7 @@ Our long streaming evaluation is following [StreamingLLM](url=https://github.com
 </center>
 
 <center>
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113680318465948&bvid=BV1MckrYkEKJ&cid=27426357745&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113680318465948&bvid=BV1MckrYkEKJ&cid=27426357745&p=1" width="800" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 </center>
 
 ## Usage 
