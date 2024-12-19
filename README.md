@@ -29,11 +29,11 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 </video> -->
 
 
-<center>
+
 <iframe>
- <src="//player.bilibili.com/player.html?isOutside=true&aid=113680318465948&bvid=BV1MckrYkEKJ&cid=27426357745&p=1" width="800" height="500" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+<src="//player.bilibili.com/player.html?isOutside=true&aid=113680318465948&bvid=BV1MckrYkEKJ&cid=27426357745&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
 </iframe>
-</center>
+
 <!-- <center>
     <img src="./Streaming-SepLLM/demo_video/small_demo.gif", width=800 height=500>
 </center> -->
