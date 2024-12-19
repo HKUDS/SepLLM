@@ -18,6 +18,7 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 <!-- Our long streaming evaluation is following [StreamingLLM](url=https://github.com/mit-han-lab/streaming-llm/). -->
 <video src="Streaming-SepLLM/demo_video/demo.mp4" controls="controls" width="500" height="300"></video>
 
+https://github.com/mit-han-lab/streaming-llm/assets/40906949/2bd1cda4-a0bd-47d1-a023-fbf7779b8358
 
 <!-- <video width="800" height="500" controls>
     <source src="https://github.com/HKUDS/SepLLM/blob/main/Streaming-SepLLM/demo_video/demo.mp4" type="video/mp4">
