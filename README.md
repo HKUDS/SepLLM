@@ -20,7 +20,7 @@ Our long streaming evaluation is following [StreamingLLM](url=https://github.com
 <img width="1129" alt="1734641289729" src="https://github.com/user-attachments/assets/bce57c38-f1ea-49ae-850c-9a403ee552a8" />
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113680318465948&bvid=BV1MckrYkEKJ&cid=27428192941&p=1" 
 
-[![](https://github.com/user-attachments/assets/bce57c38-f1ea-49ae-850c-9a403ee552a8)](player.bilibili.com/player.html?isOutside=true&aid=113680318465948&bvid=BV1MckrYkEKJ&cid=27428192941&p=1)
+[![](https://github.com/user-attachments/assets/bce57c38-f1ea-49ae-850c-9a403ee552a8)](//player.bilibili.com/player.html?isOutside=true&aid=113680318465948&bvid=BV1MckrYkEKJ&cid=27428192941&p=1)
 
 <!-- <center>
     <img src="./Streaming-SepLLM/demo_video/small_demo.gif", width=800 height=500>
