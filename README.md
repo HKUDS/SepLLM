@@ -24,7 +24,7 @@ Our long streaming evaluation is following [StreamingLLM.](https://github.com/mi
 </div> -->
 
 <div align=center>
-    <a href=https://www.bilibili.com/video/BV1MckrYkEKJ/?share_source=copy_web&vd_source=4d2b18ee7c4b9f72588979c260cec120><img src="https://github.com/user-attachments/assets/bce57c38-f1ea-49ae-850c-9a403ee552a8",  width=1024 height=640>
+    <a href=https://www.bilibili.com/video/BV1MckrYkEKJ/?share_source=copy_web&vd_source=4d2b18ee7c4b9f72588979c260cec120><img src="https://github.com/user-attachments/assets/bce57c38-f1ea-49ae-850c-9a403ee552a8",  width=928 height=580>
 </div>
 
 <!-- <center>
