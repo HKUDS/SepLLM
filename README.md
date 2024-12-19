@@ -27,7 +27,9 @@ Our long streaming evaluation is following [StreamingLLM](url=https://github.com
 </video>
 </center>
 
+<center>
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113680318465948&bvid=BV1MckrYkEKJ&cid=27426357745&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</center>
 
 ## Usage 
 ```
