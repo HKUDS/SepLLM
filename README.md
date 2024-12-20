@@ -17,7 +17,7 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 # Long Streaming Inputs
 Our long streaming evaluation is following [StreamingLLM.](https://github.com/mit-han-lab/streaming-llm/)
 
-Take a quick look at the running process (Recording of 20K Tokens Generation based on Llama-3 (Frame Extraction and Accelerated Playback Version)).
+Take a quick look at the running process (recording of 20K tokens' generation based on Llama-3 - frame extraction and accelerated playback version).
 
 https://github.com/user-attachments/assets/feb8b6e3-b523-40eb-beef-cad80a7db44b
 
