@@ -9,11 +9,11 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 ## News
 ![image](https://github.com/user-attachments/assets/54677ee5-85ad-4020-b39f-f3d8b34a7243)
 
-- :star2: [2025/06] We are working on integrating `SepCache` into HuggingFace's [transformers](https://github.com/huggingface/transformers) library. Stay tuned! :rocket::rocket::rocket:
+- :star2: [2025/06] We are working on integrating `SepCache` into HuggingFace's [transformers](https://github.com/huggingface/transformers). Stay tuned! :rocket::rocket::rocket:
 - :star: [2025/06] `SepCache` is released, which is an efficient, portable and easy-to-use *Cache* class for [transformers](https://github.com/huggingface/transformers).
 - :star: [2025/06] More features have already been supported by the SepLLM code repository, including *BiPE* ([arXiv:2401.16421](https://arxiv.org/abs/2401.16421)), *Self-Adjust Softmax* ([arXiv:2502.18277](https://arxiv.org/abs/2502.18277)), *FixLLM*, *etc*.
 - :star: [2025/06] SepLLM's [slides and videos](https://icml.cc/virtual/2025/poster/45536) are uploaded.
-- :star: [2025/06] SepLLM's camera-ready paper is released.
+- :star: [2025/06] SepLLM's [camera-ready paper](https://icml.cc/virtual/2025/poster/45536) is released.
 - :star2: [2025/05] **[SepLLM](https://icml.cc/virtual/2025/poster/45536) has been accepted to [ICML 2025](https://icml.cc/virtual/2025/poster/45536).** :rocket::rocket::rocket:
 - :star: [2024/12] More exciting features are being developed. Stay tuned!
 - :star: [2024/12] SepLLM's code has been released. Our codebase supports efficient multi-node distributed training with accelerated attention module *Sep-Attention* and also includes numerous existing Fusion Operators to accelerate the training process, such as *fused rope* ([Su et al., 2023](url=https://arxiv.org/abs/2104.09864)), *fused layer norm*, etc.
