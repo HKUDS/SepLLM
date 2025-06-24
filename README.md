@@ -16,7 +16,7 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 - :star: [2025/06] SepLLM's [camera-ready paper](https://icml.cc/virtual/2025/poster/45536) is released.
 - :star2: [2025/05] **[SepLLM](https://icml.cc/virtual/2025/poster/45536) has been accepted to [ICML 2025](https://icml.cc/virtual/2025/poster/45536).** :rocket::rocket::rocket:
 - :star: [2024/12] More exciting features are being developed. Stay tuned!
-- :star: [2024/12] SepLLM's code has been released. Our codebase supports efficient multi-node distributed training with accelerated attention module *Sep-Attention* and also includes numerous existing Fusion Operators to accelerate the training process, such as *fused rope* ([Su et al., 2023](https://arxiv.org/abs/2104.09864)), *fused layer norm*, etc.
+- :star: [2024/12] SepLLM's code has been released. Our codebase supports efficient multi-node distributed training with accelerated attention module *Sep-Attention* and also includes numerous existing Fusion Operators to accelerate the training process, such as *fused rope* ([Su et al., 2023](https://arxiv.org/abs/2104.09864)), *fused layer norm*, *etc*.
 
 
 
