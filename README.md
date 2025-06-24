@@ -11,7 +11,7 @@
 <h1 align="center">
   <strong>🚀 SepLLM: Accelerate Large Language Models by Compressing One Segment into One Separator</strong>
 </h1>
-<h3 align="center">✨ An Easy-to-Use <u>Native Sparse Attention</u> Baseline Method</h3>
+<h3 align="center">✨ An Easy-to-Use <u><strong> Native Sparse Attention </strong></u> Baseline Method</h3>
 <h4 align="center">
     <a href="https://sepllm.github.io" target="_blank">
       <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" 
