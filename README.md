@@ -1,7 +1,11 @@
-<center>
-# Abstract
-## asdfsdf
-</center>
+<div align="center">
+
+# **SepLLM: Accelerate Large Language Models by Compressing One Segment into One Separator**
+
+### An Easy-to-Use Native Sparse Attention Baseline Method
+---
+
+</div>
 
 Large Language Models (LLMs) have exhibited exceptional performance across a spectrum of natural language processing tasks. However, their substantial sizes pose considerable challenges, particularly in computational demands and inference speed, due to their quadratic complexity. In this work, we have identified a key pattern: certain seemingly meaningless special tokens (i.e., separators) contribute disproportionately to attention scores compared to semantically meaningful tokens. This observation suggests that information of the segments between these separator tokens can be effectively condensed into the separator tokens themselves without significant information loss. Guided by this insight, we introduce SepLLM, a plug-and-play framework that accelerates inference by compressing these segments and eliminating redundant tokens. Additionally, we implement efficient kernels for training acceleration. Experimental results across training-free, training-from-scratch, and post-training settings demonstrate SepLLM's effectiveness. Notably, using the Llama-3-8B backbone, SepLLM achieves over 50% reduction in KV cache on the GSM8K-CoT benchmark while maintaining comparable performance. Furthermore, in streaming settings, SepLLM effectively processes sequences of up to 4 million tokens or more while maintaining consistent language modeling capabilities.
 
@@ -14,7 +18,7 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 ![image](https://github.com/user-attachments/assets/54677ee5-85ad-4020-b39f-f3d8b34a7243)
 
 - :star2: [2025/06] We are working on integrating `SepCache` into HuggingFace's [transformers](https://github.com/huggingface/transformers). Stay tuned! :rocket::rocket::rocket:
-- :star: [2025/06] `SepCache` is released, which is an efficient, portable and easy-to-use *Cache* class for [transformers](https://github.com/huggingface/transformers).
+- :star: [2025/06] `SepCache` is released, which is an efficient, portable and easy-to-use *Cache* class for [transformers](https://github.com/huggingface/transformers). :rocket::rocket::rocket:
 - :star: [2025/06] SepLLM's trained [checkpoint samples](https://huggingface.co/Gausson/models) have been uploaded to [HuggingFace](https://huggingface.co/Gausson/models). :rocket::rocket::rocket:
 - :star: [2025/06] More features have already been supported by the SepLLM code repository, including *BiPE* ([arXiv:2401.16421](https://arxiv.org/abs/2401.16421)), *Self-Adjust Softmax* ([arXiv:2502.18277](https://arxiv.org/abs/2502.18277)), *FixLLM*, *etc*.
 - :star: [2025/06] SepLLM's [slides and videos](https://icml.cc/virtual/2025/poster/45536) are uploaded.
