@@ -39,8 +39,8 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 ![image](https://github.com/user-attachments/assets/54677ee5-85ad-4020-b39f-f3d8b34a7243)
 
 - :star2: [2025/06] We are working on integrating `SepCache` into HuggingFace's [transformers](https://github.com/huggingface/transformers). Stay tuned! :rocket::rocket::rocket:
-- :star: [2025/06] `SepCache` is released, which is an efficient, portable and easy-to-use *Cache* class for [transformers](https://github.com/huggingface/transformers). :rocket::rocket::rocket:
-- :star: [2025/06] SepLLM's trained [checkpoint samples](https://huggingface.co/Gausson/models) have been uploaded to [HuggingFace](https://huggingface.co/Gausson/models). :rocket::rocket::rocket:
+- :star2: [2025/06] `SepCache` is released, which is an efficient, portable and easy-to-use *Cache* class for [transformers](https://github.com/huggingface/transformers). :rocket::rocket::rocket:
+- :star2: [2025/06] SepLLM's trained [checkpoint samples](https://huggingface.co/Gausson/models) have been uploaded to [HuggingFace](https://huggingface.co/Gausson/models). :rocket::rocket::rocket:
 - :star: [2025/06] More features have already been supported by the SepLLM code repository, including *BiPE* ([arXiv:2401.16421](https://arxiv.org/abs/2401.16421)), *Self-Adjust Softmax* ([arXiv:2502.18277](https://arxiv.org/abs/2502.18277)), *FixLLM*, *etc*.
 - :star: [2025/06] SepLLM's [slides and videos](https://icml.cc/virtual/2025/poster/45536) are uploaded.
 - :star: [2025/06] SepLLM's [camera-ready paper](https://icml.cc/virtual/2025/poster/45536) is released.
