@@ -24,9 +24,11 @@ from transformers import (
     MistralConfig,
     LlamaConfig,
     GPTNeoXConfig,
+    SepLLMGPTNeoXConfig,
     AutoModelForCausalLM,
     AutoConfig,
 )
+
 
 from typing import List, Literal
 
@@ -39,17 +41,16 @@ from megatron.tokenizer import build_tokenizer
 
 
 """
-A script for converting saved NeoX Checkpoints to Huggingface (HF) compatible GPT-NeoX type models.
+A script for converting saved SepLLM GPT NeoX Checkpoints to Huggingface (HF) compatible SepLLM-GPT-NeoX type models.
 
-Note that this script does not support all NeoX features.
-Please investigate carefully whether your model is compatible with all architectures supported by the GPTNeoXForCausalLM class in HF.
+Note that this script does not support all GPT NeoX features.
+Please investigate carefully whether your model is compatible with all architectures supported by the SepLLMGPTNeoXForCausalLM class in HF.
 
-(e.g. position embeddings such as AliBi may not be supported by Huggingface's GPT-NeoX architecture).
 """
 
 
 # Model definitions: a list of keys, and where they fall in terms of handling them in the presence of TP.
-# in format : {model arch: {param type: {param in neox: param in HF}}}
+# in format : {model arch: {param type: {param in sepllm neox: param in HF}}}
 
 MODEL_KEYS = {
     "neox": {
@@ -106,6 +107,7 @@ MODEL_KEYS = {
 }
 
 MODEL_KEYS["mistral"] = MODEL_KEYS["llama"]
+MODEL_KEYS["sepllm_gpt_neox"] = MODEL_KEYS["neox"] # For SepLLM GPT_NeoX
 
 
 def load_partitions(
@@ -165,9 +167,9 @@ def get_key(loaded_config, key, default=None):
             return default
 
 
-def create_config(neox_config, architecture="neox"):
+def create_config(neox_config, architecture="sepllm_gpt_neox"):
     """take in a loaded yaml from NeoX and assign relevant values to HF config.
-    Returns: GPTNeoXConfig() object
+    Returns: GPTNeoXConfig() or SepLLMGPTNeoXConfig() object
     """
 
     def gated_size(hidden_dim):
@@ -211,6 +213,7 @@ def create_config(neox_config, architecture="neox"):
                 per transformer block for GPT-NeoX models trained  w/ GPT-J parallel residuals.
                 See https://github.com/EleutherAI/gpt-neox/pull/481 for further details."""
         )
+ 
 
     # set all config values.
 
@@ -221,9 +224,35 @@ def create_config(neox_config, architecture="neox"):
         "num_hidden_layers": get_key(neox_config, "num-layers"),
         "num_attention_heads": get_key(neox_config, "num-attention-heads"),
         "max_position_embeddings": get_key(neox_config, "max-position-embeddings"),
+        "model_parallel_size": get_key(neox_config, "model-parallel-size"),        
         "initializer_range": get_key(neox_config, "init-method-std", 0.02),
         "tie_word_embeddings": (not get_key(neox_config, "no-weight-tying", False)),
         "use_cache": True,
+        "pos_emb": get_key(neox_config, "pos_emb", "rotary"),
+        "num_layers": get_key(neox_config, "num_layers", 12),
+        "mup_rp_embedding_mult": get_key(neox_config, "mup_rp_embedding_mult", 1.0),        
+        "separator_token_ids": get_key(neox_config, "separator_token_ids", [15, 13, 32, 2, 28, 27, 209, 186, 187]),
+        "PADDING_ID": get_key(neox_config, "PADDING_ID", 0),
+        "prefill_local_window_size": get_key(neox_config, "prefill_local_window_size", 128),
+        "generate_local_window_size": get_key(neox_config, "generate_local_window_size", 128),
+        "USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS": get_key(neox_config, "USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS", False),
+        "USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS": get_key(neox_config, "USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS", False),
+        "prefill_loc_win_size_list": get_key(neox_config, "prefill_loc_win_size_list", [128,  128,  128,  128,  128,  128,  128,  128,  128, 128, 128,  128 ]),
+        "generate_win_loc_size_list": get_key(neox_config, "generate_win_loc_size_list", [128,  128,  128,  128,  128,  128,  128,  128,  128, 128, 128,  128 ]),
+        "init_tok_max_idx": get_key(neox_config, "init_tok_max_idx", 2),
+        "USE_ORIGINAL_FULL_ATTEN": get_key(neox_config, "USE_ORIGINAL_FULL_ATTEN", False),
+        "streamingLLM": get_key(neox_config, "streamingLLM", False),        
+        "PRINT_KV_RATIO": get_key(neox_config, "PRINT_KV_RATIO", False),
+        "print_ratio_intervals": get_key(neox_config, "print_ratio_intervals", 100),        
+        "EXCLUDE_DIAGONAL": get_key(neox_config, "EXCLUDE_DIAGONAL", True),
+        "USE_BiPE": get_key(neox_config, "USE_BiPE", False),
+        "BiPE_seps": get_key(neox_config, "BiPE_seps", [15, 13, 32, 2, 28, 27, 209, 186, 187]),
+        "USE_SA_SOFTMAX": get_key(neox_config, "USE_SA_SOFTMAX", False),
+        "USE_SA_SOFTMAX_NO_DENO": get_key(neox_config, "USE_SA_SOFTMAX_NO_DENO", False),
+        "SA_Numerator_Bias": get_key(neox_config, "SA_Numerator_Bias", 0.0),
+        "SA_Denominator_Bias": get_key(neox_config, "SA_Denominator_Bias", 1e-10),
+        "BATCH_ADAPTIVE_INIT_POS": get_key(neox_config, "BATCH_ADAPTIVE_INIT_POS", False),
+        
     }
     if architecture == "mistral" or architecture == "llama":
         args.update(
@@ -268,13 +297,12 @@ def create_config(neox_config, architecture="neox"):
             )
             hf_config = LlamaConfig(**args)
     else:
-        # GPT-NeoX HF model class-specific options
+        # (SepLLM) GPT-NeoX HF model class-specific options
         args.update(
             {
                 "rotary_pct": get_key(neox_config, "rotary-pct", default=1.0),
                 "rotary_emb_base": get_key(
-                    # neox_config, "rotary-emb-base", default=1000.0
-                    neox_config, "rotary-emb-base", default=10000.0  #my:  10000 is right
+                    neox_config, "rotary-emb-base", default=10000.0  
                 ),
                 "use_parallel_residual": get_key(neox_config, "gpt-j-residual", False),
                 "layer_norm_eps": get_key(neox_config, "layernorm-epsilon", 1e-5),
@@ -285,13 +313,17 @@ def create_config(neox_config, architecture="neox"):
                 ),
             }
         )
-        hf_config = GPTNeoXConfig(**args)
+
+        if  architecture == "sepllm_gpt_neox":
+            hf_config = SepLLMGPTNeoXConfig(**args) ## SepLLM
+        else:
+            hf_config = GPTNeoXConfig(**args)  ## default GPT NeoX
 
     return hf_config
 
 
 def reshard_and_split_qkv(
-    param_mapping: dict,  # a dictionary mapping the QKV weight keys in GPT-NeoX -> a list of keys representing the Q, K, and V weight keys the HF model will use
+    param_mapping: dict,  # a dictionary mapping the QKV weight keys in (SepLLM) GPT-NeoX -> a list of keys representing the Q, K, and V weight keys the HF model will use
     hf_config: AutoConfig,  # a HF model config for the model
     loaded_tp_ranks: List[torch.Tensor],
     layer_idx: int,
@@ -390,21 +422,23 @@ def convert(
     output_checkpoint_path,
     sequential: bool = True,
     precision: Literal["auto", "fp16", "bf16", "fp32"] = "auto",
-    architecture: Literal["neox", "llama", "mistral"] = "neox",
+    architecture: Literal["neox", "llama", "mistral", "sepllm_gpt_neox"] = "sepllm_gpt_neox",
 ):
     """convert a NeoX checkpoint to a HF model format.
     should perform model-parallel merging correctly
-    but only supports features allowed by HF GPT-NeoX implementation (e.g. rotary embeddings)
+    but only supports features allowed by HF (SepLLM) GPT-NeoX implementation
     """
 
     ARCH = MODEL_KEYS[architecture]
 
     hf_config = create_config(loaded_config, architecture=architecture)
-
     hf_model = AutoModelForCausalLM.from_config(hf_config)
+
 
     if architecture == "neox":
         hf_transformer = hf_model.gpt_neox
+    elif architecture== "sepllm_gpt_neox": 
+        hf_transformer = hf_model.sepllm_gpt_neox
     else:
         hf_transformer = hf_model.model
 
@@ -453,10 +487,31 @@ def convert(
 
     ### Embedding layer ###
     # Embedding is layer idx 0
-    if architecture == "neox":
+    if architecture == "neox" or (architecture== "sepllm_gpt_neox"): 
         embed_in = hf_transformer.embed_in
+        if (architecture== "sepllm_gpt_neox") and  hf_config.USE_BiPE:
+            position_embeddings = hf_transformer.position_embeddings    
+            ########################### For BiPE##############################
+            position_embeddings.load_state_dict(
+                {
+                    "weight": torch.cat(
+                        get_state(
+                            loaded_tp_ranks,
+                            "position_embeddings.weight",
+                            layer_idx=0,
+                            sequential=sequential,
+                        ),
+                        dim=0,
+                    )
+                }
+            )
+
+            ###################################################################
+    
     else:
         embed_in = hf_transformer.embed_tokens
+
+    
     embed_in.load_state_dict(  # TODO: embed_in is not always model's name for embedding
         {
             "weight": torch.cat(
@@ -534,7 +589,7 @@ def convert(
             ]
 
         # some architectures, like Mistral and Llama, have the following which must be handled specially:
-        # - Q, K, V projections are performed separately, so we must split apart GPT-NeoX library's single QKV proj
+        # - Q, K, V projections are performed separately, so we must split apart (SepLLM) GPT-NeoX library's single QKV proj
         # - Support for Grouped-Query Attention, meaning the Q and the K, V projections may not be the same size
         if "GQA_QKV_KEYS" in ARCH:
             state_dict.update(
@@ -557,7 +612,7 @@ def convert(
             sequential=sequential,
         )
     # Load final layer norm
-    if architecture == "neox":
+    if architecture == "neox" or (architecture== "sepllm_gpt_neox"): 
         lm_head = hf_model.embed_out
     else:
         lm_head = hf_model.lm_head
@@ -572,7 +627,7 @@ def convert(
             )
         ) / len(loaded_tp_ranks)
 
-    if architecture == "neox":
+    if (architecture == "neox") or (architecture== "sepllm_gpt_neox"): 
         final_layer_norm = hf_transformer.final_layer_norm
     else:
         final_layer_norm = hf_transformer.norm
@@ -599,7 +654,7 @@ def convert(
                 sequential=sequential,
             )
     # output embedding / LM head
-    if architecture == "neox":  # name of lm head / final linear proj varies
+    if (architecture == "neox") or (architecture== "sepllm_gpt_neox"):  # name of lm head / final linear proj varies
         lm_head = hf_model.embed_out
     else:
         lm_head = hf_model.lm_head
@@ -649,12 +704,12 @@ def main(input_args=None, overwrite_values=None):
     parser.add_argument(
         "--input_dir",
         type=str,
-        help="Path to NeoX checkpoint, e.g. /path/to/model/global_step143000",
+        help="Path to (SepLLM) NeoX checkpoint, e.g. /path/to/model/global_step143000",
     )
     parser.add_argument(
         "--config_file",
         type=str,
-        help="Path to config file for the input NeoX checkpoint.",
+        help="Path to config file for the input (SepLLM) NeoX checkpoint.",
     )
     parser.add_argument(
         "--output_dir",
@@ -675,7 +730,7 @@ def main(input_args=None, overwrite_values=None):
     parser.add_argument(
         "--architecture",
         type=str,
-        default="neox",
+        default="sepllm_gpt_neox",
         help="What HF model class type to export into.",
     )
     args = parser.parse_args(input_args)
@@ -691,7 +746,8 @@ def main(input_args=None, overwrite_values=None):
         "neox",
         "llama",
         "mistral",
-    ], f"expected --architecture to be one of 'neox', 'mistral', 'llama', but got '{args.architecture}' !"
+        "sepllm_gpt_neox"
+    ], f"expected --architecture to be one of 'neox', 'mistral', 'llama', 'sepllm_gpt_neox', but got '{args.architecture}' !"
 
     with open(args.config_file) as f:
         loaded_config = yaml.full_load(f)
@@ -736,19 +792,21 @@ def main(input_args=None, overwrite_values=None):
             print(
                 "Warning: please check that your model config and tokenizer end with the correct special tokens (EOS, BOS)."
             )
-            from transformers import PreTrainedTokenizerFast
 
-            tokenizer = PreTrainedTokenizerFast(
-                tokenizer_file=get_key(loaded_config, "vocab-file")
-            )
+            #############################Default##############################
+            # from transformers import PreTrainedTokenizerFast
 
-            # #############################my##############################
-            # from transformers import GPTNeoXTokenizer
-
-            # tokenizer = GPTNeoXTokenizer(
+            # tokenizer = PreTrainedTokenizerFast(
             #     tokenizer_file=get_key(loaded_config, "vocab-file")
-            # )    
-            # #############################################################        
+            # )
+            ##################################################################        
+
+            #############################SepLLM#############################
+            from transformers import GPTNeoXTokenizerFast                        
+            tokenizer = GPTNeoXTokenizerFast(
+                tokenizer_file=get_key(loaded_config, "vocab-file")
+            )    
+            ################################################################        
                                       
             print("loaded tokenizer: ", tokenizer)
             tokenizer.save_pretrained(args.output_dir)
@@ -758,7 +816,8 @@ def main(input_args=None, overwrite_values=None):
 if __name__ == "__main__":
 
     # before running script:
-    # `pip install --upgrade transformers`
+    # `pip install (our version of) [transformers]`
     # `huggingface-cli login`
     #
     main()
+

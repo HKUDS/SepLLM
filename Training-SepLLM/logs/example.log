@@ -1,0 +1,550 @@
+[2025-06-22 20:51:22,745] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+fatal: not a git repository (or any parent up to mount point /lustre)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+NeoXArgs.from_ymls() ['../../sample_configs/sepllm-160m-on-pythia-with-pile_deduped-n64H-NOkernel.yml']
+INFO:root:NeoXArgs.calculate_derived() Total number of GPUs determined to be: 8
+-------------------- arguments --------------------
+  attention_config ................ ['global', 'global', 'global', 'global', 'global', 'global', 'global', 'global', 'global', 'global', 'global', 'global']updated
+  batch_size ...................... 32..........................updated
+  bias_gelu_fusion ................ True........................updated
+  checkpoint_activations .......... True........................updated
+  checkpoint_factor ............... 1000........................updated
+  config_files .................... {'sepllm-160m-on-pythia-with-pile_deduped-n64H-NOkernel.yml': '{\n  # ##########Debug##########\n  #   "world_size": 1,\n  #   "num_gpus": 1,\n  # ########################\n\n  # parallelism settings\n  "pipe-parallel-size": 1,\n  "model-parallel-size": 1,\n\n  # model settings\n  "num-layers": 12,\n  "hidden-size": 768,\n  "num-attention-heads": 12,\n  "seq-length": 2048,\n  "max-position-embeddings": 2048,\n  "pos-emb": "rotary",\n  "rotary-pct": 0.25,\n  "no-weight-tying": true,\n  "gpt-j-residual": true,\n  "output-layer-parallelism": "column",\n  "attention-config": [[["global"], 12]], \n\n  "scaled_masked_softmax_fusion": true, # For SepLLM\n  "bias-gelu-fusion": true,\n\n  # init methods\n  "init_method": "small_init",\n  "output_layer_init_method": "wang_init",\n\n  "optimizer": {\n    "type": "Adam",\n    "params": {\n      "lr": 0.0006,\n      "betas": [0.9, 0.95],\n      "eps": 1.0e-8\n    }\n  },\n  "min_lr": 0.00006,\n\n  "zero_optimization": {\n    "stage": 1,\n    "allgather_partitions": true,\n    "allgather_bucket_size": 500000000,\n    "overlap_comm": true,\n    "reduce_scatter": true,\n    "reduce_bucket_size": 500000000,\n    "contiguous_gradients": true,\n    "cpu_offload": false\n  },\n\n  # batch size (trained on 8 gpus)\n  "train_micro_batch_size_per_gpu": 32, # For 8 cards: if your GPU memory is not enough, you can set 64x2, 32x4, 16x8, etc., for 8 cards\' machine, to keep the global train_batch_size as 1024.\n  "gradient_accumulation_steps": 4,  # For 8 cards: if your GPU memory is not enough, you can set 64x2, 32x4, 16x8, etc., for 8 cards\' machine, to keep the global train_batch_size as 1024.\n  "data-impl": "mmap",\n  "num_workers": 1,\n\n  # activation checkpointing\n  "checkpoint-activations": true,\n  "checkpoint-num-layers": 1,\n  "partition-activations": true,\n  "synchronize-each-layer": true,\n\n  # regularization\n  "gradient_clipping": 1.0,\n  "weight-decay": 0.1,\n  "hidden-dropout": 0,\n  "attention-dropout": 0,\n\n  # precision settings\n  "fp16": {\n    "fp16": true,\n    "enabled": true,\n    "loss_scale": 0,\n    "loss_scale_window": 1000,\n    "initial_scale_power": 12,\n    "hysteresis": 2,\n    "min_loss_scale": 1\n  },\n\n  "train-iters": 143000,\n  "lr-decay-iters": 143000,\n  "distributed-backend": "nccl",\n  "lr-decay-style": "cosine",\n  "warmup": 0.01,\n  "checkpoint-factor": 1000,\n  "extra-save-iters": [0,1,2,4,8,16,32,64,128,256,512],\n  "eval-interval": 4000, \n  "eval-iters": 10,\n\n  "log-interval": 10,\n  "steps_per_print": 10,\n  "wall_clock_breakdown": true,\n\n  "train-data-paths": ["/lustre/fast/fast/txiao/shihan/compressed_pythia_data/pile_0.87_deduped_text_document"],\n  "valid-data-paths": ["/lustre/fast/fast/txiao/shihan/compressed_pythia_data/pile_0.87_deduped_text_document"],\n  "test-data-paths": ["/lustre/fast/fast/txiao/shihan/compressed_pythia_data/pile_0.87_deduped_text_document"],\n\n  "tokenizer-type": "HFTokenizer",\n  "vocab-file": "/lustre/fast/fast/txiao/shihan_new/workspace/SepLLM/Training-SepLLM/sample_configs/20B_tokenizer.json",\n\n  "launcher": "pdsh",\n\n  # "save": "path/to/SepLLM-160m/checkpoints_n64h_8cards",\n  # "load": "path/to/SepLLM-160m/checkpoints_n64h_8cards",\n  \n  ####################################################################### SepLLM #######################################################################:\n  # "hostfile": "path/to/SepLLM/Training-SepLLM/sample_configs/hostfile",\n\n  \'separator_token_ids\': [15, 13, 32, 2, 28, 27, 209, 186, 187], # For Pythia tokenizer  ## Fixed; The token ids for the special tokens (i.e. separators):  [\'.\', \',\', \'?\', \'!\', \';\', ":", \' \', \'\\t\',\'\\n\'].\n  \'PADDING_ID\': 0 , # For Pythia tokenizer  ## Fixed; The id for padding token of Pythia (GPT_NeoX)\n  \n\n  \'USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS\'  :   True,  # If True: the prefilling local window sizes for different self-attention layers are different; If True: should set \'prefill_loc_win_size_list\', else: should set \'prefill_local_window_size\'\n  \'USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS\' :   True,  # If True: the generating local window sizes for different self-attention layers are different; If True: should set \'generate_win_loc_size_list\', else: should set \'generate_local_window_size\'. USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS does not have any effect during the pretraining/prefilling phase.    \n\n  \'prefill_loc_win_size_list\' : [2048,   64,   64,   64,   64,   64,   64,   64,   64,   64, \n                                 64,   64],            ## The local window sizes for different self-attention layers when training (or prefilling). KVs for tokens inside the local window (we call them \'Neighboring Tokens\') are kept and can been seen by the current token.                      \n\n  \'generate_win_loc_size_list\': [2048,   64,   64,   64,   64,   64,   64,   64,   64,   64, \n                                 64,   64],            ## The local window sizes for different self-attention layers when generating. KVs for tokens inside the local window (we call them \'Neighboring Tokens\') are kept and can been seen by the current token. generate_win_loc_size_list does not have any effect during the pretraining/prefilling phase.\n\n  \'init_tok_max_idx\' :  2, # The largest index for the kept initial tokens. E.g., if init_tok_max_idx==2, it means we keep 3 initial tokens (idx: 0,1,2)\n  ######################################There should be at most 1 True for the following 3 args ##############################################\n  \'USE_ORIGINAL_FULL_ATTEN\' : False,  # Flag signal with the highest priority.  Train the Pythia model without any modification (standard full-attention version, i.e., standard upper triangular mask) if True.\n  \'streamingLLM\' :  False,  # Train streamingLLM. Only takes effect when USE_ORIGINAL_FULL_ATTEN=False. \n  \'USE_SEP_ATTN_KERNEL_ACCELERATOR\': False, # If True, use Sep_Attention module\'s kernel accelerator to accelerate the training process of SepLLM. If False (together with USE_ORIGINAL_FULL_ATTEN=False and streamingLLM=False), run plain SepLLM\n  ######################################There should be at most 1 True for the above 3 args ##############################################\n\n  \'BATCH_ADAPTIVE_INIT_POS\' : False,  # False by default.  If True: use the floating initial tokens\' starting positions since when evaluating, LLM usually add paddings on the left side of the shorter seqs in a batch for alignment (i.e., left padding). Can be False when pretraining since the starting positions of initial tokens are at the beginning of each sequence in a batch for pretraining (i.e., right padding)\n  \'PRINT_KV_RATIO\' :  True,  # If True, print the KV cache preservation ratio (especially for the released trained model during generating). When pretraining, it will also print the retention ratio for the computational complexity of calculating the attention map if it is set True\n  \'print_ratio_intervals\': 8000,   # Print the retention ratio for the computational complexity of calculating the attention map once after every \'print_ratio_intervals\' forward passes (or print_ratio_intervals/gradient_accumulation_steps  iterations). It only takes effect when PRINT_KV_RATIO=True.    \n  ####################################################################### ### #######################################################################\n}\n'}updated
+  data_impl ....................... mmap........................updated
+  dynamic_loss_scale .............. True........................updated
+  eval_interval ................... 4000........................updated
+  eval_iters ...................... 10..........................updated
+  extra_save_iters ................ [0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512]updated
+  fp16 ............................ {'fp16': True, 'enabled': True, 'loss_scale': 0, 'loss_scale_window': 1000, 'initial_scale_power': 12, 'hysteresis': 2, 'min_loss_scale': 1}updated
+  generate_win_loc_size_list ...... [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]updated
+  global_num_gpus ................. 8...........................updated
+  gpt_j_residual .................. True........................updated
+  gradient_accumulation_steps ..... 4...........................updated
+  hidden_size ..................... 768.........................updated
+  init_method ..................... small_init..................updated
+  is_pipe_parallel ................ True........................updated
+  log_interval .................... 10..........................updated
+  lr .............................. 0.0006......................updated
+  lr_decay_iters .................. 143000......................updated
+  lr_decay_style .................. cosine......................updated
+  max_position_embeddings ......... 2048........................updated
+  min_lr .......................... 6e-05.......................updated
+  no_weight_tying ................. True........................updated
+  num_attention_heads ............. 12..........................updated
+  num_layers ...................... 12..........................updated
+  num_workers ..................... 1...........................updated
+  optimizer ....................... {'type': 'Adam', 'params': {'lr': 0.0006, 'betas': [0.9, 0.95], 'eps': 1e-08}}updated
+  optimizer_type .................. Adam........................updated
+  output_layer_init_method ........ wang_init...................updated
+  partition_activations ........... True........................updated
+  pipe_parallel_size .............. 1...........................updated
+  pos_emb ......................... rotary......................updated
+  precision ....................... fp16........................updated
+  prefill_loc_win_size_list ....... [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]updated
+  PRINT_KV_RATIO .................. True........................updated
+  rotary_pct ...................... 0.25........................updated
+  save_iters ...................... [0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000, 16000, 17000, 18000, 19000, 20000, 21000, 22000, 23000, 24000, 25000, 26000, 27000, 28000, 29000, 30000, 31000, 32000, 33000, 34000, 35000, 36000, 37000, 38000, 39000, 40000, 41000, 42000, 43000, 44000, 45000, 46000, 47000, 48000, 49000, 50000, 51000, 52000, 53000, 54000, 55000, 56000, 57000, 58000, 59000, 60000, 61000, 62000, 63000, 64000, 65000, 66000, 67000, 68000, 69000, 70000, 71000, 72000, 73000, 74000, 75000, 76000, 77000, 78000, 79000, 80000, 81000, 82000, 83000, 84000, 85000, 86000, 87000, 88000, 89000, 90000, 91000, 92000, 93000, 94000, 95000, 96000, 97000, 98000, 99000, 100000, 101000, 102000, 103000, 104000, 105000, 106000, 107000, 108000, 109000, 110000, 111000, 112000, 113000, 114000, 115000, 116000, 117000, 118000, 119000, 120000, 121000, 122000, 123000, 124000, 125000, 126000, 127000, 128000, 129000, 130000, 131000, 132000, 133000, 134000, 135000, 136000, 137000, 138000, 139000, 140000, 141000, 142000]updated
+  scaled_masked_softmax_fusion .... True........................updated
+  separator_token_ids ............. [15, 13, 32, 2, 28, 27, 209, 186, 187]updated
+  seq_length ...................... 2048........................updated
+  sparsity_config ................. {}..........................updated
+  synchronize_each_layer .......... True........................updated
+  test_data_paths ................. ['/lustre/fast/fast/txiao/shihan/compressed_pythia_data/pile_0.87_deduped_text_document']updated
+  test_data_weights ............... [1.0].......................updated
+  text_gen_type ................... unconditional...............updated
+  tokenizer_type .................. HFTokenizer.................updated
+  train_batch_size ................ 1024........................updated
+  train_data_paths ................ ['/lustre/fast/fast/txiao/shihan/compressed_pythia_data/pile_0.87_deduped_text_document']updated
+  train_data_weights .............. [1.0].......................updated
+  train_iters ..................... 143000......................updated
+  train_micro_batch_size_per_gpu .. 32..........................updated
+  USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS  True.................updated
+  USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS  True..................updated
+  USE_SEP_ATTN_KERNEL_ACCELERATOR . False.......................updated
+  user_script ..................... ../../train.py..............updated
+  valid_data_paths ................ ['/lustre/fast/fast/txiao/shihan/compressed_pythia_data/pile_0.87_deduped_text_document']updated
+  valid_data_weights .............. [1.0].......................updated
+  vocab_file ...................... /lustre/fast/fast/txiao/shihan_new/workspace/SepLLM/Training-SepLLM/sample_configs/20B_tokenizer.jsonupdated
+  wall_clock_breakdown ............ True........................updated
+  zero_allgather_bucket_size ...... 500000000...................updated
+  zero_contiguous_gradients ....... True........................updated
+  zero_optimization ............... {'stage': 1, 'allgather_partitions': True, 'allgather_bucket_size': 500000000, 'overlap_comm': True, 'reduce_scatter': True, 'reduce_bucket_size': 500000000, 'contiguous_gradients': True, 'cpu_offload': False}updated
+  zero_reduce_bucket_size ......... 500000000...................updated
+  zero_reduce_scatter ............. True........................updated
+  zero_stage ...................... 1...........................updated
+  _DEFAULT_SPARSE_BLOCK_SIZE ...... 128.........................default
+  account ......................... None........................default
+  activation ...................... gelu........................default
+  activation_checkpointing ........ None........................default
+  adlr_autoresume ................. False.......................default
+  adlr_autoresume_interval ........ 1000........................default
+  allow_chopped ................... True........................default
+  amp ............................. None........................default
+  apply_query_key_layer_scaling ... False.......................default
+  attention_dropout ............... 0...........................default
+  attention_softmax_in_fp32 ....... False.......................default
+  autotuning ...................... None........................default
+  autotuning_run .................. None........................default
+  base_shapes_file ................ None........................default
+  BATCH_ADAPTIVE_INIT_POS ......... False.......................default
+  bf16 ............................ None........................default
+  bias_dropout_fusion ............. False.......................default
+  BiPE_seps ....................... None........................default
+  char_level_ppl .................. False.......................default
+  checkpoint ...................... None........................default
+  checkpoint_in_cpu ............... False.......................default
+  checkpoint_num_layers ........... 1...........................default
+  checkpoint_scale ................ linear......................default
+  checkpoint_validation_with_forward_pass  False................default
+  clip_grad ....................... 1.0.........................default
+  comment ......................... None........................default
+  comms_logger .................... None........................default
+  communication_data_type ......... None........................default
+  compression_training ............ None........................default
+  contiguous_checkpointing ........ False.......................default
+  coord_check ..................... False.......................default
+  create_moe_param_group .......... True........................default
+  csv_monitor ..................... None........................default
+  curriculum_learning ............. None........................default
+  curriculum_seqlen ............... 0...........................default
+  data_efficiency ................. None........................default
+  data_path ....................... None........................default
+  data_types ...................... None........................default
+  deepscale ....................... False.......................default
+  deepscale_config ................ None........................default
+  deepspeed ....................... True........................default
+  deepspeed_activation_checkpointing  True......................default
+  deepspeed_extra_args ............ None........................default
+  deepspeed_mpi ................... False.......................default
+  deepspeed_slurm ................. False.......................default
+  detect_nvlink_pairs ............. False.......................default
+  distributed_backend ............. nccl........................default
+  do_test ......................... None........................default
+  do_train ........................ None........................default
+  do_valid ........................ None........................default
+  dump_state ...................... False.......................default
+  elasticity ...................... None........................default
+  enable_expert_tensor_parallelism  False.......................default
+  eod_mask_loss ................... False.......................default
+  eval_results_prefix ............. ............................default
+  eval_tasks ...................... None........................default
+  exclude ......................... None........................default
+  EXCLUDE_DIAGONAL ................ True........................default
+  exit_interval ................... None........................default
+  expert_interval ................. 2...........................default
+  finetune ........................ False.......................default
+  flops_profiler .................. None........................default
+  force_multi ..................... False.......................default
+  fp16_lm_cross_entropy ........... False.......................default
+  fp32_allreduce .................. False.......................default
+  generate_k ...................... 0...........................default
+  generate_local_window_size ...... 256.........................default
+  git_hash ........................ None........................default
+  gmlp_attn_dim ................... 64..........................default
+  gpt_j_tied ...................... False.......................default
+  gradient_clipping ............... 1.0.........................default
+  gradient_noise_scale_cpu_offload  False.......................default
+  gradient_noise_scale_n_batches .. 5...........................default
+  gradient_predivide_factor ....... 1.0.........................default
+  hidden_dropout .................. 0...........................default
+  hostfile ........................ None........................default
+  hysteresis ...................... 2...........................default
+  include ......................... None........................default
+  init_method_std ................. 0.02........................default
+  init_tok_max_idx ................ 2...........................default
+  intermediate_size ............... None........................default
+  iteration ....................... None........................default
+  keep_last_n_checkpoints ......... None........................default
+  launcher ........................ pdsh........................default
+  layernorm_epsilon ............... 1e-05.......................default
+  layernorm_fusion ................ False.......................default
+  lazy_mpu_init ................... False.......................default
+  load ............................ None........................default
+  local_rank ...................... None........................default
+  log_dir ......................... None........................default
+  log_grad_norm ................... False.......................default
+  log_grad_pct_zeros .............. False.......................default
+  log_gradient_noise_scale ........ False.......................default
+  log_optimizer_states ............ False.......................default
+  log_param_norm .................. False.......................default
+  loss_scale ...................... None........................default
+  loss_scale_window ............... 1000.0......................default
+  make_vocab_size_divisible_by .... 128.........................default
+  mamba_causal_conv_fusion ........ False.......................default
+  mamba_inner_func_fusion ......... False.......................default
+  mamba_selective_fp32_params ..... True........................default
+  mamba_selective_scan_fusion ..... False.......................default
+  mamba_use_bias_in_conv .......... True........................default
+  mamba_use_bias_in_linears ....... False.......................default
+  master_addr ..................... None........................default
+  master_port ..................... 29500.......................default
+  maximum_tokens .................. 64..........................default
+  memory_profiling ................ False.......................default
+  memory_profiling_path ........... None........................default
+  merge_file ...................... None........................default
+  min_scale ....................... 1.0.........................default
+  mlp_type ........................ regular.....................default
+  mmap_warmup ..................... False.......................default
+  model_parallel_size ............. 1...........................default
+  moe_eval_capacity_factor ........ 1.0.........................default
+  moe_expert_parallel_size ........ 1...........................default
+  moe_glu ......................... False.......................default
+  moe_jitter_eps .................. None........................default
+  moe_lbl_in_fp32 ................. False.......................default
+  moe_loss_coeff .................. 0.1.........................default
+  moe_min_capacity ................ 4...........................default
+  moe_num_experts ................. 1...........................default
+  moe_token_dropping .............. False.......................default
+  moe_top_k ....................... 1...........................default
+  moe_train_capacity_factor ....... 1.0.........................default
+  moe_type ........................ megablocks..................default
+  moe_use_residual ................ True........................default
+  mup_attn_temp ................... 1.0.........................default
+  mup_embedding_mult .............. 1.0.........................default
+  mup_init_scale .................. 1.0.........................default
+  mup_output_temp ................. 1.0.........................default
+  mup_rp_embedding_mult ........... 1.0.........................default
+  mup_width_scale ................. 2...........................default
+  no_load_optim ................... False.......................default
+  no_load_rng ..................... False.......................default
+  no_save_optim ................... False.......................default
+  no_save_rng ..................... False.......................default
+  no_ssh_check .................... False.......................default
+  norm ............................ layernorm...................default
+  num_gpus ........................ None........................default
+  num_kv_heads .................... None........................default
+  num_nodes ....................... -1..........................default
+  num_samples ..................... 1...........................default
+  num_unique_layers ............... None........................default
+  onnx_safe ....................... False.......................default
+  opt_pos_emb_offset .............. 0...........................default
+  output_layer_parallelism ........ column......................default
+  override_lr_scheduler ........... False.......................default
+  pack_impl ....................... packed......................default
+  padded_vocab_size ............... None........................default
+  PADDING_ID ...................... 0...........................default
+  param_sharing_style ............. grouped.....................default
+  pipe_partition_method ........... type:transformer|mlp........default
+  prefill_k ....................... 0...........................default
+  prefill_local_window_size ....... 256.........................default
+  prescale_gradients .............. False.......................default
+  print_ratio_intervals ........... 8000........................default
+  profile ......................... False.......................default
+  profile_backward ................ False.......................default
+  profile_step_start .............. 10..........................default
+  profile_step_stop ............... 12..........................default
+  prompt_end ...................... 
+...........................default
+  rank ............................ None........................default
+  RECOMPILE_SEP_ATTN_KERNEL ....... False.......................default
+  recompute ....................... False.......................default
+  return_logits ................... False.......................default
+  rms_norm_epsilon ................ 1e-08.......................default
+  rope_fusion ..................... False.......................default
+  rotary_emb_base ................. 10000.......................default
+  rotary_save_freqs_buffer ........ False.......................default
+  rpe_max_distance ................ 128.........................default
+  rpe_num_buckets ................. 32..........................default
+  s3_chunk_size ................... 104857600...................default
+  s3_path ......................... None........................default
+  SA_Denominator_Bias ............. 1e-10.......................default
+  SA_Numerator_Bias ............... 0.0.........................default
+  sample_input_file ............... None........................default
+  sample_output_file .............. samples.txt.................default
+  save ............................ None........................default
+  save_base_shapes ................ False.......................default
+  scaled_upper_triang_masked_softmax_fusion  False..............default
+  scalenorm_epsilon ............... 1e-08.......................default
+  scheduler ....................... None........................default
+  seed ............................ 1234........................default
+  sequence_parallel ............... False.......................default
+  short_seq_prob .................. 0.1.........................default
+  sliding_window_width ............ None........................default
+  soft_prompt_tuning .............. None........................default
+  sparse_attention ................ None........................default
+  sparse_gradients ................ False.......................default
+  split ........................... 969, 30, 1..................default
+  steps_per_print ................. 10..........................default
+  streamingLLM .................... False.......................default
+  temperature ..................... 0.0.........................default
+  tensorboard ..................... None........................default
+  tensorboard_dir ................. None........................default
+  test_label_data_paths ........... None........................default
+  top_k ........................... 0...........................default
+  top_p ........................... 0.0.........................default
+  train_label_data_paths .......... None........................default
+  use_bias_in_attn_linear ......... True........................default
+  use_bias_in_norms ............... True........................default
+  USE_BiPE ........................ False.......................default
+  use_bnb_optimizer ............... False.......................default
+  use_checkpoint_lr_scheduler ..... False.......................default
+  use_cpu_initialization .......... False.......................default
+  use_mup ......................... False.......................default
+  USE_ORIGINAL_FULL_ATTEN ......... False.......................default
+  use_qk_layernorm ................ False.......................default
+  USE_SA_SOFTMAX .................. False.......................default
+  USE_SA_SOFTMAX_NO_DENO .......... False.......................default
+  use_shared_fs ................... True........................default
+  use_tutel ....................... False.......................default
+  use_wandb ....................... None........................default
+  valid_label_data_paths .......... None........................default
+  wandb ........................... None........................default
+  wandb_group ..................... None........................default
+  wandb_host ...................... https://api.wandb.ai........default
+  wandb_init_all_ranks ............ False.......................default
+  wandb_project ................... neox........................default
+  wandb_team ...................... None........................default
+  warmup .......................... 0.01........................default
+  weight_by_num_documents ......... False.......................default
+  weight_decay .................... 0.1.........................default
+  weighted_sampler_alpha .......... 1.0.........................default
+  world_size ...................... None........................default
+---------------- end of arguments ----------------
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+>>>>>>>>---------               Start Checking Arguments                   -----------<<<<<<<<
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+
+
+Warnings: It is recommended to set the value of generate_win_loc_size_list=[2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64] to be the same as prefill_loc_win_size_list=[2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64], even though generate_win_loc_size_list does not have any effect during the pretraining/prefilling phase.
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+>>>>>>>>---------                 Initial Check Finished                   -----------<<<<<<<<
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+
+
+NeoXArgs.configure_distributed_args() using world size: 1 and model-parallel size: 1 
+[2025-06-22 20:51:31,098] [WARNING] [runner.py:217:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2025-06-22 20:51:31,098] [INFO] [runner.py:586:main] cmd = /home/txiao/miniconda3/envs/py38_cu121_torch21_new/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgMywgNCwgNSwgNiwgN119 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None ../../train.py --deepspeed_config eyJ0cmFpbl9iYXRjaF9zaXplIjogMTAyNCwgInRyYWluX21pY3JvX2JhdGNoX3NpemVfcGVyX2dwdSI6IDMyLCAiZ3JhZGllbnRfYWNjdW11bGF0aW9uX3N0ZXBzIjogNCwgIm9wdGltaXplciI6IHsidHlwZSI6ICJBZGFtIiwgInBhcmFtcyI6IHsibHIiOiAwLjAwMDYsICJiZXRhcyI6IFswLjksIDAuOTVdLCAiZXBzIjogMWUtMDh9fSwgImZwMTYiOiB7ImZwMTYiOiB0cnVlLCAiZW5hYmxlZCI6IHRydWUsICJsb3NzX3NjYWxlIjogMCwgImxvc3Nfc2NhbGVfd2luZG93IjogMTAwMCwgImluaXRpYWxfc2NhbGVfcG93ZXIiOiAxMiwgImh5c3RlcmVzaXMiOiAyLCAibWluX2xvc3Nfc2NhbGUiOiAxfSwgInplcm9fb3B0aW1pemF0aW9uIjogeyJzdGFnZSI6IDEsICJhbGxnYXRoZXJfcGFydGl0aW9ucyI6IHRydWUsICJhbGxnYXRoZXJfYnVja2V0X3NpemUiOiA1MDAwMDAwMDAsICJvdmVybGFwX2NvbW0iOiB0cnVlLCAicmVkdWNlX3NjYXR0ZXIiOiB0cnVlLCAicmVkdWNlX2J1Y2tldF9zaXplIjogNTAwMDAwMDAwLCAiY29udGlndW91c19ncmFkaWVudHMiOiB0cnVlLCAiY3B1X29mZmxvYWQiOiBmYWxzZX0sICJ3YWxsX2Nsb2NrX2JyZWFrZG93biI6IHRydWV9 --megatron_config eyJ0cmFpbl9iYXRjaF9zaXplIjogMTAyNCwgInRyYWluX21pY3JvX2JhdGNoX3NpemVfcGVyX2dwdSI6IDMyLCAiZ3JhZGllbnRfYWNjdW11bGF0aW9uX3N0ZXBzIjogNCwgIm9wdGltaXplciI6IHsidHlwZSI6ICJBZGFtIiwgInBhcmFtcyI6IHsibHIiOiAwLjAwMDYsICJiZXRhcyI6IFswLjksIDAuOTVdLCAiZXBzIjogMWUtMDh9fSwgImZwMTYiOiB7ImZwMTYiOiB0cnVlLCAiZW5hYmxlZCI6IHRydWUsICJsb3NzX3NjYWxlIjogMCwgImxvc3Nfc2NhbGVfd2luZG93IjogMTAwMCwgImluaXRpYWxfc2NhbGVfcG93ZXIiOiAxMiwgImh5c3RlcmVzaXMiOiAyLCAibWluX2xvc3Nfc2NhbGUiOiAxfSwgInplcm9fb3B0aW1pemF0aW9uIjogeyJzdGFnZSI6IDEsICJhbGxnYXRoZXJfcGFydGl0aW9ucyI6IHRydWUsICJhbGxnYXRoZXJfYnVja2V0X3NpemUiOiA1MDAwMDAwMDAsICJvdmVybGFwX2NvbW0iOiB0cnVlLCAicmVkdWNlX3NjYXR0ZXIiOiB0cnVlLCAicmVkdWNlX2J1Y2tldF9zaXplIjogNTAwMDAwMDAwLCAiY29udGlndW91c19ncmFkaWVudHMiOiB0cnVlLCAiY3B1X29mZmxvYWQiOiBmYWxzZX0sICJ3YWxsX2Nsb2NrX2JyZWFrZG93biI6IHRydWUsICJwcmVjaXNpb24iOiAiZnAxNiIsICJudW1fbGF5ZXJzIjogMTIsICJoaWRkZW5fc2l6ZSI6IDc2OCwgIm51bV9hdHRlbnRpb25faGVhZHMiOiAxMiwgInNlcV9sZW5ndGgiOiAyMDQ4LCAibWF4X3Bvc2l0aW9uX2VtYmVkZGluZ3MiOiAyMDQ4LCAicG9zX2VtYiI6ICJyb3RhcnkiLCAibm9fd2VpZ2h0X3R5aW5nIjogdHJ1ZSwgImF0dGVudGlvbl9jb25maWciOiBbImdsb2JhbCIsICJnbG9iYWwiLCAiZ2xvYmFsIiwgImdsb2JhbCIsICJnbG9iYWwiLCAiZ2xvYmFsIiwgImdsb2JhbCIsICJnbG9iYWwiLCAiZ2xvYmFsIiwgImdsb2JhbCIsICJnbG9iYWwiLCAiZ2xvYmFsIl0sICJzcGFyc2l0eV9jb25maWciOiB7fSwgInNjYWxlZF9tYXNrZWRfc29mdG1heF9mdXNpb24iOiB0cnVlLCAiYmlhc19nZWx1X2Z1c2lvbiI6IHRydWUsICJyb3RhcnlfcGN0IjogMC4yNSwgImluaXRfbWV0aG9kIjogInNtYWxsX2luaXQiLCAib3V0cHV0X2xheWVyX2luaXRfbWV0aG9kIjogIndhbmdfaW5pdCIsICJncHRfal9yZXNpZHVhbCI6IHRydWUsICJscl9kZWNheV9zdHlsZSI6ICJjb3NpbmUiLCAibHJfZGVjYXlfaXRlcnMiOiAxNDMwMDAsICJtaW5fbHIiOiA2ZS0wNSwgIm9wdGltaXplcl90eXBlIjogIkFkYW0iLCAiemVyb19zdGFnZSI6IDEsICJ6ZXJvX3JlZHVjZV9zY2F0dGVyIjogdHJ1ZSwgInplcm9fY29udGlndW91c19ncmFkaWVudHMiOiB0cnVlLCAiemVyb19yZWR1Y2VfYnVja2V0X3NpemUiOiA1MDAwMDAwMDAsICJ6ZXJvX2FsbGdhdGhlcl9idWNrZXRfc2l6ZSI6IDUwMDAwMDAwMCwgImxyIjogMC4wMDA2LCAidG9rZW5pemVyX3R5cGUiOiAiSEZUb2tlbml6ZXIiLCAidHJhaW5fZGF0YV9wYXRocyI6IFsiL2x1c3RyZS9mYXN0L2Zhc3QvdHhpYW8vc2hpaGFuL2NvbXByZXNzZWRfcHl0aGlhX2RhdGEvcGlsZV8wLjg3X2RlZHVwZWRfdGV4dF9kb2N1bWVudCJdLCAidGVzdF9kYXRhX3BhdGhzIjogWyIvbHVzdHJlL2Zhc3QvZmFzdC90eGlhby9zaGloYW4vY29tcHJlc3NlZF9weXRoaWFfZGF0YS9waWxlXzAuODdfZGVkdXBlZF90ZXh0X2RvY3VtZW50Il0sICJ2YWxpZF9kYXRhX3BhdGhzIjogWyIvbHVzdHJlL2Zhc3QvZmFzdC90eGlhby9zaGloYW4vY29tcHJlc3NlZF9weXRoaWFfZGF0YS9waWxlXzAuODdfZGVkdXBlZF90ZXh0X2RvY3VtZW50Il0sICJ0cmFpbl9kYXRhX3dlaWdodHMiOiBbMS4wXSwgInZhbGlkX2RhdGFfd2VpZ2h0cyI6IFsxLjBdLCAidGVzdF9kYXRhX3dlaWdodHMiOiBbMS4wXSwgImRhdGFfaW1wbCI6ICJtbWFwIiwgImNvbmZpZ19maWxlcyI6IHsic2VwbGxtLTE2MG0tb24tcHl0aGlhLXdpdGgtcGlsZV9kZWR1cGVkLW42NEgtTk9rZXJuZWwueW1sIjogIntcbiAgIyAjIyMjIyMjIyMjRGVidWcjIyMjIyMjIyMjXG4gICMgICBcIndvcmxkX3NpemVcIjogMSxcbiAgIyAgIFwibnVtX2dwdXNcIjogMSxcbiAgIyAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyNcblxuICAjIHBhcmFsbGVsaXNtIHNldHRpbmdzXG4gIFwicGlwZS1wYXJhbGxlbC1zaXplXCI6IDEsXG4gIFwibW9kZWwtcGFyYWxsZWwtc2l6ZVwiOiAxLFxuXG4gICMgbW9kZWwgc2V0dGluZ3NcbiAgXCJudW0tbGF5ZXJzXCI6IDEyLFxuICBcImhpZGRlbi1zaXplXCI6IDc2OCxcbiAgXCJudW0tYXR0ZW50aW9uLWhlYWRzXCI6IDEyLFxuICBcInNlcS1sZW5ndGhcIjogMjA0OCxcbiAgXCJtYXgtcG9zaXRpb24tZW1iZWRkaW5nc1wiOiAyMDQ4LFxuICBcInBvcy1lbWJcIjogXCJyb3RhcnlcIixcbiAgXCJyb3RhcnktcGN0XCI6IDAuMjUsXG4gIFwibm8td2VpZ2h0LXR5aW5nXCI6IHRydWUsXG4gIFwiZ3B0LWotcmVzaWR1YWxcIjogdHJ1ZSxcbiAgXCJvdXRwdXQtbGF5ZXItcGFyYWxsZWxpc21cIjogXCJjb2x1bW5cIixcbiAgXCJhdHRlbnRpb24tY29uZmlnXCI6IFtbW1wiZ2xvYmFsXCJdLCAxMl1dLCBcblxuICBcInNjYWxlZF9tYXNrZWRfc29mdG1heF9mdXNpb25cIjogdHJ1ZSwgIyBGb3IgU2VwTExNXG4gIFwiYmlhcy1nZWx1LWZ1c2lvblwiOiB0cnVlLFxuXG4gICMgaW5pdCBtZXRob2RzXG4gIFwiaW5pdF9tZXRob2RcIjogXCJzbWFsbF9pbml0XCIsXG4gIFwib3V0cHV0X2xheWVyX2luaXRfbWV0aG9kXCI6IFwid2FuZ19pbml0XCIsXG5cbiAgXCJvcHRpbWl6ZXJcIjoge1xuICAgIFwidHlwZVwiOiBcIkFkYW1cIixcbiAgICBcInBhcmFtc1wiOiB7XG4gICAgICBcImxyXCI6IDAuMDAwNixcbiAgICAgIFwiYmV0YXNcIjogWzAuOSwgMC45NV0sXG4gICAgICBcImVwc1wiOiAxLjBlLThcbiAgICB9XG4gIH0sXG4gIFwibWluX2xyXCI6IDAuMDAwMDYsXG5cbiAgXCJ6ZXJvX29wdGltaXphdGlvblwiOiB7XG4gICAgXCJzdGFnZVwiOiAxLFxuICAgIFwiYWxsZ2F0aGVyX3BhcnRpdGlvbnNcIjogdHJ1ZSxcbiAgICBcImFsbGdhdGhlcl9idWNrZXRfc2l6ZVwiOiA1MDAwMDAwMDAsXG4gICAgXCJvdmVybGFwX2NvbW1cIjogdHJ1ZSxcbiAgICBcInJlZHVjZV9zY2F0dGVyXCI6IHRydWUsXG4gICAgXCJyZWR1Y2VfYnVja2V0X3NpemVcIjogNTAwMDAwMDAwLFxuICAgIFwiY29udGlndW91c19ncmFkaWVudHNcIjogdHJ1ZSxcbiAgICBcImNwdV9vZmZsb2FkXCI6IGZhbHNlXG4gIH0sXG5cbiAgIyBiYXRjaCBzaXplICh0cmFpbmVkIG9uIDggZ3B1cylcbiAgXCJ0cmFpbl9taWNyb19iYXRjaF9zaXplX3Blcl9ncHVcIjogMzIsICMgRm9yIDggY2FyZHM6IGlmIHlvdXIgR1BVIG1lbW9yeSBpcyBub3QgZW5vdWdoLCB5b3UgY2FuIHNldCA2NHgyLCAzMng0LCAxNng4LCBldGMuLCBmb3IgOCBjYXJkcycgbWFjaGluZSwgdG8ga2VlcCB0aGUgZ2xvYmFsIHRyYWluX2JhdGNoX3NpemUgYXMgMTAyNC5cbiAgXCJncmFkaWVudF9hY2N1bXVsYXRpb25fc3RlcHNcIjogNCwgICMgRm9yIDggY2FyZHM6IGlmIHlvdXIgR1BVIG1lbW9yeSBpcyBub3QgZW5vdWdoLCB5b3UgY2FuIHNldCA2NHgyLCAzMng0LCAxNng4LCBldGMuLCBmb3IgOCBjYXJkcycgbWFjaGluZSwgdG8ga2VlcCB0aGUgZ2xvYmFsIHRyYWluX2JhdGNoX3NpemUgYXMgMTAyNC5cbiAgXCJkYXRhLWltcGxcIjogXCJtbWFwXCIsXG4gIFwibnVtX3dvcmtlcnNcIjogMSxcblxuICAjIGFjdGl2YXRpb24gY2hlY2twb2ludGluZ1xuICBcImNoZWNrcG9pbnQtYWN0aXZhdGlvbnNcIjogdHJ1ZSxcbiAgXCJjaGVja3BvaW50LW51bS1sYXllcnNcIjogMSxcbiAgXCJwYXJ0aXRpb24tYWN0aXZhdGlvbnNcIjogdHJ1ZSxcbiAgXCJzeW5jaHJvbml6ZS1lYWNoLWxheWVyXCI6IHRydWUsXG5cbiAgIyByZWd1bGFyaXphdGlvblxuICBcImdyYWRpZW50X2NsaXBwaW5nXCI6IDEuMCxcbiAgXCJ3ZWlnaHQtZGVjYXlcIjogMC4xLFxuICBcImhpZGRlbi1kcm9wb3V0XCI6IDAsXG4gIFwiYXR0ZW50aW9uLWRyb3BvdXRcIjogMCxcblxuICAjIHByZWNpc2lvbiBzZXR0aW5nc1xuICBcImZwMTZcIjoge1xuICAgIFwiZnAxNlwiOiB0cnVlLFxuICAgIFwiZW5hYmxlZFwiOiB0cnVlLFxuICAgIFwibG9zc19zY2FsZVwiOiAwLFxuICAgIFwibG9zc19zY2FsZV93aW5kb3dcIjogMTAwMCxcbiAgICBcImluaXRpYWxfc2NhbGVfcG93ZXJcIjogMTIsXG4gICAgXCJoeXN0ZXJlc2lzXCI6IDIsXG4gICAgXCJtaW5fbG9zc19zY2FsZVwiOiAxXG4gIH0sXG5cbiAgXCJ0cmFpbi1pdGVyc1wiOiAxNDMwMDAsXG4gIFwibHItZGVjYXktaXRlcnNcIjogMTQzMDAwLFxuICBcImRpc3RyaWJ1dGVkLWJhY2tlbmRcIjogXCJuY2NsXCIsXG4gIFwibHItZGVjYXktc3R5bGVcIjogXCJjb3NpbmVcIixcbiAgXCJ3YXJtdXBcIjogMC4wMSxcbiAgXCJjaGVja3BvaW50LWZhY3RvclwiOiAxMDAwLFxuICBcImV4dHJhLXNhdmUtaXRlcnNcIjogWzAsMSwyLDQsOCwxNiwzMiw2NCwxMjgsMjU2LDUxMl0sXG4gIFwiZXZhbC1pbnRlcnZhbFwiOiA0MDAwLCBcbiAgXCJldmFsLWl0ZXJzXCI6IDEwLFxuXG4gIFwibG9nLWludGVydmFsXCI6IDEwLFxuICBcInN0ZXBzX3Blcl9wcmludFwiOiAxMCxcbiAgXCJ3YWxsX2Nsb2NrX2JyZWFrZG93blwiOiB0cnVlLFxuXG4gIFwidHJhaW4tZGF0YS1wYXRoc1wiOiBbXCIvbHVzdHJlL2Zhc3QvZmFzdC90eGlhby9zaGloYW4vY29tcHJlc3NlZF9weXRoaWFfZGF0YS9waWxlXzAuODdfZGVkdXBlZF90ZXh0X2RvY3VtZW50XCJdLFxuICBcInZhbGlkLWRhdGEtcGF0aHNcIjogW1wiL2x1c3RyZS9mYXN0L2Zhc3QvdHhpYW8vc2hpaGFuL2NvbXByZXNzZWRfcHl0aGlhX2RhdGEvcGlsZV8wLjg3X2RlZHVwZWRfdGV4dF9kb2N1bWVudFwiXSxcbiAgXCJ0ZXN0LWRhdGEtcGF0aHNcIjogW1wiL2x1c3RyZS9mYXN0L2Zhc3QvdHhpYW8vc2hpaGFuL2NvbXByZXNzZWRfcHl0aGlhX2RhdGEvcGlsZV8wLjg3X2RlZHVwZWRfdGV4dF9kb2N1bWVudFwiXSxcblxuICBcInRva2VuaXplci10eXBlXCI6IFwiSEZUb2tlbml6ZXJcIixcbiAgXCJ2b2NhYi1maWxlXCI6IFwiL2x1c3RyZS9mYXN0L2Zhc3QvdHhpYW8vc2hpaGFuX25ldy93b3Jrc3BhY2UvU2VwTExNL1RyYWluaW5nLVNlcExMTS9zYW1wbGVfY29uZmlncy8yMEJfdG9rZW5pemVyLmpzb25cIixcblxuICBcImxhdW5jaGVyXCI6IFwicGRzaFwiLFxuXG4gICMgXCJzYXZlXCI6IFwicGF0aC90by9TZXBMTE0tMTYwbS9jaGVja3BvaW50c19uNjRoXzhjYXJkc1wiLFxuICAjIFwibG9hZFwiOiBcInBhdGgvdG8vU2VwTExNLTE2MG0vY2hlY2twb2ludHNfbjY0aF84Y2FyZHNcIixcbiAgXG4gICMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIFNlcExMTSAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIzpcbiAgIyBcImhvc3RmaWxlXCI6IFwicGF0aC90by9TZXBMTE0vVHJhaW5pbmctU2VwTExNL3NhbXBsZV9jb25maWdzL2hvc3RmaWxlXCIsXG5cbiAgJ3NlcGFyYXRvcl90b2tlbl9pZHMnOiBbMTUsIDEzLCAzMiwgMiwgMjgsIDI3LCAyMDksIDE4NiwgMTg3XSwgIyBGb3IgUHl0aGlhIHRva2VuaXplciAgIyMgRml4ZWQ7IFRoZSB0b2tlbiBpZHMgZm9yIHRoZSBzcGVjaWFsIHRva2VucyAoaS5lLiBzZXBhcmF0b3JzKTogIFsnLicsICcsJywgJz8nLCAnIScsICc7JywgXCI6XCIsICcgJywgJ1xcdCcsJ1xcbiddLlxuICAnUEFERElOR19JRCc6IDAgLCAjIEZvciBQeXRoaWEgdG9rZW5pemVyICAjIyBGaXhlZDsgVGhlIGlkIGZvciBwYWRkaW5nIHRva2VuIG9mIFB5dGhpYSAoR1BUX05lb1gpXG4gIFxuXG4gICdVU0VfUFJFRklMTF9MT0NBTF9XSU5fU0laRVNfd3J0X0xBWUVSUycgIDogICBUcnVlLCAgIyBJZiBUcnVlOiB0aGUgcHJlZmlsbGluZyBsb2NhbCB3aW5kb3cgc2l6ZXMgZm9yIGRpZmZlcmVudCBzZWxmLWF0dGVudGlvbiBsYXllcnMgYXJlIGRpZmZlcmVudDsgSWYgVHJ1ZTogc2hvdWxkIHNldCAncHJlZmlsbF9sb2Nfd2luX3NpemVfbGlzdCcsIGVsc2U6IHNob3VsZCBzZXQgJ3ByZWZpbGxfbG9jYWxfd2luZG93X3NpemUnXG4gICdVU0VfR0VORVJBVEVfTE9DQUxfV0lOX1NJWkVTX3dydF9MQVlFUlMnIDogICBUcnVlLCAgIyBJZiBUcnVlOiB0aGUgZ2VuZXJhdGluZyBsb2NhbCB3aW5kb3cgc2l6ZXMgZm9yIGRpZmZlcmVudCBzZWxmLWF0dGVudGlvbiBsYXllcnMgYXJlIGRpZmZlcmVudDsgSWYgVHJ1ZTogc2hvdWxkIHNldCAnZ2VuZXJhdGVfd2luX2xvY19zaXplX2xpc3QnLCBlbHNlOiBzaG91bGQgc2V0ICdnZW5lcmF0ZV9sb2NhbF93aW5kb3dfc2l6ZScuIFVTRV9HRU5FUkFURV9MT0NBTF9XSU5fU0laRVNfd3J0X0xBWUVSUyBkb2VzIG5vdCBoYXZlIGFueSBlZmZlY3QgZHVyaW5nIHRoZSBwcmV0cmFpbmluZy9wcmVmaWxsaW5nIHBoYXNlLiAgICBcblxuICAncHJlZmlsbF9sb2Nfd2luX3NpemVfbGlzdCcgOiBbMjA0OCwgICA2NCwgICA2NCwgICA2NCwgICA2NCwgICA2NCwgICA2NCwgICA2NCwgICA2NCwgICA2NCwgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA2NCwgICA2NF0sICAgICAgICAgICAgIyMgVGhlIGxvY2FsIHdpbmRvdyBzaXplcyBmb3IgZGlmZmVyZW50IHNlbGYtYXR0ZW50aW9uIGxheWVycyB3aGVuIHRyYWluaW5nIChvciBwcmVmaWxsaW5nKS4gS1ZzIGZvciB0b2tlbnMgaW5zaWRlIHRoZSBsb2NhbCB3aW5kb3cgKHdlIGNhbGwgdGhlbSAnTmVpZ2hib3JpbmcgVG9rZW5zJykgYXJlIGtlcHQgYW5kIGNhbiBiZWVuIHNlZW4gYnkgdGhlIGN1cnJlbnQgdG9rZW4uICAgICAgICAgICAgICAgICAgICAgIFxuXG4gICdnZW5lcmF0ZV93aW5fbG9jX3NpemVfbGlzdCc6IFsyMDQ4LCAgIDY0LCAgIDY0LCAgIDY0LCAgIDY0LCAgIDY0LCAgIDY0LCAgIDY0LCAgIDY0LCAgIDY0LCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDY0LCAgIDY0XSwgICAgICAgICAgICAjIyBUaGUgbG9jYWwgd2luZG93IHNpemVzIGZvciBkaWZmZXJlbnQgc2VsZi1hdHRlbnRpb24gbGF5ZXJzIHdoZW4gZ2VuZXJhdGluZy4gS1ZzIGZvciB0b2tlbnMgaW5zaWRlIHRoZSBsb2NhbCB3aW5kb3cgKHdlIGNhbGwgdGhlbSAnTmVpZ2hib3JpbmcgVG9rZW5zJykgYXJlIGtlcHQgYW5kIGNhbiBiZWVuIHNlZW4gYnkgdGhlIGN1cnJlbnQgdG9rZW4uIGdlbmVyYXRlX3dpbl9sb2Nfc2l6ZV9saXN0IGRvZXMgbm90IGhhdmUgYW55IGVmZmVjdCBkdXJpbmcgdGhlIHByZXRyYWluaW5nL3ByZWZpbGxpbmcgcGhhc2UuXG5cbiAgJ2luaXRfdG9rX21heF9pZHgnIDogIDIsICMgVGhlIGxhcmdlc3QgaW5kZXggZm9yIHRoZSBrZXB0IGluaXRpYWwgdG9rZW5zLiBFLmcuLCBpZiBpbml0X3Rva19tYXhfaWR4PT0yLCBpdCBtZWFucyB3ZSBrZWVwIDMgaW5pdGlhbCB0b2tlbnMgKGlkeDogMCwxLDIpXG4gICMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjVGhlcmUgc2hvdWxkIGJlIGF0IG1vc3QgMSBUcnVlIGZvciB0aGUgZm9sbG93aW5nIDMgYXJncyAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjXG4gICdVU0VfT1JJR0lOQUxfRlVMTF9BVFRFTicgOiBGYWxzZSwgICMgRmxhZyBzaWduYWwgd2l0aCB0aGUgaGlnaGVzdCBwcmlvcml0eS4gIFRyYWluIHRoZSBQeXRoaWEgbW9kZWwgd2l0aG91dCBhbnkgbW9kaWZpY2F0aW9uIChzdGFuZGFyZCBmdWxsLWF0dGVudGlvbiB2ZXJzaW9uLCBpLmUuLCBzdGFuZGFyZCB1cHBlciB0cmlhbmd1bGFyIG1hc2spIGlmIFRydWUuXG4gICdzdHJlYW1pbmdMTE0nIDogIEZhbHNlLCAgIyBUcmFpbiBzdHJlYW1pbmdMTE0uIE9ubHkgdGFrZXMgZWZmZWN0IHdoZW4gVVNFX09SSUdJTkFMX0ZVTExfQVRURU49RmFsc2UuIFxuICAnVVNFX1NFUF9BVFROX0tFUk5FTF9BQ0NFTEVSQVRPUic6IEZhbHNlLCAjIElmIFRydWUsIHVzZSBTZXBfQXR0ZW50aW9uIG1vZHVsZSdzIGtlcm5lbCBhY2NlbGVyYXRvciB0byBhY2NlbGVyYXRlIHRoZSB0cmFpbmluZyBwcm9jZXNzIG9mIFNlcExMTS4gSWYgRmFsc2UgKHRvZ2V0aGVyIHdpdGggVVNFX09SSUdJTkFMX0ZVTExfQVRURU49RmFsc2UgYW5kIHN0cmVhbWluZ0xMTT1GYWxzZSksIHJ1biBwbGFpbiBTZXBMTE1cbiAgIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyNUaGVyZSBzaG91bGQgYmUgYXQgbW9zdCAxIFRydWUgZm9yIHRoZSBhYm92ZSAzIGFyZ3MgIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjI1xuXG4gICdCQVRDSF9BREFQVElWRV9JTklUX1BPUycgOiBGYWxzZSwgICMgRmFsc2UgYnkgZGVmYXVsdC4gIElmIFRydWU6IHVzZSB0aGUgZmxvYXRpbmcgaW5pdGlhbCB0b2tlbnMnIHN0YXJ0aW5nIHBvc2l0aW9ucyBzaW5jZSB3aGVuIGV2YWx1YXRpbmcsIExMTSB1c3VhbGx5IGFkZCBwYWRkaW5ncyBvbiB0aGUgbGVmdCBzaWRlIG9mIHRoZSBzaG9ydGVyIHNlcXMgaW4gYSBiYXRjaCBmb3IgYWxpZ25tZW50IChpLmUuLCBsZWZ0IHBhZGRpbmcpLiBDYW4gYmUgRmFsc2Ugd2hlbiBwcmV0cmFpbmluZyBzaW5jZSB0aGUgc3RhcnRpbmcgcG9zaXRpb25zIG9mIGluaXRpYWwgdG9rZW5zIGFyZSBhdCB0aGUgYmVnaW5uaW5nIG9mIGVhY2ggc2VxdWVuY2UgaW4gYSBiYXRjaCBmb3IgcHJldHJhaW5pbmcgKGkuZS4sIHJpZ2h0IHBhZGRpbmcpXG4gICdQUklOVF9LVl9SQVRJTycgOiAgVHJ1ZSwgICMgSWYgVHJ1ZSwgcHJpbnQgdGhlIEtWIGNhY2hlIHByZXNlcnZhdGlvbiByYXRpbyAoZXNwZWNpYWxseSBmb3IgdGhlIHJlbGVhc2VkIHRyYWluZWQgbW9kZWwgZHVyaW5nIGdlbmVyYXRpbmcpLiBXaGVuIHByZXRyYWluaW5nLCBpdCB3aWxsIGFsc28gcHJpbnQgdGhlIHJldGVudGlvbiByYXRpbyBmb3IgdGhlIGNvbXB1dGF0aW9uYWwgY29tcGxleGl0eSBvZiBjYWxjdWxhdGluZyB0aGUgYXR0ZW50aW9uIG1hcCBpZiBpdCBpcyBzZXQgVHJ1ZVxuICAncHJpbnRfcmF0aW9faW50ZXJ2YWxzJzogODAwMCwgICAjIFByaW50IHRoZSByZXRlbnRpb24gcmF0aW8gZm9yIHRoZSBjb21wdXRhdGlvbmFsIGNvbXBsZXhpdHkgb2YgY2FsY3VsYXRpbmcgdGhlIGF0dGVudGlvbiBtYXAgb25jZSBhZnRlciBldmVyeSAncHJpbnRfcmF0aW9faW50ZXJ2YWxzJyBmb3J3YXJkIHBhc3NlcyAob3IgcHJpbnRfcmF0aW9faW50ZXJ2YWxzL2dyYWRpZW50X2FjY3VtdWxhdGlvbl9zdGVwcyAgaXRlcmF0aW9ucykuIEl0IG9ubHkgdGFrZXMgZWZmZWN0IHdoZW4gUFJJTlRfS1ZfUkFUSU89VHJ1ZS4gICAgXG4gICMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjICMjIyAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjI1xufVxuIn0sICJjaGVja3BvaW50X2ZhY3RvciI6IDEwMDAsICJleHRyYV9zYXZlX2l0ZXJzIjogWzAsIDEsIDIsIDQsIDgsIDE2LCAzMiwgNjQsIDEyOCwgMjU2LCA1MTJdLCAiYmF0Y2hfc2l6ZSI6IDMyLCAidHJhaW5faXRlcnMiOiAxNDMwMDAsICJldmFsX2l0ZXJzIjogMTAsICJldmFsX2ludGVydmFsIjogNDAwMCwgInZvY2FiX2ZpbGUiOiAiL2x1c3RyZS9mYXN0L2Zhc3QvdHhpYW8vc2hpaGFuX25ldy93b3Jrc3BhY2UvU2VwTExNL1RyYWluaW5nLVNlcExMTS9zYW1wbGVfY29uZmlncy8yMEJfdG9rZW5pemVyLmpzb24iLCAibnVtX3dvcmtlcnMiOiAxLCAiY2hlY2twb2ludF9hY3RpdmF0aW9ucyI6IHRydWUsICJzeW5jaHJvbml6ZV9lYWNoX2xheWVyIjogdHJ1ZSwgInBhcnRpdGlvbl9hY3RpdmF0aW9ucyI6IHRydWUsICJkeW5hbWljX2xvc3Nfc2NhbGUiOiB0cnVlLCAicGlwZV9wYXJhbGxlbF9zaXplIjogMSwgIndvcmxkX3NpemUiOiAxLCAiaXNfcGlwZV9wYXJhbGxlbCI6IHRydWUsICJsb2dfaW50ZXJ2YWwiOiAxMCwgInRleHRfZ2VuX3R5cGUiOiAidW5jb25kaXRpb25hbCIsICJsb2NhbF9yYW5rIjogMCwgInJhbmsiOiAwLCAidXNlcl9zY3JpcHQiOiAiLi4vLi4vdHJhaW4ucHkiLCAic2F2ZV9pdGVycyI6IFswLCAxLCAyLCA0LCA4LCAxNiwgMzIsIDY0LCAxMjgsIDI1NiwgNTEyLCAxMDAwLCAyMDAwLCAzMDAwLCA0MDAwLCA1MDAwLCA2MDAwLCA3MDAwLCA4MDAwLCA5MDAwLCAxMDAwMCwgMTEwMDAsIDEyMDAwLCAxMzAwMCwgMTQwMDAsIDE1MDAwLCAxNjAwMCwgMTcwMDAsIDE4MDAwLCAxOTAwMCwgMjAwMDAsIDIxMDAwLCAyMjAwMCwgMjMwMDAsIDI0MDAwLCAyNTAwMCwgMjYwMDAsIDI3MDAwLCAyODAwMCwgMjkwMDAsIDMwMDAwLCAzMTAwMCwgMzIwMDAsIDMzMDAwLCAzNDAwMCwgMzUwMDAsIDM2MDAwLCAzNzAwMCwgMzgwMDAsIDM5MDAwLCA0MDAwMCwgNDEwMDAsIDQyMDAwLCA0MzAwMCwgNDQwMDAsIDQ1MDAwLCA0NjAwMCwgNDcwMDAsIDQ4MDAwLCA0OTAwMCwgNTAwMDAsIDUxMDAwLCA1MjAwMCwgNTMwMDAsIDU0MDAwLCA1NTAwMCwgNTYwMDAsIDU3MDAwLCA1ODAwMCwgNTkwMDAsIDYwMDAwLCA2MTAwMCwgNjIwMDAsIDYzMDAwLCA2NDAwMCwgNjUwMDAsIDY2MDAwLCA2NzAwMCwgNjgwMDAsIDY5MDAwLCA3MDAwMCwgNzEwMDAsIDcyMDAwLCA3MzAwMCwgNzQwMDAsIDc1MDAwLCA3NjAwMCwgNzcwMDAsIDc4MDAwLCA3OTAwMCwgODAwMDAsIDgxMDAwLCA4MjAwMCwgODMwMDAsIDg0MDAwLCA4NTAwMCwgODYwMDAsIDg3MDAwLCA4ODAwMCwgODkwMDAsIDkwMDAwLCA5MTAwMCwgOTIwMDAsIDkzMDAwLCA5NDAwMCwgOTUwMDAsIDk2MDAwLCA5NzAwMCwgOTgwMDAsIDk5MDAwLCAxMDAwMDAsIDEwMTAwMCwgMTAyMDAwLCAxMDMwMDAsIDEwNDAwMCwgMTA1MDAwLCAxMDYwMDAsIDEwNzAwMCwgMTA4MDAwLCAxMDkwMDAsIDExMDAwMCwgMTExMDAwLCAxMTIwMDAsIDExMzAwMCwgMTE0MDAwLCAxMTUwMDAsIDExNjAwMCwgMTE3MDAwLCAxMTgwMDAsIDExOTAwMCwgMTIwMDAwLCAxMjEwMDAsIDEyMjAwMCwgMTIzMDAwLCAxMjQwMDAsIDEyNTAwMCwgMTI2MDAwLCAxMjcwMDAsIDEyODAwMCwgMTI5MDAwLCAxMzAwMDAsIDEzMTAwMCwgMTMyMDAwLCAxMzMwMDAsIDEzNDAwMCwgMTM1MDAwLCAxMzYwMDAsIDEzNzAwMCwgMTM4MDAwLCAxMzkwMDAsIDE0MDAwMCwgMTQxMDAwLCAxNDIwMDBdLCAiZ2xvYmFsX251bV9ncHVzIjogOCwgInNlcGFyYXRvcl90b2tlbl9pZHMiOiBbMTUsIDEzLCAzMiwgMiwgMjgsIDI3LCAyMDksIDE4NiwgMTg3XSwgIlVTRV9QUkVGSUxMX0xPQ0FMX1dJTl9TSVpFU193cnRfTEFZRVJTIjogdHJ1ZSwgIlVTRV9HRU5FUkFURV9MT0NBTF9XSU5fU0laRVNfd3J0X0xBWUVSUyI6IHRydWUsICJwcmVmaWxsX2xvY193aW5fc2l6ZV9saXN0IjogWzIwNDgsIDY0LCA2NCwgNjQsIDY0LCA2NCwgNjQsIDY0LCA2NCwgNjQsIDY0LCA2NF0sICJnZW5lcmF0ZV93aW5fbG9jX3NpemVfbGlzdCI6IFsyMDQ4LCA2NCwgNjQsIDY0LCA2NCwgNjQsIDY0LCA2NCwgNjQsIDY0LCA2NCwgNjRdLCAiVVNFX1NFUF9BVFROX0tFUk5FTF9BQ0NFTEVSQVRPUiI6IGZhbHNlLCAiUFJJTlRfS1ZfUkFUSU8iOiB0cnVlfQ==
+[2025-06-22 20:51:33,562] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-22 20:51:39,061] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3, 4, 5, 6, 7]}
+[2025-06-22 20:51:39,061] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=8, node_rank=0
+[2025-06-22 20:51:39,061] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3, 4, 5, 6, 7]})
+[2025-06-22 20:51:39,062] [INFO] [launch.py:163:main] dist_world_size=8
+[2025-06-22 20:51:39,062] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+[2025-06-22 20:51:41,775] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-22 20:51:41,836] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-22 20:51:41,859] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-22 20:51:42,002] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-22 20:51:42,012] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-22 20:51:42,013] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-22 20:51:42,031] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-06-22 20:51:42,055] [INFO] [real_accelerator.py:161:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+fatal: not a git repository (or any parent up to mount point /lustre)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+fatal: not a git repository (or any parent up to mount point /lustre)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Unable to import Mamba kernels. Install them from our requirements/requirements-mamba.txt,     or directly from https://github.com/state-spaces/mamba
+############################################ Basic Args for SepAttention ############################################
+self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.prefill_loc_win_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.generate_win_loc_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.Layer_num: 12
+self.init_tok_max_idx: 2
+self.USE_ORIGINAL_FULL_ATTEN:  False
+self.streamingLLM:  False
+self.USE_SEP_ATTN_KERNEL_ACCELERATOR:  False
+self.RECOMPILE_SEP_ATTN_KERNEL:  False
+self.BATCH_ADAPTIVE_INIT_POS:  False
+>>> For `BATCH_ADAPTIVE_INIT_POS`: Typically True when the input_ids of the model use 'left padding', False for 'right padding' (e.g., for training or some downstream tasks like `lambada_openai`, `piqa`, etc).
+self.PRINT_KV_RATIO:  True
+self.print_ratio_intervals:  8000
+>>> Please be careful of the `separator_token_ids`, and make sure they are correct for the current LLM
+self.separator_token_ids: [15, 13, 32, 2, 28, 27, 209, 186, 187]
+self.USE_BiPE: False
+self.EXCLUDE_DIAGONAL:  True
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>--------------------- Running our SepLLM strategy ----------------------------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+Unable to import Mamba kernels. Install them from our requirements/requirements-mamba.txt,     or directly from https://github.com/state-spaces/mamba
+############################################ Basic Args for SepAttention ############################################
+self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.prefill_loc_win_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.generate_win_loc_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.Layer_num: 12
+self.init_tok_max_idx: 2
+self.USE_ORIGINAL_FULL_ATTEN:  False
+self.streamingLLM:  False
+self.USE_SEP_ATTN_KERNEL_ACCELERATOR:  False
+self.RECOMPILE_SEP_ATTN_KERNEL:  False
+self.BATCH_ADAPTIVE_INIT_POS:  False
+>>> For `BATCH_ADAPTIVE_INIT_POS`: Typically True when the input_ids of the model use 'left padding', False for 'right padding' (e.g., for training or some downstream tasks like `lambada_openai`, `piqa`, etc).
+self.PRINT_KV_RATIO:  True
+self.print_ratio_intervals:  8000
+>>> Please be careful of the `separator_token_ids`, and make sure they are correct for the current LLM
+self.separator_token_ids: [15, 13, 32, 2, 28, 27, 209, 186, 187]
+self.USE_BiPE: False
+self.EXCLUDE_DIAGONAL:  True
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>--------------------- Running our SepLLM strategy ----------------------------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+fatal: not a git repository (or any parent up to mount point /lustre)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+fatal: not a git repository (or any parent up to mount point /lustre)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+fatal: not a git repository (or any parent up to mount point /lustre)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+fatal: not a git repository (or any parent up to mount point /lustre)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+fatal: not a git repository (or any parent up to mount point /lustre)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+fatal: not a git repository (or any parent up to mount point /lustre)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+Unable to import Mamba kernels. Install them from our requirements/requirements-mamba.txt,     or directly from https://github.com/state-spaces/mamba
+Unable to import Mamba kernels. Install them from our requirements/requirements-mamba.txt,     or directly from https://github.com/state-spaces/mamba
+############################################ Basic Args for SepAttention ############################################
+self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.prefill_loc_win_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.generate_win_loc_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.Layer_num: 12
+self.init_tok_max_idx: 2
+self.USE_ORIGINAL_FULL_ATTEN:  False
+self.streamingLLM:  False
+self.USE_SEP_ATTN_KERNEL_ACCELERATOR:  False
+self.RECOMPILE_SEP_ATTN_KERNEL:  False
+self.BATCH_ADAPTIVE_INIT_POS:  False
+>>> For `BATCH_ADAPTIVE_INIT_POS`: Typically True when the input_ids of the model use 'left padding', False for 'right padding' (e.g., for training or some downstream tasks like `lambada_openai`, `piqa`, etc).
+self.PRINT_KV_RATIO:  True
+self.print_ratio_intervals:  8000
+>>> Please be careful of the `separator_token_ids`, and make sure they are correct for the current LLM
+self.separator_token_ids: [15, 13, 32, 2, 28, 27, 209, 186, 187]
+self.USE_BiPE: False
+self.EXCLUDE_DIAGONAL:  True
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>--------------------- Running our SepLLM strategy ----------------------------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+Unable to import Mamba kernels. Install them from our requirements/requirements-mamba.txt,     or directly from https://github.com/state-spaces/mamba
+############################################ Basic Args for SepAttention ############################################
+self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.prefill_loc_win_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.generate_win_loc_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.Layer_num: 12
+self.init_tok_max_idx: 2
+self.USE_ORIGINAL_FULL_ATTEN:  False
+self.streamingLLM:  False
+self.USE_SEP_ATTN_KERNEL_ACCELERATOR:  False
+self.RECOMPILE_SEP_ATTN_KERNEL:  False
+self.BATCH_ADAPTIVE_INIT_POS:  False
+>>> For `BATCH_ADAPTIVE_INIT_POS`: Typically True when the input_ids of the model use 'left padding', False for 'right padding' (e.g., for training or some downstream tasks like `lambada_openai`, `piqa`, etc).
+self.PRINT_KV_RATIO:  True
+self.print_ratio_intervals:  8000
+>>> Please be careful of the `separator_token_ids`, and make sure they are correct for the current LLM
+self.separator_token_ids: [15, 13, 32, 2, 28, 27, 209, 186, 187]
+self.USE_BiPE: False
+self.EXCLUDE_DIAGONAL:  True
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>--------------------- Running our SepLLM strategy ----------------------------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+Unable to import Mamba kernels. Install them from our requirements/requirements-mamba.txt,     or directly from https://github.com/state-spaces/mamba
+Unable to import Mamba kernels. Install them from our requirements/requirements-mamba.txt,     or directly from https://github.com/state-spaces/mamba
+NeoXArgs.configure_distributed_args() using world size: 8 and model-parallel size: 1 
+> building HFTokenizer tokenizer ...
+Unable to import Mamba kernels. Install them from our requirements/requirements-mamba.txt,     or directly from https://github.com/state-spaces/mamba
+############################################ Basic Args for SepAttention ############################################
+self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.prefill_loc_win_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.generate_win_loc_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.Layer_num: 12
+self.init_tok_max_idx: 2
+self.USE_ORIGINAL_FULL_ATTEN:  False
+self.streamingLLM:  False
+self.USE_SEP_ATTN_KERNEL_ACCELERATOR:  False
+self.RECOMPILE_SEP_ATTN_KERNEL:  False
+self.BATCH_ADAPTIVE_INIT_POS:  False
+>>> For `BATCH_ADAPTIVE_INIT_POS`: Typically True when the input_ids of the model use 'left padding', False for 'right padding' (e.g., for training or some downstream tasks like `lambada_openai`, `piqa`, etc).
+self.PRINT_KV_RATIO:  True
+self.print_ratio_intervals:  8000
+>>> Please be careful of the `separator_token_ids`, and make sure they are correct for the current LLM
+self.separator_token_ids: [15, 13, 32, 2, 28, 27, 209, 186, 187]
+self.USE_BiPE: False
+self.EXCLUDE_DIAGONAL:  True
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>--------------------- Running our SepLLM strategy ----------------------------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+############################################ Basic Args for SepAttention ############################################
+self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.prefill_loc_win_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.generate_win_loc_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.Layer_num: 12
+self.init_tok_max_idx: 2
+self.USE_ORIGINAL_FULL_ATTEN:  False
+self.streamingLLM:  False
+self.USE_SEP_ATTN_KERNEL_ACCELERATOR:  False
+self.RECOMPILE_SEP_ATTN_KERNEL:  False
+self.BATCH_ADAPTIVE_INIT_POS:  False
+>>> For `BATCH_ADAPTIVE_INIT_POS`: Typically True when the input_ids of the model use 'left padding', False for 'right padding' (e.g., for training or some downstream tasks like `lambada_openai`, `piqa`, etc).
+self.PRINT_KV_RATIO:  True
+self.print_ratio_intervals:  8000
+>>> Please be careful of the `separator_token_ids`, and make sure they are correct for the current LLM
+self.separator_token_ids: [15, 13, 32, 2, 28, 27, 209, 186, 187]
+self.USE_BiPE: False
+self.EXCLUDE_DIAGONAL:  True
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>--------------------- Running our SepLLM strategy ----------------------------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+ > padded vocab (size: 50277) with 27 dummy tokens (new size: 50304)
+############################################ Basic Args for SepAttention ############################################
+self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.prefill_loc_win_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.generate_win_loc_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.Layer_num: 12
+self.init_tok_max_idx: 2
+self.USE_ORIGINAL_FULL_ATTEN:  False
+self.streamingLLM:  False
+self.USE_SEP_ATTN_KERNEL_ACCELERATOR:  False
+self.RECOMPILE_SEP_ATTN_KERNEL:  False
+self.BATCH_ADAPTIVE_INIT_POS:  False
+>>> For `BATCH_ADAPTIVE_INIT_POS`: Typically True when the input_ids of the model use 'left padding', False for 'right padding' (e.g., for training or some downstream tasks like `lambada_openai`, `piqa`, etc).
+self.PRINT_KV_RATIO:  True
+self.print_ratio_intervals:  8000
+>>> Please be careful of the `separator_token_ids`, and make sure they are correct for the current LLM
+self.separator_token_ids: [15, 13, 32, 2, 28, 27, 209, 186, 187]
+self.USE_BiPE: False
+self.EXCLUDE_DIAGONAL:  True
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>--------------------- Running our SepLLM strategy ----------------------------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+############################################ Basic Args for SepAttention ############################################
+self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.prefill_loc_win_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS:  True
+self.generate_win_loc_size_list: [2048, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+self.Layer_num: 12
+self.init_tok_max_idx: 2
+self.USE_ORIGINAL_FULL_ATTEN:  False
+self.streamingLLM:  False
+self.USE_SEP_ATTN_KERNEL_ACCELERATOR:  False
+self.RECOMPILE_SEP_ATTN_KERNEL:  False
+self.BATCH_ADAPTIVE_INIT_POS:  False
+>>> For `BATCH_ADAPTIVE_INIT_POS`: Typically True when the input_ids of the model use 'left padding', False for 'right padding' (e.g., for training or some downstream tasks like `lambada_openai`, `piqa`, etc).
+self.PRINT_KV_RATIO:  True
+self.print_ratio_intervals:  8000
+>>> Please be careful of the `separator_token_ids`, and make sure they are correct for the current LLM
+self.separator_token_ids: [15, 13, 32, 2, 28, 27, 209, 186, 187]
+self.USE_BiPE: False
+self.EXCLUDE_DIAGONAL:  True
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>--------------------- Running our SepLLM strategy ----------------------------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+

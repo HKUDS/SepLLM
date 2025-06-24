@@ -24,8 +24,8 @@ rule cuda_compile
 rule link
   command = $cxx $in $ldflags -o $out
 
-build fused_rotary_positional_embedding.o: compile /lustre/home/txiao/shihan/workspace/SepLLM/Training-SepLLM/megatron/fused_kernels/fused_rotary_positional_embedding.cpp
-build fused_rotary_positional_embedding_cuda.cuda.o: cuda_compile /lustre/home/txiao/shihan/workspace/SepLLM/Training-SepLLM/megatron/fused_kernels/fused_rotary_positional_embedding_cuda.cu
+build fused_rotary_positional_embedding.o: compile /lustre/fast/fast/txiao/shihan_new/workspace/SepLLM/Training-SepLLM/megatron/fused_kernels/fused_rotary_positional_embedding.cpp
+build fused_rotary_positional_embedding_cuda.cuda.o: cuda_compile /lustre/fast/fast/txiao/shihan_new/workspace/SepLLM/Training-SepLLM/megatron/fused_kernels/fused_rotary_positional_embedding_cuda.cu
 
 
 

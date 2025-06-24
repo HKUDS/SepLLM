@@ -1,0 +1,127 @@
+{
+  # ##########Debug##########
+  #   "world_size": 1,
+  #   "num_gpus": 1,
+  # ########################
+
+  # parallelism settings
+  "pipe-parallel-size": 1,
+  "model-parallel-size": 1,
+
+  # model settings
+  "num-layers": 12,
+  "hidden-size": 768,
+  "num-attention-heads": 12,
+  "seq-length": 2048,
+  "max-position-embeddings": 2048,
+  "pos-emb": "rotary",
+  "rotary-pct": 0.25,
+  "no-weight-tying": true,
+  "gpt-j-residual": true,
+  "output-layer-parallelism": "column",
+  "attention-config": [[["global"], 12]], 
+
+  "scaled_masked_softmax_fusion": true, # For SepLLM
+  "bias-gelu-fusion": true,
+
+  # init methods
+  "init_method": "small_init",
+  "output_layer_init_method": "wang_init",
+
+  "optimizer": {
+    "type": "Adam",
+    "params": {
+      "lr": 0.0006,
+      "betas": [0.9, 0.95],
+      "eps": 1.0e-8
+    }
+  },
+  "min_lr": 0.00006,
+
+  "zero_optimization": {
+    "stage": 1,
+    "allgather_partitions": true,
+    "allgather_bucket_size": 500000000,
+    "overlap_comm": true,
+    "reduce_scatter": true,
+    "reduce_bucket_size": 500000000,
+    "contiguous_gradients": true,
+    "cpu_offload": false
+  },
+
+  # batch size (trained on 8 gpus)
+  "train_micro_batch_size_per_gpu": 32, # For 8 cards: if your GPU memory is not enough, you can set 64x2, 32x4, 16x8, etc., for 8 cards' machine, to keep the global train_batch_size as 1024.
+  "gradient_accumulation_steps": 4,  # For 8 cards: if your GPU memory is not enough, you can set 64x2, 32x4, 16x8, etc., for 8 cards' machine, to keep the global train_batch_size as 1024.
+  "data-impl": "mmap",
+  "num_workers": 1,
+
+  # activation checkpointing
+  "checkpoint-activations": true,
+  "checkpoint-num-layers": 1,
+  "partition-activations": true,
+  "synchronize-each-layer": true,
+
+  # regularization
+  "gradient_clipping": 1.0,
+  "weight-decay": 0.1,
+  "hidden-dropout": 0,
+  "attention-dropout": 0,
+
+  # precision settings
+  "fp16": {
+    "fp16": true,
+    "enabled": true,
+    "loss_scale": 0,
+    "loss_scale_window": 1000,
+    "initial_scale_power": 12,
+    "hysteresis": 2,
+    "min_loss_scale": 1
+  },
+
+  "train-iters": 143000,
+  "lr-decay-iters": 143000,
+  "distributed-backend": "nccl",
+  "lr-decay-style": "cosine",
+  "warmup": 0.01,
+  "checkpoint-factor": 1000,
+  "extra-save-iters": [0,1,2,4,8,16,32,64,128,256,512],
+  "eval-interval": 4000, 
+  "eval-iters": 10,
+
+  "log-interval": 10,
+  "steps_per_print": 10,
+  "wall_clock_breakdown": true,
+
+  "train-data-paths": ["/lustre/fast/fast/txiao/shihan/compressed_pythia_data/pile_0.87_deduped_text_document"],
+  "valid-data-paths": ["/lustre/fast/fast/txiao/shihan/compressed_pythia_data/pile_0.87_deduped_text_document"],
+  "test-data-paths": ["/lustre/fast/fast/txiao/shihan/compressed_pythia_data/pile_0.87_deduped_text_document"],
+
+  "tokenizer-type": "HFTokenizer",
+  "vocab-file": "/lustre/home/txiao/shihan/workspace/SepLLM/Training-SepLLM/sample_configs/20B_tokenizer.json",
+
+  "launcher": "pdsh",
+
+  # "save": "path/to/SepLLM-160m/checkpoints_n128_8cards",
+  # "load": "path/to/SepLLM-160m/checkpoints_n128_8cards",
+  
+  ####################################################################### SepLLM #######################################################################:
+  # "hostfile": "path/to/SepLLM/Training-SepLLM/sample_configs/hostfile",
+
+  'separator_token_ids': [15, 13, 32, 2, 28, 27, 209, 186, 187], # For Pythia tokenizer  ## Fixed; The token ids for the special tokens (i.e. separators):  ['.', ',', '?', '!', ';', ":", ' ', '\t','\n'].
+  'PADDING_ID': 0 , # For Pythia tokenizer  ## Fixed; The id for padding token of Pythia (GPT_NeoX)
+  
+  'prefill_local_window_size' : 128,  # Only take effect when USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS=False.  The local window size when training and prefilling.  KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
+  'generate_local_window_size': 128, # Only take effect when USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS=False. The local window size when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token. generate_local_window_size does not have any effect during the pretraining/prefilling phase.
+                                                 
+  'init_tok_max_idx' :  2, # The largest index for the kept initial tokens. E.g., if init_tok_max_idx==2, it means we keep 3 initial tokens (idx: 0,1,2)
+  ######################################There should be at most 1 True for the following 3 args ##############################################
+  'USE_ORIGINAL_FULL_ATTEN' : False,  # Flag signal with the highest priority.  Train the Pythia model without any modification (standard full-attention version, i.e., standard upper triangular mask) if True.
+  'streamingLLM' :  False,  # Train streamingLLM. Only takes effect when USE_ORIGINAL_FULL_ATTEN=False. 
+  'USE_SEP_ATTN_KERNEL_ACCELERATOR': False, # If True, use Sep_Attention module's kernel accelerator to accelerate the training process of SepLLM. If False (together with USE_ORIGINAL_FULL_ATTEN=False and streamingLLM=False), run plain SepLLM
+  ######################################There should be at most 1 True for the above 3 args ##############################################
+
+  'BATCH_ADAPTIVE_INIT_POS' : False,  # False by default.  If True: use the floating initial tokens' starting positions since when evaluating, LLM usually add paddings on the left side of the shorter seqs in a batch for alignment (i.e., left padding). Can be False when pretraining since the starting positions of initial tokens are at the beginning of each sequence in a batch for pretraining (i.e., right padding)
+  'PRINT_KV_RATIO' :  True,  # If True, print the KV cache preservation ratio (especially for the released trained model during generating). When pretraining, it will also print the retention ratio for the computational complexity of calculating the attention map if it is set True
+  'print_ratio_intervals': 8000,   # Print the retention ratio for the computational complexity of calculating the attention map once after every 'print_ratio_intervals' forward passes (or print_ratio_intervals/gradient_accumulation_steps  iterations). It only takes effect when PRINT_KV_RATIO=True.    
+  ####################################################################### ### #######################################################################
+}

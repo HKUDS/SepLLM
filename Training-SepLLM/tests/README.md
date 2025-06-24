@@ -1,3 +1,6 @@
+# Note
+Inherited from the GPT-NeoX codebase, it has not been tested in the SepLLM scenario.
+
 # Dependencies
 
 Tests use pytests with coverage and forked plugins. Install with:

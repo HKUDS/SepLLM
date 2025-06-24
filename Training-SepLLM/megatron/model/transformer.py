@@ -496,17 +496,8 @@ class ParallelSelfAttention(nn.Module):
             self.rotary_emb = None
 
         self.rope_fusion = neox_args.rope_fusion ##my. For default pythia: False
-        self.attention_type = neox_args.attention_config[layer_number]
-        self.use_flash_attention = self.attention_type == "flash"
-        self.use_triton = (
-            self.use_flash_attention
-            and self.pos_emb == "alibi"
-            and (
-                not packaging.version.Version(version("flash-attn"))
-                >= packaging.version.Version("2.4.0.post1")
-            )
-        )
-        self.sparse = self.attention_type not in ("global", "flash")
+        self.attention_type = neox_args.attention_config[layer_number]        
+        self.sparse = self.attention_type != "global"
 
         if self.gqa:
             assert not self.sparse
@@ -519,31 +510,15 @@ class ParallelSelfAttention(nn.Module):
                 mpu=mpu,
             )
         else:
-            if self.use_flash_attention:
-                # we now use Flash Attention 2's provided interface.
-                # TODO: we no longer need to use flash_triton_fn since flash cuda supports alibi.
-                # consider adding OpenAI's more recent Flash-2 Triton kernel in future
-                # from https://github.com/openai/triton/blob/main/python/tutorials/06-fused-attention.py
-                from flash_attn.flash_attn_interface import (
-                    flash_attn_func,
-                    flash_attn_varlen_func,
-                )
-                from flash_attn.flash_attn_triton import (
-                    flash_attn_func as flash_attn_unpadded_unpacked_func_triton,
-                )
 
-                self.flash_triton_fn = flash_attn_unpadded_unpacked_func_triton
-                self.flash_qkv_fn = flash_attn_func
-                self.flash_varlen_qkv_fn = flash_attn_varlen_func
-            else:
-                self.scale_mask_softmax = FusedScaleMaskSoftmax(
-                    input_in_fp16=self.fp16,
-                    input_in_bf16=self.bf16,
-                    fusion_type=get_fusion_type(neox_args),
-                    mask_func=self.attention_mask_func,
-                    softmax_in_fp32=self.attention_softmax_in_fp32,
-                    scale=coeff,
-                )
+            self.scale_mask_softmax = FusedScaleMaskSoftmax(
+                input_in_fp16=self.fp16,
+                input_in_bf16=self.bf16,
+                fusion_type=get_fusion_type(neox_args),
+                mask_func=self.attention_mask_func,
+                softmax_in_fp32=self.attention_softmax_in_fp32,
+                scale=coeff,
+            )
 
             # Dropout. Note that for a single iteration, this layer will generate
             # different outputs on different number of parallel partitions but
@@ -710,132 +685,6 @@ class ParallelSelfAttention(nn.Module):
             context_layer = context_layer.view(*output_size)
             return context_layer               
   
-    def flash_attention(self, query_layer, key_layer, value_layer, attention_mask=None):
-        # [b, np, sq, sk]
-        output_size = (
-            query_layer.size(1),
-            query_layer.size(2),
-            query_layer.size(0),
-            key_layer.size(0),
-        )
-
-        if self.use_flash_attention and not self.use_triton:
-            # print("######################Debug: self.use_flash_attention and not self.use_triton##########################") ##my
-            
-            # [sk, b, np, hn] -> [b, sk, np, hn] -> [b * sk, 1, np, hn]
-            key_layer = key_layer.transpose(0, 1).reshape(
-                output_size[0], output_size[3], self.num_kv_heads_per_partition, -1
-            )
-            value_layer = value_layer.transpose(0, 1).reshape(
-                output_size[0], output_size[3], self.num_kv_heads_per_partition, -1
-            )
-
-            # [sq, b, np, hn] -> [b, sq, np, hn]
-            query_layer = query_layer.transpose(0, 1).reshape(
-                output_size[0], output_size[2], output_size[1], -1
-            )
-
-            # only pass in window_size or alibi_slopes kwarg
-            # if we use Sliding Window Attention / AliBi.
-            # Flash attn defaults to (-1,-1), or
-            # does not have this kwarg prior to v2.3.0
-            extra_kwargs = (
-                {"window_size": (self.sliding_window_width, -1)}
-                if self.sliding_window_width is not None
-                else {}
-            )
-            if self.pos_emb == "alibi":
-                extra_kwargs["alibi_slopes"] = self.alibi_embed.slopes.to(
-                    query_layer.device
-                ).to(torch.float32)
-
-            if not self.training:
-                # print(f"######################Debug: self.use_flash_attention and not self.use_triton,   self.training: {self.training}, is_causal: {is_causal}##########################") ##my                                
-                batch_size = output_size[0]
-                max_seqlen_q = output_size[2]
-                max_seqlen_k = output_size[3]
-
-                cu_seqlens_q = torch.arange(
-                    0,
-                    (batch_size + 1) * max_seqlen_q,
-                    step=max_seqlen_q,
-                    dtype=torch.int32,
-                    device=query_layer.device,
-                )
-
-                cu_seqlens_k = torch.arange(
-                    0,
-                    (batch_size + 1) * max_seqlen_k,
-                    step=max_seqlen_k,
-                    dtype=torch.int32,
-                    device=key_layer.device,
-                )
-
-                q_shape = query_layer.shape
-                k_shape = key_layer.shape
-                v_shape = value_layer.shape
-                is_causal = max_seqlen_q == max_seqlen_k
-                output = self.flash_varlen_qkv_fn(
-                    query_layer.reshape(
-                        (q_shape[0] * q_shape[1], q_shape[2], q_shape[3])
-                    ),
-                    key_layer.reshape(
-                        (k_shape[0] * k_shape[1], k_shape[2], k_shape[3])
-                    ),
-                    value_layer.reshape(
-                        (v_shape[0] * v_shape[1], v_shape[2], v_shape[3])
-                    ),
-                    cu_seqlens_q,
-                    cu_seqlens_k,
-                    max_seqlen_q,
-                    max_seqlen_k,
-                    softmax_scale=None,
-                    causal=is_causal,
-                    **extra_kwargs,
-                )
-                output = output.reshape(q_shape)
-            else:
-                # print(f"######################self.use_flash_attention and not self.use_triton,   else: self.training: {self.training}##########################") ##my
-                output = self.flash_qkv_fn(
-                    query_layer,
-                    key_layer,
-                    value_layer,
-                    self.dropout_p if self.training else 0.0,
-                    softmax_scale=None,
-                    causal=True,
-                    **extra_kwargs,
-                )
-
-            matmul_result = output
-            # [b, sq, np, hn] -> [b, np, sq, hn]
-            matmul_result = matmul_result.transpose(1, 2)
-
-        else:
-            # print(f"######################else: self.use_flash_attention and not self.use_triton: {self.use_flash_attention and not self.use_triton}##########################") ##my
-            # we still use Triton if using AliBi with flash-attn<2.4.0.post1.
-
-            # [sq, b, np, hn] -> [b, sq, np, hn]
-            sq = query_layer.size(0)
-            b = query_layer.size(1)
-            sk = key_layer.size(0)
-
-            query_layer = query_layer.transpose(0, 1)
-            key_layer = key_layer.transpose(0, 1)
-            value_layer = value_layer.transpose(0, 1)
-
-            bias = self.alibi_embed.bias(sq, sk, query_layer.device, query_layer.dtype)
-            bias = bias.unsqueeze(0).tile((b, 1, 1, 1))
-
-            matmul_result = self.flash_triton_fn(
-                query_layer, key_layer, value_layer, bias=bias, causal=True
-            )
-            matmul_result = matmul_result.transpose(1, 2)
-
-        return matmul_result  
-    
-    
-    
-    
 
     def sparse_attention(self, query_layer, key_layer, value_layer, attention_mask):
         # TODO: sparse attn dropout?
@@ -931,24 +780,23 @@ class ParallelSelfAttention(nn.Module):
 
         value_layer = value_layer.view(*new_kv_shape)
 
-        # if not using Flash attention, we repeat K/V heads to match Q head counts
-        if not self.use_flash_attention:
-            key_layer = torch.repeat_interleave(
-                key_layer,
-                repeats=int(
-                    self.num_attention_heads_per_partition
-                    // self.num_kv_heads_per_partition
-                ),
-                dim=2,
-            )
-            value_layer = torch.repeat_interleave(
-                value_layer,
-                repeats=int(
-                    self.num_attention_heads_per_partition
-                    // self.num_kv_heads_per_partition
-                ),
-                dim=2,
-            )
+        # We repeat K/V heads to match Q head counts    
+        key_layer = torch.repeat_interleave(
+            key_layer,
+            repeats=int(
+                self.num_attention_heads_per_partition
+                // self.num_kv_heads_per_partition
+            ),
+            dim=2,
+        )
+        value_layer = torch.repeat_interleave(
+            value_layer,
+            repeats=int(
+                self.num_attention_heads_per_partition
+                // self.num_kv_heads_per_partition
+            ),
+            dim=2,
+        )
 
         return query_layer, key_layer, value_layer
 
@@ -981,7 +829,7 @@ class ParallelSelfAttention(nn.Module):
             # Grouped Query Attention (GQA) - specific logic for performing QKV proj
             # and separating out Q, K, and V outputs.
 
-            # output shapes: 1 x [sq, b, np, hn], 2 x [sq, b, kvp, hn] if using flash
+            # output shapes: 1 x [sq, b, np, hn]
             query_layer, key_layer, value_layer = self.gqa_project(
                 hidden_states, attention_mask, layer_past=layer_past
             )
@@ -1013,7 +861,7 @@ class ParallelSelfAttention(nn.Module):
             if exists(layer_past) and layer_past.numel() > 0:
                 offset = layer_past[0].shape[0]
                 seq_len += offset
-            ###################################my#####################################
+            ###################################SepLLM#####################################
             #[ seq_len , batch, heads, dim]
             # print(f"Debug: query_layer.shape:{query_layer.shape}, key_layer.shape:{key_layer.shape} ") 
             # #Debug: query_layer.shape:torch.Size([2048, 2, 12, 64]), key_layer.shape:torch.Size([2048, 2, 12, 64])
@@ -1066,16 +914,15 @@ class ParallelSelfAttention(nn.Module):
         if self.use_cache:
             present = torch.stack((key_layer, value_layer))
 
-        if self.use_flash_attention:
-            context_layer = self.flash_attention(query_layer, key_layer, value_layer, attention_mask)
-        elif not self.sparse:
-            context_layer = self.attention(
-                query_layer, key_layer, value_layer, layer_past, attention_mask, sep_atten_kernel_func=sep_atten_kernel_func, inter_position_ids=inter_position_ids
-            )
-        else:
+        if self.sparse:
             context_layer = self.sparse_attention(
                 query_layer, key_layer, value_layer, attention_mask
             )
+        else:
+            context_layer = self.attention(
+                query_layer, key_layer, value_layer, layer_past, attention_mask, sep_atten_kernel_func=sep_atten_kernel_func, inter_position_ids=inter_position_ids
+            )
+
 
         # [b, np, sq, hn] --> [sq, b, np, hn]
         context_layer = context_layer.permute(2, 0, 1, 3).contiguous()
@@ -1305,12 +1152,12 @@ class ParallelTransformerLayer(nn.Module):
         if isinstance(attention_mask, (list, tuple)) or len(attention_mask.shape) > 4:
             attention_mask_layer = attention_mask[self.layer_number]
             if sep_atten_kernel_func is not None:
-                block_mask_layer = sep_atten_kernel_func[self.layer_number]
+                sep_atten_kernel_func_layer = sep_atten_kernel_func[self.layer_number]
             else:
-                block_mask_layer = None            
+                sep_atten_kernel_func_layer = None            
         else:
             attention_mask_layer = attention_mask                    
-            block_mask_layer = sep_atten_kernel_func
+            sep_atten_kernel_func_layer = sep_atten_kernel_func
             
         # ################################################my Debug###########################################
         # import os
@@ -1343,7 +1190,7 @@ class ParallelTransformerLayer(nn.Module):
 
             # attention operator
             attention_output, attention_bias = self.attention(
-                x1, attention_mask_layer, layer_past=layer_past, inter_position_ids=inter_position_ids, sep_atten_kernel_func=block_mask_layer
+                x1, attention_mask_layer, layer_past=layer_past, inter_position_ids=inter_position_ids, sep_atten_kernel_func=sep_atten_kernel_func_layer
             )
             if self.use_cache:
                 attention_output, presents = attention_output
@@ -1378,7 +1225,7 @@ class ParallelTransformerLayer(nn.Module):
 
             # x = x + attn(ln1(x))
             attention_output, attention_bias = self.attention(
-                self.input_layernorm(x), attention_mask_layer, layer_past=layer_past, inter_position_ids=inter_position_ids, sep_atten_kernel_func=block_mask_layer
+                self.input_layernorm(x), attention_mask_layer, layer_past=layer_past, inter_position_ids=inter_position_ids, sep_atten_kernel_func=sep_atten_kernel_func_layer
             )
             if self.use_cache:
                 attention_output, presents = attention_output

@@ -1,3 +1,6 @@
+# Note
+Inherited from the GPT-NeoX codebase.
+
 # Data Scripts
 
 ## `preprocess_data.py`

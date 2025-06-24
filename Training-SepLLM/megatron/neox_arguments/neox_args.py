@@ -34,8 +34,7 @@ ATTENTION_TYPE_CHOICES = [
     "bigbird",
     "bslongformer",
     "gmlp",
-    "amlp",
-    "flash",
+    "amlp",    
     "rwkv",
     "mamba",
 ]
@@ -151,7 +150,7 @@ class NeoXArgsModel(NeoXArgsTemplate):
 
     sliding_window_width: int = None
     """
-    Width of the attention sliding window. Only supported with Flash Attention 2.
+    Width of the attention sliding window.
     """
 
     max_position_embeddings: int = None
@@ -224,7 +223,7 @@ class NeoXArgsModel(NeoXArgsTemplate):
     The first item in the list specifies the attention type(s), and should be a list of strings. The second item
     specifies the number of times to repeat those attention types in the full list.
 
-    attention type choices:  [global, local, sparse_fixed, sparse_variable, bslongformer, bigbird, "gmlp", "amlp", "flash", "mamba", "rwkv"]
+    attention type choices:  [global, local, sparse_fixed, sparse_variable, bslongformer, bigbird, "gmlp", "amlp", "mamba", "rwkv"]
 
     So a 12 layer network with only global attention could be specified like:
         [[[`global`], 12]]
@@ -1416,7 +1415,7 @@ class SepLLMArgs(NeoXArgsTemplate):
     """
     The local window size when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
     
-    Only take effect when USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS=False.
+    Only take effect when USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS=False. generate_local_window_size does not have any effect during the pretraining/prefilling phase.
     """
 
 
@@ -1429,9 +1428,9 @@ class SepLLMArgs(NeoXArgsTemplate):
     USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS: bool = False 
     """
     If True: the generating local window sizes for different self-attention layers are different.
-    If True: should set 'generate_win_loc_size_list', else: should set 'generate_local_window_size'    
+    If True: should set 'generate_win_loc_size_list', else: should set 'generate_local_window_size'  
+    USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS does not have any effect during the pretraining/prefilling phase.
     """
-
 
 
     prefill_loc_win_size_list: list = None
@@ -1442,6 +1441,7 @@ class SepLLMArgs(NeoXArgsTemplate):
     generate_win_loc_size_list: list = None
     """
     The local window sizes for different self-attention layers when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
+    generate_win_loc_size_list does not have any effect during the pretraining/prefilling phase.
     """
 
     init_tok_max_idx: int = 2 
@@ -1453,19 +1453,20 @@ class SepLLMArgs(NeoXArgsTemplate):
     ######################################There should be at most 1 True for the following 3 args ##############################################
     USE_ORIGINAL_FULL_ATTEN: bool = False  
     """
-    Flag signal with the highest priority.  Run the model without any modification (standard full-attention version, i.e., standard upper triangular mask) if True.
+    Flag signal with the highest priority.  Train the Pythia model without any modification (standard full-attention version, i.e., standard upper triangular mask) if True.
     """
 
     streamingLLM: bool = False 
     """
-    Run streamingLLM. Only takes effect when USE_ORIGINAL_FULL_ATTEN=False. 
+    Train streamingLLM. Only takes effect when USE_ORIGINAL_FULL_ATTEN=False. 
     """
 
     USE_SEP_ATTN_KERNEL_ACCELERATOR: bool = True 
     """
-    If True, use Sep_Attention module to accelerate the training process of SepLLM
+    If True, use Sep_Attention module's kernel accelerator to accelerate the training process of SepLLM. If False (together with USE_ORIGINAL_FULL_ATTEN=False and streamingLLM=False), run plain SepLLM
     """
     ######################################There should be at most 1 True for the above 3 args ##############################################
+    
     RECOMPILE_SEP_ATTN_KERNEL: bool = False 
     """
     False by default. If True, recompile the Sep_Attention kernels.  When set to True, it may require more GPU memory and provide a certain level of acceleration to the training process.
@@ -1482,17 +1483,17 @@ class SepLLMArgs(NeoXArgsTemplate):
 
     PRINT_KV_RATIO: bool = False 
     """
-    If True, print the KV cache preservation ratio (especially for the released trained model during generating). When pretraining, it will print the retention ratio for the computational complexity of calculating the attention map if it is set True
+    If True, print the KV cache preservation ratio (especially for the released trained model during generating). When pretraining, it will also print the retention ratio for the computational complexity of calculating the attention map if it is set True
     """
 
     print_ratio_intervals: int = 8000
     """    
-    Print the retention ratio for the computational complexity of calculating the attention map once after every 'print_KV_intervals' forward passes (or print_KV_intervals/gradient_accumulation_steps  iterations). It only takes effect when PRINT_KV_RATIO=True.    
+    Print the retention ratio for the computational complexity of calculating the attention map once after every 'print_ratio_intervals' forward passes (or print_ratio_intervals/gradient_accumulation_steps  iterations). It only takes effect when PRINT_KV_RATIO=True.    
     """
 
     USE_BiPE: bool = False 
     """
-    False by default. If True (must also set pos_emb='rotary' or 'alibi'), use Bilevel Positional Encoding.  [He, Zhenyu, et al. "Two stones hit one bird: Bilevel positional encoding for better length extrapolation." arXiv preprint arXiv:2401.16421 (2024).]
+    False by default. If True (must also set pos_emb='rotary' or 'alibi'), use Bilevel Positional Encoding [He, Zhenyu, et al. "Two stones hit one bird: Bilevel positional encoding for better length extrapolation." arXiv preprint arXiv:2401.16421 (2024).].
     """
 
     BiPE_seps: list = None
@@ -1504,6 +1505,11 @@ class SepLLMArgs(NeoXArgsTemplate):
     EXCLUDE_DIAGONAL: bool = True ## From old version: Deprecated
     """
     True by default and should always be True. When True, it means when we choose fixed window to process the prefilling mask, the diagonal elements in the prefilling mask could be set negative. When False: would keep the prefilling mask's diagonal positive
+    """
+
+    _DEFAULT_SPARSE_BLOCK_SIZE: int = 128
+    """
+    128 by default. It can also be set to align with the head dimension.
     """
 
 

@@ -1099,23 +1099,16 @@ class NeoXArgs(*BASE_CLASSES):
                     not self.sparsity_config
                 ), "Sparse attention not compatible with GQA or MQA"
                 assert all(
-                    (attn_type == "flash") or (attn_type == "global")
+                    (attn_type == "global")
                     for attn_type in self.attention_config
-                ), "GQA / MQA currently only compatible with Flash or standard global/sliding window Attention"
+                ), "GQA / MQA currently only compatible with standard global/sliding window/SepLLM Attention"
                 assert (
                     self.num_kv_heads % self.model_parallel_size == 0
                 ), "Number of KV heads must be at least model_parallel_size for now!"
-        # Flash attention version >=2.3.0 required to combine Flash + Sliding Window Attention
+
         if "flash" in self.attention_config:
-            _flash_version = packaging.version.Version(version("flash-attn"))
-            if self.sliding_window_width is not None:
-                assert _flash_version >= packaging.version.Version(
-                    "2.3.0"
-                ), f"Flash-Attention version ({str(_flash_version)}) must be >= 2.3.0 to support sliding window attention."
-            if self.pos_emb == "alibi":
-                if not _flash_version >= packaging.version.Version("2.4.0.post1"):
-                    print(
-                        f"Warning: Flash-Attention version ({str(_flash_version)}) must be >= 2.4.0.post1 to support AliBi. Falling back to flash-attn triton backend, but version 2.4.0.post1 or later will be required in future."
+            print(
+                        f"Warning: Flash-Attention is not supported for now."
                     )
 
         # Adding equal dataset weights if none are provided

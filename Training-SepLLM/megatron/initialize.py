@@ -52,7 +52,7 @@ def initialize_megatron(neox_args, allow_no_cuda=False):
         if neox_args.rank == 0:
             print("> setting random seeds to {} ...".format(neox_args.seed))
         _set_random_seed(neox_args.seed)
-
+    
     # check fused kernels are installed:
     if (
         neox_args.scaled_upper_triang_masked_softmax_fusion
@@ -61,7 +61,7 @@ def initialize_megatron(neox_args, allow_no_cuda=False):
     ):
         fused_kernels.load(neox_args)
         fused_kernels.load_fused_kernels()
-
+    
     if neox_args.lazy_mpu_init:
         neox_args.use_cpu_initialization = True
         # delayed initialization of DDP-related stuff

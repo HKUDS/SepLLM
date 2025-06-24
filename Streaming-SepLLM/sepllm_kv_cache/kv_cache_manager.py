@@ -10,8 +10,7 @@ def slice_on_3d(x, start, end):
     return x[:, :, :, start:end, ...]
 
 
-def sep_1bat_select_on_1d(x, Bid , sep_index, min_sep_num=None):    
-    # print(f"Debug: #####################x.shape:{x.shape} in sep_1bat_select_on_1d###########################")  ## llama: [1, 8, 97, 128], 
+def sep_1bat_select_on_1d(x, Bid , sep_index, min_sep_num=None):        
     sep_index = sep_index.to(x.device).detach().clone()
 
     if min_sep_num is None:
@@ -21,19 +20,16 @@ def sep_1bat_select_on_1d(x, Bid , sep_index, min_sep_num=None):
         return new_x[:min_sep_num, ...].detach().clone() # #  min_sep_num x Head x dim 
 
 
-def sep_1bat_select_on_2d(x, Bid, sep_index, min_sep_num=None):    
-    # print(f"Debug: #####################x.shape:{x.shape} in sep_1bat_select_on_2d###########################")
+def sep_1bat_select_on_2d(x, Bid, sep_index, min_sep_num=None):        
     sep_index = sep_index.to(x.device).detach().clone()
     if min_sep_num is None:
         return x[Bid, :, sep_index, ...].detach().clone()  # # Batch x Head x seqlen x dim -->  Head x sep_num x dim    
-    else:
-        # print(f"Debug, #################x.device:{x.device}, sep_index.device:{sep_index.device}##################")
+    else:        
         new_x =  x[Bid, :, sep_index, ...].detach().clone()   # # Batch x Head x seqlen x dim -->  Head x sep_num x dim            
         return new_x[:, :min_sep_num, ...].detach().clone() # #  Head x min_sep_num x dim      
 
 
 def sep_1bat_select_on_3d(x, Bid , sep_index, min_sep_num=None):
-    # print(f"Debug: #####################x.shape:{x.shape} in sep_1bat_select_on_3d###########################")
     sep_index = sep_index.to(x.device).detach().clone()
     if min_sep_num is None:
         return x[Bid, :, :, sep_index, ...].detach().clone()  # # Batch x Head x dim x seqlen  -->  Head x dim x sep_num 
@@ -313,6 +309,7 @@ class SepLLM_KVCache_Manager:
             if self.sep_exrange > self.max_sep_exidx:                    
                 cache_incremental_gap = self.sep_exrange - self.max_sep_exidx
                 self.max_sep_exidx = self.sep_exrange 
+                self.sep_cache_size = self.sep_cache_size + cache_incremental_gap ##my ; newly added
                 self.cache_size = self.cache_size + cache_incremental_gap
 
         if self.init_cache_size > 0:                                

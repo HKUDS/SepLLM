@@ -1,0 +1,45 @@
+{
+  'Layer_num': 32, ## The number of layers. Must be equal to `config.num_hidden_layers` in the Llama model config file.
+  'separator_token_ids' : [-1], # The separator tokens' ids for Llama 3.  
+  'PADDING_ID' : 128009 ,  #  The id for padding token of current model, i.e., Llama 3.            
+  'prefill_k' : 0,   ## Keep `0`. NOT implemented yet; From old version: Deprecated     
+  'generate_k' : 0,    ## Keep `0`. NOT implemented yet; From old version: Deprecated     
+  
+  'prefill_local_window_size' : 256  , # Only take effect when `USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS=False`. The local window size when training and prefilling.  KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
+  'generate_local_window_size' : 256 , # Only take effect when `USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS=False`. The local window size when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token. `generate_local_window_size` does not have any effect during the pretraining/prefilling phase.       
+
+  'USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS' : False ,  # If True: the prefilling local window sizes for different self-attention layers are different; If True: should set `prefill_loc_win_size_list`, else: should set `prefill_local_window_size`
+  'USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS' : False , # If True: the generating local window sizes for different self-attention layers are different;  If True: should set `generate_win_loc_size_list`, else: should set `generate_local_window_size`. `USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS` does not have any effect during the pretraining/prefilling phase.
+  
+  'prefill_loc_win_size_list' :  &PREFILL_LOC_WINS_ANCHOR   [ 256,  256,  256,  256,  256,  256,  256,  256,  256, 256,
+                                                              256,  256,  256,  256,  256,  256,  256,  256,  256, 256,
+                                                              256,  256,  256,  256,  256,  256,  256,  256,  256, 256,
+                                                              256,  256 ], # Just an example # Only take effect when `USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS=True` and its length should be equal to `Layer_num`.  ## The local window sizes for different self-attention layers when training (or prefilling). KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
+  'generate_win_loc_size_list' : *PREFILL_LOC_WINS_ANCHOR , # Only take effect when `USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS=True` and its length should be equal to `Layer_num`. ## The local window sizes for different self-attention layers when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token. `generate_win_loc_size_list` does not have any effect during the pretraining/prefilling phase.
+
+
+  'init_tok_max_idx' : 2, # Only useful when `USE_ORIGINAL_FULL_ATTEN=False`. The largest index for the kept initial tokens. E.g., if `init_tok_max_idx=2`, it means we keep 3 initial tokens (idx: 0,1,2)
+
+  'USE_ORIGINAL_FULL_ATTEN' : False , # Flag signal with the highest priority. If True, run the model without any modification (standard full-attention version, i.e., standard upper triangular mask). If True, all SepLLM-related settings will NOT take any effect. 
+  'streamingLLM' : True, # Run streamingLLM. Only take effect when `USE_ORIGINAL_FULL_ATTEN=False` and `USE_FIXED_SEP_INTERVALs=False`. If True, only settings about local and initial (sink) sizes will take effect.                         
+  
+
+  'BATCH_ADAPTIVE_INIT_POS' : True , # False by default. Typically True when the input_ids of the model use 'left padding', False for 'right padding' (e.g., for training or some downstream tasks like `lambada_openai`, `piqa`, etc).  If True: use the floating initial tokens' starting positions since when evaluating, LLM usually add paddings on the left side of the shorter seqs in a batch for alignment (i.e., left padding). Can be False when pretraining since the starting positions of initial tokens are at the beginning of each sequence in a batch for pretraining (i.e., right padding)
+  'PRINT_KV_RATIO' : True , # Only useful when `USE_ORIGINAL_FULL_ATTEN=False`. If True, print the KV cache preservation ratio (especially for the released trained model during generating). When pretraining, it will also print the retention ratio for the computational complexity of calculating the attention map if it is set True
+  'print_ratio_intervals' : 10 , # It only takes effect when `PRINT_KV_RATIO=True`. Print the retention ratio for the computational complexity of calculating the attention map once after every `print_ratio_intervals` forward passes (or `print_ratio_intervals/gradient_accumulation_steps`  iterations). 
+  'USE_SEP_ATTN_KERNEL_ACCELERATOR' : False,  ## Keep False. Only works for training  # If True, use Sep_Attention module's kernel accelerator to accelerate the training process of SepLLM. If False (together with `USE_ORIGINAL_FULL_ATTEN=False` and `streamingLLM=False`), run plain SepLLM.
+  'RECOMPILE_SEP_ATTN_KERNEL': False,  ## Keep False. Only works for training           
+  'EXCLUDE_DIAGONAL' : True,  # True by default and should always be True. When True, it means when we choose fixed window to process the prefilling mask, the diagonal elements in the prefilling mask could be set negative. When False: would keep the prefilling mask's diagonal positive            
+
+  'USE_BiPE' : False ,  ## Keep False since BiPE is not supported for training-free test (it needs training-from-scratch). If True (must also set pos_emb='rotary' or 'alibi'), use Bilevel Positional Encoding [He, Zhenyu, et al. "Two stones hit one bird: Bilevel positional encoding for better length extrapolation." arXiv preprint arXiv:2401.16421 (2024).].
+  'BiPE_seps' : [13, 11, 30 ,0, 26, 25, 198, 220, 128000], ## Only useful when `USE_BiPE=True`. The token ids of the seperator tokens for BiPE
+
+  'USE_FIXED_SEP_INTERVALs' : False , # Run FixLLM: use the fixed intervals between the kept tokens between initial tokens and local tokens. These kept tokens here are called "Fixed Sep Tokens". If True, all SepLLM-related settings will NOT take any effect, except for settings about local and initial (sink) sizes. 
+  'fixed_sep_intervals_list' : None,  # Only take effects when `USE_FIXED_SEP_INTERVALs=True`. `fixed_sep_intervals_list` is a list of the intervals for "Fixed Sep Tokens" w.r.t. layer.
+
+  'USE_SA_SOFTMAX' : False, # Keep False since Self-Adjust Softmax is not supported for training-free test (it needs training-from-scratch). If True, use Self-Adjust Softmax Attention. If True, all SepLLM-related settings will NOT take any effect. See https://arxiv.org/abs/2502.18277
+  'USE_SA_SOFTMAX_NO_DENO' : False,  # Keep False since Self-Adjust Softmax is not supported for training-free test (it needs training-from-scratch). If True, use Self-Adjust Softmax Attention V2 : no denominator version. If True, all SepLLM-related settings will NOT take any effect. See https://arxiv.org/abs/2502.18277
+  'SA_Numerator_Bias' : 0.0,  # The bias value added to the numerator term of Self-Adjust Softmax Attention. See https://arxiv.org/abs/2502.18277
+  'SA_Denominator_Bias' : 0.0000000001 , # The bias value added to the denominator term of Self-Adjust Softmax Attention. See https://arxiv.org/abs/2502.18277
+  
+}

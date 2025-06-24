@@ -1,0 +1,158 @@
+2025-06-23:12:00:15,096 INFO     [config.py:59] PyTorch version 2.5.1+cu121 available.
+2025-06-23:12:00:17,794 INFO     [__main__.py:132] Verbosity set to INFO
+2025-06-23:12:00:24,635 INFO     [__main__.py:205] Selected Tasks: ['arc_challenge', 'arc_easy', 'lambada_openai', 'logiqa', 'piqa', 'sciq', 'wikitext', 'winogrande', 'wsc']
+2025-06-23:12:00:24,638 WARNING  [evaluator.py:93] generation_kwargs specified through cli, these settings will be used over set parameters in yaml tasks.
+2025-06-23:12:00:26,585 INFO     [huggingface.py:120] Using device 'cuda:0'
+/home/txiao/miniconda3/envs/py39_cu121_torch251_new2/lib/python3.10/site-packages/huggingface_hub/file_download.py:797: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+2025-06-23:12:00:35,705 WARNING  [huggingface.py:284] WARNING: The number of total system GPUs does not match the number of spawned processes. If you would like to use data parallelism, please launch the script with 'accelerate launch *script*'. Current run will proceed with 1 devices.
+2025-06-23:12:00:45,245 WARNING  [task.py:300] has_training_docs and has_validation_docs are False, using test_docs as fewshot_docs but this is not recommended.
+2025-06-23:12:00:45,245 WARNING  [task.py:300] has_training_docs and has_validation_docs are False, using test_docs as fewshot_docs but this is not recommended.
+2025-06-23:12:00:54,578 WARNING  [task.py:614] [Task: wikitext] metric word_perplexity is defined, but aggregation is not. using default aggregation=weighted_perplexity
+2025-06-23:12:00:54,579 WARNING  [task.py:626] [Task: wikitext] metric word_perplexity is defined, but higher_is_better is not. using default higher_is_better=False
+2025-06-23:12:00:54,579 WARNING  [task.py:614] [Task: wikitext] metric byte_perplexity is defined, but aggregation is not. using default aggregation=weighted_perplexity
+2025-06-23:12:00:54,579 WARNING  [task.py:626] [Task: wikitext] metric byte_perplexity is defined, but higher_is_better is not. using default higher_is_better=False
+2025-06-23:12:00:54,579 WARNING  [task.py:614] [Task: wikitext] metric bits_per_byte is defined, but aggregation is not. using default aggregation=bits_per_byte
+2025-06-23:12:00:54,579 WARNING  [task.py:626] [Task: wikitext] metric bits_per_byte is defined, but higher_is_better is not. using default higher_is_better=False
+2025-06-23:12:00:59,785 WARNING  [task.py:614] [Task: wsc] metric acc is defined, but aggregation is not. using default aggregation=mean
+2025-06-23:12:00:59,785 WARNING  [task.py:626] [Task: wsc] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+2025-06-23:12:01:03,600 WARNING  [evaluator.py:143] Overwriting default num_fewshot of arc_challenge from None to 5
+2025-06-23:12:01:03,600 WARNING  [evaluator.py:143] Overwriting default num_fewshot of arc_easy from None to 5
+2025-06-23:12:01:03,600 WARNING  [evaluator.py:143] Overwriting default num_fewshot of lambada_openai from None to 5
+2025-06-23:12:01:03,600 WARNING  [evaluator.py:143] Overwriting default num_fewshot of logiqa from None to 5
+2025-06-23:12:01:03,600 WARNING  [evaluator.py:143] Overwriting default num_fewshot of piqa from None to 5
+2025-06-23:12:01:03,600 WARNING  [evaluator.py:143] Overwriting default num_fewshot of sciq from None to 5
+2025-06-23:12:01:03,600 WARNING  [evaluator.py:143] Overwriting default num_fewshot of wikitext from None to 5
+2025-06-23:12:01:03,600 WARNING  [evaluator.py:143] Overwriting default num_fewshot of winogrande from None to 5
+2025-06-23:12:01:03,600 WARNING  [evaluator.py:143] Overwriting default num_fewshot of wsc from None to 5
+2025-06-23:12:01:03,600 INFO     [task.py:355] Building contexts for task on rank 0...
+2025-06-23:12:01:13,730 INFO     [task.py:355] Building contexts for task on rank 0...
+2025-06-23:12:01:34,462 INFO     [task.py:355] Building contexts for task on rank 0...
+2025-06-23:12:02:15,671 INFO     [task.py:355] Building contexts for task on rank 0...
+2025-06-23:12:02:16,493 INFO     [task.py:355] Building contexts for task on rank 0...
+2025-06-23:12:02:23,476 INFO     [task.py:355] Building contexts for task on rank 0...
+2025-06-23:12:02:29,092 INFO     [task.py:355] Building contexts for task on rank 0...
+2025-06-23:12:02:29,627 INFO     [task.py:355] Building contexts for task on rank 0...
+2025-06-23:12:02:29,698 INFO     [task.py:355] Building contexts for task on rank 0...
+2025-06-23:12:02:29,709 INFO     [evaluator.py:319] Running loglikelihood requests
+Warnings:>>> `self.Layer_num: int` (12), i.e., the number of layers of the current LM, must be correctly set!
+############################################ Basic Args for SepAttention ############################################
+self.prefill_local_window_size: 128
+self.generate_local_window_size: 128
+self.PADDING_ID: 0 --- Must be correctly set.
+self.Layer_num: 12 --- Must be correctly set.
+self.init_tok_max_idx: 2
+self.USE_ORIGINAL_FULL_ATTEN:  False
+self.streamingLLM:  False
+self.BATCH_ADAPTIVE_INIT_POS:  False
+>>> For `BATCH_ADAPTIVE_INIT_POS`: Typically True when the input_ids of the model use 'left padding', False for 'right padding' (e.g., for training or some downstream tasks like `lambada_openai`, `piqa`, etc).
+self.PRINT_KV_RATIO:  True
+self.print_ratio_intervals:  100
+>>> Please be careful of the `separator_token_ids`, and make sure they are correct for the current LLM
+self.separator_token_ids: [15, 13, 32, 2, 28, 27, 209, 186, 187]
+self.USE_BiPE: False
+self.EXCLUDE_DIAGONAL:  True
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>--------------------- Running our SepLLM strategy ----------------------------<<<<<<<<
+>>>>>>>>---------                                                          -----------<<<<<<<<
+>>>>>>>>---------##########################################################-----------<<<<<<<<
+  0%|          | 0/32363 [00:00<?, ?it/s]  0%|          | 1/32363 [00:02<18:44:09,  2.08s/it]  0%|          | 33/32363 [00:02<25:57, 20.76it/s]    0%|          | 65/32363 [00:02<11:49, 45.49it/s]  0%|          | 97/32363 [00:02<07:14, 74.29it/s]  0%|          | 129/32363 [00:02<05:03, 106.16it/s]  1%|          | 193/32363 [00:02<03:13, 166.35it/s]  1%|          | 257/32363 [00:02<02:29, 214.27it/s]  1%|          | 321/32363 [00:03<02:07, 251.33it/s]  1%|          | 385/32363 [00:03<01:54, 279.95it/s]  1%|▏         | 449/32363 [00:03<01:44, 303.97it/s]  2%|▏         | 513/32363 [00:03<01:38, 324.61it/s]  2%|▏         | 577/32363 [00:03<01:33, 339.09it/s]  2%|▏         | 641/32363 [00:03<01:30, 351.57it/s]  2%|▏         | 705/32363 [00:04<01:27, 362.65it/s]  2%|▏         | 769/32363 [00:04<01:24, 372.27it/s]  3%|▎         | 833/32363 [00:04<01:23, 378.52it/s]  3%|▎         | 897/32363 [00:04<01:21, 384.09it/s]  3%|▎         | 961/32363 [00:04<01:20, 388.91it/s]  3%|▎         | 1025/32363 [00:04<01:19, 393.28it/s]  3%|▎         | 1089/32363 [00:05<01:18, 398.73it/s]  4%|▎         | 1153/32363 [00:05<01:17, 403.99it/s]  4%|▍         | 1217/32363 [00:05<01:16, 407.84it/s]  4%|▍         | 1281/32363 [00:05<01:15, 413.89it/s]  4%|▍         | 1345/32363 [00:05<01:14, 416.17it/s]  4%|▍         | 1409/32363 [00:05<01:13, 419.33it/s]  5%|▍         | 1473/32363 [00:05<01:13, 421.73it/s]  5%|▍         | 1537/32363 [00:06<01:12, 424.60it/s]  5%|▍         | 1601/32363 [00:06<01:11, 430.13it/s]  5%|▌         | 1665/32363 [00:06<01:10, 434.44it/s]  5%|▌         | 1729/32363 [00:06<01:09, 438.61it/s]  6%|▌         | 1793/32363 [00:06<01:09, 442.58it/s]  6%|▌         | 1857/32363 [00:06<01:08, 446.51it/s]  6%|▌         | 1921/32363 [00:06<01:07, 450.01it/s]  6%|▌         | 1985/32363 [00:07<01:06, 454.83it/s]  6%|▋         | 2049/32363 [00:07<01:06, 456.49it/s]  7%|▋         | 2113/32363 [00:07<01:05, 460.03it/s]  7%|▋         | 2177/32363 [00:07<01:04, 465.70it/s]  7%|▋         | 2241/32363 [00:07<01:04, 470.17it/s]  7%|▋         | 2305/32363 [00:07<01:03, 474.58it/s]  7%|▋         | 2369/32363 [00:07<01:02, 479.50it/s]  8%|▊         | 2433/32363 [00:08<01:01, 482.94it/s]  8%|▊         | 2497/32363 [00:08<01:00, 489.64it/s]  8%|▊         | 2561/32363 [00:08<00:59, 499.29it/s]  8%|▊         | 2625/32363 [00:08<00:58, 508.61it/s]  8%|▊         | 2689/32363 [00:08<00:57, 515.32it/s]  9%|▊         | 2753/32363 [00:08<00:56, 521.86it/s]  9%|▊         | 2817/32363 [00:08<00:55, 532.61it/s]  9%|▉         | 2881/32363 [00:08<00:54, 542.54it/s]  9%|▉         | 2945/32363 [00:08<00:53, 551.20it/s]  9%|▉         | 3009/32363 [00:09<00:52, 558.58it/s]  9%|▉         | 3073/32363 [00:09<00:51, 569.84it/s] 10%|▉         | 3137/32363 [00:09<00:50, 581.01it/s]
+###############################SepAttention: Kept/Total tokens for this input batch#####################################
+ (kept, total) : (90168, 359040), ratio: 0.2511 
+
+###############################SepAttention: Kept/Total tokens for all the inputs#######################################
+ (kept, total) : (10603440, 46705536), ratio: 0.2270 
+ 10%|▉         | 3201/32363 [00:09<00:49, 592.35it/s] 10%|█         | 3265/32363 [00:09<00:48, 602.34it/s] 10%|█         | 3361/32363 [00:09<00:46, 626.01it/s] 11%|█         | 3457/32363 [00:09<00:44, 643.73it/s] 11%|█         | 3553/32363 [00:09<00:43, 666.71it/s] 11%|█▏        | 3649/32363 [00:10<00:41, 686.49it/s] 12%|█▏        | 3745/32363 [00:10<00:40, 706.85it/s] 12%|█▏        | 3841/32363 [00:10<00:38, 731.46it/s] 12%|█▏        | 3937/32363 [00:10<00:37, 751.84it/s] 12%|█▏        | 4033/32363 [00:10<00:36, 771.40it/s] 13%|█▎        | 4129/32363 [00:10<00:35, 794.28it/s] 13%|█▎        | 4225/32363 [00:10<00:34, 818.46it/s] 13%|█▎        | 4321/32363 [00:10<00:33, 839.21it/s] 14%|█▎        | 4417/32363 [00:10<00:32, 861.20it/s] 14%|█▍        | 4513/32363 [00:11<00:31, 881.38it/s] 14%|█▍        | 4615/32363 [00:11<00:30, 920.54it/s] 15%|█▍        | 4737/32363 [00:11<00:29, 929.51it/s] 15%|█▌        | 4865/32363 [00:11<00:28, 958.22it/s] 15%|█▌        | 4993/32363 [00:11<00:27, 982.35it/s] 16%|█▌        | 5121/32363 [00:11<00:27, 1004.73it/s] 16%|█▌        | 5249/32363 [00:11<00:26, 1029.92it/s] 17%|█▋        | 5377/32363 [00:11<00:25, 1053.67it/s] 17%|█▋        | 5505/32363 [00:12<00:25, 1070.75it/s] 17%|█▋        | 5633/32363 [00:12<00:24, 1084.14it/s] 18%|█▊        | 5761/32363 [00:12<00:24, 1098.68it/s] 18%|█▊        | 5889/32363 [00:12<00:23, 1111.25it/s] 19%|█▊        | 6017/32363 [00:12<00:23, 1123.20it/s] 19%|█▉        | 6145/32363 [00:12<00:23, 1130.01it/s] 19%|█▉        | 6273/32363 [00:12<00:22, 1136.80it/s]
+
+###############################SepAttention: Kept/Total tokens for this input batch#####################################
+ (kept, total) : (70176, 202752), ratio: 0.3461 
+
+###############################SepAttention: Kept/Total tokens for all the inputs#######################################
+ (kept, total) : (18106284, 71701632), ratio: 0.2525 
+ 20%|█▉        | 6401/32363 [00:12<00:22, 1145.13it/s] 20%|██        | 6529/32363 [00:12<00:22, 1149.44it/s] 21%|██        | 6657/32363 [00:13<00:22, 1154.71it/s] 21%|██        | 6785/32363 [00:13<00:22, 1160.55it/s] 21%|██▏       | 6913/32363 [00:13<00:21, 1166.75it/s] 22%|██▏       | 7041/32363 [00:13<00:21, 1169.53it/s] 22%|██▏       | 7169/32363 [00:13<00:21, 1172.35it/s] 23%|██▎       | 7297/32363 [00:13<00:21, 1174.40it/s] 23%|██▎       | 7425/32363 [00:13<00:20, 1190.43it/s] 23%|██▎       | 7553/32363 [00:13<00:20, 1199.80it/s] 24%|██▎       | 7681/32363 [00:13<00:20, 1207.45it/s] 24%|██▍       | 7809/32363 [00:13<00:20, 1213.74it/s] 25%|██▍       | 7937/32363 [00:14<00:20, 1220.95it/s] 25%|██▍       | 8065/32363 [00:14<00:19, 1225.69it/s] 25%|██▌       | 8193/32363 [00:14<00:19, 1230.20it/s] 26%|██▌       | 8321/32363 [00:14<00:19, 1232.36it/s] 26%|██▌       | 8449/32363 [00:14<00:19, 1234.65it/s] 27%|██▋       | 8577/32363 [00:14<00:19, 1241.10it/s] 27%|██▋       | 8705/32363 [00:14<00:19, 1244.56it/s] 27%|██▋       | 8833/32363 [00:14<00:18, 1247.32it/s] 28%|██▊       | 8961/32363 [00:14<00:18, 1250.45it/s] 28%|██▊       | 9089/32363 [00:15<00:18, 1251.56it/s] 28%|██▊       | 9217/32363 [00:15<00:18, 1256.99it/s] 29%|██▉       | 9345/32363 [00:15<00:18, 1259.12it/s] 29%|██▉       | 9473/32363 [00:15<00:18, 1260.12it/s]
+
+###############################SepAttention: Kept/Total tokens for this input batch#####################################
+ (kept, total) : (69132, 185856), ratio: 0.3720 
+
+###############################SepAttention: Kept/Total tokens for all the inputs#######################################
+ (kept, total) : (25084212, 91060608), ratio: 0.2755 
+ 30%|██▉       | 9601/32363 [00:15<00:18, 1260.23it/s] 30%|███       | 9729/32363 [00:15<00:17, 1260.85it/s] 30%|███       | 9870/32363 [00:15<00:17, 1304.96it/s] 31%|███       | 10004/32363 [00:15<00:16, 1315.34it/s] 31%|███▏      | 10142/32363 [00:15<00:16, 1334.63it/s] 32%|███▏      | 10276/32363 [00:15<00:17, 1257.18it/s] 32%|███▏      | 10418/32363 [00:16<00:16, 1303.76it/s] 33%|███▎      | 10555/32363 [00:16<00:16, 1322.89it/s] 33%|███▎      | 10689/32363 [00:16<00:17, 1254.55it/s] 34%|███▎      | 10843/32363 [00:16<00:16, 1335.25it/s] 34%|███▍      | 10978/32363 [00:16<00:16, 1270.13it/s] 34%|███▍      | 11137/32363 [00:16<00:16, 1297.56it/s] 35%|███▍      | 11297/32363 [00:16<00:15, 1330.15it/s] 35%|███▌      | 11457/32363 [00:16<00:15, 1364.21it/s] 36%|███▌      | 11617/32363 [00:16<00:14, 1406.76it/s] 36%|███▋      | 11777/32363 [00:17<00:14, 1454.93it/s] 37%|███▋      | 11965/32363 [00:17<00:12, 1575.76it/s] 37%|███▋      | 12129/32363 [00:17<00:13, 1543.15it/s] 38%|███▊      | 12321/32363 [00:17<00:12, 1604.30it/s] 39%|███▊      | 12513/32363 [00:17<00:11, 1667.42it/s] 39%|███▉      | 12705/32363 [00:17<00:11, 1720.54it/s]
+
+###############################SepAttention: Kept/Total tokens for this input batch#####################################
+ (kept, total) : (60708, 114816), ratio: 0.5287 
+
+###############################SepAttention: Kept/Total tokens for all the inputs#######################################
+ (kept, total) : (31680624, 106834176), ratio: 0.2965 
+ 40%|███▉      | 12897/32363 [00:17<00:11, 1766.58it/s] 40%|████      | 13089/32363 [00:17<00:10, 1807.05it/s] 41%|████      | 13281/32363 [00:17<00:10, 1839.26it/s] 42%|████▏     | 13486/32363 [00:17<00:09, 1900.96it/s] 42%|████▏     | 13697/32363 [00:18<00:09, 1893.01it/s] 43%|████▎     | 13921/32363 [00:18<00:09, 1925.40it/s] 44%|████▎     | 14145/32363 [00:18<00:09, 1947.35it/s] 44%|████▍     | 14369/32363 [00:18<00:09, 1971.26it/s] 45%|████▌     | 14593/32363 [00:18<00:08, 1989.24it/s] 46%|████▌     | 14817/32363 [00:18<00:08, 2020.97it/s] 46%|████▋     | 15041/32363 [00:18<00:08, 2050.99it/s] 47%|████▋     | 15265/32363 [00:18<00:08, 2078.02it/s] 48%|████▊     | 15489/32363 [00:18<00:08, 2102.34it/s] 49%|████▊     | 15713/32363 [00:19<00:07, 2123.84it/s] 49%|████▉     | 15937/32363 [00:19<00:07, 2140.54it/s]
+
+###############################SepAttention: Kept/Total tokens for this input batch#####################################
+ (kept, total) : (57576, 92544), ratio: 0.6221 
+
+###############################SepAttention: Kept/Total tokens for all the inputs#######################################
+ (kept, total) : (37571244, 116974848), ratio: 0.3212 
+ 50%|████▉     | 16161/32363 [00:19<00:07, 2158.15it/s] 51%|█████     | 16385/32363 [00:19<00:07, 2171.75it/s] 51%|█████▏    | 16609/32363 [00:19<00:07, 2181.55it/s] 52%|█████▏    | 16833/32363 [00:19<00:07, 2191.88it/s] 53%|█████▎    | 17057/32363 [00:19<00:06, 2201.83it/s] 53%|█████▎    | 17281/32363 [00:19<00:06, 2210.79it/s] 54%|█████▍    | 17508/32363 [00:19<00:06, 2227.86it/s] 55%|█████▍    | 17740/32363 [00:19<00:06, 2255.01it/s] 56%|█████▌    | 17980/32363 [00:20<00:06, 2298.28it/s] 56%|█████▋    | 18210/32363 [00:20<00:06, 2233.78it/s] 57%|█████▋    | 18457/32363 [00:20<00:06, 2302.66it/s] 58%|█████▊    | 18689/32363 [00:20<00:06, 2239.14it/s] 58%|█████▊    | 18921/32363 [00:20<00:05, 2262.47it/s]
+
+###############################SepAttention: Kept/Total tokens for this input batch#####################################
+ (kept, total) : (56088, 82944), ratio: 0.6762 
+
+###############################SepAttention: Kept/Total tokens for all the inputs#######################################
+ (kept, total) : (43263720, 125712384), ratio: 0.3441 
+ 59%|█████▉    | 19169/32363 [00:20<00:05, 2254.80it/s] 60%|█████▉    | 19413/32363 [00:20<00:05, 2308.12it/s] 61%|██████    | 19649/32363 [00:20<00:05, 2258.04it/s] 62%|██████▏   | 19905/32363 [00:20<00:05, 2273.67it/s] 62%|██████▏   | 20161/32363 [00:21<00:05, 2285.10it/s] 63%|██████▎   | 20417/32363 [00:21<00:05, 2299.86it/s] 64%|██████▍   | 20673/32363 [00:21<00:05, 2315.92it/s] 65%|██████▍   | 20929/32363 [00:21<00:04, 2324.73it/s] 65%|██████▌   | 21185/32363 [00:21<00:04, 2334.32it/s] 66%|██████▋   | 21441/32363 [00:21<00:04, 2339.33it/s] 67%|██████▋   | 21697/32363 [00:21<00:04, 2345.27it/s] 68%|██████▊   | 21953/32363 [00:21<00:04, 2357.17it/s] 69%|██████▊   | 22209/32363 [00:21<00:04, 2372.10it/s]
+
+###############################SepAttention: Kept/Total tokens for this input batch#####################################
+ (kept, total) : (55116, 75648), ratio: 0.7286 
+
+###############################SepAttention: Kept/Total tokens for all the inputs#######################################
+ (kept, total) : (48835644, 133633152), ratio: 0.3654 
+ 69%|██████▉   | 22465/32363 [00:21<00:04, 2380.71it/s] 70%|███████   | 22721/32363 [00:22<00:04, 2381.87it/s] 71%|███████   | 22977/32363 [00:22<00:03, 2389.83it/s] 72%|███████▏  | 23233/32363 [00:22<00:03, 2399.82it/s] 73%|███████▎  | 23489/32363 [00:22<00:03, 2419.55it/s] 73%|███████▎  | 23745/32363 [00:22<00:03, 2439.30it/s] 74%|███████▍  | 24001/32363 [00:22<00:03, 2454.13it/s] 75%|███████▍  | 24257/32363 [00:22<00:03, 2469.33it/s] 76%|███████▌  | 24513/32363 [00:22<00:03, 2483.21it/s] 77%|███████▋  | 24769/32363 [00:22<00:03, 2494.80it/s] 77%|███████▋  | 25025/32363 [00:23<00:02, 2507.64it/s] 78%|███████▊  | 25281/32363 [00:23<00:02, 2514.90it/s] 79%|███████▉  | 25537/32363 [00:23<00:02, 2524.64it/s]
+
+###############################SepAttention: Kept/Total tokens for this input batch#####################################
+ (kept, total) : (54096, 68736), ratio: 0.7870 
+
+###############################SepAttention: Kept/Total tokens for all the inputs#######################################
+ (kept, total) : (54294696, 140849664), ratio: 0.3855 
+ 80%|███████▉  | 25793/32363 [00:23<00:02, 2534.00it/s] 81%|████████  | 26079/32363 [00:23<00:02, 2630.53it/s] 81%|████████▏ | 26343/32363 [00:23<00:02, 2573.98it/s] 82%|████████▏ | 26625/32363 [00:23<00:02, 2576.79it/s] 83%|████████▎ | 26913/32363 [00:23<00:02, 2595.01it/s] 84%|████████▍ | 27201/32363 [00:23<00:01, 2616.40it/s] 85%|████████▍ | 27489/32363 [00:23<00:01, 2632.85it/s] 86%|████████▌ | 27777/32363 [00:24<00:01, 2654.42it/s] 87%|████████▋ | 28065/32363 [00:24<00:01, 2665.76it/s] 88%|████████▊ | 28353/32363 [00:24<00:01, 2684.54it/s] 88%|████████▊ | 28641/32363 [00:24<00:01, 2700.18it/s]
+
+###############################SepAttention: Kept/Total tokens for this input batch#####################################
+ (kept, total) : (52584, 59136), ratio: 0.8892 
+
+###############################SepAttention: Kept/Total tokens for all the inputs#######################################
+ (kept, total) : (59605524, 147282048), ratio: 0.4047 
+ 89%|████████▉ | 28929/32363 [00:24<00:01, 2710.80it/s] 90%|█████████ | 29217/32363 [00:24<00:01, 2722.06it/s] 91%|█████████ | 29505/32363 [00:24<00:01, 2726.88it/s] 92%|█████████▏| 29793/32363 [00:24<00:00, 2729.71it/s] 93%|█████████▎| 30074/32363 [00:24<00:00, 2752.53it/s] 94%|█████████▍| 30369/32363 [00:25<00:00, 2790.46it/s] 95%|█████████▍| 30689/32363 [00:25<00:00, 2877.09it/s] 96%|█████████▌| 31009/32363 [00:25<00:00, 2932.55it/s] 97%|█████████▋| 31329/32363 [00:25<00:00, 2977.24it/s] 98%|█████████▊| 31649/32363 [00:25<00:00, 3012.93it/s]
+
+###############################SepAttention: Kept/Total tokens for this input batch#####################################
+ (kept, total) : (6912, 6912), ratio: 1.0000 
+
+###############################SepAttention: Kept/Total tokens for all the inputs#######################################
+ (kept, total) : (61861224, 149705472), ratio: 0.4132 
+ 99%|█████████▉| 31969/32363 [00:25<00:00, 3037.19it/s]100%|█████████▉| 32289/32363 [00:25<00:00, 3063.00it/s]100%|██████████| 32363/32363 [00:25<00:00, 1259.76it/s]
+2025-06-23:12:03:36,896 INFO     [evaluator.py:319] Running loglikelihood_rolling requests
+
+  0%|          | 0/62 [00:00<?, ?it/s]  6%|▋         | 4/62 [00:00<00:01, 39.91it/s] 13%|█▎        | 8/62 [00:00<00:01, 39.80it/s] 19%|█▉        | 12/62 [00:00<00:01, 34.63it/s] 31%|███       | 19/62 [00:00<00:00, 44.85it/s] 39%|███▊      | 24/62 [00:00<00:00, 40.99it/s] 47%|████▋     | 29/62 [00:00<00:00, 41.13it/s] 56%|█████▋    | 35/62 [00:00<00:00, 42.49it/s] 65%|██████▍   | 40/62 [00:01<00:00, 35.90it/s] 71%|███████   | 44/62 [00:01<00:00, 36.26it/s] 82%|████████▏ | 51/62 [00:01<00:00, 43.49it/s] 95%|█████████▌| 59/62 [00:01<00:00, 50.57it/s]100%|██████████| 62/62 [00:01<00:00, 42.83it/s]
+bootstrapping for stddev: perplexity
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:41,  2.39it/s] 13%|█▎        | 13/100 [00:00<00:02, 30.50it/s] 33%|███▎      | 33/100 [00:00<00:01, 66.90it/s] 54%|█████▍    | 54/100 [00:00<00:00, 94.91it/s] 67%|██████▋   | 67/100 [00:01<00:00, 81.46it/s] 86%|████████▌ | 86/100 [00:01<00:00, 98.77it/s] 98%|█████████▊| 98/100 [00:01<00:00, 82.50it/s]100%|██████████| 100/100 [00:01<00:00, 72.44it/s]
+fatal: not a git repository (or any parent up to mount point /lustre)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+hf (pretrained=Gausson/pythia-160m-deduped-n128-SepLLM), gen_kwargs: (), limit: None, num_fewshot: 5, batch_size: 32
+|    Tasks     |Version|Filter|n-shot|    Metric     | Value |   |Stderr|
+|--------------|-------|------|-----:|---------------|------:|---|-----:|
+|arc_challenge |Yaml   |none  |     5|acc            | 0.2014|±  |0.0117|
+|              |       |none  |     5|acc_norm       | 0.2346|±  |0.0124|
+|arc_easy      |Yaml   |none  |     5|acc            | 0.4731|±  |0.0102|
+|              |       |none  |     5|acc_norm       | 0.4520|±  |0.0102|
+|lambada_openai|Yaml   |none  |     5|perplexity     |30.1605|±  |1.0128|
+|              |       |none  |     5|acc            | 0.3315|±  |0.0066|
+|logiqa        |Yaml   |none  |     5|acc            | 0.2273|±  |0.0164|
+|              |       |none  |     5|acc_norm       | 0.2857|±  |0.0177|
+|piqa          |Yaml   |none  |     5|acc            | 0.6464|±  |0.0112|
+|              |       |none  |     5|acc_norm       | 0.6447|±  |0.0112|
+|sciq          |Yaml   |none  |     5|acc            | 0.8260|±  |0.0120|
+|              |       |none  |     5|acc_norm       | 0.8150|±  |0.0123|
+|wikitext      |Yaml   |none  |     5|word_perplexity|30.3488|   |      |
+|              |       |none  |     5|byte_perplexity| 1.8931|   |      |
+|              |       |none  |     5|bits_per_byte  | 0.9207|   |      |
+|winogrande    |Yaml   |none  |     5|acc            | 0.5178|±  |0.0140|
+|wsc           |Yaml   |none  |     5|acc            | 0.3750|±  |0.0477|
+

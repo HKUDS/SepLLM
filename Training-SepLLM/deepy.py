@@ -27,7 +27,7 @@ def main(input_args=None):
 
     neox_args = NeoXArgs.consume_deepy_args(input_args)
 
-    #########################my args check###########################
+    ############################args check###########################
     args_checker =  SepLLMArgumentsChecker()
     neox_args = args_checker(neox_args)
     #################################################################

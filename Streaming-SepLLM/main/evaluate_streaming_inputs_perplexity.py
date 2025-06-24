@@ -8,7 +8,7 @@ from sepllm_kv_cache.kv_cache_manager import SepLLM_KVCache_Manager
 from sepllm_kv_cache.utils import parse_args, load, print_args, check_args
 import time
 from huggingface_hub import login
-# login(token="xxxxxxx")  ## for your huggingface account token
+# login(token="hf_xxxxxxx")  ## for your huggingface account token
 
 
 
@@ -146,20 +146,20 @@ print(f"\n##############################Evaluation Summary######################
 
 if args.enable_kv_cache_manager:
     if args.enable_SepLLM:
-        print(f"\nOverall Perplexity (PPL):  {ppl.item()}\n")
-        print(f"\nTotal Inference Time for generating {num_eval_tokens} tokens: {total_infer_time} seconds\n")
+        print(f"\nOverall Perplexity (PPL):  {ppl.item():.4f}\n")
+        print(f"\nTotal Inference Time for generating {num_eval_tokens} tokens: {total_infer_time:.4f} seconds\n")
         print(f"\nAverage Runtime KV Usage for SepLLM: {( args.init_cache_size + args.sep_cache_size + args.local_size + args.cache_size ) / 2 }\n")
         print(f"\nMax KV Capacity: {args.cache_size }\n")
     elif args.enable_StreamingLLM:
-        print(f"\nOverall Perplexity (PPL):  {ppl.item()}\n")
-        print(f"\nTotal Inference Time for generating {num_eval_tokens} tokens: {total_infer_time} seconds\n")    
+        print(f"\nOverall Perplexity (PPL):  {ppl.item():.4f}\n")
+        print(f"\nTotal Inference Time for generating {num_eval_tokens} tokens: {total_infer_time:.4f} seconds\n")    
         print(f"\nAverage Runtime KV Usage for StreamingLLM: { args.cache_size }\n")
         print(f"\nMax KV Capacity: {args.cache_size }\n")
     else:
         assert False, f"You should choose one between (enable_SepLLM, enable_SepLLM) to set it to True if enable_kv_cache_manager=True"
 else:
-    print(f"\nOverall Perplexity (PPL):  {ppl.item()}\n")
-    print(f"\nTotal Inference Time for generating {num_eval_tokens} tokens: {total_infer_time} seconds\n")
+    print(f"\nOverall Perplexity (PPL):  {ppl.item():.4f}\n")
+    print(f"\nTotal Inference Time for generating {num_eval_tokens} tokens: {total_infer_time:.4f} seconds\n")
     print(f"\nAverage Runtime KV Usage: {num_eval_tokens / 2 }\n")
     print(f"\nMax KV Capacity: +infinite\n")
 

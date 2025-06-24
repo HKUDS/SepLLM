@@ -40,7 +40,7 @@ def llama_pos_shift_attention_forward(
 ) -> Tuple[torch.Tensor, Optional[torch.Tensor], Optional[Tuple[torch.Tensor]]]:
     bsz, q_len, _ = hidden_states.size()
 
-    start_stp = time.time() ##my
+    # start_stp = time.time() ##my
 
     if self.config.pretraining_tp > 1:
         key_value_slicing = (
@@ -85,7 +85,7 @@ def llama_pos_shift_attention_forward(
         bsz, q_len, self.num_key_value_heads, self.head_dim
     ).transpose(1, 2)
 
-    end_stp1 = time.time() ##my
+    # end_stp1 = time.time() ##my
 
     kv_seq_len = key_states.shape[-2]
     if past_key_value is not None:
@@ -113,12 +113,12 @@ def llama_pos_shift_attention_forward(
     key_states = repeat_kv(key_states, self.num_key_value_groups)
     value_states = repeat_kv(value_states, self.num_key_value_groups)
 
-    end_stp2 = time.time() ##my
+    # end_stp2 = time.time() ##my
 
     attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) / math.sqrt(
         self.head_dim
     )
-    end_stp3 = time.time() ##my
+    # end_stp3 = time.time() ##my
     if attn_weights.size() != (bsz, self.num_heads, q_len, kv_seq_len):
         raise ValueError(
             f"Attention weights should be of size {(bsz, self.num_heads, q_len, kv_seq_len)}, but is"
@@ -131,7 +131,7 @@ def llama_pos_shift_attention_forward(
                 f"Attention mask should be of size {(bsz, 1, q_len, kv_seq_len)}, but is {attention_mask.size()}"
             )
         attn_weights = attn_weights + attention_mask
-    end_stp4 = time.time() ##my
+    # end_stp4 = time.time() ##my
 
     # upcast attention to fp32
     attn_weights = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32).to(
@@ -139,7 +139,7 @@ def llama_pos_shift_attention_forward(
     )
     attn_output = torch.matmul(attn_weights, value_states)
 
-    end_stp5 = time.time() ##my
+    # end_stp5 = time.time() ##my
 
     if attn_output.size() != (bsz, self.num_heads, q_len, self.head_dim):
         raise ValueError(
@@ -169,13 +169,13 @@ def llama_pos_shift_attention_forward(
     if not output_attentions:
         attn_weights = None
 
-    end_stp6 = time.time() ##my
-    self.att_tot_time1 += (end_stp1 - start_stp )
-    self.att_tot_time2 += (end_stp2 - start_stp )
-    self.att_tot_time3 += (end_stp3 - start_stp )
-    self.att_tot_time4 += (end_stp4 - start_stp )
-    self.att_tot_time5 += (end_stp5 - start_stp )
-    self.att_tot_time6 += (end_stp6 - start_stp )
+    # end_stp6 = time.time() ##my
+    # self.att_tot_time1 += (end_stp1 - start_stp )
+    # self.att_tot_time2 += (end_stp2 - start_stp )
+    # self.att_tot_time3 += (end_stp3 - start_stp )
+    # self.att_tot_time4 += (end_stp4 - start_stp )
+    # self.att_tot_time5 += (end_stp5 - start_stp )
+    # self.att_tot_time6 += (end_stp6 - start_stp )
 
     return attn_output, attn_weights, past_key_value
 

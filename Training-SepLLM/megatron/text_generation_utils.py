@@ -134,9 +134,9 @@ def forward_model(model, model_inputs, is_pipe_parallel=False) -> torch.Tensor:
     # because someone at deepspeed decided pipeline modules couldn't use kwargs,
     # we need to forward a pipe model differently to a normal model
     
-    ############################my#############################
-    print("###############in forward_model############")
-    ###########################################################
+    # ############################my Debug#############################
+    # print("###############in forward_model############")
+    # #################################################################
     
     if not is_pipe_parallel:
         return model.module(model_inputs)
@@ -230,9 +230,9 @@ def stream_tokens(
             * if batch items have different lengths, the iterator will start at the first completion and return the unchanged input context token otherwise
     """
         
-    # ############################my#############################
+    # ############################my Debug#############################
     # print("###############in stream_tokens############")
-    # ###########################################################
+    # #################################################################
 
     model.eval()
 
@@ -441,9 +441,9 @@ def generate_samples_from_prompt(
     """
     
         
-    # ############################my#############################
+    # ############################my Debug#############################
     # print("###############in generate_samples_from_prompt############")
-    # ###########################################################    
+    # #################################################################    
     
     eos_token_id = eos_token_id or neox_args.tokenizer.eod
 

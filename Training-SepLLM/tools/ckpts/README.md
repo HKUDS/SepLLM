@@ -1,3 +1,6 @@
+# Note
+Inherited from the GPT-NeoX codebase.
+
 # Checkpoint Scripts
 
 

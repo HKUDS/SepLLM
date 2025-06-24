@@ -6,8 +6,13 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 
 
 
-## News
-
+## News`
+- [2025/06] We are working on integrating `SepCache` into HuggingFace's [transformers](https://github.com/huggingface/transformers) library. Stay tuned!
+- [2025/06] `SepCache` is released, which is an efficient, portable and easy-to-use *Cache* class for [transformers](https://github.com/huggingface/transformers).
+- [2025/06] More features have already been supported by the SepLLM code repository, including *BiPE* ([arXiv:2401.16421](https://arxiv.org/abs/2401.16421)), *Self-Adjust Softmax* ([arXiv:2502.18277](https://arxiv.org/abs/2502.18277)), *FixLLM*, *etc*.
+- [2025/06] SepLLM's [slides and videos](https://icml.cc/virtual/2025/poster/45536) are uploaded.
+- [2025/06] SepLLM's camera-ready paper is released.
+- [2025/05] **[SepLLM](https://icml.cc/virtual/2025/poster/45536) has been accepted to [ICML 2025](https://icml.cc/virtual/2025/poster/45536).**
 - [2024/12] More exciting features are being developed. Stay tuned!
 - [2024/12] SepLLM's code has been released. Our codebase supports efficient multi-node distributed training with accelerated attention module *Sep-Attention* and also includes numerous existing Fusion Operators to accelerate the training process, such as *fused rope* ([Su et al., 2023](url=https://arxiv.org/abs/2104.09864)), *fused layer norm*, etc.
 

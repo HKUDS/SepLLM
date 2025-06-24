@@ -38,7 +38,6 @@ PARAMS_TO_TEST = {
         "bigbird",
         "bslongformer",
         "gmlp",
-        "flash",
     ],
     "hidden_dropout": [0, 0.1],
     "weight_decay": [0, 0.1],

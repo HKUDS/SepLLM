@@ -139,7 +139,7 @@ class SequentialWrapper(torch.nn.Module):
     ):
 
         """
-        ##my: This func will NOT be run when neox_args.is_pipe_parallel=True. For Pythia: neox_args.is_pipe_parallel=True by default. Please check the training.py file to understand. 
+        ##my: This func will NOT be run when neox_args.is_pipe_parallel=True. For Pythia: neox_args.is_pipe_parallel=True by default. Please check the `../training.py` file to understand. 
         """
 
         # #########################my Debug#############################

@@ -558,14 +558,14 @@ class SepLLMArgumentsChecker:
 
 
     def check_list_items_equal(self, a_list, target=None):
-        assert isinstance(a_list, list), f"a_list must be a list"
+        assert isinstance(a_list, list), f"`a_list` must be a list"
         for el in a_list:
             if el != target:
                 return False
         return True
 
     def check_list_items_general(self, a_list, criteria_func):
-        assert isinstance(a_list, list), f"a_list must be a list"
+        assert isinstance(a_list, list), f"`a_list` must be a list"
         for el in a_list:
             if not criteria_func(el):
                 return False
@@ -573,25 +573,29 @@ class SepLLMArgumentsChecker:
 
 
     def set_list_items(self, src_list, target=None):
-        assert isinstance(src_list, list), f"src_list must be a list"
+        assert isinstance(src_list, list), f"`src_list` must be a list"
         return [ target for i in range(len(src_list))]
 
 
     def __call__(self, neox_args, STRICT_CHECK=True):        
 
+        print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
+        print(">>>>>>>>---------               Start Checking Arguments                   -----------<<<<<<<<")                
+        print(">>>>>>>>---------##########################################################-----------<<<<<<<<\n\n")        
+
         EXPERIMENT_NUM = int(neox_args.USE_ORIGINAL_FULL_ATTEN) + int(neox_args.streamingLLM) + int(neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR) + int(neox_args.USE_SA_SOFTMAX) + int(neox_args.USE_SA_SOFTMAX_NO_DENO)
         UNIQUE_EXP_FLAG = EXPERIMENT_NUM <= 1        
-        assert UNIQUE_EXP_FLAG, f"You can only set at most one True among ('USE_ORIGINAL_FULL_ATTEN'={neox_args.USE_ORIGINAL_FULL_ATTEN}, 'streamingLLM'={neox_args.streamingLLM} and 'USE_SEP_ATTN_KERNEL_ACCELERATOR'={neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR}, 'USE_SA_SOFTMAX'={neox_args.USE_SA_SOFTMAX}, 'USE_SA_SOFTMAX_NO_DENO'={neox_args.USE_SA_SOFTMAX_NO_DENO}) at one time"        
+        assert UNIQUE_EXP_FLAG, f"You can only set at most one True among ('USE_ORIGINAL_FULL_ATTEN'={neox_args.USE_ORIGINAL_FULL_ATTEN}, 'streamingLLM'={neox_args.streamingLLM}, 'USE_SEP_ATTN_KERNEL_ACCELERATOR'={neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR}, 'USE_SA_SOFTMAX'={neox_args.USE_SA_SOFTMAX}, and 'USE_SA_SOFTMAX_NO_DENO'={neox_args.USE_SA_SOFTMAX_NO_DENO}) at one time"        
 
         changed_param_num = 0
         if neox_args.USE_ORIGINAL_FULL_ATTEN:
             print(f"'USE_ORIGINAL_FULL_ATTEN' is the signal flag with the HIGHEST PRIORITY, i.e., setting it to True will modify certain related hyperparameters to run the standard full-attention version of the model. Details are as follows:")
-
             print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
-            print(">>>>>>>>---------                                                          -----------<<<<<<<<")
-            print(">>>>>>>>--------- Running the original full attention LLM (no changing)---------------<<<<<<<<")
-            print(">>>>>>>>---------                                                          -----------<<<<<<<<")
+            print(">>>>>>>>---------               USE_ORIGINAL_FULL_ATTEN                    -----------<<<<<<<<")
+            print(">>>>>>>>--------- Running the original full attention LLM (no changing).--------------<<<<<<<<")
+            print(">>>>>>>>--------- All SepLLM-related settings will NOT take any effect     -----------<<<<<<<<")            
             print(">>>>>>>>---------##########################################################-----------<<<<<<<<\n\n")
+
 
             print("***********************************************************************************************")
             print("*****************************************Warnings**********************************************")
@@ -677,8 +681,9 @@ class SepLLMArgumentsChecker:
             print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
             print(">>>>>>>>---------                                                          -----------<<<<<<<<")
             print(">>>>>>>>------------------------ Running streamingLLM --------------------------------<<<<<<<<")
-            print(">>>>>>>>---------                                                          -----------<<<<<<<<")
-            print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
+            print(">>>>>>>>---------Only settings about local and initial sizes take effect.  -----------<<<<<<<<") 
+            print(">>>>>>>>---------##########################################################-----------<<<<<<<<\n\n")
+
 
             print("***********************************************************************************************")
             print("*****************************************Warnings**********************************************")
@@ -720,12 +725,12 @@ class SepLLMArgumentsChecker:
             assert neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR, f"RECOMPILE_SEP_ATTN_KERNEL=True only takes effect when USE_SEP_ATTN_KERNEL_ACCELERATOR=True and may require additional GPU memory while offering a certain degree of acceleration to the training process."
 
         if neox_args.generate_local_window_size != neox_args.prefill_local_window_size:
-            print(f"Warnings: It is recommended to set the value of generate_local_window_size={neox_args.generate_local_window_size} to be the same as prefill_local_window_size={neox_args.prefill_local_window_size}, even though generate_local_window_size does not have any effect during the pretraining phase.")
+            print(f"Warnings: It is recommended to set the value of generate_local_window_size={neox_args.generate_local_window_size} to be the same as prefill_local_window_size={neox_args.prefill_local_window_size}, even though generate_local_window_size does not have any effect during the pretraining/prefilling phase.")
         if neox_args.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS:
             assert self.check_list_items_general(neox_args.prefill_loc_win_size_list, lambda x: x>=int(STRICT_CHECK))
         if neox_args.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS:
             assert self.check_list_items_general(neox_args.generate_win_loc_size_list, lambda x: x>=int(STRICT_CHECK))
-            print(f"Warnings: It is recommended to set the value of generate_win_loc_size_list={neox_args.generate_win_loc_size_list} to be the same as prefill_loc_win_size_list={neox_args.prefill_loc_win_size_list}, even though generate_win_loc_size_list does not have any effect during the pretraining phase.")
+            print(f"Warnings: It is recommended to set the value of generate_win_loc_size_list={neox_args.generate_win_loc_size_list} to be the same as prefill_loc_win_size_list={neox_args.prefill_loc_win_size_list}, even though generate_win_loc_size_list does not have any effect during the pretraining/prefilling phase.")
 
         assert neox_args.init_tok_max_idx >= -1, f"init_tok_max_idx={neox_args.init_tok_max_idx} should be greater than (or equal to) -1. init_tok_max_idx=-1 means 'disabled' "
 
@@ -735,6 +740,11 @@ class SepLLMArgumentsChecker:
 
         if neox_args.BATCH_ADAPTIVE_INIT_POS:
             print(f"Warnings: During pretraining, it is recommended to set the value of BATCH_ADAPTIVE_INIT_POS to False since pretraining uses right padding.")
+
+
+        print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
+        print(">>>>>>>>---------                 Initial Check Finished                   -----------<<<<<<<<")                
+        print(">>>>>>>>---------##########################################################-----------<<<<<<<<\n\n")      
 
         return neox_args
 

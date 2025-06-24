@@ -4,7 +4,6 @@ ctx_len = int(1024 * 20)
 
 outputs_path = '../outputs/xxx' 
 
-
 ppl_log_file = 'log.txt'
 out_file_name = f"ppl_len{ctx_len}.txt"
 

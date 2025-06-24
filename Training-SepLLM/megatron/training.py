@@ -183,7 +183,7 @@ def pretrain(neox_args):
         neox_args: an instance of NeoXArgs containing the configuration for pretrain
 
     """
-    ##########################my###########################    
+    ##########################SepLLM###########################    
     if not neox_args.USE_ORIGINAL_FULL_ATTEN:                
         neox_args.sepAtten = SepAttention(neox_args)
         if neox_args.streamingLLM:
@@ -193,19 +193,18 @@ def pretrain(neox_args):
             assert neox_args.init_tok_max_idx >= 0
 
     else:
-        neox_args.sepAtten = None    
-    #######################################################
+        neox_args.sepAtten = None      
+    ############################################################
     
     
     # setup logging and timers
-    init_wandb(neox_args=neox_args)
+    init_wandb(neox_args=neox_args)    
     timers = Timers(
         use_wandb=neox_args.use_wandb, tensorboard_writer=neox_args.tensorboard_writer
-    )
-
+    )    
     # Initialize and get arguments, timers, and Tensorboard writer.
     initialize_megatron(neox_args=neox_args)
-
+    
     # Model, optimizer, and learning rate.
     timers("model and optimizer").start()
     model, optimizer, lr_scheduler = setup_model_and_optimizer(
@@ -959,7 +958,7 @@ def train_step_pipe(neox_args, timers, model, data_iterator):
     """Single training step with DeepSpeed's pipeline parallel engine."""
             
     assert neox_args.deepspeed
-    loss = model.train_batch(data_iter=data_iterator)  ##my!!!!: see the comments in forward() of GPT2ModelPipe in megatron.model.gpt2_model.py
+    loss = model.train_batch(data_iter=data_iterator)  ##my!!!!: see the comments in `forward()` of `GPT2ModelPipe` in `megatron.model.gpt2_model.py`
     loss_dict = {"lm_loss": loss}
     # Don't break Megatron's timers because we changed code paths.
     for t in [

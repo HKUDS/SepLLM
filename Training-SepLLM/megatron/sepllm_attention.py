@@ -8,7 +8,7 @@ if Version(torch.__version__) >= Version('2.5.0'):
         _DEFAULT_SPARSE_BLOCK_SIZE,
         create_block_mask,        
     )
-
+    # torch.nn.attention.flex_attention._DEFAULT_SPARSE_BLOCK_SIZE = 64
     # @lru_cache
     def create_sep_atten_kernel_function(sep_atten_kernel, B, H, M, N, KV_BLOCK_SIZE=128, Q_BLOCK_SIZE=128 ,   device="cuda", _compile=False):
         sep_atten_ker_func = create_block_mask(sep_atten_kernel, B, H, M, N,  BLOCK_SIZE = (KV_BLOCK_SIZE, Q_BLOCK_SIZE) ,  device=device, _compile=_compile)
@@ -43,11 +43,19 @@ class SepAttention:
         assert self.NPU_MIN > torch.finfo(self.FLOAT_ATT_MASK_DTYPE).min
 
         if not (neox_args is None):
-            self.Layer_num = neox_args.num_layers 
-            self.RECOMPILE_SEP_ATTN_KERNEL = neox_args.RECOMPILE_SEP_ATTN_KERNEL  ## False by default. If True, recompile the Sep_Attention kernels.  When set to True, it may require more GPU memory and provide a certain level of acceleration to the training process.
+            if hasattr(neox_args, "num_layers"):
+                self.Layer_num = neox_args.num_layers
+            elif hasattr(neox_args, "num_hidden_layers"):
+                self.Layer_num = neox_args.num_hidden_layers            
+            elif hasattr(neox_args, "Layer_num"):
+                self.Layer_num = neox_args.Layer_num    
+            else:
+                raise AttributeError("You must correctly set `num_layers` (preferred) or `num_hidden_layers` or `Layer_num` (i.e., the number of layers) in your config file.")
+
+            self.RECOMPILE_SEP_ATTN_KERNEL = neox_args.RECOMPILE_SEP_ATTN_KERNEL  ## Only works for training and False by default. If True, recompile the Sep_Attention kernels.  When set to True, it may require more GPU memory and provide a certain level of acceleration to the training process.
         else:
             self.Layer_num = 12 
-            self.RECOMPILE_SEP_ATTN_KERNEL = False ## False by default. If True, recompile the Sep_Attention kernels.  When set to True, it may require more GPU memory and provide a certain level of acceleration to the training process.
+            self.RECOMPILE_SEP_ATTN_KERNEL = False ## Only works for training ## False by default. If True, recompile the Sep_Attention kernels.  When set to True, it may require more GPU memory and provide a certain level of acceleration to the training process.
         
         ## special_tokens = ['.', ',', '?', '!', ';', ":", '\n'] 
         if neox_args is None:
@@ -64,36 +72,36 @@ class SepAttention:
             For now, put a large number (>=max_seq_len) for the corresponding layers in prefill_loc_win_size_list (or generate_win_loc_size_list) if you want to keep the entire layer's KV and attentions
             """
 
-            self.prefill_local_window_size = 10  # The local window size when training and prefilling.  KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token. Only take effect when USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS=False
-            self.generate_local_window_size = 10 # The local window size when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token. Only take effect when USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS=False.        
+            self.prefill_local_window_size = 256  # The local window size when training and prefilling.  KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token. Only take effect when USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS=False
+            self.generate_local_window_size = 256 # The local window size when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token. Only take effect when USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS=False. generate_local_window_size does not have any effect during the pretraining/prefilling phase.       
 
             self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS = False  # If True: the prefilling local window sizes for different self-attention layers are different; If True: should set 'prefill_loc_win_size_list', else: should set 'prefill_local_window_size'
-            self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS = False # If True: the generating local window sizes for different self-attention layers are different;  If True: should set 'generate_win_loc_size_list', else: should set 'generate_local_window_size'
+            self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS = False # If True: the generating local window sizes for different self-attention layers are different;  If True: should set 'generate_win_loc_size_list', else: should set 'generate_local_window_size'. USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS does not have any effect during the pretraining/prefilling phase.
             
-            self.prefill_loc_win_size_list = [2048,  256,  256,  256,  256,  2048,  256,  256,  256, 256, 256,  2048 ] # Just an example  ## The local window sizes for different self-attention layers when training (or prefilling). KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
-            self.generate_win_loc_size_list = self.prefill_loc_win_size_list ## The local window sizes for different self-attention layers when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
+            self.prefill_loc_win_size_list = [2048,  256,  256,  256,  256,  2048,  256,  256,  256, 256, 256,  2048 ] # Just an example # Only take effect when `USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS=True` and its length should be equal to `Layer_num`. ## The local window sizes for different self-attention layers when training (or prefilling). KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
+            self.generate_win_loc_size_list = self.prefill_loc_win_size_list # Only take effect when `USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS=True` and its length should be equal to `Layer_num`. ## The local window sizes for different self-attention layers when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token. generate_win_loc_size_list does not have any effect during the pretraining/prefilling phase.
 
 
             self.init_tok_max_idx = 2 # The largest index for the kept initial tokens. E.g., if init_tok_max_idx==2, it means we keep 3 initial tokens (idx: 0,1,2)
 
-            self.USE_ORIGINAL_FULL_ATTEN =False  # Flag signal with the highest priority. Run the model without any modification (standard full-attention version, i.e., standard upper triangular mask) if True.
-            self.streamingLLM = False  # Run streamingLLM. Only takes effect when self.USE_ORIGINAL_FULL_ATTEN=False                        
+            self.USE_ORIGINAL_FULL_ATTEN =False  # Flag signal with the highest priority. Run the model without any modification (standard full-attention version, i.e., standard upper triangular mask) if True. If True, all SepLLM-related settings will NOT take any effect. 
+            self.streamingLLM = False  # Train streamingLLM. Only take effect when self.USE_ORIGINAL_FULL_ATTEN=False and self.USE_FIXED_SEP_INTERVALs=False. If True, only settings about local and initial (sink) sizes will take effect.                         
             
 
-            self.BATCH_ADAPTIVE_INIT_POS = False # If True: use the floating initial tokens' starting positions since when evaluating, LLM usually add paddings on the left side of the shorter seqs in a batch for alignment (i.e., left padding). Can be False when pretraining since the starting positions of initial tokens are at the beginning of each sequence in a batch for pretraining (i.e., right padding)
-            self.PRINT_KV_RATIO = False # If True, print the KV cache preservation ratio (especially for the released trained model during generating). When pretraining, it will print the retention ratio for the computational complexity of calculating the attention map if it is set True
-            self.print_ratio_intervals = 4000  # Print the retention ratio for the computational complexity of calculating the attention map once after every 'print_KV_intervals' forward passes (or print_KV_intervals/gradient_accumulation_steps  iterations). It only takes effect when PRINT_KV_RATIO=True.    
-            self.USE_SEP_ATTN_KERNEL_ACCELERATOR = False  # If True, use Sep_Attention module to accelerate the training process of SepLLM
+            self.BATCH_ADAPTIVE_INIT_POS = False # False by default. Typically True when the input_ids of the model use 'left padding', False for 'right padding' (e.g., for training or some downstream tasks).  If True: use the floating initial tokens' starting positions since when evaluating, LLM usually add paddings on the left side of the shorter seqs in a batch for alignment (i.e., left padding). Can be False when pretraining since the starting positions of initial tokens are at the beginning of each sequence in a batch for pretraining (i.e., right padding)
+            self.PRINT_KV_RATIO = False # If True, print the KV cache preservation ratio (especially for the released trained model during generating). When pretraining, it will also print the retention ratio for the computational complexity of calculating the attention map if it is set True
+            self.print_ratio_intervals = 4000  # Print the retention ratio for the computational complexity of calculating the attention map once after every 'print_ratio_intervals' forward passes (or print_ratio_intervals/gradient_accumulation_steps  iterations). It only takes effect when PRINT_KV_RATIO=True.    
+            self.USE_SEP_ATTN_KERNEL_ACCELERATOR = False  ## Only works for training # If True, use Sep_Attention module's kernel accelerator to accelerate the training process of SepLLM. If False (together with USE_ORIGINAL_FULL_ATTEN=False and streamingLLM=False), run plain SepLLM.
                         
             self.EXCLUDE_DIAGONAL = True # True by default and should always be True. When True, it means when we choose fixed window to process the prefilling mask, the diagonal elements in the prefilling mask could be set negative. When False: would keep the prefilling mask's diagonal positive            
 
-            self.USE_BiPE = False   ## False by default. If True (must also set pos_emb='rotary' or 'alibi'), use Bilevel Positional Encoding.  [He, Zhenyu, et al. "Two stones hit one bird: Bilevel positional encoding for better length extrapolation." arXiv preprint arXiv:2401.16421 (2024).]
+            self.USE_BiPE = False   ## False by default. If True (must also set pos_emb='rotary' or 'alibi'), use Bilevel Positional Encoding [He, Zhenyu, et al. "Two stones hit one bird: Bilevel positional encoding for better length extrapolation." arXiv preprint arXiv:2401.16421 (2024).].
             self.BiPE_seps = [15, 13, 32, 2, 28, 27, 209, 186, 187] ## The token ids of the seperator tokens for BiPE
                         
-            self.USE_SA_SOFTMAX = False # False by default. If True, use Self-Adjusting Softmax Attention.
-            self.USE_SA_SOFTMAX_NO_DENO = False # False by default. If True, use Self-Adjusting Softmax Attention V2 : no denominator version.
-            self.SA_Numerator_Bias = 0.0 # The bias value added to the numerator term of Self-Adjusting Softmax Attention.
-            self.SA_Denominator_Bias = 1e-10 # The bias value added to the denominator term of Self-Adjusting Softmax Attention.
+            self.USE_SA_SOFTMAX = False # False by default. If True, use Self-Adjusting Softmax Attention. If True, all SepLLM-related settings will NOT take any effect.   See https://arxiv.org/abs/2502.18277
+            self.USE_SA_SOFTMAX_NO_DENO = False # False by default. If True, use Self-Adjusting Softmax Attention V2 : no denominator version. If True, all SepLLM-related settings will NOT take any effect.  See https://arxiv.org/abs/2502.18277
+            self.SA_Numerator_Bias = 0.0 # The bias value added to the numerator term of Self-Adjusting Softmax Attention. See https://arxiv.org/abs/2502.18277
+            self.SA_Denominator_Bias = 1e-10 # The bias value added to the denominator term of Self-Adjusting Softmax Attention. See https://arxiv.org/abs/2502.18277
 
         else:
             ## Pythia: GPTNeoX
@@ -109,59 +117,70 @@ class SepAttention:
             """
 
             self.prefill_local_window_size = neox_args.prefill_local_window_size  # The local window size when training and prefilling.  KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token. Only take effect when USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS=False
-            self.generate_local_window_size = neox_args.generate_local_window_size # The local window size when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token. Only take effect when USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS=False.        
+            self.generate_local_window_size = neox_args.generate_local_window_size # The local window size when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token. Only take effect when USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS=False. generate_local_window_size does not have any effect during the pretraining/prefilling phase.       
 
             self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS = neox_args.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS # If True: the prefilling local window sizes for different self-attention layers are different; If True: should set 'prefill_loc_win_size_list', else: should set 'prefill_local_window_size'
-            self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS = neox_args.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS # If True: the generating local window sizes for different self-attention layers are different;  If True: should set 'generate_win_loc_size_list', else: should set 'generate_local_window_size'
+            self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS = neox_args.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS # If True: the generating local window sizes for different self-attention layers are different;  If True: should set 'generate_win_loc_size_list', else: should set 'generate_local_window_size'.  USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS does not have any effect during the pretraining/prefilling phase.
             
 
-            self.prefill_loc_win_size_list = neox_args.prefill_loc_win_size_list ## The local window sizes for different self-attention layers when training (or prefilling). KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
-            self.generate_win_loc_size_list =  neox_args.generate_win_loc_size_list ## The local window sizes for different self-attention layers when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
+            self.prefill_loc_win_size_list = neox_args.prefill_loc_win_size_list # Only take effect when `USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS=True` and its length should be equal to `Layer_num`. ## The local window sizes for different self-attention layers when training (or prefilling). KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
+            self.generate_win_loc_size_list =  neox_args.generate_win_loc_size_list # Only take effect when `USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS=True` and its length should be equal to `Layer_num`. ## The local window sizes for different self-attention layers when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token. generate_win_loc_size_list does not have any effect during the pretraining/prefilling phase.
         
             self.init_tok_max_idx = neox_args.init_tok_max_idx # The largest index for the kept initial tokens. E.g., if init_tok_max_idx==2, it means we keep 3 initial tokens (idx: 0,1,2)
 
-            self.USE_ORIGINAL_FULL_ATTEN =neox_args.USE_ORIGINAL_FULL_ATTEN  # Flag signal with the highest priority. Run the model without any modification (standard full-attention version, i.e., standard upper triangular mask) if True.
-            self.streamingLLM = neox_args.streamingLLM  # Run streamingLLM. Only takes effect when self.USE_ORIGINAL_FULL_ATTEN=False                        
+            self.USE_ORIGINAL_FULL_ATTEN =neox_args.USE_ORIGINAL_FULL_ATTEN  # Flag signal with the highest priority. Run the model without any modification (standard full-attention version, i.e., standard upper triangular mask) if True. If True, all SepLLM-related settings will NOT take any effect. 
+            self.streamingLLM = neox_args.streamingLLM  # Train streamingLLM. Only take effect when self.USE_ORIGINAL_FULL_ATTEN=False and self.USE_FIXED_SEP_INTERVALs=False. If True, only settings about local and initial (sink) sizes will take effect.                         
             
-
-            self.BATCH_ADAPTIVE_INIT_POS = neox_args.BATCH_ADAPTIVE_INIT_POS # If True: use the floating initial tokens' starting positions since when evaluating, LLM usually add paddings on the left side of the shorter seqs in a batch for alignment (i.e., left padding). Can be False when pretraining since the starting positions of initial tokens are at the beginning of each sequence in a batch for pretraining (i.e., right padding)
-            self.PRINT_KV_RATIO = neox_args.PRINT_KV_RATIO # If True, print the KV cache preservation ratio (especially for the released trained model during generating). When pretraining, it will print the retention ratio for the computational complexity of calculating the attention map if it is set True
-            self.print_ratio_intervals = neox_args.print_ratio_intervals  # Print the retention ratio for the computational complexity of calculating the attention map once after every 'print_KV_intervals' forward passes (or print_KV_intervals/gradient_accumulation_steps  iterations). It only takes effect when PRINT_KV_RATIO=True.    
-            self.USE_SEP_ATTN_KERNEL_ACCELERATOR = neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR # If True, use Sep_Attention module to accelerate the training process of SepLLM
+                                                                            
+            self.BATCH_ADAPTIVE_INIT_POS = neox_args.BATCH_ADAPTIVE_INIT_POS # False by default. Typically True when the input_ids of the model use 'left padding', False for 'right padding' (e.g., for training or some downstream tasks).  If True: use the floating initial tokens' starting positions since when evaluating, LLM usually add paddings on the left side of the shorter seqs in a batch for alignment (i.e., left padding). Can be False when pretraining since the starting positions of initial tokens are at the beginning of each sequence in a batch for pretraining (i.e., right padding)
+            self.PRINT_KV_RATIO = neox_args.PRINT_KV_RATIO # If True, print the KV cache preservation ratio (especially for the released trained model during generating). When pretraining, it will also print the retention ratio for the computational complexity of calculating the attention map if it is set True
+            self.print_ratio_intervals = neox_args.print_ratio_intervals  # Print the retention ratio for the computational complexity of calculating the attention map once after every 'print_ratio_intervals' forward passes (or print_ratio_intervals/gradient_accumulation_steps  iterations). It only takes effect when PRINT_KV_RATIO=True.    
+            self.USE_SEP_ATTN_KERNEL_ACCELERATOR = neox_args.USE_SEP_ATTN_KERNEL_ACCELERATOR ## Only works for training # If True, use Sep_Attention module's kernel accelerator to accelerate the training process of SepLLM. If False (together with USE_ORIGINAL_FULL_ATTEN=False and streamingLLM=False), run plain SepLLM.
                 
             self.EXCLUDE_DIAGONAL = neox_args.EXCLUDE_DIAGONAL # True by default and should always be True. When True, it means when we choose fixed window to process the prefilling mask, the diagonal elements in the prefilling mask could be set negative. When False: would keep the prefilling mask's diagonal positive            
 
-            self.USE_BiPE = neox_args.USE_BiPE   ## False by default. If True (must also set pos_emb='rotary' or 'alibi'), use Bilevel Positional Encoding.  [He, Zhenyu, et al. "Two stones hit one bird: Bilevel positional encoding for better length extrapolation." arXiv preprint arXiv:2401.16421 (2024).]
+            self.USE_BiPE = neox_args.USE_BiPE   ## False by default. If True (must also set pos_emb='rotary' or 'alibi'), use Bilevel Positional Encoding [He, Zhenyu, et al. "Two stones hit one bird: Bilevel positional encoding for better length extrapolation." arXiv preprint arXiv:2401.16421 (2024).].
             self.BiPE_seps = neox_args.BiPE_seps  ## The token ids of the seperator tokens for BiPE
             
 
-            self.USE_SA_SOFTMAX = neox_args.USE_SA_SOFTMAX # False by default. If True, use Self-Adjusting Softmax Attention.
-            self.USE_SA_SOFTMAX_NO_DENO = neox_args.USE_SA_SOFTMAX_NO_DENO # False by default. If True, use Self-Adjusting Softmax Attention V2 : no denominator version.
-            self.SA_Numerator_Bias = neox_args.SA_Numerator_Bias # The bias value added to the numerator term of Self-Adjusting Softmax Attention.
-            self.SA_Denominator_Bias = neox_args.SA_Denominator_Bias # The bias value added to the denominator term of Self-Adjusting Softmax Attention.
+            self.USE_SA_SOFTMAX = neox_args.USE_SA_SOFTMAX # False by default. If True, use Self-Adjusting Softmax Attention. If True, all SepLLM-related settings will NOT take any effect.   See https://arxiv.org/abs/2502.18277
+            self.USE_SA_SOFTMAX_NO_DENO = neox_args.USE_SA_SOFTMAX_NO_DENO # False by default. If True, use Self-Adjusting Softmax Attention V2 : no denominator version. If True, all SepLLM-related settings will NOT take any effect.  See https://arxiv.org/abs/2502.18277
+            self.SA_Numerator_Bias = neox_args.SA_Numerator_Bias # The bias value added to the numerator term of Self-Adjusting Softmax Attention. See https://arxiv.org/abs/2502.18277
+            self.SA_Denominator_Bias = neox_args.SA_Denominator_Bias # The bias value added to the denominator term of Self-Adjusting Softmax Attention. See https://arxiv.org/abs/2502.18277
 
 
         EXPERIMENT_NUM = int(self.USE_ORIGINAL_FULL_ATTEN) + int(self.streamingLLM) + int(self.USE_SEP_ATTN_KERNEL_ACCELERATOR) + int(self.USE_SA_SOFTMAX) + int(self.USE_SA_SOFTMAX_NO_DENO)
         UNIQUE_EXP_FLAG = EXPERIMENT_NUM <= 1        
-        assert UNIQUE_EXP_FLAG, f"You can only set at most one True among ('USE_ORIGINAL_FULL_ATTEN'={self.USE_ORIGINAL_FULL_ATTEN}, 'streamingLLM'={self.streamingLLM} and 'USE_SEP_ATTN_KERNEL_ACCELERATOR'={self.USE_SEP_ATTN_KERNEL_ACCELERATOR}, 'USE_SA_SOFTMAX'={self.USE_SA_SOFTMAX}, 'USE_SA_SOFTMAX_NO_DENO'={self.USE_SA_SOFTMAX_NO_DENO}) at one time"
+        assert UNIQUE_EXP_FLAG, f"You can only set at most one True among ('USE_ORIGINAL_FULL_ATTEN'={self.USE_ORIGINAL_FULL_ATTEN}, 'streamingLLM'={self.streamingLLM}, 'USE_SEP_ATTN_KERNEL_ACCELERATOR'={self.USE_SEP_ATTN_KERNEL_ACCELERATOR}, 'USE_SA_SOFTMAX'={self.USE_SA_SOFTMAX}, and 'USE_SA_SOFTMAX_NO_DENO'={self.USE_SA_SOFTMAX_NO_DENO}) at one time."
 
         if self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS:
-            assert self.Layer_num == len(self.prefill_loc_win_size_list)
+            assert self.Layer_num == len(self.prefill_loc_win_size_list), f"The length of `self.prefill_loc_win_size_list` ({len(self.prefill_loc_win_size_list)}) must be equal to `self.Layer_num` ({self.Layer_num})."        
         if self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS:
-            assert  self.Layer_num == len(self.generate_win_loc_size_list)
+            assert  self.Layer_num == len(self.generate_win_loc_size_list), f"The length of `self.generate_win_loc_size_list` ({len(self.generate_win_loc_size_list)}) must be equal to `self.Layer_num` ({self.Layer_num})."        
 
         if self.USE_SEP_ATTN_KERNEL_ACCELERATOR:
-            self.KV_BLOCK_SIZE = _DEFAULT_SPARSE_BLOCK_SIZE
-            self.Q_BLOCK_SIZE  = _DEFAULT_SPARSE_BLOCK_SIZE
+            if neox_args is None:
+                self.KV_BLOCK_SIZE = _DEFAULT_SPARSE_BLOCK_SIZE
+                self.Q_BLOCK_SIZE  = _DEFAULT_SPARSE_BLOCK_SIZE
+            else:
+                self.KV_BLOCK_SIZE = neox_args._DEFAULT_SPARSE_BLOCK_SIZE
+                self.Q_BLOCK_SIZE  = neox_args._DEFAULT_SPARSE_BLOCK_SIZE
+                # torch.nn.attention.flex_attention._DEFAULT_SPARSE_BLOCK_SIZE = neox_args._DEFAULT_SPARSE_BLOCK_SIZE
 
-        print("########################### Basic Args for SepAttention ############################################")
+
+        print("############################################ Basic Args for SepAttention ############################################")        
+        if self.streamingLLM:
+            self.separator_token_ids = [-1]
+        
         if self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS:
+            print(f"self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS:  {self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS}" )
             print(f"self.prefill_loc_win_size_list: {self.prefill_loc_win_size_list}")
             self.prefill_local_window_size = None
         else:        
             print(f"self.prefill_local_window_size: {self.prefill_local_window_size}")
 
-        if self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS:            
+        if self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS:        
+            print(f"self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS:  {self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS}" )    
             print(f"self.generate_win_loc_size_list: {self.generate_win_loc_size_list}")
             self.generate_local_window_size = None
         else:
@@ -170,44 +189,72 @@ class SepAttention:
         print(f"self.Layer_num: {self.Layer_num}")
         print(f"self.init_tok_max_idx: {self.init_tok_max_idx}")
         print(f"self.USE_ORIGINAL_FULL_ATTEN:  {self.USE_ORIGINAL_FULL_ATTEN}" )
-        print(f"self.streamingLLM:  {self.streamingLLM}" )        
-        print(f"self.EXCLUDE_DIAGONAL:  {self.EXCLUDE_DIAGONAL}" )
+        print(f"self.streamingLLM:  {self.streamingLLM}" )                
+        print(f"self.USE_SEP_ATTN_KERNEL_ACCELERATOR:  {self.USE_SEP_ATTN_KERNEL_ACCELERATOR}" )
+        print(f"self.RECOMPILE_SEP_ATTN_KERNEL:  {self.RECOMPILE_SEP_ATTN_KERNEL}" )
 
-        print(">>> Please be careful of the separator_token_ids, Make sure they are correct for the current LLM")
+        print(f"self.BATCH_ADAPTIVE_INIT_POS:  {self.BATCH_ADAPTIVE_INIT_POS}" )
+        print(f">>> For `BATCH_ADAPTIVE_INIT_POS`: Typically True when the input_ids of the model use 'left padding', False for 'right padding' (e.g., for training or some downstream tasks like `lambada_openai`, `piqa`, etc).")
+
+        print(f"self.PRINT_KV_RATIO:  {self.PRINT_KV_RATIO}" )
+        if self.PRINT_KV_RATIO:
+            print(f"self.print_ratio_intervals:  {self.print_ratio_intervals}" )    
+        
+
+        print(">>> Please be careful of the `separator_token_ids`, and make sure they are correct for the current LLM")
         print(f"self.separator_token_ids: {self.separator_token_ids}")        
+        if (self.separator_token_ids is None) or (len(self.separator_token_ids) <= 0):
+            print(f"Warnings: Please be careful of the `separator_token_ids` and make sure they are correct for the current setting. Current `separator_token_ids`: {self.separator_token_ids}, which may cause unexpected bugs.")
 
         print(f"self.USE_BiPE: {self.USE_BiPE}")
         if self.USE_BiPE:
             print(f"self.BiPE_seps: {self.BiPE_seps}")
-        print(f"self.USE_SA_SOFTMAX: {self.USE_SA_SOFTMAX}")
+                
         if self.USE_SA_SOFTMAX:
+            print(f"self.USE_SA_SOFTMAX: {self.USE_SA_SOFTMAX}")
             print(f"self.SA_Numerator_Bias: {self.SA_Numerator_Bias}")
-            print(f"self.SA_Denominator_Bias: {self.SA_Denominator_Bias}")
-        print(f"self.USE_SA_SOFTMAX_NO_DENO: {self.USE_SA_SOFTMAX_NO_DENO}")
+            print(f"self.SA_Denominator_Bias: {self.SA_Denominator_Bias}")            
+        if self.USE_SA_SOFTMAX_NO_DENO:
+            print(f"self.USE_SA_SOFTMAX_NO_DENO: {self.USE_SA_SOFTMAX_NO_DENO}")
 
 
-        if int(self.USE_ORIGINAL_FULL_ATTEN)+int(self.streamingLLM) <= 0:
+        print(f"self.EXCLUDE_DIAGONAL:  {self.EXCLUDE_DIAGONAL}" )
+
+        if int(self.USE_ORIGINAL_FULL_ATTEN) + int(self.streamingLLM) + int(self.USE_SA_SOFTMAX) + int(self.USE_SA_SOFTMAX_NO_DENO) <= 0:
             print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
             print(">>>>>>>>---------                                                          -----------<<<<<<<<")
             print(">>>>>>>>--------------------- Running our SepLLM strategy ----------------------------<<<<<<<<")
             print(">>>>>>>>---------                                                          -----------<<<<<<<<")
             print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
-        
+
+        elif self.USE_SA_SOFTMAX:
+            print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
+            print(">>>>>>>>---------                   USE_SA_SOFTMAX                         -----------<<<<<<<<")
+            print(">>>>>>>>--------- Running Self-Adjust Softmax Attention. All SepLLM-related-----------<<<<<<<<")
+            print(">>>>>>>>--------- settings will NOT take any effect.                       -----------<<<<<<<<")
+            print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
+
+        elif self.USE_SA_SOFTMAX_NO_DENO:
+            print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
+            print(">>>>>>>>---------                USE_SA_SOFTMAX_NO_DENO                    -----------<<<<<<<<")
+            print(">>>>>>>>--------- Running Self-Adjust Softmax Attention. All SepLLM-related-----------<<<<<<<<")
+            print(">>>>>>>>--------- settings will NOT take any effect.                       -----------<<<<<<<<")
+            print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
+
         elif self.USE_ORIGINAL_FULL_ATTEN:
             print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
-            print(">>>>>>>>---------                                                          -----------<<<<<<<<")
-            print(">>>>>>>>--------- Running the original full attention LLM (no changing)---------------<<<<<<<<")
-            print(">>>>>>>>---------                                                          -----------<<<<<<<<")
+            print(">>>>>>>>---------               USE_ORIGINAL_FULL_ATTEN                    -----------<<<<<<<<")
+            print(">>>>>>>>--------- Running the original full attention LLM (no changing).--------------<<<<<<<<")
+            print(">>>>>>>>--------- All SepLLM-related settings will NOT take any effect     -----------<<<<<<<<")
             print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
         elif self.streamingLLM:
             print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
             print(">>>>>>>>---------                                                          -----------<<<<<<<<")
             print(">>>>>>>>------------------------ Running streamingLLM --------------------------------<<<<<<<<")
-            print(">>>>>>>>---------                                                          -----------<<<<<<<<")
+            print(">>>>>>>>---------Only settings about local and initial sizes take effect.  -----------<<<<<<<<") 
             print(">>>>>>>>---------##########################################################-----------<<<<<<<<")
         else:
             print(">>>>>>>>>>>>>>>>>>>>>ERROR, ERROR, ERROR<<<<<<<<<<<<<<<<<<<<<<<<<")
-            
 
 
     def count_decode_kept_element(self, mask, layer_id):
@@ -289,7 +336,7 @@ class SepAttention:
             # past_ids_tensor = past_ids.int()  # B x seq_len ## pythia OOM. Not really useful
 
         ## For some code, causal_mask2'shape is B x 1 x seq_len x (seq_len+1),  last col is a pad
-        if past_ids_tensor.shape[-1] != ori_causal_mask2.shape[-1]:  # Have some bugs for MMLU. I fixed it here but have not been tested.
+        if past_ids_tensor.shape[-1] != ori_causal_mask2.shape[-1]:  # Have some bugs for MMLU. I fixed it here.
             # print("##############paddding here##################")
             sep_index_tensor = torch.zeros( ori_causal_mask2.shape[0], ori_causal_mask2.shape[-1]  ).bool().to(past_ids_tensor.device)  # B x seq_len or B x (seq_len + 1)              
             assert not (PAD_TOK_ID in separator_token_ids),   f"PAD_TOK_ID: {PAD_TOK_ID} should not be in the separator_token_ids: {separator_token_ids}"
@@ -300,7 +347,6 @@ class SepAttention:
         
         else:
             sep_index_tensor = torch.zeros_like(past_ids_tensor).bool().to(past_ids_tensor.device)  # B x seq_len
-
 
         for sp_id in separator_token_ids:            
             sep_index_tensor = sep_index_tensor | ( past_ids_tensor == sp_id )# B x seq_len or B x (seq_len + 1)
@@ -352,13 +398,20 @@ class SepAttention:
             # res = copy.deepcopy( (causal_mask2 | win_mask) & lower_tri_mask  )
             res = (causal_mask2 | win_mask) & lower_tri_mask   ## pythia
             
-        # ###########################################################################    
+        # ##################################debug#####################################    
         # torch.set_printoptions(profile="full")
-        # print("#####################prefill_mask res###########################")
-        # print(res.shape)
-        # for row in range(100):
-        #     print(f"###########################prefill_mask row {row}#####################################")
-        #     print(res[:, :, row, :])
+        # if isinstance(res, (list, tuple)):
+        #     # for ly in [0,1,2,3,4,5,6,7,8,9,10,11,12]:
+        #     for ly in [0,1]:
+        #         print(f"###########################prefill_mask layer {ly}#####################################")
+        #         print(res[ly][:, :, 100, :])
+        # else:
+        #     print("#####################prefill_mask res###########################")
+        #     print(res.shape)        
+        #     for row in range(100):
+        #         print(f"###########################prefill_mask row {row}#####################################")
+        #         print(res[:, :, row, :])
+
         # torch.set_printoptions(profile="default") # reset
         # ###########################################################################
         return res
@@ -475,24 +528,24 @@ class SepAttention:
         return init_pos_idx_tensor, recyc_prefill_init_tok_position_tensor
 
         
-    def build_segmented_attention_mask(self, prefill_flag, past_ids, causal_mask2,  BATCH_ADAPTIVE_INIT_POS=False, init_pos_idx_tensor = None ):
+    def build_segmented_attention_mask(self, prefill_flag, past_ids, causal_mask2, init_pos_idx_tensor = None ):
         if prefill_flag:                
             if self.USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS:
                 loc_window_sizeS = self.prefill_loc_win_size_list                
-                prefill_causal_mask2_list = self.build_prefill_mask(past_ids, causal_mask2, self.separator_token_ids, self.init_tok_max_idx+1, loc_window_sizeS, BATCH_ADAPTIVE_INIT_POS=BATCH_ADAPTIVE_INIT_POS, init_pos_idx_tensor=init_pos_idx_tensor)
+                prefill_causal_mask2_list = self.build_prefill_mask(past_ids, causal_mask2, self.separator_token_ids, self.init_tok_max_idx+1, loc_window_sizeS, BATCH_ADAPTIVE_INIT_POS=self.BATCH_ADAPTIVE_INIT_POS, init_pos_idx_tensor=init_pos_idx_tensor)
                 return prefill_causal_mask2_list
             else:
                 loc_window_sizeS = self.prefill_local_window_size                
-                causal_mask2 = self.build_prefill_mask(past_ids, causal_mask2, self.separator_token_ids, self.init_tok_max_idx+1, loc_window_sizeS , BATCH_ADAPTIVE_INIT_POS=BATCH_ADAPTIVE_INIT_POS,  init_pos_idx_tensor=init_pos_idx_tensor)
+                causal_mask2 = self.build_prefill_mask(past_ids, causal_mask2, self.separator_token_ids, self.init_tok_max_idx+1, loc_window_sizeS , BATCH_ADAPTIVE_INIT_POS=self.BATCH_ADAPTIVE_INIT_POS,  init_pos_idx_tensor=init_pos_idx_tensor)
                 return causal_mask2              
         else:                
             if self.USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS:
                 loc_window_sizeS = self.generate_win_loc_size_list                
-                decode_causal_mask2_list = self.build_generate_mask(past_ids, causal_mask2, self.separator_token_ids, self.init_tok_max_idx+1, loc_window_sizeS, BATCH_ADAPTIVE_INIT_POS=BATCH_ADAPTIVE_INIT_POS,  init_pos_idx_tensor=init_pos_idx_tensor )
+                decode_causal_mask2_list = self.build_generate_mask(past_ids, causal_mask2, self.separator_token_ids, self.init_tok_max_idx+1, loc_window_sizeS, BATCH_ADAPTIVE_INIT_POS=self.BATCH_ADAPTIVE_INIT_POS,  init_pos_idx_tensor=init_pos_idx_tensor )
                 return decode_causal_mask2_list
             else:
                 loc_window_sizeS = self.generate_local_window_size                
-                causal_mask2 = self.build_generate_mask(past_ids, causal_mask2, self.separator_token_ids, self.init_tok_max_idx+1, loc_window_sizeS,  BATCH_ADAPTIVE_INIT_POS=BATCH_ADAPTIVE_INIT_POS,  init_pos_idx_tensor=init_pos_idx_tensor)   
+                causal_mask2 = self.build_generate_mask(past_ids, causal_mask2, self.separator_token_ids, self.init_tok_max_idx+1, loc_window_sizeS,  BATCH_ADAPTIVE_INIT_POS=self.BATCH_ADAPTIVE_INIT_POS,  init_pos_idx_tensor=init_pos_idx_tensor)   
                 return causal_mask2
 
 
