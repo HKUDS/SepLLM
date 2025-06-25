@@ -310,6 +310,9 @@ cd ./TrainingFree-SepLLM
 # Replace `/path/to/your_conda_directory/envs/trainingfree_sepllm` with your actual directory of your conda env.
 ln -s /path/to/your_conda_directory/envs/trainingfree_sepllm/lib/python3.10/site-packages/transformers ./transformers 
 ```
+We have now created a conda environment named `trainingfree_sepllm`, where we have installed our released `transformers` package (required). Additionally, we have created a symbolic link to the source code of the installed `transformers` package under the `TrainingFree-SepLLM` directory, making it easier to read and modify the source code used for execution. Whenever we need to read or modify the `transformers` code, we can simply access it via `SepLLM/TrainingFree-SepLLM/transformers`.
+
+## Usage
 
 
 
