@@ -229,7 +229,7 @@ SepLLM
 ```
 
 
-# Long Streaming Inputs
+# Infinite-Length Streaming Tests
 Our long streaming evaluation is following [StreamingLLM.](https://github.com/mit-han-lab/streaming-llm/)
 
 Take a quick look at the running process (recording of 20K tokens' generation based on Llama-3 - frame extraction and accelerated playback version).
@@ -282,7 +282,25 @@ CUDA_VISIBLE_DEVICES=0  python ./main/evaluate_streaming_inputs_perplexity.py \
 You can see many other examples under `./SepLLM/Streaming-SepLLM/example_scripts/`, including `SepLLM`, `StreamingLLM`, and `Full-Attention` on different backbone models of various sizes for generation tests of different lengths.
 
 
-# TrainingFree
+# Training-Free Tests
+In many scenarios, it is unnecessary or impractical to train models from scratch due to limited computational resources. However, in such cases, `SepLLM` can also demonstrate strong training-free performance. Based on `SDPA` or `eager` attention, we provide a simple and effective training-free implementation of `SepLLM` using a mask-based approach. While the mask-based method cannot really reduce the KV cache, it provides a convenient way for researchers to explore and analyze the behavior of attention mechanisms in LLMs.
+
+Additionally, we introduce `SepCache`, an efficient, portable, and easy-to-use cache class for transformers. SepCache can significantly reduce KV cache, lowering GPU memory usage, improving throughput (*e.g.*, by increasing batch size), and reducing inference time. When using `flash_attention_2`, `SepCache` is employed by default to store past keys/values. This setup demonstrates how to use `SepCache` effectively and how it integrates with commonly used `flash_attention_2`.
+
+All the above implementations are not directly included in this repository but are packaged in the wheel file `./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl`. To explore, use, or modify the training-free implementation, you must first install this wheel package.
+
+## Environment Setup
+```
+# Download repo.
+cd ./your_workplace
+git clone https://github.com/HKUDS/SepLLM.git
+cd ./SepLLM/TrainingFree-SepLLM
+
+
+
+```
+
+
 
 
 
