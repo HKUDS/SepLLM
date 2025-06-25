@@ -372,10 +372,7 @@ You can also use the `SepCache.from_legacy_cache()` function to create an object
 
 Below, we provide explanations and examples for the most commonly used parameters when initializing `SepCache`.
 ```
-A cache as described in the [SepLLM paper - ICML 2025](https://arxiv.org/abs/2412.12094). In the training phase, 
-SepLLM condenses the segment information into the KV of the separator that divides the segment. In the inference phase, the corresponding SepCache only needs to store the KVs of initial tokens, separator tokens, and recent tokens for generation.
-
-It stores the Key and Value states as lists of tensors, two lists for each layer. The expected shape for each tensor is
+SepCache stores the Key and Value states as lists of tensors, two lists for each layer. The expected shape for each tensor is
 `[batch_size, num_heads, seq_len, head_dim]`.
 
 Frequently-Used Parameters:
@@ -423,37 +420,6 @@ Important Note:
         to leave room for `left_padding_offset`.
 
     Please refer to the `__init__` function's comments for more details on the parameters.
-        
-Example:
-
-    ```python        
-    >>> from transformers import AutoTokenizer, AutoModelForCausalLM, SepCache
-    >>> import torch
-    >>> from huggingface_hub import login
-    >>> login("hf_xxxXXXxxx")
-
-
-    >>> def to_cuda(a_dict: dict) -> dict:
-    >>>    new_dict = {}    
-    >>>    for k,v in a_dict.items():
-    >>>        if isinstance(v, torch.Tensor):
-    >>>            new_dict[k] = v.cuda()
-    >>>        else:
-    >>>            new_dict[k] = v
-    >>>    return new_dict
-
-    >>> model = AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct", attn_implementation="flash_attention_2", device_map="cuda:0")
-    >>> model.bfloat16().cuda()
-    >>> tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct")
-    >>> inputs = tokenizer(text="My name is Llama 3", return_tensors="pt")
-    >>> inputs = to_cuda(inputs)
-    >>> # Prepare a cache and pass it to model's forward; `layer_num` is the number of layers for the pretrained model.
-    >>> past_key_values = SepCache(init_cache_size=4, sep_cache_size=128, local_size=256, cache_size=512, layer_num=32, USE_MAX_SEP_CACHE=True, model_type='llama')
-    >>> # `separator_token_ids` and `PADDING_ID` must also be provided if you are not using `model_type='llama'` like this demo.
-    >>> outputs = model(**inputs, past_key_values=past_key_values, use_cache=True)
-    >>> outputs.past_key_values # access SepCache filled with keys/values
-    SepCache()
-    ```
 ```
 
 
