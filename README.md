@@ -306,10 +306,9 @@ git clone https://github.com/HKUDS/SepLLM.git
 # Install transformers of our version
 cd ./SepLLM
 pip install ./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl # Required
-
-
-
-
+cd ./TrainingFree-SepLLM
+# Replace `/path/to/your_conda_directory/envs/trainingfree_sepllm` with your actual directory of your conda env.
+ln -s /path/to/your_conda_directory/envs/trainingfree_sepllm/lib/python3.10/site-packages/transformers ./transformers 
 ```
 
 
