@@ -291,10 +291,22 @@ All the above implementations are not directly included in this repository but a
 
 ## Environment Setup
 ```
+# Create conda environment
+conda env create -n trainingfree_sepllm python=3.10
+conda activate trainingfree_sepllm
+pip install flash-attn==2.7.2.post1 lm_eval==0.4.4
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+
+
 # Download repo.
 cd ./your_workplace
 git clone https://github.com/HKUDS/SepLLM.git
-cd ./SepLLM/TrainingFree-SepLLM
+
+
+# Install transformers of our version
+cd ./SepLLM
+pip install ./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl # Required
+
 
 
 
