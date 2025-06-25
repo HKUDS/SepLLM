@@ -59,7 +59,9 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 │   │   │   └── ...
 │   │   ├── sm90_old_versions
 │   │   │   └── ...
-│   │   └── ...
+│   │   ├── sm90_new_versions
+│   │   │   └── cuda12.1-torch2.5.1-python3.10
+│   │   │       └── deepspeed-0.12.4+6d097bec-cp310-cp310-linux_x86_64.whl
 │   ├── DeepSpeed
 │   │   └── cuda12.1-torch2.5.1-python3.10
 │   │      └── deepspeed-0.14.5+unknown-cp310-cp310-linux_x86_64.whl
@@ -67,32 +69,23 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 ├── Streaming-SepLLM
 │   ├── data
 │   │   └── pg19
-│   │       └── ...
 │   ├── debug
 │   │   └── ...
-│   ├── eval_full_attn_on_llama3_20K_demo1.sh
 │   ├── eval_sepllm_on_llama3_20K_demo1.1.sh
-│   ├── eval_sepllm_on_llama3_20K_demo1.2.sh
-│   ├── eval_strmllm_on_llama3_20K_demo1.sh
+│   ├── ...
 │   ├── example_scripts
 │   │   ├── cal_avg_ppl.py
 │   │   ├── falcon
-│   │   │   ├── eval_sepllm_on_falcon_20K_demo1.sh
 │   │   │   └── ...
 │   │   ├── gpt_neox
-│   │   │   ├── eval_sepllm_on_gpt_neox_20K_demo.sh
 │   │   │   └── ...
 │   │   ├── llama3
 │   │   │   ├── eval_sepllm_on_llama3_20K_demo1.1.sh
-│   │   │   ├── eval_strmllm_on_llama3_20K_demo1.sh
-│   │   │   ├── eval_full_attn_on_llama3_20K_demo1.sh
+│   │   │   ├── ...
 │   │   │   ├── pg19
 │   │   │   │   └── ...
-│   │   │   ├── wikitext
-│   │   │   │   └── ...
-│   │   │   └── ...
-│   ├── figures
-│   │   └── Framework.jpg
+│   │   │   └── wikitext
+│   │   │       └── ...
 │   ├── logs
 │   │   └── demo
 │   │       ├── llama3_8b_sepllm_len20480_ca800_loc256_sep64_init4_pg19_demo.log
@@ -111,35 +104,26 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 │   │   │   └── ...
 │   │   └── utils.py
 │   ├── setup.py
-│   └── Streaming_SepLLM.egg-info
-│       └── ...
+│   └── ...
+│
 ├── TrainingFree-SepLLM
 │   ├── Llama3_8B_Instruct_SepLLM_a3_n256_gsm8k_cot_eager.sh
-│   ├── Llama3_8B_Instruct_StreamingLLM_a3_n448_gsm8k_cot_sdpa.sh
 │   ├── Llama3_8B_Instruct_SepLLM_gsm8k_cot_SepCache_a4_s128_w256_c512_with_flash_atten2.sh
 │   ├── ...
 │   ├── Llama3_trnfree_eval_logs
 │   │   ├── sepllm_a3_n256_llama3_8B_inst_gsm8k_cot_eager.log
-│   │   ├── streamingllm_a3_n448_llama3_8B_inst_gsm8k_cot_sdpa.log
-│   │   ├── sepllm_llama3_8B_inst_gsm8k_cot_SepCache_a4_s128_w256_c512_with_flash_atten2.log
 │   │   └── ...
 │   └── Llama3_trnfree_sepllm_configs
 │       ├── llama3_sepllm_a3_n256.yml
-│       ├── llama3_streamingllm_a3_n448.yml
-│       ├── llama3_fixllm_a3_n256_int5.yml
 │       └── ...
 └── Training-SepLLM
     ├── deepy.py
     ├── downstream_evaluation
     │   ├── eval_logs
-    │   │   ├── gpt-neox-125m-deduped-SA.log
     │   │   ├── pythia-160m-deduped-n128-SepLLM.log
-    │   │   ├── pythia-160m-deduped-n64-RoBiPE-SepLLM.log
     │   │   └── ...
     │   └── eval_scripts
-    │       ├── eval_gpt-neox-125m-deduped-SA.sh
     │       ├── eval_pythia-160m-deduped-n128-SepLLM.sh
-    │       ├── eval_pythia-160m-deduped-n64-RoBiPE-SepLLM.sh
     │       └── ...
     ├── eval.py
     ├── eval_tasks
@@ -155,20 +139,14 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
     │   ├── checkpointing.py
     │   ├── data
     │   │   ├── data_utils.py
-    │   │   ├── gpt2_dataset.py
     │   │   ├── helpers.cpp
-    │   │   ├── helpers.cpython-310-x86_64-linux-gnu.so
-    │   │   ├── Makefile
     │   │   └── ...
     │   ├── fused_kernels
     │   │   ├── build
     │   │   │   ├── build.ninja
     │   │   │   ├── fused_rotary_positional_embedding.so
-    │   │   │   ├── scaled_upper_triang_masked_softmax_cuda.so
     │   │   │   └── ...
     │   │   ├── fused_rotary_positional_embedding.cpp
-    │   │   ├── scaled_masked_softmax.cpp
-    │   │   ├── scaled_masked_softmax.h
     │   │   ├── setup.py
     │   │   └── ...
     │   ├── gradient_noise_scale
@@ -220,19 +198,11 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
     │   └── utils.py
 ├── prepare_data.py
 ├── requirements
-│   ├── myrequirements_cuda12.1_torch2.1.txt
-│   ├── requirements-apex-pip.txt
-│   ├── requirements-dev.txt
-│   ├── requirements-flashattention.txt
 │   └── ...
 ├── sample_configs
 │   ├── 20B_tokenizer.json
 │   ├── hostfile
 │   ├── sepllm-160m-on-pythia-with-pile_deduped-n64-NOkernel.yml
-│   ├── sepllm-160m-on-pythia-with-pile_deduped-n64HT-kernel.yml
-│   ├── sepllm-160m-on-pythia-with-pile_deduped-n64HT-NOkernel_rotaryBiPE.yml
-│   ├── streamingllm-160m-n64.yml
-│   ├── vanilla-160m-full-attention.yml
 │   └── ...
 ├── tests
 │   └── ...
@@ -250,10 +220,6 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 │   └── ...
 ├── training_examples
 │   ├── example160m_n64
-│   ├── example160m_n64HT_kernel
-│   ├── example160m_n64HT_rotaryBiPE
-│   ├── streamingllm-160m
-│   ├── vanilla-160m-full-attention
 │   └── ...
 └── train.py
 
