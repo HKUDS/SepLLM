@@ -315,8 +315,17 @@ ln -s /path/to/your_conda_directory/envs/trainingfree_sepllm/lib/python3.10/site
 We have now created a conda environment named `trainingfree_sepllm`, where we have installed our released `transformers` package (required). Additionally, we have created a symbolic link to the source code of the installed `transformers` package under the `TrainingFree-SepLLM` directory, making it easier to read and modify the source code used for execution. Whenever we need to read or modify the `transformers` code, we can simply access it via `SepLLM/TrainingFree-SepLLM/transformers`.
 
 ## Quick-Start Usage
-We demonstrate how to adapt an LLM from the Llama-3 series into the SepLLM architecture and run test tasks in a training-free manner. You can follow the example below to directly run a mask-based SepLLM using either the eager or sdpa attention mechanism. We use GSM8K_CoT as the demo example.
+We demonstrate how to adapt an LLM from the `Llama-3` series into the `SepLLM` architecture and run test tasks in a training-free manner. You can follow the example below to directly run a mask-based `SepLLM` using either the `eager` or `sdpa` attention mechanism. We use `GSM8K_CoT` as the example for evaluation and use `Llama-3` as an example to show how to do the adaptation.
 
+```
+# `sepllm_config` is necessary for 'sdpa' or 'eager' attention.
+#  To obtain more accurate KV retention ratios, it's recommended to set the `batch size` to `1` to avoid the impact of padding tokens on the statistics.
+lm_eval --model hf \
+	--model_args pretrained=meta-llama/Meta-Llama-3-8B-Instruct,attn_implementation=eager,sepllm_config=./Llama3_trnfree_sepllm_configs/llama3_sepllm_a3_n256.yml \
+	--tasks    gsm8k_cot  \
+    --device cuda:0\
+	--batch_size 70 2>&1 | tee ./Llama3_trnfree_eval_logs/sepllm_a3_n256_llama3_8B_inst_gsm8k_cot_eager.log
+```
 
 
 
