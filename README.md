@@ -364,14 +364,14 @@ past_key_values = SepCache(
         ## For basic transformer architecture
         k_seq_dim=2, ## The dimension for seq_len in key tensors
         v_seq_dim=2, ## The dimension for seq_len in value tensors
-        layer_num = len(self.layers), ## required for initialization
+        layer_num = len(self.layers), ## required for initialization; it's the number of layers
 
         model_type = 'llama',  ## The model type for running the example. choose from ['llama', 'pythia','falcon'].                                                                        
        )
 ```
 You can also use the `SepCache.from_legacy_cache()` function to create an object. Its parameters are the same as those of `__init__()`, with the only difference being that an additional `past_key_values` parameter needs to be specified. However, `from_legacy_cache()` is already deprecated, so when using it, the `past_key_values` parameter must be `None`. Therefore, in essence, `SepCache.from_legacy_cache()` and `SepCache()` are functionally the same.
 
-**Important Note: In practice, no need to do positional encoding (PE) shifting like [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/) if the actual length does not exceed the pretrained max PE length (which applies to most downstream tasks.) . So, for most basic usages, just set `APPLY_PE_SHIFT=False` and `APPLY_PES_INSIDE=False` (`False` is also the default settings for them.) for initialization.**
+**Important Note: In practice, no need to do positional encoding (PE) shifting like [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/) if the actual length does not exceed the pretrained max PE length (which applies to most downstream tasks.) . So, for most basic usages, just set `APPLY_PE_SHIFT=False` (`False` is also the default setting) and `APPLY_PES_INSIDE=False` for initialization.**
 
 #### Frequently-Used Parameters
 
@@ -422,7 +422,8 @@ Important Note:
 - To guarantee the above inequality always holds during runtime, when setting, you can intentionally create a sufficient margin between both sides of the following inequality:
         `init_cache_size` + `sep_cache_size` + `local_size`  < `cache_size`, i.e., `a`+`s`+`w`<`c` in the [SepLLM paper - ICML 2025](https://arxiv.org/abs/2412.12094) to leave room for `left_padding_offset`.  
 
-**More Important Notes:   In practice, no need to do positional encoding (PE) shifting like [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/) if the actual length does not exceed the pretrained max PE length (which applies to most downstream tasks.) . So, for most basic usages, just set `APPLY_PE_SHIFT=False` and `APPLY_PES_INSIDE=False` (`False` is also the default settings for them.) for initialization.**
+**More Important Note: In practice, no need to do positional encoding (PE) shifting like [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/) if the actual length does not exceed the pretrained max PE length (which applies to most downstream tasks.) . So, for most basic usages, just set `APPLY_PE_SHIFT=False` (`False` is also the default setting) and `APPLY_PES_INSIDE=False` for initialization.**
+
 
 #### Update Function
 After initialization, another key point to note is that when using the `update` function of `SepCache` to update the **keys/values** and the **past token IDs** (which is necessary in SepCache), the current `input_ids` must also be provided.
@@ -471,7 +472,7 @@ SepCache()
 >>> key_states, value_states = past_key_values.update(                
             key_states = key_states,
             value_states = value_states,    
-            input_ids = input_ids,
+            input_ids = input_ids, ## required
             layer_idx = layer_idx,     
             PREFILLING_FLAG = q_len > 1, ## `q_len` is the sequence length of the current `query_states`
             )
@@ -479,8 +480,56 @@ SepCache()
 
 ### Advanced Usage
 
+Advanced usage involves positional encoding (PE) shifting similar to [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/). PE shifting means SepLLM focuses on positions within the cache rather than those in the original text. To enable this feature:
+- Set `APPLY_PE_SHIFT=True` when initializing `SepCache` object.
+- By default, `APPLY_PES_INSIDE=True`, which means `SepCache` handles PE shifting internally.
+```python
+past_key_values = SepCache(         
+        ## For SepLLM                                
+        init_cache_size = 4,        
+        sep_cache_size = 128,
+        local_size=256, 
+        cache_size=512,                            
+        USE_MAX_SEP_CACHE = True,                        
+        # separator_token_ids: List[int] = None, ## required for initialization if `model_type` is not provided.
+        # PADDING_ID: int = None, ## required for initialization if `model_type` is not provided.
 
+        ### For positional encoding shifting
+        APPLY_PE_SHIFT = True, # For PE's shifting
+        APPLY_PES_INSIDE = True, # For PE's shifting internally                   
+        pe_dim = self.head_dim, ## The number of dims for positional encoding. Typically, just set the `head_dim` to this.
+        max_position_embeddings = self.max_position_embeddings,                                    
+        
+        ## For basic transformer architecture
+        k_seq_dim=2, ## The dimension for seq_len in key tensors
+        v_seq_dim=2, ## The dimension for seq_len in value tensors
+        layer_num = len(self.layers), ## required for initialization; it's the number of layers
 
+        model_type = 'llama',  ## The model type for running the example. choose from ['llama', 'pythia','falcon'].                                                                        
+       )
+```
+When `APPLY_PE_SHIFT=True`, two additional requirements must be noted when calling the `update` function of `SepCache`:
+- `query_states` must also be passed to the `update` function. It will be updated and returned by the function.
+- `position_ids` must also be provided. It is a Tensor of shape `[batch_size, seq_len]` during prefilling , and shape `[batch_size, 1]` during auto-regressive decoding phase, with `dtype=int`.
+
+```python
+key_states, value_states, query_states = past_key_values.update(                
+    key_states = key_states,
+    value_states = value_states,
+    query_states = query_states, # additionally required
+    input_ids = input_ids, 
+    layer_idx = layer_idx, 
+    position_ids = position_ids, # additionally required       
+    PREFILLING_FLAG = q_len > 1,  ## `q_len` is the sequence length of the current `query_states`
+    cache_kwargs = cache_kwargs   ## can be `None` if `APPLY_PES_INSIDE=True`
+    )
+```
+
+Additionally, when `APPLY_PE_SHIFT=True` and `APPLY_PES_INSIDE=False`, it means you need to externally provide the sinusoidal matrices (`sin/cos` and optional `sin_q/cos_q` for `query_states`) required for positional encoding (PE) shifting. These should be passed via the `cache_kwargs` parameter (a `dict` type) in the `update` function. 
+```python
+### At least the shifted `sin` and `cos` should be properly provided (not `None`).
+cache_kwargs = {"sin": sin, "cos": cos, "cos_q": cos_q, "sin_q": sin_q, "partial_rotation_size": None }
+```
 
 
 
