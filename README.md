@@ -289,6 +289,8 @@ Additionally, we introduce `SepCache`, an efficient, portable, and easy-to-use c
 
 All the above implementations are not directly included in this repository but are packaged in the wheel file `./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl`. To explore, use, or modify the training-free implementation, you must first install this wheel package.
 
+We have only adapted the `Llama 3` series models (as well as our own `sepllm_gpt_neox` model, which will be introduced in detail later) into the `SepLLM` architecture. Since `Llama` (and `GPT_NeoX`) are among the most commonly used open-source models, we use them as examples to demonstrate how a pre-trained model can be transformed into the `SepLLM` architecture in a training-free manner.
+
 ## Environment Setup
 ```
 # Create conda environment
@@ -312,8 +314,8 @@ ln -s /path/to/your_conda_directory/envs/trainingfree_sepllm/lib/python3.10/site
 ```
 We have now created a conda environment named `trainingfree_sepllm`, where we have installed our released `transformers` package (required). Additionally, we have created a symbolic link to the source code of the installed `transformers` package under the `TrainingFree-SepLLM` directory, making it easier to read and modify the source code used for execution. Whenever we need to read or modify the `transformers` code, we can simply access it via `SepLLM/TrainingFree-SepLLM/transformers`.
 
-## Usage
-
+## Quick-Start Usage
+We demonstrate how to adapt an LLM from the Llama-3 series into the SepLLM architecture and run test tasks in a training-free manner. You can follow the example below to directly run a mask-based SepLLM using either the eager or sdpa attention mechanism. We use GSM8K_CoT as the demo example.
 
 
 
