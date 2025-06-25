@@ -371,6 +371,8 @@ past_key_values = SepCache(
 ```
 You can also use the `SepCache.from_legacy_cache()` function to create an object. Its parameters are the same as those of `__init__()`, with the only difference being that an additional `past_key_values` parameter needs to be specified. However, `from_legacy_cache()` is already deprecated, so when using it, the `past_key_values` parameter must be `None`. Therefore, in essence, `SepCache.from_legacy_cache()` and `SepCache()` are functionally the same.
 
+**Important Note: In practice, no need to do positional encoding (PE) shifting like [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/) if the actual length does not exceed the pretrained max PE length (which applies to most downstream tasks.) . So, for most basic usages, just set `APPLY_PE_SHIFT=False` and `APPLY_PES_INSIDE=False` (`False` is also the default settings for them.) for initialization.**
+
 #### Frequently-Used Parameters
 
 Below, we provide explanations and examples for the most commonly used parameters when initializing `SepCache`.
@@ -419,6 +421,8 @@ Important Note:
 - You must always ensure that `init_cache_size` + `sep_cache_size` + `local_size` + `left_padding_offset` < `cache_size`. Here, `left_padding_offset` denotes the number of padding tokens in the record with the largest left paddings within a runtime batch. `left_padding_offset` can only be determined at runtime.        
 - To guarantee the above inequality always holds during runtime, when setting, you can intentionally create a sufficient margin between both sides of the following inequality:
         `init_cache_size` + `sep_cache_size` + `local_size`  < `cache_size`, i.e., `a`+`s`+`w`<`c` in the [SepLLM paper - ICML 2025](https://arxiv.org/abs/2412.12094) to leave room for `left_padding_offset`.  
+
+**More Important Notes:   In practice, no need to do positional encoding (PE) shifting like [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/) if the actual length does not exceed the pretrained max PE length (which applies to most downstream tasks.) . So, for most basic usages, just set `APPLY_PE_SHIFT=False` and `APPLY_PES_INSIDE=False` (`False` is also the default settings for them.) for initialization.**
 
 #### Update Function
 After initialization, another key point to note is that when using the `update` function of `SepCache` to update the **keys/values** and the **past token IDs** (which is necessary in SepCache), the current `input_ids` must also be provided.
@@ -473,6 +477,7 @@ SepCache()
             )
 ```
 
+### Advanced Usage
 
 
 
