@@ -51,6 +51,8 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 
 # Overview
 Here we provide an overview of our code repository. Some noteworthy sections are marked with an asterisk (*). Please note that the implementation of `SepCache` and the key code for the **Training-Free part** are not displayed here, as these codes are packaged in the wheel file `./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl`. We will explain how to read, use, and modify these parts of the code in the corresponding sections.
+
+We use `conda` (*e.g.*, Anaconda, Miniconda) to manage the experimental environments for different experiments.
 ```
 SepLLM
 ├── package
@@ -227,11 +229,6 @@ SepLLM
 ```
 
 
-# TrainingFree
-
-
-
-
 # Long Streaming Inputs
 Our long streaming evaluation is following [StreamingLLM.](https://github.com/mit-han-lab/streaming-llm/)
 
@@ -249,13 +246,18 @@ Please see the full version of the video recording for generating 20K tokens bel
 </center> -->
 
 ## Usage 
+To facilitate comparison with [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/), we have extended the [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/) codebase. Therefore, when conducting experiments in the streaming setting, we need to use the same runtime environment as [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/), such as `python==3.8`, `transformers==4.33.0`, `torch==2.1.0+cu121`, *etc*.
 ```
-conda create -yn streaming-sepllm python=3.8
-conda activate streaming-sepllm 
-
-pip install torch torchvision torchaudio # we use torch==2.1.0+cu121 for streaming test.
+# Set conda environment
+conda create -yn streaming_sepllm python=3.8
+conda activate streaming_sepllm 
+pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu121 # we use torch==2.1.0+cu121 for streaming test.
 pip install transformers==4.33.0 accelerate datasets evaluate wandb scikit-learn scipy sentencepiece
 
+# Set Streaming-SepLLM
+cd ./your_workplace
+git clone https://github.com/HKUDS/SepLLM.git
+cd ./SepLLM/Streaming-SepLLM
 python setup.py develop
 ```
 And to evaluate Streaming-SepLLM, you can follow this example:
@@ -278,6 +280,10 @@ CUDA_VISIBLE_DEVICES=0  python ./main/evaluate_streaming_inputs_perplexity.py \
     --output_dir ./outputs/xxx   2>&1 | tee ./logs/demo/xxx.log
 ```
 You can see other examples under ./Streaming-SepLLM/example_scripts/
+
+
+# TrainingFree
+
 
 
 # Training
