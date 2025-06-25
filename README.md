@@ -342,6 +342,122 @@ lm_eval --model hf \
 	--batch_size 80 2>&1 | tee ./Llama3_trnfree_eval_logs/sepllm_llama3_8B_inst_gsm8k_cot_SepCache_a4_s128_w256_c512_with_flash_atten2.log
 ```
 
+Now let's break down the basic usage of `SepCache`. First, you need to initialize an object of the `SepCache` class to serve as `past_key_values`. The basic initialization method is as follows. Here, `separator_token_ids: List[int]` and `PADDING_ID: int` must be provided unless `model_type` is specified (which must be one of our supported model types, such as "llama"). In that case, `separator_token_ids` and `PADDING_ID` will be automatically filled in.
+```
+past_key_values = SepCache(         
+        ## For SepLLM                                
+        init_cache_size = 4,        
+        sep_cache_size = 128,
+        local_size=256, 
+        cache_size=512,                            
+        USE_MAX_SEP_CACHE = True,                        
+        # separator_token_ids: List[int] = None, ## required for initialization if `model_type` is not provided.
+        # PADDING_ID: int = None, ## required for initialization if `model_type` is not provided.
+
+        ### For positional encoding shifting
+        APPLY_PE_SHIFT = False,
+        APPLY_PES_INSIDE = False,                        
+        pe_dim = self.head_dim, ## The number of dims for positional encoding. Typically, just set the `head_dim` to this.
+        max_position_embeddings = self.max_position_embeddings,                                    
+        
+        ## For basic transformer architecture
+        k_seq_dim=2, ## The dimension for seq_len in key tensors
+        v_seq_dim=2, ## The dimension for seq_len in value tensors
+        layer_num = len(self.layers), ## required for initialization
+
+        model_type = 'llama',  ## The model type for running the example. choose from ['llama', 'pythia','falcon'].                                                                        
+       )
+```
+You can also use the `SepCache.from_legacy_cache()` function to create an object. Its parameters are the same as those of `__init__()`, with the only difference being that an additional `past_key_values` parameter needs to be specified. However, `from_legacy_cache()` is already deprecated, so when using it, the `past_key_values` parameter must be `None`. Therefore, in essence, `SepCache.from_legacy_cache()` and `SepCache()` are functionally the same.
+
+Below, we provide explanations and examples for the most commonly used parameters when initializing `SepCache`.
+```
+A cache as described in the [SepLLM paper - ICML 2025](https://arxiv.org/abs/2412.12094). In the training phase, 
+SepLLM condenses the segment information into the KV of the separator that divides the segment. In the inference phase, the corresponding SepCache only needs to store the KVs of initial tokens, separator tokens, and recent tokens for generation.
+
+It stores the Key and Value states as lists of tensors, two lists for each layer. The expected shape for each tensor is
+`[batch_size, num_heads, seq_len, head_dim]`.
+
+Frequently-Used Parameters:
+
+    `init_cache_size: Union[int, List]`:
+        The maximum number of KVs to be stored for initial tokens.
+        In the paper, the hyperparameter `a` is an abbreviated alias for `self.init_cache_size`.                
+            
+    `sep_cache_size: Union[int, List]`:
+        The maximum number of KVs to be stored for separator tokens.
+        In the paper, the hyperparameter `s` is an abbreviated alias for `self.sep_cache_size`.
+
+    `local_size: Union[int, List]`: 
+        The maximum number of KVs to be stored for local tokens (i.e., sliding window).
+        In the paper, the hyperparameter `w` is an abbreviated alias for `self.local_size`.
+
+    `cache_size: Union[int, List]`:    
+        The maximum number of KVs to be stored for all the tokens, i.e., the size for the whole KV cache.  
+        In the paper, the hyperparameter `c` is an abbreviated alias for `self.cache_size`.
+
+    Concerning these four parameters above:
+        When a list is passed (its length must be `layer_num`), it represents different values for each layer. 
+        When an integer is passed, it means the setting is the same for all layers.
+    
+    
+    `USE_MAX_SEP_CACHE: bool`: 
+        If True, it means we only keep at most `self.sep_cache_size` seperators' KVs.  
+        If the number exceeds this limit, older separator's KVs will be discarded, keeping only the most recent `self.sep_cache_size` KVs. 
+        In the paper, the hyperparameter `s` is an abbreviated alias for `self.sep_cache_size`.
+      
+    `separator_token_ids: List[int]`:
+        The token ids of the separator tokens for the current model's tokenizer.            
+        We have some examples, such as the Llama-3 series models, where setting `model_type='llama'` allows you 
+            to skip setting `separator_token_ids` and `PADDING_ID` (SepCache will auto-fill them).
+
+    `PADDING_ID: int`:
+        The token id of the padding token. You can just set `PADDING_ID` to the id of "<|endoftext|>" token of the tokenizer for the pretrained model.
+
+Important Note:
+    When `cache_size` and `local_size` are set to infinity (i.e., sufficiently large positive integers), and `USE_MAX_SEP_CACHE` is `False`, `SepCache` degenerates into a regular Cache. 
+    However, you must always ensure that `init_cache_size` + `sep_cache_size` + `local_size` + `left_padding_offset` < `cache_size`. 
+    Here, `left_padding_offset` denotes the number of padding tokens in the record with the largest left paddings within a runtime batch. `left_padding_offset` can only be determined at runtime.        
+    To guarantee the above inequality always holds during runtime, when setting, you can intentionally create a sufficient margin between both sides of the following inequality:
+        `init_cache_size` + `sep_cache_size` + `local_size`  < `cache_size`, i.e., `a`+`s`+`w`<`c` in the [SepLLM paper - ICML 2025]
+        to leave room for `left_padding_offset`.
+
+    Please refer to the `__init__` function's comments for more details on the parameters.
+        
+Example:
+
+    ```python        
+    >>> from transformers import AutoTokenizer, AutoModelForCausalLM, SepCache
+    >>> import torch
+    >>> from huggingface_hub import login
+    >>> login("hf_xxxXXXxxx")
+
+
+    >>> def to_cuda(a_dict: dict) -> dict:
+    >>>    new_dict = {}    
+    >>>    for k,v in a_dict.items():
+    >>>        if isinstance(v, torch.Tensor):
+    >>>            new_dict[k] = v.cuda()
+    >>>        else:
+    >>>            new_dict[k] = v
+    >>>    return new_dict
+
+    >>> model = AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct", attn_implementation="flash_attention_2", device_map="cuda:0")
+    >>> model.bfloat16().cuda()
+    >>> tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct")
+    >>> inputs = tokenizer(text="My name is Llama 3", return_tensors="pt")
+    >>> inputs = to_cuda(inputs)
+    >>> # Prepare a cache and pass it to model's forward; `layer_num` is the number of layers for the pretrained model.
+    >>> past_key_values = SepCache(init_cache_size=4, sep_cache_size=128, local_size=256, cache_size=512, layer_num=32, USE_MAX_SEP_CACHE=True, model_type='llama')
+    >>> # `separator_token_ids` and `PADDING_ID` must also be provided if you are not using `model_type='llama'` like this demo.
+    >>> outputs = model(**inputs, past_key_values=past_key_values, use_cache=True)
+    >>> outputs.past_key_values # access SepCache filled with keys/values
+    SepCache()
+    ```
+```
+
+
+
 
 
 
