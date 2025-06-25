@@ -35,7 +35,7 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 
 
 
-## News
+# News
 ![image](https://github.com/user-attachments/assets/54677ee5-85ad-4020-b39f-f3d8b34a7243)
 
 - :star2: [2025/06] We are working on integrating `SepCache` into HuggingFace's [transformers](https://github.com/huggingface/transformers). Stay tuned! :rocket::rocket::rocket:
@@ -260,7 +260,7 @@ git clone https://github.com/HKUDS/SepLLM.git
 cd ./SepLLM/Streaming-SepLLM
 python setup.py develop
 ```
-And to evaluate Streaming-SepLLM, you can follow this example:
+And to evaluate `Streaming-SepLLM`, you can follow this example:
 ```
 CUDA_VISIBLE_DEVICES=0  python ./main/evaluate_streaming_inputs_perplexity.py \
     --model_name_or_path  meta-llama/Meta-Llama-3-8B\
@@ -279,7 +279,7 @@ CUDA_VISIBLE_DEVICES=0  python ./main/evaluate_streaming_inputs_perplexity.py \
     --split test\
     --output_dir ./outputs/xxx   2>&1 | tee ./logs/demo/xxx.log
 ```
-You can see other examples under ./Streaming-SepLLM/example_scripts/
+You can see many other examples under `./SepLLM/Streaming-SepLLM/example_scripts/`, including `SepLLM`, `StreamingLLM`, and `Full-Attention` on different backbone models of various sizes for generation tests of different lengths.
 
 
 # TrainingFree
