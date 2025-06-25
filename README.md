@@ -289,7 +289,7 @@ Additionally, we introduce `SepCache`, an efficient, portable, and easy-to-use c
 
 All the above implementations are not directly included in this repository but are packaged in the wheel file `./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl`. To explore, use, or modify the training-free implementation, you must first install this wheel package.
 
-We have only adapted the `Llama 3` series models (as well as our own `sepllm_gpt_neox` model, which will be introduced in detail later) into the `SepLLM` architecture. Since `Llama` (and `GPT_NeoX`) are among the most commonly used open-source models, we use them as examples to demonstrate how a pre-trained model can be transformed into the `SepLLM` architecture in a training-free manner.
+We have only adapted the `Llama 3` series models (as well as our own `sepllm_gpt_neox` model, which will be introduced in detail later) into the `SepLLM` architecture. Since `Llama` (and `GPT_NeoX`) are among the most commonly used open-source models, we use them as examples to demonstrate how a pre-trained model can be transformed into the `SepLLM` architecture in a training-free manner. `SepLLM/TrainingFree-SepLLM/Llama3_trnfree_sepllm_configs` directory contains various training-free configuration files for Llama-3 models (including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*.).
 
 ## Environment Setup
 ```
@@ -326,7 +326,7 @@ lm_eval --model hf \
     --device cuda:0\
 	--batch_size 70 2>&1 | tee ./Llama3_trnfree_eval_logs/sepllm_a3_n256_llama3_8B_inst_gsm8k_cot_eager.log
 ```
-
+Under the directory `SepLLM/TrainingFree-SepLLM`, there are numerous example scripts for training-free experiments, including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*. You can conduct experiments to compare them. (`FixLLM` is described in detail in `Appendix I. Fixed-Interval Variant` of our [paper](https://arxiv.org/abs/2412.12094).)
 
 
 # Training
