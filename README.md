@@ -361,7 +361,7 @@ lm_eval --model hf \
 	--batch_size 80 2>&1 | tee ./Llama3_trnfree_eval_logs/sepllm_llama3_8B_inst_gsm8k_cot_SepCache_a4_s128_w256_c512_with_flash_atten2.log
 ```
 
-#### Initialization
+#### 3.3.2.1 Initialization
 Now let's break down the basic usage of `SepCache`. First, you need to initialize an object of the `SepCache` class to serve as `past_key_values`. The basic initialization method is as follows. Here, `separator_token_ids: List[int]` and `PADDING_ID: int` must be provided unless `model_type` is specified (which must be one of our supported model types, such as "llama"). In that case, `separator_token_ids` and `PADDING_ID` will be automatically filled in.
 ```python
 past_key_values = SepCache(         
@@ -392,7 +392,7 @@ You can also use the `SepCache.from_legacy_cache()` function to create an object
 
 **Important Note: In practice, no need to do positional encoding (PE) shifting like [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/) if the actual length does not exceed the pretrained max PE length (which applies to most downstream tasks.) . So, for most basic usages, just set `APPLY_PE_SHIFT=False` (`False` is also the default setting) and `APPLY_PES_INSIDE=False` for initialization.**
 
-#### Frequently-Used Parameters
+#### 3.3.2.2 Frequently-Used Parameters
 
 Below, we provide explanations and examples for the most commonly used parameters when initializing `SepCache`.
 ```
@@ -444,7 +444,7 @@ Important Note:
 **More Important Note: In practice, no need to do positional encoding (PE) shifting like [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/) if the actual length does not exceed the pretrained max PE length (which applies to most downstream tasks.) . So, for most basic usages, just set `APPLY_PE_SHIFT=False` (`False` is also the default setting) and `APPLY_PES_INSIDE=False` for initialization.**
 
 
-#### Update Function
+#### 3.3.2.3 Update Function
 After initialization, another key point to note is that when using the `update` function of `SepCache` to update the **keys/values** and the **past token IDs** (which is necessary in SepCache), the current `input_ids` must also be provided.
 ```python
 key_states, value_states = past_key_values.update(                
@@ -456,7 +456,7 @@ key_states, value_states = past_key_values.update(
           )
 ```
 
-#### Summary
+#### 3.3.2.4 Summary
 Here's a summary of the basic usage of SepCache:
 ```python
 >>> from transformers import AutoTokenizer, AutoModelForCausalLM, SepCache
@@ -497,9 +497,9 @@ SepCache()
             )
 ```
 
-### Advanced Usage
+### 3.3.3 Advanced Usage
 
-#### Positional Encoding Shifting
+#### 3.3.3.1 Positional Encoding Shifting
 
 Advanced usage involves positional encoding (PE) shifting similar to [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/). PE shifting means SepLLM focuses on positions within the cache rather than those in the original text. To enable this feature:
 - Set `APPLY_PE_SHIFT=True` when initializing `SepCache` object.
@@ -553,7 +553,7 @@ cache_kwargs = {"sin": sin, "cos": cos, "cos_q": cos_q, "sin_q": sin_q, "partial
 ```
 Here, `partial_rotation_size` means that only `partial_rotation_size` slices along certain dimension need to be shifted (i.e., [0, 1, ..., `partial_rotation_size-1`] slices along certain dimension). If `partial_rotation_size=None` (by default), it means all the slices along the dimension apply. The `partial_rotation_size` must always be passed through `cache_kwargs`, and it only takes effect when `APPLY_PE_SHIFT=True`.
 
-#### Other Advanced Parameters
+#### 3.3.3.2 Other Advanced Parameters
 When initializing `SepCache`, there are also some advanced parameters that can be configured, as shown below.
 - `SEP_ACCUMULATION`:  If `True` (by default), it means we will try to accumulate all the KVs for seperators. If `False`, only the `new_sep_kv` compressed from the `past_win_kv` will be kept (see functions `__init__` and `compress_kv_cache_and_tokids_layer_wise` in `SepCache`). Simply put, when `SEP_ACCUMULATION=True`, we accumulate all KVs of separators compressed from the **Past Window Cache** into the **Separator Cache** until it's full. At that point, older separators' KVs are discarded to keep the size of **Separator Cache** within the limit `self.sep_cache_size`, retaining only the newer ones. When `SEP_ACCUMULATION=False`, only the newly compressed separators' KVs from the **Past Window Cache** are kept into **Separator Cache**, while all previously stored separators' KVs in the **Separator Cache** are discarded.
 -  `USE_MAX_SEP_CACHE`: If `True`, it means we only keep at most `sep_cache_size` seperators' KVs.  If the number exceeds this limit, older separators' KVs will be discarded, keeping only the most recent `sep_cache_size` separators' KVs. Thus, `self.cache_size` also remains fixed at the preset value.
@@ -561,7 +561,7 @@ If `False` (by default), `self.sep_cache_size` will grow indefinitely as separat
 - `SEP_PADDING_IN_BATCH`: If `True`, it means that `SepCache` will pad separator tokens in other records to be aligned with the record with the most separators in a batch. If `False`, it means that `SepCache` will truncate older separator tokens in other records to be aligned with the record with the fewest separators in a batch. `False` by default.
 
 
-#### Combined Use of Advanced Parameters
+#### 3.3.3.3 Combined Use of Advanced Parameters
 If `SEP_ACCUMULATION=True` and `USE_MAX_SEP_CACHE=False`, as the number of input tokens increases, the number of separators' KVs in the KV cache will also accumulate endlessly, and `self.cache_size` and `self.sep_cache_size` will also be infinitely expanded (no longer fixed).
 
 When `SEP_PADDING_IN_BATCH=True` is used in combination with `USE_MAX_SEP_CACHE=False` and `SEP_ACCUMULATION=True`, the KV cache will accumulate indefinitely, and since `SEP_PADDING_IN_BATCH=True`, the KVs of all seen separators will be retained (rather than being truncated).
