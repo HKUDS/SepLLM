@@ -331,7 +331,8 @@ Under the directory `SepLLM/TrainingFree-SepLLM`, there are numerous example scr
 ## SepCache 
 ### Basic Usage
 You can directly run the following commands, or simply execute the script `SepLLM/TrainingFree-SepLLM/Llama3_8B_Instruct_SepLLM_gsm8k_cot_SepCache_a4_s128_w256_c512_with_flash_atten2.sh` to learn how to use `SepCache`. Note that in our example, `SepCache` needs to be used in combination with `flash_attention_2`. This combination is necessary in our case because our goal is to demonstrate both the usage of `SepCache` and its integration with the commonly used `flash_attention_2`. However, this combined usage is not mandatory. Once you learn how to use `SepCache`, you'll find that you can easily integrate it with other attention methods.
-```
+
+```bash
 # `sepllm_config` is unnecessary and not useful when using 'flash_attention_2' since 'flash_attention_2' is used together with `SepCache`. 
 #  To obtain more accurate KV retention ratios, it's recommended to set the `batch size` to `1` to avoid the impact of padding tokens on the statistics.
 #  You should pass your preferred settings as arguments at the point where `SepCache` is initialized (i.e., by calling `__init__` or `from_legacy_cache` (deprecated) function of `SepCache`)
