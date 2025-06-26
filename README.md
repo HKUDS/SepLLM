@@ -530,6 +530,8 @@ Additionally, when `APPLY_PE_SHIFT=True` and `APPLY_PES_INSIDE=False`, it means 
 ### At least the shifted `sin` and `cos` should be properly provided (not `None`).
 cache_kwargs = {"sin": sin, "cos": cos, "cos_q": cos_q, "sin_q": sin_q, "partial_rotation_size": None }
 ```
+Here, `partial_rotation_size` means that only `partial_rotation_size` slices along certain dimension need to be shifted (i.e., [0, 1, ..., `partial_rotation_size-1`] slices along certain dimension). If `partial_rotation_size=None` (by default), it means all the slices along the dimension apply. The `partial_rotation_size` must always be passed through `cache_kwargs`, and it only takes effect when `APPLY_PE_SHIFT=True`.
+
 
 
 
