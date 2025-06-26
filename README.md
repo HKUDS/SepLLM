@@ -735,7 +735,7 @@ Remember to save your training process checkpoints, so that if the training is i
 ```
 
 
-After the training is completed, we can convert the training checkpoints to the Hugging Face format, so that we can test them on downstream tasks （e.g. using [lm_eval](url=https://github.com/EleutherAI/lm-evaluation-harness)）.
+After the training is completed, we can convert the training checkpoints to the Hugging Face format, so that we can test them on downstream tasks （e.g. using [lm_eval](https://github.com/EleutherAI/lm-evaluation-harness)）.
 
 ```
 python ./tools/ckpts/convert_neox_to_hf.py --input_dir path/to/checkpoints/global_stepXXX --config_file your_config.yml --output_dir hf_model/save/dir
