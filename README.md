@@ -345,6 +345,7 @@ Please refer to the following locations to read and learn about the `SepCache`-r
 - `SepLLM/TrainingFree-SepLLM/transformers/models/llama/modeling_llama.py`
 - `SepLLM/TrainingFree-SepLLM/transformers/models/cache_utils.py`   ## `SepCache` code in it.
 
+For example, you can learn how to initialize a `SepCache` object around `line 1070` in the `modeling_llama.py` file, and how to call the `update` function of a `SepCache` between lines around `487` and `507`.
 
 
 ### 3.3.2 Basic Usage
@@ -575,7 +576,7 @@ When `SEP_PADDING_IN_BATCH=True` is used in combination with `USE_MAX_SEP_CACHE=
 
 # Training
 
-You can install the required package in the requirements.txt. You are recommended to build a independent conda environment (or pyenv, etc.) to do this. Our code is based on the code framework [GPTNeoX](url=https://github.com/EleutherAI/gpt-neox).
+You can install the required package in the requirements.txt. You are recommended to build a independent conda environment (or pyenv, etc.) to do this. Our code is based on the code framework [GPTNeoX](https://github.com/EleutherAI/gpt-neox).
 
 
 
