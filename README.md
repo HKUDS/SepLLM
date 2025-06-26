@@ -49,7 +49,7 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 - :star: [2024/12] SepLLM's code has been released. Our codebase supports efficient multi-node distributed training with accelerated attention module *Sep-Attention* and also includes numerous existing Fusion Operators to accelerate the training process, such as *fused rope* ([Su et al., 2023](https://arxiv.org/abs/2104.09864)), *fused layer norm*, *etc*.
 
 
-# Overview
+# 1. Overview
 Here we provide an overview of our code repository. Some noteworthy sections are marked with an asterisk (*). Please note that the implementation of `SepCache` and the key code for the **Training-Free part** are not displayed here, as these codes are packaged in the wheel file `./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl`. We will explain how to read, use, and modify these parts of the code in the corresponding sections.
 
 We use `conda` (*e.g.*, Anaconda, Miniconda) to manage the experimental environments for different experiments.
@@ -229,7 +229,7 @@ SepLLM
 ```
 
 
-# Infinite-Length Streaming Tests
+# 2. Infinite-Length Streaming Tests
 Our long streaming evaluation is following [StreamingLLM.](https://github.com/mit-han-lab/streaming-llm/)
 
 Take a quick look at the running process (recording of 20K tokens' generation based on Llama-3 - frame extraction and accelerated playback version).
@@ -245,7 +245,7 @@ Please see the full version of the video recording for generating 20K tokens bel
     <img src="./Streaming-SepLLM/demo_video/small_demo.gif", width=800 height=500>
 </center> -->
 
-## Usage 
+## 2.1 Usage 
 To facilitate comparison with [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/), we have extended the [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/) codebase. Therefore, when conducting experiments in the streaming setting, we need to use the same runtime environment as [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/), such as `python==3.8`, `transformers==4.33.0`, `torch==2.1.0+cu121`, *etc*.
 ```bash
 # Set conda environment
@@ -282,16 +282,16 @@ CUDA_VISIBLE_DEVICES=0  python ./main/evaluate_streaming_inputs_perplexity.py \
 You can see many other examples under `./SepLLM/Streaming-SepLLM/example_scripts/`, including `SepLLM`, `StreamingLLM`, and `Full-Attention` on different backbone models of various sizes for generation tests of different lengths.
 
 
-# Training-Free Tests
+# 3. Training-Free Tests
 In many scenarios, it is unnecessary or impractical to train models from scratch due to limited computational resources. However, in such cases, `SepLLM` can also demonstrate strong training-free performance. Based on `SDPA` or `eager` attention, we provide a simple and effective training-free implementation of `SepLLM` using a mask-based approach. While the mask-based method cannot really reduce the KV cache, it provides a convenient way for researchers to explore and analyze the behavior of attention mechanisms in LLMs.
 
 Additionally, we introduce `SepCache`, an efficient, portable, and easy-to-use cache class for transformers. SepCache can significantly reduce KV cache, lowering GPU memory usage, improving throughput (*e.g.*, by increasing batch size), and reducing inference time. When using `flash_attention_2`, `SepCache` is employed by default to store past keys/values. This setup demonstrates how to use `SepCache` effectively and how it integrates with commonly used `flash_attention_2`.
 
 All the above implementations are not directly included in this repository but are packaged in the wheel file `./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl`. To explore, use, or modify the training-free implementation, you must first install this wheel package.
 
-We have only adapted the `Llama 3` series models (as well as our own `sepllm_gpt_neox` model, which will be introduced in detail later) into the `SepLLM` architecture. Since `Llama` (and `GPT_NeoX`) are among the most commonly used open-source models, we use them as examples to demonstrate how a pre-trained model can be transformed into the `SepLLM` architecture in a training-free manner. `SepLLM/TrainingFree-SepLLM/Llama3_trnfree_sepllm_configs` directory contains various training-free configuration files for Llama-3 models (including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*.).
+We have **ONLY** adapted the `Llama 3` series models (as well as our own `sepllm_gpt_neox` model, which will be introduced in detail later) into the `SepLLM` architecture. Since `Llama` (and `GPT_NeoX`) are among the most commonly used open-source models, we use them as examples to demonstrate how a pre-trained model can be transformed into the `SepLLM` architecture in a training-free manner. `SepLLM/TrainingFree-SepLLM/Llama3_trnfree_sepllm_configs` directory contains various SepLLM training-free configuration files for Llama-3 models (including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*.).
 
-## Environment Setup
+## 3.1 Environment Setup
 ```bash
 # Create conda environment
 conda env create -n trainingfree_sepllm python=3.10
@@ -314,7 +314,18 @@ ln -s /path/to/your_conda_directory/envs/trainingfree_sepllm/lib/python3.10/site
 ```
 We have now created a conda environment named `trainingfree_sepllm`, where we have installed our released `transformers` package (required). Additionally, we have created a symbolic link to the source code of the installed `transformers` package under the `TrainingFree-SepLLM` directory, making it easier to read and modify the source code used for execution. Whenever we need to read or modify the `transformers` code, we can simply access it via `SepLLM/TrainingFree-SepLLM/transformers`.
 
-## Quick-Start Usage
+## 3.2 Quick-Start Usage
+### 3.2.1 Related Source Code Files
+Please ensure that `SepLLM/package/transformers-4.38.0.post1+sepllm-py3-none-any.whl` has been installed in your conda env `trainingfree_sepllm` and a symbolic link to `transformers` has been created under `SepLLM/TrainingFree-SepLLM/` directory.
+
+<!-- Please refer to the following locations to read and learn about the code for using SepLLM (especia). -->
+Please refer to the following locations to read and learn about the code for using SepLLM (specifically for mask-based SepLLM with `sdpa` and `eager` attention, using the `Llama` model as an example **only**).
+- `SepLLM/TrainingFree-SepLLM/transformers/models/llama/modeling_llama.py`
+- `SepLLM/TrainingFree-SepLLM/transformers/models/llama/sepllm_attention.py`
+- `SepLLM/TrainingFree-SepLLM/transformers/models/llama/sepllm_forward_input.py`
+
+
+### 3.2.2 Sample Usage
 We demonstrate how to adapt an LLM from the `Llama-3` series into the `SepLLM` architecture and run test tasks in a training-free manner. You can follow the example below to directly run a mask-based `SepLLM` using either the `eager` or `sdpa` attention mechanism. We use `GSM8K_CoT` as the example for evaluation and use `Llama-3` as an example to show how to do the adaptation.
 
 ```bash
@@ -326,10 +337,17 @@ lm_eval --model hf \
     --device cuda:0\
 	--batch_size 70 2>&1 | tee ./Llama3_trnfree_eval_logs/sepllm_a3_n256_llama3_8B_inst_gsm8k_cot_eager.log
 ```
-Under the directory `SepLLM/TrainingFree-SepLLM`, there are numerous example scripts for training-free experiments, including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*. You can conduct experiments to compare them. (`FixLLM` is described in detail in `Appendix I. Fixed-Interval Variant` of our [paper](https://arxiv.org/abs/2412.12094).)
+Under the directory `SepLLM/TrainingFree-SepLLM/`, there are numerous example scripts for training-free experiments, including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*. You can conduct experiments to compare them (`FixLLM` is described in detail in `Appendix I. Fixed-Interval Variant` of our [paper](https://arxiv.org/abs/2412.12094)). And `SepLLM/TrainingFree-SepLLM/Llama3_trnfree_sepllm_configs` directory contains various SepLLM training-free configuration files for Llama-3 models (including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*.).
 
-## SepCache 
-### Basic Usage
+## 3.3 SepCache 
+### 3.3.1 Related Source Code Files
+Please refer to the following locations to read and learn about the `SepCache`-related code for using training-free `SepLLM` (in our example, `SepCache` is only invoked when using `flash_attention_2`. See the explanation in [`3.3.2 Basic Usage`](#332-basic-usage) for details. We use the `Llama` model as the example **only**).
+- `SepLLM/TrainingFree-SepLLM/transformers/models/llama/modeling_llama.py`
+- `SepLLM/TrainingFree-SepLLM/transformers/models/cache_utils.py`   ## `SepCache` code in it.
+
+
+
+### 3.3.2 Basic Usage
 You can directly run the following commands, or simply execute the script `SepLLM/TrainingFree-SepLLM/Llama3_8B_Instruct_SepLLM_gsm8k_cot_SepCache_a4_s128_w256_c512_with_flash_atten2.sh` to learn how to use `SepCache`. Note that in our example, `SepCache` needs to be used in combination with `flash_attention_2`. This combination is necessary in our case because our goal is to demonstrate both the usage of `SepCache` and its integration with the commonly used `flash_attention_2`. However, this combined usage is not mandatory. Once you learn how to use `SepCache`, you'll find that you can easily integrate it with other attention methods.
 
 ```bash
@@ -406,7 +424,7 @@ Frequently-Used Parameters:
     
     `USE_MAX_SEP_CACHE: bool`: 
         If True, it means we only keep at most `sep_cache_size` seperators' KVs.  
-        If the number exceeds this limit, older separator's KVs will be discarded, keeping only the most recent `sep_cache_size` KVs. 
+        If the number exceeds this limit, older separators' KVs will be discarded, keeping only the most recent `sep_cache_size` KVs. 
         In the paper, the hyperparameter `s` is an abbreviated alias for `sep_cache_size`.
       
     `separator_token_ids: List[int]`:
@@ -481,6 +499,8 @@ SepCache()
 
 ### Advanced Usage
 
+#### Positional Encoding Shifting
+
 Advanced usage involves positional encoding (PE) shifting similar to [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/). PE shifting means SepLLM focuses on positions within the cache rather than those in the original text. To enable this feature:
 - Set `APPLY_PE_SHIFT=True` when initializing `SepCache` object.
 - By default, `APPLY_PES_INSIDE=True`, which means `SepCache` handles PE shifting internally.
@@ -532,6 +552,23 @@ Additionally, when `APPLY_PE_SHIFT=True` and `APPLY_PES_INSIDE=False`, it means 
 cache_kwargs = {"sin": sin, "cos": cos, "cos_q": cos_q, "sin_q": sin_q, "partial_rotation_size": None }
 ```
 Here, `partial_rotation_size` means that only `partial_rotation_size` slices along certain dimension need to be shifted (i.e., [0, 1, ..., `partial_rotation_size-1`] slices along certain dimension). If `partial_rotation_size=None` (by default), it means all the slices along the dimension apply. The `partial_rotation_size` must always be passed through `cache_kwargs`, and it only takes effect when `APPLY_PE_SHIFT=True`.
+
+#### Other Advanced Parameters
+When initializing `SepCache`, there are also some advanced parameters that can be configured, as shown below.
+- `SEP_ACCUMULATION`:  If `True` (by default), it means we will try to accumulate all the KVs for seperators. If `False`, only the `new_sep_kv` compressed from the `past_win_kv` will be kept (see functions `__init__` and `compress_kv_cache_and_tokids_layer_wise` in `SepCache`). Simply put, when `SEP_ACCUMULATION=True`, we accumulate all KVs of separators compressed from the **Past Window Cache** into the **Separator Cache** until it's full. At that point, older separators' KVs are discarded to keep the size of **Separator Cache** within the limit `self.sep_cache_size`, retaining only the newer ones. When `SEP_ACCUMULATION=False`, only the newly compressed separators' KVs from the **Past Window Cache** are kept into **Separator Cache**, while all previously stored separators' KVs in the **Separator Cache** are discarded.
+-  `USE_MAX_SEP_CACHE`: If `True`, it means we only keep at most `sep_cache_size` seperators' KVs.  If the number exceeds this limit, older separators' KVs will be discarded, keeping only the most recent `sep_cache_size` separators' KVs. Thus, `self.cache_size` also remains fixed at the preset value.
+If `False` (by default), `self.sep_cache_size` will grow indefinitely as separators accumulate, causing `self.cache_size` to expand indefinitely as well. In the paper, the hyperparameter `s` is an abbreviated alias for `sep_cache_size`.
+- `SEP_PADDING_IN_BATCH`: If `True`, it means that `SepCache` will pad separator tokens in other records to be aligned with the record with the most separators in a batch. If `False`, it means that `SepCache` will truncate older separator tokens in other records to be aligned with the record with the fewest separators in a batch. `False` by default.
+
+
+#### Combined Use of Advanced Parameters
+If `SEP_ACCUMULATION=True` and `USE_MAX_SEP_CACHE=False`, as the number of input tokens increases, the number of separators' KVs in the KV cache will also accumulate endlessly, and `self.cache_size` and `self.sep_cache_size` will also be infinitely expanded (no longer fixed).
+
+When `SEP_PADDING_IN_BATCH=True` is used in combination with `USE_MAX_SEP_CACHE=False` and `SEP_ACCUMULATION=True`, the KV cache will accumulate indefinitely, and since `SEP_PADDING_IN_BATCH=True`, the KVs of all seen separators will be retained (rather than being truncated).
+
+
+
+
 
 
 
