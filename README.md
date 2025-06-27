@@ -615,6 +615,39 @@ python utils/unshard_memmap.py --input_file ./pythia_deduped_pile_idxmaps/pile_0
 You can store the dataset on a large hard drive or a shared file system of a distributed cluster, making it convenient for subsequent training on the distributed cluster's computing resources.
 
 ## Conda Environment Setup
+We recommend using `torch 2.5.1` with `CUDA 12.1`. Alternatively, you can use `torch 2.1.0` with `CUDA 12.1`, but while this setup allows training to complete, some training features will be unavailable.
+
+You need to install [`​​DeepSpeed`](https://www.deepspeed.ai/tutorials/advanced-install/)​​ or [`​​DeeperSpeed`](https://github.com/EleutherAI/DeeperSpeed)​​. We have prepared pre-built wheel packages for different environments (located in the `SepLLM/package/` directory), which you can install directly or customize based on your hardware and software setup following https://www.deepspeed.ai/tutorials/advanced-install/.
+
+We recommend installing the relatively new versions under:
+- `SepLLM/package/DeepSpeed/cuda12.1-torch2.5.1-python3.10/`
+
+**OR**
+- `SepLLM/package/DeeperSpeed/sm90_new_versions/cuda12.1-torch2.5.1-python3.10/`
+
+Additionally, you need to install:
+- `SepLLM/package/transformers-4.38.0.post1+sepllm-py3-none-any.whl`
+- `lm_eval==0.4.0` for training.
+
+```
+package
+├── DeeperSpeed
+│   ├── sm80_old_versions
+│   │   ├── cuda11.7-torch1.13-python3.8
+│   │   └── cuda12.1-torch2.1-python3.8
+│   ├── sm90_new_versions
+│   │   └── cuda12.1-torch2.5.1-python3.10
+│   └── sm90_old_versions
+│       ├── cuda11.3-torch1.10.1-python3.8
+│       ├── cuda11.3-torch1.11-python3.8
+│       ├── cuda11.8-torch2.1-python3.8
+│       ├── cuda11.8-torch2.4-python3.8
+│       └── cuda12.1-torch2.1-python3.8
+├── DeepSpeed
+│   └── cuda12.1-torch2.5.1-python3.10
+│       └── deepspeed-0.14.5+unknown-cp310-cp310-linux_x86_64.whl
+└── transformers-4.38.0.post1+sepllm-py3-none-any.whl
+```
 
 ```bash
 conda env create -n training_sepllm python=3.10
@@ -624,17 +657,106 @@ cd SepLLM
 pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
 pip install ./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl # Required
 pip install ./package/DeepSpeed/cuda12.1-torch2.5.1-python3.10/deepspeed-0.14.5+unknown-cp310-cp310-linux_x86_64.whl # Recommended
+pip install lm_eval==0.4.0
+pip install -r ./Training-SepLLM/requirements/requirements_cuda12.1_torch2.5.1.txt
+```
+The dependency packages in the `SepLLM/Training-SepLLM/requirements/` directory are primarily inherited from the ​​[GPT-NeoX](https://github.com/EleutherAI/gpt-neox) project. After setting up the conda environment, you can build some fused operators as follows:
+```
+cd SepLLM/Training-SepLLM/
+python ./megatron/fused_kernels/setup.py install # optional if not using fused kernels
+```
+*Note: If you want to use the Sep-Attention module, please make sure your Pytorch>=2.5.0. And set "USE_SEP_ATTN_KERNEL_ACCELERATOR=True" in your training config file.*
 
 
+Before starting training, please remember to use `Deep(er)Speed`'s `ds_report` command to check if it has been properly installed. If so, you will see an output like the one below. It is recommended to include as many fused operators as possible when installing `Deep(er)Speed` to accelerate training. However, this depends on your software and hardware environment, as adding operators may sometimes fail (compilation failure).
 
+```bash
+(training_sepllm)$ ds_report
+--------------------------------------------------
+DeepSpeed C++/CUDA extension op report
+--------------------------------------------------
+NOTE: Ops not installed will be just-in-time (JIT) compiled at
+      runtime if needed. Op compatibility means that your system
+      meet the required dependencies to JIT install the op.
+--------------------------------------------------
+JIT compiled ops requires ninja
+ninja .................. [OKAY]
+--------------------------------------------------
+op name ................ installed .. compatible
+--------------------------------------------------
+async_io ............... [YES] ...... [OKAY]
+fused_adam ............. [YES] ...... [OKAY]
+cpu_adam ............... [YES] ...... [OKAY]
+cpu_adagrad ............ [YES] ...... [OKAY]
+cpu_lion ............... [YES] ...... [OKAY]
+ [WARNING]  Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+evoformer_attn ......... [NO] ....... [NO]
+ [WARNING]  FP Quantizer is using an untested triton version (3.1.0), only 2.3.0 and 2.3.1 are known to be compatible with these kernels
+fp_quantizer ........... [NO] ....... [NO]
+fused_lamb ............. [YES] ...... [OKAY]
+fused_lion ............. [YES] ...... [OKAY]
+inference_core_ops ..... [YES] ...... [OKAY]
+cutlass_ops ............ [YES] ...... [OKAY]
+transformer_inference .. [YES] ...... [OKAY]
+quantizer .............. [YES] ...... [OKAY]
+ragged_device_ops ...... [YES] ...... [OKAY]
+ragged_ops ............. [NO] ....... [OKAY]
+random_ltd ............. [YES] ...... [OKAY]
+ [WARNING]  sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.5
+ [WARNING]  using untested triton version (3.1.0), only 1.0.0 is known to be compatible
+sparse_attn ............ [NO] ....... [NO]
+spatial_inference ...... [NO] ....... [OKAY]
+transformer ............ [YES] ...... [OKAY]
+stochastic_transformer . [YES] ...... [OKAY]
+--------------------------------------------------
+DeepSpeed general environment info:
+torch install path ............... ['/home/txiao/miniconda3/envs/py39_cu121_torch251_new2/lib/python3.10/site-packages/torch']
+torch version .................... 2.5.1+cu121
+deepspeed install path ........... ['/home/txiao/miniconda3/envs/py39_cu121_torch251_new2/lib/python3.10/site-packages/deepspeed']
+deepspeed info ................... 0.14.5+unknown, unknown, unknown
+torch cuda version ............... 12.1
+torch hip version ................ None
+nvcc version ..................... 12.1
+deepspeed wheel compiled w. ...... torch 2.5, cuda 12.1
+shared memory (/dev/shm) size .... 146.50 GB
+```
 
+## Quick-Start with Sample Checkpoints
 
+If you don't have time or computational resources to train from scratch, we have uploaded our pre-trained checkpoints to [Hugging Face](https://huggingface.co/Gausson/models) Hub. After setting up the `training_sepllm` conda environment, you can directly evaluate the checkpoints on downstream tasks.
+- ​​Evaluation Scripts​​: Located in `SepLLM/Training-SepLLM/downstream_evaluation/eval_scripts/`
+- Result Logs​​: Saved in `SepLLM/Training-SepLLM/downstream_evaluation/eval_logs/`
 
+```
+downstream_evaluation
+├── eval_logs
+│   ├── gpt-neox-125m-deduped-SA.log
+│   ├── pythia-160m-deduped.log
+│   ├── pythia-160m-deduped-n128-SepLLM.log
+│   ├── pythia-160m-deduped-n64h-SepLLM.log
+│   ├── pythia-160m-deduped-n64ht-SepLLM.log
+│   ├── pythia-160m-deduped-n64-RoBiPE-SepLLM.log
+│   ├── pythia-160m-deduped-n64-SepLLM.log
+│   ├── pythia-160m-deduped-n64-StreamingLLM.log
+│   └── pythia-160m-deduped-SepLLM.log
+└── eval_scripts
+    ├── eval_gpt-neox-125m-deduped-SA.sh
+    ├── eval_pythia-160m-deduped-n128-SepLLM.sh
+    ├── eval_pythia-160m-deduped-n64h-SepLLM.sh
+    ├── eval_pythia-160m-deduped-n64ht-SepLLM.sh
+    ├── eval_pythia-160m-deduped-n64-RoBiPE-SepLLM.sh
+    ├── eval_pythia-160m-deduped-n64-SepLLM.sh
+    ├── eval_pythia-160m-deduped-n64-StreamingLLM.sh
+    ├── eval_pythia-160m-deduped-SepLLM.sh
+    └── eval_pythia-160m-deduped.sh
+
+2 directories, 18 files
 ```
 
 
 
-You can install the required package in the requirements.txt. You are recommended to build a independent conda environment (or pyenv, etc.) to do this. Our code is based on the code framework [GPTNeoX](https://github.com/EleutherAI/gpt-neox).
+
+<!-- You can install the required package in the requirements.txt. You are recommended to build a independent conda environment (or pyenv, etc.) to do this. Our code is based on the code framework [GPTNeoX](https://github.com/EleutherAI/gpt-neox). -->
 
 
 
