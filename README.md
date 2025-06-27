@@ -869,17 +869,27 @@ You must​​ copy both files to `/path/to/your_pythia_deduped_data/` and ensur
 
 In addition, you can set the path to save your checkpoints using `"save"` field. The `"load"` field also allows you to resume training from the most recent checkpoint when training is terminated. The `"checkpoint-factor"` is used to set how often to save a checkpoint, based on the number of steps.
 
-
-
-
 ```yaml
 "checkpoint-factor": 1000,
 "save": "/path/to/save_and_load/your_checkpoints",
 "load": "/path/to/save_and_load/your_checkpoints",
 ```
+**Note: You must ensure that all paths mentioned here are readable and writable for all nodes in the computer cluster.**
 
+### 4.4.2 Advanced Usage
 
-
+#### 4.4.2.1 Distributed Training
+You can set the path to the `"hostfile"` file in a YAML configuration file to specify the node information for the computer 
+cluster used in distributed training.
+```yaml
+"hostfile": "/path/to/your_workspace/SepLLM/Training-SepLLM/sample_configs/hostfile",
+```
+The content of the `"hostfile"` should include the visible IP for each of your nodes and the number of GPUs available on each node. Please note that distributed training relies on the `pdsh` tool (see [`4.2.2 PDSH`](#422-pdsh)), and it is crucial to ensure that every node in the cluster can establish passwordless `SSH` connections to each other.
+```
+node1_ip slots=8
+node2_ip slots=8
+```
+If you only have one node, you can choose to remove (or just comment out) the `"hostfile"` field in the YAML configuration file.
 
 
 
