@@ -260,7 +260,7 @@ pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https
 pip install transformers==4.33.0 accelerate datasets evaluate wandb scikit-learn scipy sentencepiece
 
 # Set Streaming-SepLLM
-cd ./your_workplace
+cd ./your_workspace
 git clone https://github.com/HKUDS/SepLLM.git
 cd ./SepLLM/Streaming-SepLLM
 python setup.py develop
@@ -321,7 +321,7 @@ pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https
 
 
 # Download repo.
-cd ./your_workplace
+cd ./your_workspace
 git clone https://github.com/HKUDS/SepLLM.git
 
 
@@ -591,9 +591,11 @@ When `SEP_PADDING_IN_BATCH=True` is used in combination with `USE_MAX_SEP_CACHE=
 
 
 
-# Training
+# 4. Training
 
-## Data Preparation
+![image](https://hackmd.io/_uploads/r18jZD47Jg.png)
+
+## 4.1 Data Preparation
 
 We use the same training data as the [Pythia](https://github.com/EleutherAI/pythia) project, namely the open-source [deduped Pile](https://huggingface.co/datasets/EleutherAI/pythia_deduped_pile_idxmaps) dataset, with the entire training process involving approximately 300 billion tokens. You can refer to the [Pythia](https://github.com/EleutherAI/pythia) project to download and prepare your training data, or refer to the summary of operations below.
 ```bash
@@ -614,7 +616,8 @@ python utils/unshard_memmap.py --input_file ./pythia_deduped_pile_idxmaps/pile_0
 ```
 You can store the dataset on a large hard drive or a shared file system of a distributed cluster, making it convenient for subsequent training on the distributed cluster's computing resources.
 
-## Conda Environment Setup
+## 4.2 Environment Setup
+### 4.2.1 Conda
 We recommend using `torch 2.5.1` with `CUDA 12.1`. Alternatively, you can use `torch 2.1.0` with `CUDA 12.1`, but while this setup allows training to complete, some training features will be unavailable.
 
 You need to install [`​​DeepSpeed`](https://www.deepspeed.ai/tutorials/advanced-install/)​​ or [`​​DeeperSpeed`](https://github.com/EleutherAI/DeeperSpeed)​​. We have prepared pre-built wheel packages for different environments (located in the `SepLLM/package/` directory), which you can install directly or customize based on your hardware and software setup following https://www.deepspeed.ai/tutorials/advanced-install/.
@@ -720,8 +723,17 @@ nvcc version ..................... 12.1
 deepspeed wheel compiled w. ...... torch 2.5, cuda 12.1
 shared memory (/dev/shm) size .... 146.50 GB
 ```
+### 4.2.2 PDSH
 
-## Quick-Start with Sample Checkpoints
+You must install the `pdsh` tool for distributed training, and you must ensure that each node in your computer cluster can connect to other nodes passwordlessly using the `ssh` tool. The `ninja` tool is also required for certain compilation processes.
+Here are some reference materials about `​​pdsh`​​:
+- https://linux.die.net/man/1/pdsh
+- https://github.com/chaos/pdsh
+- https://gist.github.com/mbbx6spp/c16b5438270be609619f83c462b148d5
+
+
+
+## 4.3 Quick-Start with Sample Checkpoints
 
 If you don't have time or computational resources to train from scratch, we have uploaded our pre-trained checkpoints to [Hugging Face](https://huggingface.co/Gausson/models) Hub. After setting up the `training_sepllm` conda environment, you can directly evaluate the checkpoints on downstream tasks.
 - ​​Evaluation Scripts​​: Located in `SepLLM/Training-SepLLM/downstream_evaluation/eval_scripts/`
@@ -769,12 +781,104 @@ However, under typical circumstances, you should:
 - ​​Convert the trained checkpoints​​ to Hugging Face format using our conversion script: `SepLLM/Training-SepLLM/tools/ckpts/convert2HF.sh`
 - Evaluate the converted checkpoints​​ using the downstream test scripts mentioned above. When running evaluation scripts, specify your converted checkpoint path by setting the `pretrained` field in the `--model_args` parameter.
 
-## Training by Yourself
+## 4.4 Training by Yourself
+
+### 4.4.1 Basic Usage
+
 You can start training just by:
 ```bash
 cd SepLLM/Training-SepLLM/
 python ./deepy.py ./train.py [path/to/config.yml]
 ```
+We have prepared numerous training launch script examples in the directory `SepLLM/Training-SepLLM/training_examples/`, in which each example demonstrates different architectures or hyperparameter configurations, including:
+- Training `SepLLM` models with various settings (*e.g.*, different hyperparameters and integration with [`BiPE`](https://arxiv.org/abs/2401.16421).)
+- [`StreamingLLM`](https://arxiv.org/abs/2309.17453) models, [`Self-Adjust Softmax (SA)`](https://arxiv.org/abs/2502.18277) models, Vanilla Full Attention models, *etc*.
+```
+training_examples
+├── example1.4b_n64
+├── example1.4b_n64_kernel
+├── example160m_n128
+├── example160m_n128_kernel
+├── example160m_n128_kernel_recompile
+├── example160m_n64
+├── example160m_n64H
+├── example160m_n64H_kernel
+├── example160m_n64H_kernel_recomplie
+├── example160m_n64HT
+├── example160m_n64HT_alibiBiPE
+├── example160m_n64HT_kernel
+├── example160m_n64HT_kernel_recompile
+├── example160m_n64HT_kernel_recompile_alibiBiPE
+├── example160m_n64HT_kernel_recompile_rotaryBiPE
+├── example160m_n64HT_rotaryBiPE
+├── example160m_n64_kernel
+├── example160m_n64_kernel_recompile
+├── streamingllm-160m
+├── vanilla-1.4b-full-attention
+└── vanilla-160m-full-attention
+```
+All corresponding YAML configuration files as well as the vocabulary file (`vocab-file`) and `hostfile`  can be found in the directory `SepLLM/Training-SepLLM/sample_configs/`
+```
+sample_configs
+├── 20B_tokenizer.json
+├── debug.yml
+├── hostfile
+├── sepllm-1.4b-on-pythia_32heads-with-pile_deduped-n64-kernel.yml
+├── sepllm-1.4b-on-pythia_32heads_with-pile_deduped-n64-NOkernel.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n128HMT-NOkernel.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n128HT-NOkernel.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n128-kernel-recompile.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n128-kernel.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n128-NOkernel.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n256HMT-NOkernel.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n256-NOkernel.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n64H-kernel_recompile.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n64H-kernel.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n64HMT-NOkernel.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n64H-NOkernel.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n64HT-kernel_recompile_alibiBiPE.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n64HT-kernel_recompile_rotaryBiPE.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n64HT-kernel_recompile.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n64HT-kernel.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n64HT-NOkernel_alibiBiPE.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n64HT-NOkernel_rotaryBiPE.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n64HT-NOkernel.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n64-kernel-recompile.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n64-kernel.yml
+├── sepllm-160m-on-pythia-with-pile_deduped-n64-NOkernel.yml
+├── streamingllm-160m-n64.yml
+├── vanilla-1.4b-32heads-full-attention.yml
+└── vanilla-160m-full-attention.yml
+```
+When using YAML configuration files, you must modify:
+- The training data input path
+- The vocabulary file path (`vocab-file`)
+Please update these paths in your YAML file according to the following format:
+```yaml
+"train-data-paths": ["/path/to/your_pythia_deduped_data/pile_0.87_deduped_text_document"],
+"valid-data-paths": ["/path/to/your_pythia_deduped_data/pile_0.87_deduped_text_document"],
+"test-data-paths":  ["/path/to/your_pythia_deduped_data/pile_0.87_deduped_text_document"],
+"vocab-file": "/path/to/your_workspace/SepLLM/Training-SepLLM/sample_configs/20B_tokenizer.json",
+# "hostfile": "/path/to/your_workspace/SepLLM/Training-SepLLM/sample_configs/hostfile",
+```
+After completing the data preparation steps in [`4.1 Data Preparation`](#41-data-preparation), you will obtain two data files: 
+- `pile_0.87_deduped_text_document.bin` 
+- `pile_0.87_deduped_text_document.idx`. 
+
+You must​​ copy both files to `/path/to/your_pythia_deduped_data/` and ensure this directory is ​​accessible to all nodes​​ in your computer cluster (with both reading and writing permissions) and at runtime, the program may generate additional files (*e.g*., data shuffle files) in this directory. Besides, you just set `"vocab-file"` to the path to your `20B_tokenizer.json` under the directory `SepLLM/Training-SepLLM/sample_configs/`.
+
+In addition, you can set the path to save your checkpoints using `"save"` field. The `"load"` field also allows you to resume training from the most recent checkpoint when training is terminated. The `"checkpoint-factor"` is used to set how often to save a checkpoint, based on the number of steps.
+
+
+
+
+```yaml
+"checkpoint-factor": 1000,
+"save": "/path/to/save_and_load/your_checkpoints",
+"load": "/path/to/save_and_load/your_checkpoints",
+```
+
+
 
 
 
@@ -783,7 +887,7 @@ python ./deepy.py ./train.py [path/to/config.yml]
 
 
 
-![image](https://hackmd.io/_uploads/r18jZD47Jg.png)
+
 
 ## Usage
 
