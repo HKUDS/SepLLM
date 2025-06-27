@@ -752,6 +752,29 @@ downstream_evaluation
 
 2 directories, 18 files
 ```
+Below we provide a sample script to evaluate a trained checkpoint. You can find additional example scripts in:
+`SepLLM/Training-SepLLM/downstream_evaluation/eval_scripts/`, where we provide example scripts about our [`SepLLM`](https://arxiv.org/abs/2412.12094) models of various pretraining settings (*e.g.*, integrated with [`BiPE`](https://arxiv.org/abs/2401.16421)), [`StreamingLLM`](https://arxiv.org/abs/2309.17453) models, [`Self-Adjust Softmax (SA)`](https://arxiv.org/abs/2502.18277) models, *etc*.
+```
+CUDA_LAUNCH_BLOCKING=1
+# You can set `--model_args` to `/path/to/your_converted_hf_checkpoints` for your own trained and converted HF checkpoints
+lm_eval --model hf \
+	--model_args pretrained=Gausson/pythia-160m-deduped-SepLLM \
+	--tasks  arc_challenge,arc_easy,lambada_openai,logiqa,piqa,sciq,winogrande,wsc,wikitext  \
+	--num_fewshot 5 \
+	--device cuda:0\
+	--batch_size 32 2>&1 | tee ../eval_logs/pythia-160m-deduped-SepLLM.log
+```
+However, under typical circumstances, you should:
+- Train your own `SepLLM` models​​ using our provided training code.
+- ​​Convert the trained checkpoints​​ to Hugging Face format using our conversion script: `SepLLM/Training-SepLLM/tools/ckpts/convert2HF.sh`
+- Evaluate the converted checkpoints​​ using the downstream test scripts mentioned above. When running evaluation scripts, specify your converted checkpoint path by setting the `pretrained` field in the `--model_args` parameter.
+
+## Training by Yourself
+You can start training just by:
+```bash
+cd SepLLM/Training-SepLLM/
+python ./deepy.py ./train.py [path/to/config.yml]
+```
 
 
 
