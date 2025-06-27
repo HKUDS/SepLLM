@@ -49,7 +49,7 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 - :star: [2024/12] SepLLM's code has been released. Our codebase supports efficient multi-node distributed training with accelerated attention module *Sep-Attention* and also includes numerous existing Fusion Operators to accelerate the training process, such as *fused rope* ([Su et al., 2023](https://arxiv.org/abs/2104.09864)), *fused layer norm*, *etc*.
 
 # Attention Please!
-**Please pay extra attention to your usage and experimental scenarios, and choose the appropriate code subdirectory accordingly** (*i.e.*, `TrainingFree-SepLLM`, `Training-SepLLM`, `Streaming-SepLLM`). Some researchers have mistakenly used the `Streaming-SepLLM` folder's code for general training-free tasks (*e.g.*, `GSM8K_CoT`, `MMLU`, *etc.*), **which is incorrect**. The `Streaming-SepLLM` branch requires "Positional Encoding Shifting" like [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/), whereas general training-free tasks do not, as the context length and generation length required by such general tasks usually do not exceed the maximum length (`max_position_embeddings`) pre-trained by the model. Besides, there are other detailed differences, which can be found in the code. Due to the above reasons, we refer to `Streaming-SepLLM` as the "**Tailored** Streaming Design" in the [paper](https://arxiv.org/abs/2412.12094) to distinguish it from the "Fundamental Design." (Although we have made these two settings (`TrainingFree-SepLLM`, `Streaming-SepLLM`) compatible in [`SepCache`](##-33-SepCache).)
+**Please pay extra attention to your usage and experimental scenarios, and choose the appropriate code subdirectory accordingly** (*i.e.*, `TrainingFree-SepLLM`, `Training-SepLLM`, `Streaming-SepLLM`). Some researchers have mistakenly used the `Streaming-SepLLM` folder's code for general training-free tasks (*e.g.*, `GSM8K_CoT`, `MMLU`, *etc.*), **which is incorrect**. The `Streaming-SepLLM` branch requires "Positional Encoding Shifting" like [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/), whereas general training-free tasks do not, as the context length and generation length required by such general tasks usually do not exceed the maximum length (`max_position_embeddings`) pre-trained by the model. Besides, there are other detailed differences, which can be found in the code. Due to the above reasons, we refer to `Streaming-SepLLM` as the "**Tailored** Streaming Design" in the [paper](https://arxiv.org/abs/2412.12094) to distinguish it from the "Fundamental Design." (Although we have made these two settings (`TrainingFree-SepLLM`, `Streaming-SepLLM`) compatible in [`SepCache`](#33-sepcache).)
 
 In addition, to achieve optimal performance on downstream tasks, training from scratch is required (to ensure consistency between training and inference). However, for many downstream tasks, the training-free setting can also deliver quite good performance.
 
@@ -284,7 +284,22 @@ CUDA_VISIBLE_DEVICES=0  python ./main/evaluate_streaming_inputs_perplexity.py \
     --split test \
     --output_dir ./outputs/xxx   2>&1 | tee ./logs/demo/xxx.log
 ```
-You can see many other examples under `./SepLLM/Streaming-SepLLM/example_scripts/`, including `SepLLM`, `StreamingLLM`, and `Full-Attention` on different backbone models of various sizes for generation tests of different lengths.
+Streaming setting typically involves positional encoding (PE) shifting similar to [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/). PE shifting means focusing on positions within the cache rather than those in the original text. To enable this feature:
+- Set `--enable_pos_shift` to `True`.
+
+To run tests for the vanilla full attention model, please set as follows:
+- Set `--enable_kv_cache_manager` to `False`.
+- Set `--enable_SepLLM` to `False` and set `enable_StreamingLLM` to `False`.
+- Set `--enable_pos_shift` to `False`.
+
+To run tests for the `SepLLM` or `StreamingLLM` architecture models, please set as follows:
+- Set `--enable_kv_cache_manager` to `True`.
+- Set `--enable_SepLLM` to `True` **OR** `--enable_StreamingLLM` to `True`. Only one `True` among these two parameters.
+
+When `--enable_StreamingLLM` is set to `True`, certain parameters, such as `--sep_cache_size`, will not take effect and must satisfy the condition: `cache_size == init_cache_size + local_size`.
+
+You can see many other examples under `./SepLLM/Streaming-SepLLM/example_scripts/`, including `SepLLM`, `StreamingLLM`, and `Full-Attention` on different backbone models of various sizes for generation tests of different lengths under various settings.
+
 
 
 # 3. Training-Free Tests
@@ -317,7 +332,7 @@ cd ./TrainingFree-SepLLM
 # Replace `/path/to/your_conda_directory/envs/trainingfree_sepllm` with your actual directory of your conda env.
 ln -s /path/to/your_conda_directory/envs/trainingfree_sepllm/lib/python3.10/site-packages/transformers ./transformers 
 ```
-We have now created a conda environment named `trainingfree_sepllm`, where we have installed our released `transformers` package (required). Additionally, we have created a symbolic link to the source code of the installed `transformers` package under the `TrainingFree-SepLLM` directory, making it easier to read and modify the source code used for execution. Whenever we need to read or modify the `transformers` code, we can simply access it via `SepLLM/TrainingFree-SepLLM/transformers`.
+We have now created a conda environment named `trainingfree_sepllm`, where we have installed our released `transformers` package (**required**). Additionally, we have created **a symbolic link** to the source code of the installed `transformers` package under the `TrainingFree-SepLLM` directory, making it easier to read and modify the source code used for execution. Whenever we need to read or modify the `transformers` code, we can simply access it via `SepLLM/TrainingFree-SepLLM/transformers`.
 
 ## 3.2 Quick-Start Usage
 ### 3.2.1 Related Source Code Files
@@ -355,6 +370,8 @@ For example, you can learn how to initialize a `SepCache` object around `line 10
 
 ### 3.3.2 Basic Usage
 You can directly run the following commands, or simply execute the script `SepLLM/TrainingFree-SepLLM/Llama3_8B_Instruct_SepLLM_gsm8k_cot_SepCache_a4_s128_w256_c512_with_flash_atten2.sh` to learn how to use `SepCache`. Note that in our example, `SepCache` needs to be used in combination with `flash_attention_2`. This combination is necessary in our case because our goal is to demonstrate both the usage of `SepCache` and its integration with the commonly used `flash_attention_2`. However, this combined usage is not mandatory. Once you learn how to use `SepCache`, you'll find that you can easily integrate it with other attention methods.
+
+**Note: In our example, the specific parameters for `SepCache` initialization are directly written on around `line 1070` in the `SepLLM/TrainingFree-SepLLM/transformers/models/llama/modeling_llama.py` file, not on the following script.**
 
 ```bash
 # `sepllm_config` is unnecessary and not useful when using 'flash_attention_2' since 'flash_attention_2' is used together with `SepCache`. 
