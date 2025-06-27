@@ -591,12 +591,48 @@ When `SEP_PADDING_IN_BATCH=True` is used in combination with `USE_MAX_SEP_CACHE=
 
 
 
-
-
-
-
-
 # Training
+
+## Data Preparation
+
+We use the same training data as the [Pythia](https://github.com/EleutherAI/pythia) project, namely the open-source [deduped Pile](https://huggingface.co/datasets/EleutherAI/pythia_deduped_pile_idxmaps) dataset, with the entire training process involving approximately 300 billion tokens. You can refer to the [Pythia](https://github.com/EleutherAI/pythia) project to download and prepare your training data, or refer to the summary of operations below.
+```bash
+# Download SepLLM code.
+git clone https://github.com/HKUDS/SepLLM.git
+cd SepLLM/Training-SepLLM/data_preparation
+
+# Download the deduped Pile dataset.
+git lfs clone https://huggingface.co/datasets/EleutherAI/pythia_deduped_pile_idxmaps
+
+# Optionally, to ensure against corrupt files
+python utils/checksum_shards.py
+
+python utils/unshard_memmap.py --input_file ./pythia_deduped_pile_idxmaps/pile_0.87_deduped_text_document-00000-of-00082.bin --num_shards 83 --output_dir ./pythia_pile_idxmaps/
+
+# The correct sha256 for the full file is 0cd548efd15974d5cca78f9baddbd59220ca675535dcfc0c350087c79f504693
+# This can be checked with sha256sum ./pythia_pile_idxmaps/*
+```
+You can store the dataset on a large hard drive or a shared file system of a distributed cluster, making it convenient for subsequent training on the distributed cluster's computing resources.
+
+## Conda Environment Setup
+
+```bash
+conda env create -n training_sepllm python=3.10
+conda activate training_sepllm 
+
+cd SepLLM
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+pip install ./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl # Required
+pip install ./package/DeepSpeed/cuda12.1-torch2.5.1-python3.10/deepspeed-0.14.5+unknown-cp310-cp310-linux_x86_64.whl # Recommended
+
+
+
+
+
+
+```
+
+
 
 You can install the required package in the requirements.txt. You are recommended to build a independent conda environment (or pyenv, etc.) to do this. Our code is based on the code framework [GPTNeoX](https://github.com/EleutherAI/gpt-neox).
 
