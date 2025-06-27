@@ -48,6 +48,11 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 - :star: [2024/12] More exciting features are being developed. Stay tuned!
 - :star: [2024/12] SepLLM's code has been released. Our codebase supports efficient multi-node distributed training with accelerated attention module *Sep-Attention* and also includes numerous existing Fusion Operators to accelerate the training process, such as *fused rope* ([Su et al., 2023](https://arxiv.org/abs/2104.09864)), *fused layer norm*, *etc*.
 
+# Attention Please!
+**Please pay extra attention to your usage and experimental scenarios, and choose the appropriate code subdirectory accordingly** (*i.e.*, `TrainingFree-SepLLM`, `Training-SepLLM`, `Streaming-SepLLM`). Some researchers have mistakenly used the `Streaming-SepLLM` folder's code for general training-free tasks (*e.g.*, `GSM8K_CoT`, `MMLU`, *etc.*), which is incorrect. The `Streaming-SepLLM` branch requires "Positional Encoding Shifting" like [StreamingLLM](https://github.com/mit-han-lab/streaming-llm/), whereas general training-free tasks do not, as the context length and generation length required by such general tasks usually do not exceed the maximum length (`max_position_embeddings`) pre-trained by the model. Besides, there are other detailed differences, which can be found in the code. Due to the above reasons, we refer to `Streaming-SepLLM` as the "**Tailored** Streaming Design" in the [paper](https://arxiv.org/abs/2412.12094) to distinguish it from the "Fundamental Design."
+
+In addition, to achieve optimal performance on downstream tasks, training from scratch is required (to ensure consistency between training and inference). However, for many downstream tasks, the training-free setting can also deliver quite good performance.
+
 
 # 1. Overview
 Here we provide an overview of our code repository. Some noteworthy sections are marked with an asterisk (*). Please note that the implementation of `SepCache` and the key code for the **Training-Free part** are not displayed here, as these codes are packaged in the wheel file `./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl`. We will explain how to read, use, and modify these parts of the code in the corresponding sections.
