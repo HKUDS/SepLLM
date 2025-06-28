@@ -330,7 +330,7 @@ cd ./SepLLM
 pip install ./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl # Required
 cd ./TrainingFree-SepLLM
 # Replace `/path/to/your_conda_directory/envs/trainingfree_sepllm` with your actual directory of your conda env.
-ln -s /path/to/your_conda_directory/envs/trainingfree_sepllm/lib/python3.10/site-packages/transformers ./transformers 
+ln -s /path/to/your_conda_directory/envs/trainingfree_sepllm/lib/python3.10/site-packages/transformers ./transformers # Create symbolic link
 ```
 We have now created a conda environment named `trainingfree_sepllm`, where we have installed our released `transformers` package (**required**). Additionally, we have created **a symbolic link** to the source code of the installed `transformers` package under the `TrainingFree-SepLLM` directory, making it easier to read and modify the source code used for execution. Whenever we need to read or modify the `transformers` code, we can simply access it via `SepLLM/TrainingFree-SepLLM/transformers`.
 
@@ -659,6 +659,9 @@ conda activate training_sepllm
 cd SepLLM
 pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
 pip install ./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl # Required
+# Replace `/path/to/your_conda_directory/envs/training_sepllm` with your actual directory of your conda env.
+ln -s /path/to/your_conda_directory/envs/training_sepllm/lib/python3.10/site-packages/transformers ./Training-SepLLM/downstream_evaluation/transformers # Create symbolic link
+
 pip install ./package/DeepSpeed/cuda12.1-torch2.5.1-python3.10/deepspeed-0.14.5+unknown-cp310-cp310-linux_x86_64.whl # Recommended
 pip install lm_eval==0.4.0
 pip install -r ./Training-SepLLM/requirements/requirements_cuda12.1_torch2.5.1.txt
@@ -733,14 +736,16 @@ Here are some reference materials about `​​pdsh`​​:
 
 
 
-## 4.3 Quick-Start with Sample Checkpoints
+## 4.3 Quick-Start with Sample Checkpoints on [HuggingFace](https://huggingface.co/Gausson/models)
 
 If you don't have time or computational resources to train from scratch, we have uploaded our pre-trained checkpoints to [Hugging Face](https://huggingface.co/Gausson/models) Hub. After setting up the `training_sepllm` conda environment, you can directly evaluate the checkpoints on downstream tasks.
 - ​​Evaluation Scripts​​: Located in `SepLLM/Training-SepLLM/downstream_evaluation/eval_scripts/`
 - Result Logs​​: Saved in `SepLLM/Training-SepLLM/downstream_evaluation/eval_logs/`
-
+- HuggingFace Model's Code: Located in `SepLLM/Training-SepLLM/downstream_evaluation/transformers/models/sepllm_gpt_neox/`
 ```
 downstream_evaluation
+├──transformers
+│   └── ...
 ├── eval_logs
 │   ├── gpt-neox-125m-deduped-SA.log
 │   ├── pythia-160m-deduped.log
@@ -761,9 +766,21 @@ downstream_evaluation
     ├── eval_pythia-160m-deduped-n64-StreamingLLM.sh
     ├── eval_pythia-160m-deduped-SepLLM.sh
     └── eval_pythia-160m-deduped.sh
-
-2 directories, 18 files
 ```
+We trained the `SepLLM` architecture model based on the [GPT-NeoX](https://github.com/EleutherAI/gpt-neox) backbone, which we refer to as the `sepllm_gpt_neox` architecture model. In the HuggingFace-format `transformers` package **we released**, the model architecture name and path are also `sepllm_gpt_neox`.
+In the file `SepLLM/Training-SepLLM/downstream_evaluation/transformers/models/sepllm_gpt_neox/modeling_sepllm_gpt_neox.py`, classes such as `SepLLMGPTNeoXModel` and `SepLLMGPTNeoXForCausalLM` are defined. 
+
+Here, we did not directly integrate `SepCache` into `sepllm_gpt_neox` because we want `sepllm_gpt_neox` to serve as a straightforward and simple mask-based `SepLLM` model for research exploration, rather than being directly used for downstream applications. Once you become familiar with `SepLLM`, integrating `SepCache` into `sepllm_gpt_neox` is a very simple task, and you can give it a try.
+```
+sepllm_gpt_neox
+├── __init__.py
+├── configuration_sepllm_gpt_neox.py
+├── modeling_sepllm_gpt_neox.py
+├── sepllm_attention.py
+├── sepllm_forward_input.py
+└── tokenization_gpt_neox_fast.py
+```
+
 Below we provide a sample script to evaluate a trained checkpoint. You can find additional example scripts in:
 `SepLLM/Training-SepLLM/downstream_evaluation/eval_scripts/`, where we provide example scripts about our [`SepLLM`](https://arxiv.org/abs/2412.12094) models of various pretraining settings (*e.g.*, integrated with [`BiPE`](https://arxiv.org/abs/2401.16421)), [`StreamingLLM`](https://arxiv.org/abs/2309.17453) models, [`Self-Adjust Softmax (SA)`](https://arxiv.org/abs/2502.18277) models, *etc*.
 ```
@@ -782,7 +799,19 @@ However, under typical circumstances, you should:
 - Evaluate the converted checkpoints​​ using the downstream test scripts mentioned above. When running evaluation scripts, specify your converted checkpoint path by setting the `pretrained` field in the `--model_args` parameter.
 
 ## 4.4 Training by Yourself
-**Note: You must ensure that all configured paths mentioned here are readable and writable for all nodes in the computer cluster.**
+**Note: You must ensure that all configured paths mentioned here are readable and writable for all nodes in the computer cluster.** Therefore, we recommend configuring a shared file system in the computing cluster that allows all nodes to have read and write access. This eliminates the need to copy all source code files, configuration files, data, *etc.*, to each node in the cluster, avoiding unnecessary trouble.
+
+The key files and directories involved in training are as follows:
+- `SepLLM/Training-SepLLM/sample_configs/` for sample YAML configuration files.
+- `SepLLM/Training-SepLLM/training_examples/` for sample training scripts.
+- `SepLLM/Training-SepLLM/megatron/model/sepllm_forward_input.py` for SepLLM.
+- `SepLLM/Training-SepLLM/megatron/sepllm_attention.py` for SepLLM.
+- `SepLLM/Training-SepLLM/megatron/neox_arguments/neox_args.py` for parameter definitions.
+- `SepLLM/Training-SepLLM/megatron/model/transformer.py` for transformer.
+- `SepLLM/Training-SepLLM/megatron/model/gpt2_model.py` for backbone model.
+- `SepLLM/Training-SepLLM/megatron/training.py` for training process.
+
+
 
 ### 4.4.1 Basic Usage
 
@@ -1023,10 +1052,49 @@ class SepLLMArgs(NeoXArgsTemplate):
     128 by default. It can also be set to align with the head dimension.
     """
 ```
+We also provide many pre-trained `SepLLM` models, which you can find on [HuggingFace](https://huggingface.co/Gausson/models).
+
+#### 4.4.2.3 Self-Adjust (SA) Softmax
+
+Our training code repository also supports training models based on [`Self-Adjust (SA) Softmax`](https://arxiv.org/abs/2502.18277) attention. Note that `SA` and `SepLLM` are two different model architectures, so only one of them (`SA` or `SepLLM`) can be trained independently at a time. They are incompatible and cannot be trained simultaneously. Therefore, when you want to train an `SA` model, many related parameters for `SepLLM` will not take effect. Below is the data class for `SA`-related parameters, `AdjustSoftmaxArgs`, and you can read the comments to understand it. This data class, `AdjustSoftmaxArgs`, is also defined in `SepLLM/Training-SepLLM/megatron/neox_arguments/neox_args.py`. Similarly, there are sample YAML configuration files for `SA` training available under `SepLLM/Training-SepLLM/sample_configs/`.
+```python
+@dataclass
+class AdjustSoftmaxArgs(NeoXArgsTemplate):
+    """
+    Our Self-Adjusting Softmax attention args when training
+    """
+
+    ######################################There should be at most 1 True for the following 2 args ##############################################
+    USE_SA_SOFTMAX: bool = False
+    """
+    False by default. If True, use Self-Adjusting Softmax Attention.
+    """
+    
+    USE_SA_SOFTMAX_NO_DENO: bool = False  
+    """
+    False by default. If True, use Self-Adjusting Softmax Attention V2 : no denominator version.
+    """
+    ######################################There should be at most 1 True for the above 2 args ##################################################
+
+    SA_Numerator_Bias: float = 0.  
+    """
+    The bias value added to the numerator term of Self-Adjusting Softmax Attention.
+    """
+
+    SA_Denominator_Bias: float = 0.0000000001  
+    """
+    The bias value added to the denominator term of Self-Adjusting Softmax Attention.
+    """
+```
+We also provide pre-trained `SA` models, which you can find on [HuggingFace](https://huggingface.co/Gausson/models).
+
 
 
 <!-- You can install the required package in the requirements.txt. You are recommended to build a independent conda environment (or pyenv, etc.) to do this. Our code is based on the code framework [GPTNeoX](https://github.com/EleutherAI/gpt-neox). -->
 
+
+#### 4.4.2.4 Other Custom Settings
+https://github.com/EleutherAI/gpt-neox/blob/main/configs/README.md
 
 
 
