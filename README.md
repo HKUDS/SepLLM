@@ -1229,10 +1229,8 @@ If you find our work helpful, please consider giving us a star :star: and citing
 @inproceedings{chen2025sepllm,
   title={{SepLLM: Accelerate Large Language Models by Compressing One Segment into One Separator}},
   author={Chen, Guoxuan and Shi, Han and Li, Jiawei and Gao, Yihang and Ren, Xiaozhe and Chen, Yimeng and Jiang, Xin and Li, Zhenguo and Liu, Weiyang and Huang, Chao},
-  booktitle={International Conference on Machine Learning},
+  booktitle={Proceedings of the Forty-Second International Conference on Machine Learning (ICML)},
   year={2025},
-  eprint={2412.12094},
-  archivePrefix={arXiv},
-  primaryClass={cs.CL}
+  note={Also available at arXiv:2412.12094}
 }
 ```
