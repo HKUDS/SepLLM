@@ -749,7 +749,11 @@ Here are some reference materials about `​​pdsh`​​:
 
 ## 4.3 Quick-Start with Sample Checkpoints on [HuggingFace](https://huggingface.co/Gausson/models)
 
-![image](https://github.com/user-attachments/assets/4a8807d3-6955-490e-b113-d13ac3aa6c27)
+<!-- ![image](https://github.com/user-attachments/assets/4a8807d3-6955-490e-b113-d13ac3aa6c27) -->
+<div align=center>
+    <a href=https://huggingface.co/Gausson/models><img src="https://github.com/user-attachments/assets/4a8807d3-6955-490e-b113-d13ac3aa6c27",  width=880 >
+</div>
+
 
 
 If you don't have time or computational resources to train from scratch, we have uploaded our pre-trained checkpoints to [Hugging Face](https://huggingface.co/Gausson/models) Hub. After setting up the `training_sepllm` conda environment, you can directly evaluate the checkpoints on downstream tasks.
