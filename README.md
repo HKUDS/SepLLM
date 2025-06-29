@@ -819,7 +819,7 @@ The key files and directories involved in training are as follows:
 You can start training just by:
 ```bash
 cd SepLLM/Training-SepLLM/
-python ./deepy.py ./train.py [path/to/config.yml]
+python ./deepy.py ./train.py path/to/config.yml
 ```
 We have prepared numerous training launch script examples in the directory `SepLLM/Training-SepLLM/training_examples/`, in which each example demonstrates different architectures or hyperparameter configurations, including:
 - Training `SepLLM` models with various settings (*e.g.*, different hyperparameters and integration with [`BiPE`](https://arxiv.org/abs/2401.16421).)
