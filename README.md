@@ -1224,7 +1224,7 @@ lm_eval --model hf \
 ```
 
 # 5 Citation
-If you find our work helpful, please give us a star :star: and cite our paper. We greatly appreciate your support 😄
+If you find our work helpful, please consider giving us a star :star: and citing our paper. We greatly appreciate your support 😄
 ```
 @inproceedings{chen2025sepllm,
   title={{SepLLM: Accelerate Large Language Models by Compressing One Segment into One Separator}},
