@@ -1055,7 +1055,14 @@ class SepLLMArgs(NeoXArgsTemplate):
 ```
 We also provide many pre-trained `SepLLM` models, which you can find on [HuggingFace](https://huggingface.co/Gausson/models).
 
-#### 4.4.2.3 Self-Adjust (SA) Softmax
+#### 4.4.2.3 StreamingLLM
+
+You can train a [`StreamingLLM`](https://arxiv.org/abs/2309.17453) architecture model using our code repository, and we also provide a pre-trained `StreamingLLM` model on our [`HuggingFace`](https://huggingface.co/Gausson/pythia-160m-deduped-n64-StreamingLLM) platform for your reference and comparison. Note that the training of the `StreamingLLM` architecture model is mutually exclusive with the `SepLLM` architecture and the later-mentioned `Self-Adjust (SA) Softmax` architecture, meaning only one type of model can be independently trained at a time.
+
+You can set the `"streamingLLM"` field to `True` in your YAML configuration file to train a `StreamingLLM` architecture model. We provide a reference configuration file at `SepLLM/Training-SepLLM/sample_configs/streamingllm-160m-n64.yml`.
+
+
+#### 4.4.2.4 Self-Adjust (SA) Softmax
 
 Our training code repository also supports training models based on [`Self-Adjust (SA) Softmax`](https://arxiv.org/abs/2502.18277) attention. Note that `SA` and `SepLLM` are two different model architectures, so only one of them (`SA` or `SepLLM`) can be trained independently at a time. They are incompatible and cannot be trained simultaneously. Therefore, when you want to train an `SA` model, many related parameters for `SepLLM` will not take effect. Below is the data class for `SA`-related parameters, `AdjustSoftmaxArgs`, and you can read the comments to understand it. This data class, `AdjustSoftmaxArgs`, is also defined in `SepLLM/Training-SepLLM/megatron/neox_arguments/neox_args.py`. Similarly, there are sample YAML configuration files for `SA` training available under `SepLLM/Training-SepLLM/sample_configs/`.
 ```python
@@ -1090,15 +1097,32 @@ class AdjustSoftmaxArgs(NeoXArgsTemplate):
 We also provide pre-trained `SA` models, which you can find on [HuggingFace](https://huggingface.co/Gausson/models).
 
 
+#### 4.4.2.5 Vanilla Full Attention 
 
-<!-- You can install the required package in the requirements.txt. You are recommended to build a independent conda environment (or pyenv, etc.) to do this. Our code is based on the code framework [GPTNeoX](https://github.com/EleutherAI/gpt-neox). -->
+You can, of course, also train a Vanilla Full Attention model by setting the `"USE_ORIGINAL_FULL_ATTEN"` field to `True` in your YAML configuration file. Doing so will disable all other settings related to `SepLLM`, `StreamingLLM`, and `SA`, leaving only the basic training settings effective. We provide a reference training configuration file at `SepLLM/Training-SepLLM/sample_configs/vanilla-160m-full-attention.yml`. 
+
+The checkpoints obtained through this method, once converted to `HuggingFace` format as described in [`4.5 After-Training Evaluation`](#45-after-training-evaluation), will still use the model name `sepllm_gpt_neox` in `transformers` package we released. However, apart from the difference in name, it is essentially identical to the vanilla `gpt_neox` model.
 
 
-#### 4.4.2.4 Other Custom Settings
+#### 4.4.2.6 Other Custom Settings
 The various other parameters involved in the training process are defined under `SepLLM/Training-SepLLM/megatron/neox_arguments/`. In addition to this, apart from referring to the YAML configuration file examples under `SepLLM/Training-SepLLM/sample_configs/`, you can also refer to the following materials, which come from the [GPT-NeoX](https://github.com/EleutherAI/gpt-neox) project and the [Pythia](https://github.com/EleutherAI/pythia) project.
 - `https://github.com/EleutherAI/gpt-neox/blob/main/configs/README.md`
 - `https://github.com/EleutherAI/pythia`
 - `https://github.com/EleutherAI/gpt-neox`
+
+
+#### 4.4.2.7 Important Note
+In the training YAML configuration file, only **one** of the following fields:
+- `"USE_ORIGINAL_FULL_ATTEN"` 
+- `"streamingLLM"` 
+- `"USE_SEP_ATTN_KERNEL_ACCELERATOR"`
+- `"USE_SA_SOFTMAX"`
+- `"USE_SA_SOFTMAX_NO_DENO"`
+
+can be set to `True`, corresponding to a specific training mode. When all of them are set to `False`, the model will be trained using the plain `SepLLM` architecture (*i.e.*, pure mask-based `SepLLM` with no acceleration). Refer to the example configuration files and comments in the `SepLLM/Training-SepLLM/sample_configs/` directory to learn how to use them, which is not difficult.
+
+
+For further interactions between parameters, please refer to the `SepLLMArgumentsChecker` class located in `SepLLM/Training-SepLLM/megatron/utils.py`. This class will also verify the validity of your parameter settings before training begins and provide appropriate prompts.
 
 
 ## 4.5 After-Training Evaluation
