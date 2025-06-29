@@ -782,7 +782,7 @@ sepllm_gpt_neox
 ```
 
 Below we provide a sample script to evaluate a trained checkpoint. You can find additional example scripts in:
-`SepLLM/Training-SepLLM/downstream_evaluation/eval_scripts/`, where we provide example scripts about our [`SepLLM`](https://arxiv.org/abs/2412.12094) models of various pretraining settings (*e.g.*, integrated with [`BiPE`](https://arxiv.org/abs/2401.16421)), [`StreamingLLM`](https://arxiv.org/abs/2309.17453) models, [`Self-Adjust Softmax (SA)`](https://arxiv.org/abs/2502.18277) models, *etc*.
+`SepLLM/Training-SepLLM/downstream_evaluation/eval_scripts/`, where we provide example scripts about our [`SepLLM`](https://arxiv.org/abs/2412.12094) models of various pretraining settings (*e.g.*, integrated with [`BiPE`](https://arxiv.org/abs/2401.16421)), [`StreamingLLM`](https://arxiv.org/abs/2309.17453) models, [`Self-Adjust Softmax (SA)`](https://arxiv.org/abs/2502.18277) models, [`Vanilla Pythia Models`](https://github.com/EleutherAI/pythia), *etc*.
 ```bash
 CUDA_LAUNCH_BLOCKING=1
 # You can set the `pretrained` field of `--model_args` to `/path/to/your_converted_hf_checkpoints` for your own trained and converted HF checkpoints
@@ -793,6 +793,7 @@ lm_eval --model hf \
 	--device cuda:0\
 	--batch_size 32 2>&1 | tee ../eval_logs/pythia-160m-deduped-SepLLM.log
 ```
+
 However, under typical circumstances, you should:
 - Train your own `SepLLM` models​​ using our provided training code.
 - ​​Convert the trained checkpoints​​ to Hugging Face format using our conversion script: `SepLLM/Training-SepLLM/tools/ckpts/convert2HF.sh`
@@ -1151,4 +1152,16 @@ hf (pretrained=Gausson/pythia-160m-deduped-SepLLM), gen_kwargs: (None), limit: N
 |winogrande    |      1|none  |     5|acc            |↑  | 0.5304|±  |0.0140|
 |wsc           |      1|none  |     5|acc            |↑  | 0.3750|±  |0.0477|
 ```
+
+Besides, the script below provides a method for testing the full attention vanilla official `Pythia` models (not the `SepLLM` architecture) for your reference and comparison. This testing script is saved in `SepLLM/Training-SepLLM/downstream_evaluation/eval_scripts/eval_pythia-160m-deduped.sh`, and a sample of the test results is available in `SepLLM/Training-SepLLM/downstream_evaluation/eval_logs/pythia-160m-deduped.log`. For more information about the vanilla `Pythia` models, please refer to https://github.com/EleutherAI/pythia.
+```bash
+CUDA_LAUNCH_BLOCKING=1
+lm_eval --model hf \
+	--model_args pretrained=EleutherAI/pythia-160m-deduped \
+	--tasks  arc_challenge,arc_easy,lambada_openai,logiqa,piqa,sciq,winogrande,wsc,wikitext  \
+	--num_fewshot 5 \
+	--device cuda:0\
+	--batch_size 32 2>&1 | tee ../eval_logs/pythia-160m-deduped.log
+```
+
 
