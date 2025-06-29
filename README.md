@@ -57,7 +57,7 @@ In addition, to achieve optimal performance on downstream tasks, training from s
 # 1. Overview
 Here we provide an overview of our code repository. Some noteworthy sections are marked with an asterisk (*). Please note that the implementation of `SepCache` and the key code for the **Training-Free part** are not displayed here, as these codes are packaged in the wheel file `./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl`. We will explain how to read, use, and modify these parts of the code in the corresponding sections.
 
-We use `conda` (*e.g.*, Anaconda, Miniconda) to manage the experimental environments for different experiments.
+We use `conda` (*e.g.*, Anaconda, Miniconda) to manage the **independent experimental environments** for different experiments.
 ```
 SepLLM
 ├── package
@@ -783,9 +783,9 @@ sepllm_gpt_neox
 
 Below we provide a sample script to evaluate a trained checkpoint. You can find additional example scripts in:
 `SepLLM/Training-SepLLM/downstream_evaluation/eval_scripts/`, where we provide example scripts about our [`SepLLM`](https://arxiv.org/abs/2412.12094) models of various pretraining settings (*e.g.*, integrated with [`BiPE`](https://arxiv.org/abs/2401.16421)), [`StreamingLLM`](https://arxiv.org/abs/2309.17453) models, [`Self-Adjust Softmax (SA)`](https://arxiv.org/abs/2502.18277) models, *etc*.
-```
+```bash
 CUDA_LAUNCH_BLOCKING=1
-# You can set `--model_args` to `/path/to/your_converted_hf_checkpoints` for your own trained and converted HF checkpoints
+# You can set the `pretrained` field of `--model_args` to `/path/to/your_converted_hf_checkpoints` for your own trained and converted HF checkpoints
 lm_eval --model hf \
 	--model_args pretrained=Gausson/pythia-160m-deduped-SepLLM \
 	--tasks  arc_challenge,arc_easy,lambada_openai,logiqa,piqa,sciq,winogrande,wsc,wikitext  \
@@ -1094,168 +1094,61 @@ We also provide pre-trained `SA` models, which you can find on [HuggingFace](htt
 
 
 #### 4.4.2.4 Other Custom Settings
+The various other parameters involved in the training process are defined under `SepLLM/Training-SepLLM/megatron/neox_arguments/`. In addition to this, apart from referring to the YAML configuration file examples under `SepLLM/Training-SepLLM/sample_configs/`, you can also refer to the following materials, which come from the [GPT-NeoX](https://github.com/EleutherAI/gpt-neox) project and the [Pythia](https://github.com/EleutherAI/pythia) project.
+- `https://github.com/EleutherAI/gpt-neox/blob/main/configs/README.md`
+- `https://github.com/EleutherAI/pythia`
+- `https://github.com/EleutherAI/gpt-neox`
 
 
-https://github.com/EleutherAI/gpt-neox/blob/main/configs/README.md
+## 4.5 After-Training Evaluation
+After completing the training, if you are using a distributed shared file system, you can directly use the script below to convert the checkpoints obtained from training into `HuggingFace` format checkpoints for downstream task testing.
 
-
-
-
-## Usage
-
-All the code corresponding to training is in the Training-SepLLM folder. If you want to use the fused operators, just run:
+If you are not using a distributed shared file system, you need to copy the relevant state files of the checkpoints saved on each node of the cluster to a single node, and then use the script below to perform the format conversion.
+```bash
+python convert_neox_to_hf.py --input_dir /path/to/your_model_checkpoints/global_stepXXX \
+	--config_file /path/to/your_model_checkpoints/global_stepXXX/configs/your_configs.yml \
+	--output_dir /path/to/your_converted_hf_checkpoints \
+	--precision auto \
+	--architecture sepllm_gpt_neox
 ```
-cd Training-SepLLM
-pip install -r requirements/requirements.txt
-python ./megatron/fused_kernels/setup.py install # optional if not using fused kernels
+The `convert_neox_to_hf.py` file is located in the `SepLLM/Training-SepLLM/tools/ckpts/` directory. You can refer to the script file `SepLLM/Training-SepLLM/tools/ckpts/convert2HF.sh` to execute this format conversion.
+
+`sepllm_gpt_neox` is the model architecture name or model name in `HuggingFace` format. You must refer to [`4.2 Environment Setup`](#42-environment-setup) to set up the environment `training_sepllm` (one of the most important steps is installing the `transformers-4.38.0.post1+sepllm-py3-none-any.whl` package we provided) to support the `sepllm_gpt_neox` model type.
+
+After completing the conversion, you can use [`lm_eval`](https://github.com/EleutherAI/lm-evaluation-harness) to test the model you trained. For details, please refer to [`4.3 Quick-Start with Sample Checkpoints on HuggingFace`](#43-quick-start-with-sample-checkpoints-on-huggingface). Below, we also provide a testing example. More testing samples and results can be found in the directory `SepLLM/Training-SepLLM/downstream_evaluation/`. Additionally, we have uploaded our trained examples to the [HuggingFace](https://huggingface.co/Gausson/models) platform for reference.
+
+
+```bash
+CUDA_LAUNCH_BLOCKING=1
+# You can set the `pretrained` field of `--model_args` to `/path/to/your_converted_hf_checkpoints` for your own trained and converted HF checkpoints
+lm_eval --model hf \
+	--model_args pretrained=Gausson/pythia-160m-deduped-SepLLM \
+	--tasks  arc_challenge,arc_easy,lambada_openai,logiqa,piqa,sciq,winogrande,wsc,wikitext  \
+	--num_fewshot 5 \
+	--device cuda:0\
+	--batch_size 32 2>&1 | tee ../eval_logs/pythia-160m-deduped-SepLLM.log
 ```
-*Note: If you want to use the Sep-Attention module, please make sure your Pytorch>=2.5.0. And set "USE_SEP_ATTN_KERNEL_ACCELERATOR=True" in your training config file.*
-
-You can start training by:
+The sample result for the above testing example is as follows, and you can find it in the following file: `SepLLM/Training-SepLLM/downstream_evaluation/eval_logs/pythia-160m-deduped-SepLLM.log`.
 ```
-python ./deepy.py train.py [path/to/config.yml]
-```
-The sample configuration yml files are in ./Training-SepLLM/sample_configs.
-
-### Parameter Settings for SepLLM Training
-
-```
-@dataclass
-class SepLLMArgs(NeoXArgsTemplate):
-    """
-    Our SepLLM args when training
-    """
-
-    separator_token_ids: list = None
-    """
-    The token ids for the special tokens (i.e. separators):  ['.', ',', '?', '!', ';', ":", ' ', '\t','\n'].
-    Use [-1] to disable. 
-    """
-    
-    PADDING_ID:  int = 0  # For pythia (GPT_NeoX)    
-    """
-    The id for padding token of Pythia (GPT_NeoX)
-    """
-
-    prefill_k: int = 0  ## NOT implemented yet; From old version: Deprecated          
-    generate_k: int  = 0  ## NOT implemented yet; From old version: Deprecated
-    """
-    The max number of layers (excluded, layers: [0, prefill_k) or [0, generate_k) ) that use the original attention masks (upper triangular matrices) when prefilling and generating respectively. These two args are NOT implemented yet and deprecated.
-    For now, put a large number (>=max_seq_len) for the corresponding layers in prefill_loc_win_size_list (or generate_win_loc_size_list) if you want to keep the entire layer's KV and attentions
-    """
-
-
-    prefill_local_window_size: int  = 256  
-    """
-    The local window size when training and prefilling.  KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
-
-    Only take effect when USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS=False. 
-    """
-    
-    generate_local_window_size: int  = 256 
-    """
-    The local window size when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
-    
-    Only take effect when USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS=False.
-    """
-
-
-    USE_PREFILL_LOCAL_WIN_SIZES_wrt_LAYERS: bool = False
-    """
-    If True: the prefilling local window sizes for different self-attention layers are different.
-    If True: should set 'prefill_loc_win_size_list', else: should set 'prefill_local_window_size'
-    """
-
-    USE_GENERATE_LOCAL_WIN_SIZES_wrt_LAYERS: bool = False 
-    """
-    If True: the generating local window sizes for different self-attention layers are different.
-    If True: should set 'generate_win_loc_size_list', else: should set 'generate_local_window_size'    
-    """
-
-
-
-    prefill_loc_win_size_list: list = None
-    """
-    The local window sizes for different self-attention layers when training (or prefilling). KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
-    """
-
-    generate_win_loc_size_list: list = None
-    """
-    The local window sizes for different self-attention layers when generating. KVs for tokens inside the local window (we call them 'Neighboring Tokens') are kept and can been seen by the current token.
-    """
-
-    init_tok_max_idx: int = 2 
-    """
-    The largest index for the kept initial tokens. E.g., if init_tok_max_idx==2, it means we keep 3 initial tokens (idx: 0,1,2)
-    """
-
-
-    ######################################There should be at most 1 True for the following 3 args ##############################################
-    USE_ORIGINAL_FULL_ATTEN: bool = False  
-    """
-    Flag signal with the highest priority.  Run the model without any modification (standard full-attention version, i.e., standard upper triangular mask) if True.
-    """
-
-    streamingLLM: bool = False 
-    """
-    Run streamingLLM. Only takes effect when USE_ORIGINAL_FULL_ATTEN=False. 
-    """
-
-    USE_SEP_ATTN_KERNEL_ACCELERATOR: bool = True 
-    """
-    If True, use Sep_Attention module to accelerate the training process of SepLLM
-    """
-    ######################################There should be at most 1 True for the above 3 args ##############################################
-    RECOMPILE_SEP_ATTN_KERNEL: bool = False 
-    """
-    False by default. If True, recompile the Sep_Attention kernels.  When set to True, it may require more GPU memory and provide a certain level of acceleration to the training process.
-    """
-
-    BATCH_ADAPTIVE_INIT_POS: bool = False 
-    """
-    If True: use the floating initial tokens' starting positions since when evaluating, LLM usually add paddings on the left side of the shorter seqs in a batch for alignment (i.e., left padding).
-    
-    Can be False when pretraining since the starting positions of initial tokens are at the beginning of each sequence in a batch for pretraining (i.e., right padding)
-    """
-
-
-
-    PRINT_KV_RATIO: bool = False 
-    """
-    If True, print the KV cache preservation ratio (especially for the released trained model during generating). When pretraining, it will print the retention ratio for the computational complexity of calculating the attention map if it is set True
-    """
-
-    print_ratio_intervals: int = 8000
-    """    
-    Print the retention ratio for the computational complexity of calculating the attention map once after every 'print_KV_intervals' forward passes (or print_KV_intervals/gradient_accumulation_steps  iterations). It only takes effect when PRINT_KV_RATIO=True.    
-    """
-
-    USE_BiPE: bool = False 
-    """
-    False by default. If True (must also set pos_emb='rotary' or 'alibi'), use Bilevel Positional Encoding.  [He, Zhenyu, et al. "Two stones hit one bird: Bilevel positional encoding for better length extrapolation." arXiv preprint arXiv:2401.16421 (2024).]
-    """
-
-    BiPE_seps: list = None
-    """
-    The token ids of the seperator tokens for BiPE.  
-    """
-    
-    ###################################### Read-only Hyperparameter ##############################################
-    EXCLUDE_DIAGONAL: bool = True ## From old version: Deprecated
-    """
-    True by default and should always be True. When True, it means when we choose fixed window to process the prefilling mask, the diagonal elements in the prefilling mask could be set negative. When False: would keep the prefilling mask's diagonal positive
-    """
+hf (pretrained=Gausson/pythia-160m-deduped-SepLLM), gen_kwargs: (None), limit: None, num_fewshot: 5, batch_size: 32
+|    Tasks     |Version|Filter|n-shot|    Metric     |   | Value |   |Stderr|
+|--------------|------:|------|-----:|---------------|---|------:|---|------|
+|arc_challenge |      1|none  |     5|acc            |↑  | 0.2014|±  |0.0117|
+|              |       |none  |     5|acc_norm       |↑  | 0.2346|±  |0.0124|
+|arc_easy      |      1|none  |     5|acc            |↑  | 0.4731|±  |0.0102|
+|              |       |none  |     5|acc_norm       |↑  | 0.4520|±  |0.0102|
+|lambada_openai|      1|none  |     5|acc            |↑  | 0.3315|±  |0.0066|
+|              |       |none  |     5|perplexity     |↓  |30.1605|±  |1.0128|
+|logiqa        |      1|none  |     5|acc            |↑  | 0.2273|±  |0.0164|
+|              |       |none  |     5|acc_norm       |↑  | 0.2857|±  |0.0177|
+|piqa          |      1|none  |     5|acc            |↑  | 0.6464|±  |0.0112|
+|              |       |none  |     5|acc_norm       |↑  | 0.6447|±  |0.0112|
+|sciq          |      1|none  |     5|acc            |↑  | 0.8260|±  |0.0120|
+|              |       |none  |     5|acc_norm       |↑  | 0.8150|±  |0.0123|
+|wikitext      |      2|none  |     5|bits_per_byte  |↓  | 0.9207|±  |   N/A|
+|              |       |none  |     5|byte_perplexity|↓  | 1.8931|±  |   N/A|
+|              |       |none  |     5|word_perplexity|↓  |30.3488|±  |   N/A|
+|winogrande    |      1|none  |     5|acc            |↑  | 0.5304|±  |0.0140|
+|wsc           |      1|none  |     5|acc            |↑  | 0.3750|±  |0.0477|
 ```
 
-Remember to save your training process checkpoints, so that if the training is interrupted unexpectedly, you can resume the training. You can set the save dir in the config yml file.
-```
-  "save": "path/to/checkpoints",
-  "load": "path/to/checkpoints",
-```
-
-
-After the training is completed, we can convert the training checkpoints to the Hugging Face format, so that we can test them on downstream tasks （e.g. using [lm_eval](https://github.com/EleutherAI/lm-evaluation-harness)）.
-
-```
-python ./tools/ckpts/convert_neox_to_hf.py --input_dir path/to/checkpoints/global_stepXXX --config_file your_config.yml --output_dir hf_model/save/dir
-```
