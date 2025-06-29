@@ -1223,4 +1223,16 @@ lm_eval --model hf \
 	--batch_size 32 2>&1 | tee ../eval_logs/pythia-160m-deduped.log
 ```
 
-
+# 5 Citation
+If you find our work helpful, please give us a star :star: and cite our paper. We greatly appreciate your support 😄
+```
+@inproceedings{chen2025sepllm,
+  title={{SepLLM: Accelerate Large Language Models by Compressing One Segment into One Separator}},
+  author={Chen, Guoxuan and Shi, Han and Li, Jiawei and Gao, Yihang and Ren, Xiaozhe and Chen, Yimeng and Jiang, Xin and Li, Zhenguo and Liu, Weiyang and Huang, Chao},
+  booktitle={International Conference on Machine Learning},
+  year={2025},
+  eprint={2412.12094},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
+```
