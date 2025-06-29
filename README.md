@@ -1223,7 +1223,7 @@ lm_eval --model hf \
 	--batch_size 32 2>&1 | tee ../eval_logs/pythia-160m-deduped.log
 ```
 
-# 5 Citation
+# 5. Citation
 If you find our work helpful, please consider giving us a star :star: and citing our paper. We greatly appreciate your support 😄
 ```
 @inproceedings{chen2025sepllm,
