@@ -55,6 +55,44 @@ In addition, to achieve optimal performance on downstream tasks, training from s
 
 
 # 1. Overview
+- [1. Overview](#1-overview)
+- [2. Infinite-Length Streaming Tests](#2-infinite-length-streaming-tests)
+  - [2.1 Usage](#21-usage)
+- [3. Training-Free Tests](#3-training-free-tests)
+  - [3.1 Environment Setup](#31-environment-setup)
+  - [3.2 Quick-Start Usage](#32-quick-start-usage)
+    - [3.2.1 Related Source Code Files](#321-related-source-code-files)
+    - [3.2.2 Sample Usage](#322-sample-usage)
+  - [3.3 SepCache](#33-sepcache)
+    - [3.3.1 Related Source Code Files](#331-related-source-code-files)
+    - [3.3.2 Basic Usage](#332-basic-usage)
+      - [3.3.2.1 Initialization](#3321-initialization)
+      - [3.3.2.2 Frequently-Used Parameters](#3322-frequently-used-parameters)
+      - [3.3.2.3 Update Function](#3323-update-function)
+      - [3.3.2.4 Summary](#3324-summary)
+    - [3.3.3 Advanced Usage](#333-advanced-usage)
+      - [3.3.3.1 Positional Encoding Shifting](#3331-positional-encoding-shifting)
+      - [3.3.3.2 Other Advanced Parameters](#3332-other-advanced-parameters)
+      - [3.3.3.3 Combined Use of Advanced Parameters](#3333-combined-use-of-advanced-parameters)
+- [4. Training](#4-training)
+  - [4.1 Data Preparation](#41-data-preparation)
+  - [4.2 Environment Setup](#42-environment-setup)
+    - [4.2.1 Conda](#421-conda)
+    - [4.2.2 PDSH](#422-pdsh)
+  - [4.3 Quick-Start with Sample Checkpoints on HuggingFace](#43-quick-start-with-sample-checkpoints-on-huggingface)
+  - [4.4 Training by Yourself](#44-training-by-yourself)
+    - [4.4.1 Basic Usage](#441-basic-usage)
+    - [4.4.2 Advanced Usage](#442-advanced-usage)
+      - [4.4.2.1 Distributed Training](#4421-distributed-training)
+      - [4.4.2.2 SepLLM Configuration](#4422-sepllm-configuration)
+      - [4.4.2.3 StreamingLLM Configuration](#4423-streamingllm-configuration)
+      - [4.4.2.4 Self-Adjust (SA) Softmax Configuration](#4424-self-adjust-sa-softmax-configuration)
+      - [4.4.2.5 Vanilla Full Attention](#4425-vanilla-full-attention)
+      - [4.4.2.6 Other Custom Settings](#4426-other-custom-settings)
+      - [4.4.2.7 Important Note](#4427-important-note)
+  - [4.5 After-Training Evaluation](#45-after-training-evaluation)
+- [5. Citation](#5-citation)
+
 Here we provide an overview of our code repository. Some noteworthy sections are marked with an asterisk (*). Please note that the implementation of `SepCache` and the key code for the **Training-Free part** are not displayed here, as these codes are packaged in the wheel file `./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl`. We will explain how to read, use, and modify these parts of the code in the corresponding sections.
 
 We use `conda` (*e.g.*, Anaconda, Miniconda) to manage the **independent experimental environments** for different experiments.
@@ -1090,14 +1128,14 @@ class SepLLMArgs(NeoXArgsTemplate):
 ```
 We also provide many pre-trained `SepLLM` models, which you can find on [HuggingFace](https://huggingface.co/Gausson/models).
 
-#### 4.4.2.3 StreamingLLM
+#### 4.4.2.3 StreamingLLM Configuration
 
 You can train a [`StreamingLLM`](https://arxiv.org/abs/2309.17453) architecture model using our code repository, and we also provide a pre-trained `StreamingLLM` model on our [`HuggingFace`](https://huggingface.co/Gausson/pythia-160m-deduped-n64-StreamingLLM) platform for your reference and comparison. Note that the training of the `StreamingLLM` architecture model is mutually exclusive with the `SepLLM` architecture and the later-mentioned `Self-Adjust (SA) Softmax` architecture, meaning only one type of model can be independently trained at a time.
 
 You can set the `"streamingLLM"` field to `True` in your YAML configuration file to train a `StreamingLLM` architecture model. We provide a reference configuration file at `SepLLM/Training-SepLLM/sample_configs/streamingllm-160m-n64.yml`.
 
 
-#### 4.4.2.4 Self-Adjust (SA) Softmax
+#### 4.4.2.4 Self-Adjust (SA) Softmax Configuration
 
 Our training code repository also supports training models based on [`Self-Adjust (SA) Softmax`](https://arxiv.org/abs/2502.18277) attention. Note that `SA` and `SepLLM` are two different model architectures, so only one of them (`SA` or `SepLLM`) can be trained independently at a time. They are incompatible and cannot be trained simultaneously. Therefore, when you want to train an `SA` model, many related parameters for `SepLLM` will not take effect. Below is the data class for `SA`-related parameters, `AdjustSoftmaxArgs`, and you can read the comments to understand it. This data class, `AdjustSoftmaxArgs`, is also defined in `SepLLM/Training-SepLLM/megatron/neox_arguments/neox_args.py`. Similarly, there are sample YAML configuration files for `SA` training available under `SepLLM/Training-SepLLM/sample_configs/`.
 ```python
