@@ -749,6 +749,9 @@ Here are some reference materials about `​​pdsh`​​:
 
 ## 4.3 Quick-Start with Sample Checkpoints on [HuggingFace](https://huggingface.co/Gausson/models)
 
+![image](https://github.com/user-attachments/assets/4a8807d3-6955-490e-b113-d13ac3aa6c27)
+
+
 If you don't have time or computational resources to train from scratch, we have uploaded our pre-trained checkpoints to [Hugging Face](https://huggingface.co/Gausson/models) Hub. After setting up the `training_sepllm` conda environment, you can directly evaluate the checkpoints on downstream tasks.
 - ​​Evaluation Scripts​​: Located in `SepLLM/Training-SepLLM/downstream_evaluation/eval_scripts/`
 - Result Logs​​: Saved in `SepLLM/Training-SepLLM/downstream_evaluation/eval_logs/`
