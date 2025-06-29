@@ -595,6 +595,12 @@ When `SEP_PADDING_IN_BATCH=True` is used in combination with `USE_MAX_SEP_CACHE=
 
 ![image](https://hackmd.io/_uploads/r18jZD47Jg.png)
 
+
+**Note: You must ensure that all configured paths involved in [`4. Training`](#4-training) are readable and writable for all nodes in the computer cluster.** Therefore, we recommend configuring a shared file system in the computing cluster that allows all nodes to have reading and writing access to. This eliminates the need to copy all source code files, configuration files, data, *etc.*, to each node in the cluster, avoiding unnecessary trouble. 
+
+**Furthermore, you need to ensure that the source code files, configuration files, data, and *etc.* accessed by each node in the cluster are consistent.**
+
+
 ## 4.1 Data Preparation
 
 We use the same training data as the [Pythia](https://github.com/EleutherAI/pythia) project, namely the open-source [deduped Pile](https://huggingface.co/datasets/EleutherAI/pythia_deduped_pile_idxmaps) dataset, with the entire training process involving approximately 300 billion tokens. You can refer to the [Pythia](https://github.com/EleutherAI/pythia) project to download and prepare your training data, or refer to the summary of operations below.
@@ -615,6 +621,11 @@ python utils/unshard_memmap.py --input_file ./pythia_deduped_pile_idxmaps/pile_0
 # This can be checked with sha256sum ./pythia_pile_idxmaps/*
 ```
 You can store the dataset on a large hard drive or a shared file system of a distributed cluster, making it convenient for subsequent training on the distributed cluster's computing resources.
+
+**Note: You must ensure that all configured paths involved in [`4. Training`](#4-training) are readable and writable for all nodes in the computer cluster.** Therefore, we recommend configuring a shared file system in the computing cluster that allows all nodes to have reading and writing access to. This eliminates the need to copy all source code files, configuration files, data, *etc.*, to each node in the cluster, avoiding unnecessary trouble. 
+
+**Furthermore, you need to ensure that the source code files, configuration files, data, and *etc.* accessed by each node in the cluster are consistent.**
+
 
 ## 4.2 Environment Setup
 ### 4.2.1 Conda
@@ -800,7 +811,22 @@ However, under typical circumstances, you should:
 - Evaluate the converted checkpoints​​ using the downstream test scripts mentioned above. When running evaluation scripts, specify your converted checkpoint path by setting the `pretrained` field in the `--model_args` parameter.
 
 ## 4.4 Training by Yourself
-**Note: You must ensure that all configured paths mentioned here are readable and writable for all nodes in the computer cluster.** Therefore, we recommend configuring a shared file system in the computing cluster that allows all nodes to have read and write access. This eliminates the need to copy all source code files, configuration files, data, *etc.*, to each node in the cluster, avoiding unnecessary trouble.
+
+**Note: You must ensure that all configured paths involved in [`4. Training`](#4-training) are readable and writable for all nodes in the computer cluster.** Therefore, we recommend configuring a shared file system in the computing cluster that allows all nodes to have reading and writing access to. This eliminates the need to copy all source code files, configuration files, data, *etc.*, to each node in the cluster, avoiding unnecessary trouble. 
+
+**Furthermore, you need to ensure that the source code files, configuration files, data, and *etc.* accessed by each node in the cluster are consistent.**
+
+
+
+
+In our default training parameter settings, `"use_shared_fs"` is set to `True`. Its definition can be found in the data class `NeoXArgsTraining` in `SepLLM/Training-SepLLM/megatron/neox_arguments/neox_args.py` as follows (please appropriately set this parameter in your training YAML configuration file):
+```python
+    use_shared_fs: bool = True
+    """
+    Whether to use a shared filesystem for data loading. If False, local rank 0 on all nodes will preprocess the data,
+    otherwise only global rank 0 will preprocess the data. This is implemented in SepLLM/Training-SepLLM/megatron/data/gpt2_dataset.py::_build_index_mappings.
+    """
+```
 
 The key files and directories involved in training are as follows:
 - `SepLLM/Training-SepLLM/sample_configs/` for sample YAML configuration files.
@@ -811,6 +837,8 @@ The key files and directories involved in training are as follows:
 - `SepLLM/Training-SepLLM/megatron/model/transformer.py` for transformer.
 - `SepLLM/Training-SepLLM/megatron/model/gpt2_model.py` for backbone model.
 - `SepLLM/Training-SepLLM/megatron/training.py` for training process.
+
+
 
 
 
