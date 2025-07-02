@@ -382,6 +382,19 @@ Please refer to the following locations to read and learn about the code for usi
 - `SepLLM/TrainingFree-SepLLM/transformers/models/llama/sepllm_attention.py`
 - `SepLLM/TrainingFree-SepLLM/transformers/models/llama/sepllm_forward_input.py`
 
+In addition, the following are all the files under the path `SepLLM/TrainingFree-SepLLM/transformers/models/llama/`.
+```
+llama
+├── configuration_llama.py
+├── convert_llama_weights_to_hf.py
+├── __init__.py
+├── modeling_flax_llama.py
+├── modeling_llama.py
+├── sepllm_attention.py
+├── sepllm_forward_input.py
+├── tokenization_llama_fast.py
+└── tokenization_llama.py
+```
 
 ### 3.2.2 Sample Usage
 We demonstrate how to adapt an LLM from the `Llama-3` series into the `SepLLM` architecture and run test tasks in a training-free manner. You can follow the example below to directly run a mask-based `SepLLM` using either the `eager` or `sdpa` attention mechanism. We use `GSM8K_CoT` as the example for evaluation and use `Llama-3` as an example to show how to do the adaptation.
@@ -395,7 +408,7 @@ lm_eval --model hf \
     --device cuda:0\
 	--batch_size 70 2>&1 | tee ./Llama3_trnfree_eval_logs/sepllm_a3_n256_llama3_8B_inst_gsm8k_cot_eager.log
 ```
-Under the directory `SepLLM/TrainingFree-SepLLM/`, there are numerous example scripts for training-free experiments, including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*. You can conduct experiments to compare them (`FixLLM` is described in detail in `Appendix I. Fixed-Interval Variant` of our [paper](https://arxiv.org/abs/2412.12094)). And `SepLLM/TrainingFree-SepLLM/Llama3_trnfree_sepllm_configs` directory contains various SepLLM training-free configuration files for Llama-3 models (including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*.).
+Under the directory `SepLLM/TrainingFree-SepLLM/`, there are numerous example scripts for training-free experiments, including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*. You can conduct experiments to compare them (`FixLLM` is described in detail in `Appendix I. Fixed-Interval Variant` of our [paper](https://arxiv.org/abs/2412.12094).  In short, when calculating sparse attention, instead of focusing only on Separator Tokens between the Initial Tokens and Neighboring Tokens, `FixLLM` attends to one token at fixed intervals (*e.g.*, every 8 tokens or 16 tokens), while the other tokens except for Initial and Neighboring Tokens are masked). And `SepLLM/TrainingFree-SepLLM/Llama3_trnfree_sepllm_configs/` directory contains various SepLLM training-free configuration files for Llama-3 models (including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*.).
 
 ## 3.3 SepCache 
 ### 3.3.1 Related Source Code Files
@@ -663,6 +676,10 @@ You can store the dataset on a large hard drive or a shared file system of a dis
 **Note: You must ensure that all configured paths involved in [`4. Training`](#4-training) are readable and writable for all nodes in the computer cluster.** Therefore, we recommend configuring a shared file system in the computing cluster that allows all nodes to have reading and writing access to. This eliminates the need to copy all source code files, configuration files, data, *etc.*, to each node in the cluster, avoiding unnecessary trouble. 
 
 **Furthermore, you need to ensure that the source code files, configuration files, data, and *etc.* accessed by each node in the cluster are consistent.**
+
+After completing the data preparation steps, you will obtain two data files: 
+- `pile_0.87_deduped_text_document.bin` 
+- `pile_0.87_deduped_text_document.idx`. 
 
 
 ## 4.2 Environment Setup
