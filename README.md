@@ -90,8 +90,10 @@ In addition, to achieve optimal performance on downstream tasks, training from s
       - [4.4.2.5 Vanilla Full Attention](#4425-vanilla-full-attention)
       - [4.4.2.6 Other Custom Settings](#4426-other-custom-settings)
       - [4.4.2.7 Important Note](#4427-important-note)
+      - [4.4.2.8 Debug: Training Start Suspended](#4428-debug-training-start-suspended)
   - [4.5 After-Training Evaluation](#45-after-training-evaluation)
 - [5. Citation](#5-citation)
+
 
 Here we provide an overview of our code repository. Some noteworthy sections are marked with an asterisk (*). Please note that the implementation of `SepCache` and the key code for the **Training-Free part** are not displayed here, as these codes are packaged in the wheel file `./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl`. We will explain how to read, use, and modify these parts of the code in the corresponding sections.
 
@@ -1214,6 +1216,12 @@ can be set to `True`, corresponding to a specific training mode. When all of the
 
 
 For further interactions between parameters, please refer to the `SepLLMArgumentsChecker` class located in `SepLLM/Training-SepLLM/megatron/utils.py`. This class will also verify the validity of your parameter settings before training begins and provide appropriate prompts.
+
+
+#### 4.4.2.8 Debug: Training Start Suspended
+
+Please pay special attention: Before starting a training task, make sure that there are no files named `lock` or `.lock` in the directories `SepLLM/Training-SepLLM/megatron/fused_kernels/` and `SepLLM/Training-SepLLM/megatron/fused_kernels/build/`. These files (`lock` or `.lock`) are automatically created during multi-threaded compilation of fused operators to prevent simultaneous modifications to files. After the related operation finishes, they are automatically deleted. If you find `lock` or `.lock` files in the above two directories before starting your training, it indicates that you previously killed the training program before the `lock` or `.lock` was automatically removed, resulting in the residual presence of these files. This residue may cause your next training session to fail to start properly (hang without error) because the existence of these files locks the directories for pre-reading and writing, leading to program suspension. The solution is simple: delete these files. *i.e.*, these files should not exist outside of runtime. Normally, they are automatically removed before runtime ends.
+
 
 
 ## 4.5 After-Training Evaluation
