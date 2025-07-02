@@ -645,6 +645,7 @@ When `SEP_PADDING_IN_BATCH=True` is used in combination with `USE_MAX_SEP_CACHE=
 # 4. Training
 
 ![image](https://hackmd.io/_uploads/r18jZD47Jg.png)
+Our training code is mainly inherited from the [Pythia](https://github.com/EleutherAI/pythia) and [GPT-NeoX](https://github.com/EleutherAI/gpt-neox) projects. You can also refer to these two projects as some basic parameter settings are common.
 
 
 **Note: You must ensure that all configured paths involved in [`4. Training`](#4-training) are readable and writable for all nodes in the computer cluster.** Therefore, we recommend configuring a shared file system in the computing cluster that allows all nodes to have reading and writing access to. This eliminates the need to copy all source code files, configuration files, data, *etc.*, to each node in the cluster, avoiding unnecessary trouble. 
