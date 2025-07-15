@@ -416,6 +416,9 @@ lm_eval --model hf \
 ```
 Under the directory `SepLLM/TrainingFree-SepLLM/`, there are numerous example scripts for training-free experiments, including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*. You can conduct experiments to compare them (`FixLLM` is described in detail in `Appendix I. Fixed-Interval Variant` of our [paper](https://arxiv.org/abs/2412.12094).  In short, when calculating sparse attention, instead of focusing only on Separator Tokens between the Initial Tokens and Neighboring Tokens, `FixLLM` attends to one token at fixed intervals (*e.g.*, every 8 tokens or 16 tokens), while the other tokens except for Initial and Neighboring Tokens are masked). And `SepLLM/TrainingFree-SepLLM/Llama3_trnfree_sepllm_configs/` directory contains various SepLLM training-free configuration files for Llama-3 models (including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*.).
 
+<img width="1022" height="248" alt="1752618213617" src="https://github.com/user-attachments/assets/87e2e745-9677-4101-895e-dd6fc7b6039d" />
+
+
 ## 3.3 SepCache 
 ### 3.3.1 Related Source Code Files
 Please refer to the following locations to read and learn about the `SepCache`-related code for using training-free `SepLLM` (in our example, `SepCache` is only invoked when using `flash_attention_2`. See the explanation in [`3.3.2 Basic Usage`](#332-basic-usage) for details. We use the `Llama` model as the example **only**).
