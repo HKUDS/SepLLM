@@ -38,6 +38,7 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 # News
 ![image](https://github.com/user-attachments/assets/54677ee5-85ad-4020-b39f-f3d8b34a7243)
 
+- :star2: [2025/07] The portable [`SepCache`](#33-sepcache) is available on [HuggingFace](https://huggingface.co/Gausson/sep_cache) now !! It is a plug-and-play `Cache` class, and we also provide sample code for monkey patching. We are working on integrating [`SepCache`](#33-sepcache) into HuggingFace's [Transformers Community](https://huggingface.co/transformers-community). Stay tuned! :rocket::rocket::rocket:
 - :star2: [2025/06] We are working on integrating [`SepCache`](#33-sepcache) into HuggingFace's [transformers](https://github.com/huggingface/transformers). Stay tuned! :rocket::rocket::rocket:
 - :star2: [2025/06] [`SepCache`](#33-sepcache) is released, which is an efficient, portable, and easy-to-use *Cache* class for [transformers](https://github.com/huggingface/transformers). 
 - :star2: [2025/06] SepLLM's trained [checkpoint samples](https://huggingface.co/Gausson/models) have been uploaded to [HuggingFace](https://huggingface.co/Gausson/models). :rocket::rocket::rocket:
@@ -53,7 +54,7 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
 
 - To achieve optimal performance on downstream tasks, training from scratch is required (to ensure consistency between training and inference). However, for many downstream tasks, the training-free setting can also deliver quite good performance.
 - Our wheel package `./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl` is an extension based on the official [`transformers-4.38.0`](https://github.com/huggingface/transformers/tree/v4.38.0). Its main purpose is to incorporate the model `sepllm_gpt_neox` and to adapt the relevant files of the Llama model under the directory `transformers/models/llama/` to meet the requirements of the `SepLLM` architecture for training-free adaptability. Since the official [`transformers-4.38.0`](https://github.com/huggingface/transformers/tree/v4.38.0) supports the `meta-llama/Meta-Llama-3-8B-Instruct` model, our released `./package/transformers-4.38.0.post1+sepllm-py3-none-any.whl` also supports it. However, as the official [`transformers-4.38.0`](https://github.com/huggingface/transformers/tree/v4.38.0) does not directly support `meta-llama/Llama-3.1-8B-Instruct` (**Llama 3.1** was developed on [`transformers-4.42.3`](https://github.com/huggingface/transformers/tree/v4.42.3)), our released `transformers` does not support it either. You will need to manually migrate and adapt the relevant code of SepLLM to the **llama-related code files** in `transformers-4.42.3` (also under `transformers/models/llama/`) in order to run `Llama-3.1-8B-Instruct` directly. Fortunately, once you have understood this `README.md` and identified the modified parts of code and files needed for the training-free adaptation of `SepLLM`, **this migration should be straightforward!** (Especially for [`SepCache`](#33-sepcache), which can be mostly used via copy-paste!). Similarly easy adaptation for other newer `transformers`!
-
+- :star2: [2025/07] The portable [`SepCache`](#33-sepcache) is available on [HuggingFace](https://huggingface.co/Gausson/sep_cache) now !! It is a plug-and-play `Cache` class, and we also provide sample code for monkey patching, **which supports Llama 3.1 series now**. We are working on integrating [`SepCache`](#33-sepcache) into HuggingFace's [Transformers Community](https://huggingface.co/transformers-community). Stay tuned! :rocket::rocket::rocket:
 
 
 
@@ -68,6 +69,7 @@ Large Language Models (LLMs) have exhibited exceptional performance across a spe
     - [3.2.1 Related Source Code Files](#321-related-source-code-files)
     - [3.2.2 Sample Usage](#322-sample-usage)
   - [3.3 SepCache](#33-sepcache)
+    - [3.3.0 Available on HuggingFace Now!](#330-available-on-huggingface-now)
     - [3.3.1 Related Source Code Files](#331-related-source-code-files)
     - [3.3.2 Basic Usage](#332-basic-usage)
       - [3.3.2.1 Initialization](#3321-initialization)
@@ -417,6 +419,14 @@ lm_eval --model hf \
 Under the directory `SepLLM/TrainingFree-SepLLM/`, there are numerous example scripts for training-free experiments, including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*. You can conduct experiments to compare them (`FixLLM` is described in detail in `Appendix I. Fixed-Interval Variant` of our [paper](https://arxiv.org/abs/2412.12094).  In short, when calculating sparse attention, instead of focusing only on Separator Tokens between the Initial Tokens and Neighboring Tokens, `FixLLM` attends to one token at fixed intervals (*e.g.*, every 8 tokens or 16 tokens), while the other tokens except for Initial and Neighboring Tokens are masked). And `SepLLM/TrainingFree-SepLLM/Llama3_trnfree_sepllm_configs/` directory contains various SepLLM training-free configuration files for Llama-3 models (including `SepLLM`, `Vanilla`, `StreamingLLM`, `FixLLM`, *etc*.).
 
 ## 3.3 SepCache 
+
+### 3.3.0 Available on HuggingFace Now!
+
+:star2: [2025/07] The portable [`SepCache`](#33-sepcache) is available on [HuggingFace](https://huggingface.co/Gausson/sep_cache) now !! It is a plug-and-play `Cache` class, and we also provide sample code for monkey patching. We are working on integrating [`SepCache`](#33-sepcache) into HuggingFace's [Transformers Community](https://huggingface.co/transformers-community). Stay tuned! :rocket::rocket::rocket:
+
+**See details about the corresponding usage on [HuggingFace](https://huggingface.co/Gausson/sep_cache)**.
+
+
 ### 3.3.1 Related Source Code Files
 Please refer to the following locations to read and learn about the `SepCache`-related code for using training-free `SepLLM` (in our example, `SepCache` is only invoked when using `flash_attention_2`. See the explanation in [`3.3.2 Basic Usage`](#332-basic-usage) for details. We use the `Llama` model as the example **only**).
 - `SepLLM/TrainingFree-SepLLM/transformers/models/llama/modeling_llama.py`
