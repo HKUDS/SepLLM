@@ -423,8 +423,8 @@ Under the directory `SepLLM/TrainingFree-SepLLM/`, there are numerous example sc
 ## 3.3 SepCache 
 
 ### 3.3.0 Available on HuggingFace Now!
+:star2: [2025/07] The portable [`SepCache`](#33-sepcache) is available on [HuggingFace](https://huggingface.co/transformers-community/sep_cache)'s **transformers' official repo** now !! It is a plug-and-play `Cache` class, and we also provide sample code for monkey patching, **which supports Llama 3.1 series now**. Note that the HuggingFace's [`SepCache`](#33-sepcache) version otherwise needs `transformers>=4.53.0,<4.54.0`, *i.e.*, the new `transformers`. See [Transformers Community](https://huggingface.co/transformers-community) for detailed usage. :rocket::rocket::rocket:
 
-:star2: [2025/07] The portable [`SepCache`](#33-sepcache) is available on [HuggingFace](https://huggingface.co/transformers-community/sep_cache) now !! It is a plug-and-play `Cache` class, and we also provide sample code for monkey patching, **which supports Llama 3.1 series now**. Note that the HuggingFace's `SepCache` version otherwise needs `transformers>=4.53.0,<4.54.0`, *i.e.*, the new `transformers`. We are working on integrating [`SepCache`](#33-sepcache) into HuggingFace's [Transformers Community](https://huggingface.co/transformers-community). Stay tuned! :rocket::rocket::rocket:
 
 **See details about the corresponding usage on [HuggingFace](https://huggingface.co/Gausson/sep_cache)**.
 
