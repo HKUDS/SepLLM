@@ -181,7 +181,6 @@ SepLLM
     ├── eval_tasks
     │   ├── eval_adapter.py
     │   └── ...
-    ├── flex_attention.py -> /path/to/miniconda3/envs/py310_cu121_torch251_env/lib/python3.10/site-packages/torch/nn/attention/flex_attention.py
     ├── generate.py
     ├── LICENSE
     ├── logs
